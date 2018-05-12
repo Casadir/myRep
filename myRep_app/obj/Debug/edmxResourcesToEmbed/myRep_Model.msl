@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="myRep_ModelStoreContainer" CdmEntityContainer="myRep_ModelContainer">
+    <EntitySetMapping Name="HCOSet">
+      <EntityTypeMapping TypeName="IsTypeOf(myRep_Model.HCO)">
+        <MappingFragment StoreEntitySet="HCOSet">
+          <ScalarProperty Name="hcoID" ColumnName="hcoID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="Range" ColumnName="Range" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="SpecialType" ColumnName="SpecialType" />
+          <ScalarProperty Name="BedsAmount" ColumnName="BedsAmount" />
+          <ScalarProperty Name="EmployeesAmount" ColumnName="EmployeesAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HCPSet">
+      <EntityTypeMapping TypeName="IsTypeOf(myRep_Model.HCP)">
+        <MappingFragment StoreEntitySet="HCPSet">
+          <ScalarProperty Name="hcpID" ColumnName="hcpID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="AcademicTitle" ColumnName="AcademicTitle" />
+          <ScalarProperty Name="Specialty" ColumnName="Specialty" />
+          <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="KOL" ColumnName="KOL" />
+          <ScalarProperty Name="LanguageSpoken" ColumnName="LanguageSpoken" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AddressSet">
+      <EntityTypeMapping TypeName="IsTypeOf(myRep_Model.Address)">
+        <MappingFragment StoreEntitySet="AddressSet">
+          <ScalarProperty Name="addressID" ColumnName="addressID" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Territory" ColumnName="Territory" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MeetingSet">
+      <EntityTypeMapping TypeName="IsTypeOf(myRep_Model.Meeting)">
+        <MappingFragment StoreEntitySet="MeetingSet">
+          <ScalarProperty Name="meetingID" ColumnName="meetingID" />
+          <ScalarProperty Name="HCPID" ColumnName="HCPID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Topic" ColumnName="Topic" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="NextMtgNote" ColumnName="NextMtgNote" />
+          <ScalarProperty Name="MedicalEnquiryID" ColumnName="MedicalEnquiryID" />
+          <ScalarProperty Name="SampleDrop" ColumnName="SampleDrop" />
+          <ScalarProperty Name="SampleDropQty" ColumnName="SampleDropQty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MedicalEnquirySet">
+      <EntityTypeMapping TypeName="IsTypeOf(myRep_Model.MedicalEnquiry)">
+        <MappingFragment StoreEntitySet="MedicalEnquirySet">
+          <ScalarProperty Name="meID" ColumnName="meID" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="ExpectedAnswerDate" ColumnName="ExpectedAnswerDate" />
+          <ScalarProperty Name="MeetingID" ColumnName="MeetingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductSet">
+      <EntityTypeMapping TypeName="IsTypeOf(myRep_Model.Product)">
+        <MappingFragment StoreEntitySet="ProductSet">
+          <ScalarProperty Name="productID" ColumnName="productID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="AntiDisease" ColumnName="AntiDisease" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="MainIngredient" ColumnName="MainIngredient" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserSet">
+      <EntityTypeMapping TypeName="IsTypeOf(myRep_Model.User)">
+        <MappingFragment StoreEntitySet="UserSet">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="JobTitile" ColumnName="JobTitile" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+          <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+          <ScalarProperty Name="Territory" ColumnName="Territory" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserCredentialsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(myRep_Model.UserCredentialsSet)">
+        <MappingFragment StoreEntitySet="UserCredentialsSet">
+          <ScalarProperty Name="UCID" ColumnName="UCID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="PWD" ColumnName="PWD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SampleSet">
+      <EntityTypeMapping TypeName="IsTypeOf(myRep_Model.Sample)">
+        <MappingFragment StoreEntitySet="SampleSet">
+          <ScalarProperty Name="sampleID" ColumnName="sampleID" />
+          <ScalarProperty Name="SampleName" ColumnName="SampleName" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="QtyPerBox" ColumnName="QtyPerBox" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SampleWarehouseSet">
+      <EntityTypeMapping TypeName="IsTypeOf(myRep_Model.SampleWarehouse)">
+        <MappingFragment StoreEntitySet="SampleWarehouseSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="SampleID" ColumnName="SampleID" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SuggestionSet">
+      <EntityTypeMapping TypeName="IsTypeOf(myRep_Model.Suggestion)">
+        <MappingFragment StoreEntitySet="SuggestionSet">
+          <ScalarProperty Name="suggestionID" ColumnName="suggestionID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="HCPID" ColumnName="HCPID" />
+          <ScalarProperty Name="HCOID" ColumnName="HCOID" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="HCOHCP" TypeName="myRep_Model.HCOHCP" StoreEntitySet="HCOHCP">
+      <EndProperty Name="HCO">
+        <ScalarProperty Name="hcoID" ColumnName="HCO_hcoID" />
+      </EndProperty>
+      <EndProperty Name="HCP">
+        <ScalarProperty Name="hcpID" ColumnName="HCP_hcpID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="HCPMeeting" TypeName="myRep_Model.HCPMeeting" StoreEntitySet="HCPMeeting">
+      <EndProperty Name="HCP">
+        <ScalarProperty Name="hcpID" ColumnName="HCP_hcpID" />
+      </EndProperty>
+      <EndProperty Name="Meeting">
+        <ScalarProperty Name="meetingID" ColumnName="Meeting_meetingID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MeetingUser" TypeName="myRep_Model.MeetingUser" StoreEntitySet="MeetingUser">
+      <EndProperty Name="Meeting">
+        <ScalarProperty Name="meetingID" ColumnName="Meeting_meetingID" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="userID" ColumnName="User_userID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SuggestionUser" TypeName="myRep_Model.SuggestionUser" StoreEntitySet="SuggestionSet">
+      <EndProperty Name="User">
+        <ScalarProperty Name="userID" ColumnName="User_userID" />
+      </EndProperty>
+      <EndProperty Name="Suggestion">
+        <ScalarProperty Name="suggestionID" ColumnName="suggestionID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

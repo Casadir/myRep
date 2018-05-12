@@ -1,0 +1,992 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="myRep_Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="myRep_ModelStoreContainer">
+    <EntitySet Name="HCOSet" EntityType="myRep_Model.Store.HCOSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HCPSet" EntityType="myRep_Model.Store.HCPSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AddressSet" EntityType="myRep_Model.Store.AddressSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MeetingSet" EntityType="myRep_Model.Store.MeetingSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MedicalEnquirySet" EntityType="myRep_Model.Store.MedicalEnquirySet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProductSet" EntityType="myRep_Model.Store.ProductSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserSet" EntityType="myRep_Model.Store.UserSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserCredentialsSet" EntityType="myRep_Model.Store.UserCredentialsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SampleSet" EntityType="myRep_Model.Store.SampleSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SampleWarehouseSet" EntityType="myRep_Model.Store.SampleWarehouseSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SuggestionSet" EntityType="myRep_Model.Store.SuggestionSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HCOHCP" EntityType="myRep_Model.Store.HCOHCP" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HCPMeeting" EntityType="myRep_Model.Store.HCPMeeting" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MeetingUser" EntityType="myRep_Model.Store.MeetingUser" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_HCOHCP_HCO" Association="myRep_Model.Store.FK_HCOHCP_HCO">
+      <End Role="HCO" EntitySet="HCOSet" />
+      <End Role="HCOHCP" EntitySet="HCOHCP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HCOHCP_HCP" Association="myRep_Model.Store.FK_HCOHCP_HCP">
+      <End Role="HCP" EntitySet="HCPSet" />
+      <End Role="HCOHCP" EntitySet="HCOHCP" />
+    </AssociationSet>
+    <AssociationSet Name="HCOAddress" Association="myRep_Model.Store.HCOAddress">
+      <End Role="HCO" EntitySet="HCOSet" />
+      <End Role="Address" EntitySet="AddressSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HCPMeeting_HCP" Association="myRep_Model.Store.FK_HCPMeeting_HCP">
+      <End Role="HCP" EntitySet="HCPSet" />
+      <End Role="HCPMeeting" EntitySet="HCPMeeting" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HCPMeeting_Meeting" Association="myRep_Model.Store.FK_HCPMeeting_Meeting">
+      <End Role="Meeting" EntitySet="MeetingSet" />
+      <End Role="HCPMeeting" EntitySet="HCPMeeting" />
+    </AssociationSet>
+    <AssociationSet Name="MedicalEnquiryMeeting" Association="myRep_Model.Store.MedicalEnquiryMeeting">
+      <End Role="MedicalEnquiry" EntitySet="MedicalEnquirySet" />
+      <End Role="Meeting" EntitySet="MeetingSet" />
+    </AssociationSet>
+    <AssociationSet Name="MeetingProduct" Association="myRep_Model.Store.MeetingProduct">
+      <End Role="Meeting" EntitySet="MeetingSet" />
+      <End Role="Product" EntitySet="ProductSet" />
+    </AssociationSet>
+    <AssociationSet Name="AddressHCP" Association="myRep_Model.Store.AddressHCP">
+      <End Role="Address" EntitySet="AddressSet" />
+      <End Role="HCP" EntitySet="HCPSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MeetingUser_Meeting" Association="myRep_Model.Store.FK_MeetingUser_Meeting">
+      <End Role="Meeting" EntitySet="MeetingSet" />
+      <End Role="MeetingUser" EntitySet="MeetingUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MeetingUser_User" Association="myRep_Model.Store.FK_MeetingUser_User">
+      <End Role="User" EntitySet="UserSet" />
+      <End Role="MeetingUser" EntitySet="MeetingUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserCrede__UserI__0C85DE4D" Association="myRep_Model.Store.FK__UserCrede__UserI__0C85DE4D">
+      <End Role="User" EntitySet="UserSet" />
+      <End Role="UserCredentialsSet" EntitySet="UserCredentialsSet" />
+    </AssociationSet>
+    <AssociationSet Name="UserUser" Association="myRep_Model.Store.UserUser">
+      <End Role="User" EntitySet="UserSet" />
+      <End Role="User1" EntitySet="UserSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProductSample" Association="myRep_Model.Store.ProductSample">
+      <End Role="Product" EntitySet="ProductSet" />
+      <End Role="Sample" EntitySet="SampleSet" />
+    </AssociationSet>
+    <AssociationSet Name="UserSampleWarehouse" Association="myRep_Model.Store.UserSampleWarehouse">
+      <End Role="User" EntitySet="UserSet" />
+      <End Role="SampleWarehouse" EntitySet="SampleWarehouseSet" />
+    </AssociationSet>
+    <AssociationSet Name="SampleSampleWarehouse" Association="myRep_Model.Store.SampleSampleWarehouse">
+      <End Role="Sample" EntitySet="SampleSet" />
+      <End Role="SampleWarehouse" EntitySet="SampleWarehouseSet" />
+    </AssociationSet>
+    <AssociationSet Name="SuggestionUser" Association="myRep_Model.Store.SuggestionUser">
+      <End Role="Suggestion" EntitySet="SuggestionSet" />
+      <End Role="User" EntitySet="UserSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="HCOSet">
+    <Key>
+      <PropertyRef Name="hcoID" />
+    </Key>
+    <Property Name="hcoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PhoneNumber" Type="int" Nullable="true" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Website" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="AddressID" Type="int" Nullable="false" />
+    <Property Name="Range" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Level" Type="int" Nullable="true" />
+    <Property Name="SpecialType" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="BedsAmount" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="EmployeesAmount" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="HCPSet">
+    <Key>
+      <PropertyRef Name="hcpID" />
+    </Key>
+    <Property Name="hcpID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AcademicTitle" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Specialty" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Birthdate" Type="datetime" Nullable="true" />
+    <Property Name="PhoneNumber" Type="int" Nullable="true" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KOL" Type="bit" Nullable="true" />
+    <Property Name="LanguageSpoken" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AddressID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AddressSet">
+    <Key>
+      <PropertyRef Name="addressID" />
+    </Key>
+    <Property Name="addressID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Street" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="City" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Territory" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Country" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ZipCode" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MeetingSet">
+    <Key>
+      <PropertyRef Name="meetingID" />
+    </Key>
+    <Property Name="meetingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HCPID" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Topic" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="NextMtgNote" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="MedicalEnquiryID" Type="int" Nullable="true" />
+    <Property Name="SampleDrop" Type="int" Nullable="true" />
+    <Property Name="SampleDropQty" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="MedicalEnquirySet">
+    <Key>
+      <PropertyRef Name="meID" />
+    </Key>
+    <Property Name="meID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Question" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Answer" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ExpectedAnswerDate" Type="datetime" Nullable="false" />
+    <Property Name="MeetingID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductSet">
+    <Key>
+      <PropertyRef Name="productID" />
+    </Key>
+    <Property Name="productID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AntiDisease" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Manufacturer" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="MainIngredient" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="UserSet">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="JobTitile" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PhoneNumber" Type="int" Nullable="true" />
+    <Property Name="HireDate" Type="datetime" Nullable="true" />
+    <Property Name="ManagerID" Type="int" Nullable="true" />
+    <Property Name="Territory" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserCredentialsSet">
+    <Key>
+      <PropertyRef Name="UCID" />
+    </Key>
+    <Property Name="UCID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="PWD" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SampleSet">
+    <Key>
+      <PropertyRef Name="sampleID" />
+    </Key>
+    <Property Name="sampleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SampleName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="QtyPerBox" Type="int" Nullable="false" />
+    <Property Name="Value" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SampleWarehouseSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="SampleID" Type="int" Nullable="false" />
+    <Property Name="Qty" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SuggestionSet">
+    <Key>
+      <PropertyRef Name="suggestionID" />
+    </Key>
+    <Property Name="suggestionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="HCPID" Type="int" Nullable="true" />
+    <Property Name="HCOID" Type="int" Nullable="true" />
+    <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="User_userID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HCOHCP">
+    <Key>
+      <PropertyRef Name="HCO_hcoID" />
+      <PropertyRef Name="HCP_hcpID" />
+    </Key>
+    <Property Name="HCO_hcoID" Type="int" Nullable="false" />
+    <Property Name="HCP_hcpID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HCPMeeting">
+    <Key>
+      <PropertyRef Name="HCP_hcpID" />
+      <PropertyRef Name="Meeting_meetingID" />
+    </Key>
+    <Property Name="HCP_hcpID" Type="int" Nullable="false" />
+    <Property Name="Meeting_meetingID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MeetingUser">
+    <Key>
+      <PropertyRef Name="Meeting_meetingID" />
+      <PropertyRef Name="User_userID" />
+    </Key>
+    <Property Name="Meeting_meetingID" Type="int" Nullable="false" />
+    <Property Name="User_userID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="HCOAddress">
+    <End Role="HCO" Type="myRep_Model.Store.HCOSet" Multiplicity="*" />
+    <End Role="Address" Type="myRep_Model.Store.AddressSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="addressID" />
+      </Principal>
+      <Dependent Role="HCO">
+        <PropertyRef Name="AddressID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MedicalEnquiryMeeting">
+    <End Role="MedicalEnquiry" Type="myRep_Model.Store.MedicalEnquirySet" Multiplicity="*" />
+    <End Role="Meeting" Type="myRep_Model.Store.MeetingSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Meeting">
+        <PropertyRef Name="meetingID" />
+      </Principal>
+      <Dependent Role="MedicalEnquiry">
+        <PropertyRef Name="MeetingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MeetingProduct">
+    <End Role="Meeting" Type="myRep_Model.Store.MeetingSet" Multiplicity="*" />
+    <End Role="Product" Type="myRep_Model.Store.ProductSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="productID" />
+      </Principal>
+      <Dependent Role="Meeting">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AddressHCP">
+    <End Role="Address" Type="myRep_Model.Store.AddressSet" Multiplicity="1" />
+    <End Role="HCP" Type="myRep_Model.Store.HCPSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="addressID" />
+      </Principal>
+      <Dependent Role="HCP">
+        <PropertyRef Name="AddressID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserCrede__UserI__0C85DE4D">
+    <End Role="User" Type="myRep_Model.Store.UserSet" Multiplicity="1" />
+    <End Role="UserCredentialsSet" Type="myRep_Model.Store.UserCredentialsSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="UserCredentialsSet">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserUser">
+    <End Role="User" Type="myRep_Model.Store.UserSet" Multiplicity="0..1" />
+    <End Role="User1" Type="myRep_Model.Store.UserSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="User1">
+        <PropertyRef Name="ManagerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductSample">
+    <End Role="Product" Type="myRep_Model.Store.ProductSet" Multiplicity="1" />
+    <End Role="Sample" Type="myRep_Model.Store.SampleSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="productID" />
+      </Principal>
+      <Dependent Role="Sample">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserSampleWarehouse">
+    <End Role="User" Type="myRep_Model.Store.UserSet" Multiplicity="1" />
+    <End Role="SampleWarehouse" Type="myRep_Model.Store.SampleWarehouseSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="SampleWarehouse">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SampleSampleWarehouse">
+    <End Role="Sample" Type="myRep_Model.Store.SampleSet" Multiplicity="1" />
+    <End Role="SampleWarehouse" Type="myRep_Model.Store.SampleWarehouseSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sample">
+        <PropertyRef Name="sampleID" />
+      </Principal>
+      <Dependent Role="SampleWarehouse">
+        <PropertyRef Name="Qty" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SuggestionUser">
+    <End Role="Suggestion" Type="myRep_Model.Store.SuggestionSet" Multiplicity="*" />
+    <End Role="User" Type="myRep_Model.Store.UserSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="Suggestion">
+        <PropertyRef Name="User_userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HCOHCP_HCO">
+    <End Role="HCO" Type="myRep_Model.Store.HCOSet" Multiplicity="1" />
+    <End Role="HCOHCP" Type="myRep_Model.Store.HCOHCP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HCO">
+        <PropertyRef Name="hcoID" />
+      </Principal>
+      <Dependent Role="HCOHCP">
+        <PropertyRef Name="HCO_hcoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HCOHCP_HCP">
+    <End Role="HCOHCP" Type="myRep_Model.Store.HCOHCP" Multiplicity="*" />
+    <End Role="HCP" Type="myRep_Model.Store.HCPSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="HCP">
+        <PropertyRef Name="hcpID" />
+      </Principal>
+      <Dependent Role="HCOHCP">
+        <PropertyRef Name="HCP_hcpID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HCPMeeting_HCP">
+    <End Role="HCP" Type="myRep_Model.Store.HCPSet" Multiplicity="1" />
+    <End Role="HCPMeeting" Type="myRep_Model.Store.HCPMeeting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HCP">
+        <PropertyRef Name="hcpID" />
+      </Principal>
+      <Dependent Role="HCPMeeting">
+        <PropertyRef Name="HCP_hcpID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HCPMeeting_Meeting">
+    <End Role="HCPMeeting" Type="myRep_Model.Store.HCPMeeting" Multiplicity="*" />
+    <End Role="Meeting" Type="myRep_Model.Store.MeetingSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Meeting">
+        <PropertyRef Name="meetingID" />
+      </Principal>
+      <Dependent Role="HCPMeeting">
+        <PropertyRef Name="Meeting_meetingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MeetingUser_Meeting">
+    <End Role="Meeting" Type="myRep_Model.Store.MeetingSet" Multiplicity="1" />
+    <End Role="MeetingUser" Type="myRep_Model.Store.MeetingUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Meeting">
+        <PropertyRef Name="meetingID" />
+      </Principal>
+      <Dependent Role="MeetingUser">
+        <PropertyRef Name="Meeting_meetingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MeetingUser_User">
+    <End Role="MeetingUser" Type="myRep_Model.Store.MeetingUser" Multiplicity="*" />
+    <End Role="User" Type="myRep_Model.Store.UserSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="MeetingUser">
+        <PropertyRef Name="User_userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="myRep_Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="myRep_ModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="HCOSet" EntityType="myRep_Model.HCO" />
+          <EntitySet Name="HCPSet" EntityType="myRep_Model.HCP" />
+          <AssociationSet Name="HCOHCP" Association="myRep_Model.HCOHCP">
+            <End Role="HCO" EntitySet="HCOSet" />
+            <End Role="HCP" EntitySet="HCPSet" />
+          </AssociationSet>
+          <EntitySet Name="AddressSet" EntityType="myRep_Model.Address" />
+          <AssociationSet Name="HCOAddress" Association="myRep_Model.HCOAddress">
+            <End Role="HCO" EntitySet="HCOSet" />
+            <End Role="Address" EntitySet="AddressSet" />
+          </AssociationSet>
+          <EntitySet Name="MeetingSet" EntityType="myRep_Model.Meeting" />
+          <AssociationSet Name="HCPMeeting" Association="myRep_Model.HCPMeeting">
+            <End Role="HCP" EntitySet="HCPSet" />
+            <End Role="Meeting" EntitySet="MeetingSet" />
+          </AssociationSet>
+          <EntitySet Name="MedicalEnquirySet" EntityType="myRep_Model.MedicalEnquiry" />
+          <AssociationSet Name="MedicalEnquiryMeeting" Association="myRep_Model.MedicalEnquiryMeeting">
+            <End Role="MedicalEnquiry" EntitySet="MedicalEnquirySet" />
+            <End Role="Meeting" EntitySet="MeetingSet" />
+          </AssociationSet>
+          <EntitySet Name="ProductSet" EntityType="myRep_Model.Product" />
+          <AssociationSet Name="MeetingProduct" Association="myRep_Model.MeetingProduct">
+            <End Role="Meeting" EntitySet="MeetingSet" />
+            <End Role="Product" EntitySet="ProductSet" />
+          </AssociationSet>
+          <EntitySet Name="UserSet" EntityType="myRep_Model.User" />
+          <AssociationSet Name="AddressHCP" Association="myRep_Model.AddressHCP">
+            <End Role="Address" EntitySet="AddressSet" />
+            <End Role="HCP" EntitySet="HCPSet" />
+          </AssociationSet>
+          <AssociationSet Name="MeetingUser" Association="myRep_Model.MeetingUser">
+            <End Role="Meeting" EntitySet="MeetingSet" />
+            <End Role="User" EntitySet="UserSet" />
+          </AssociationSet>
+          <EntitySet Name="UserCredentialsSet" EntityType="myRep_Model.UserCredentialsSet" />
+          <AssociationSet Name="FK__UserCrede__UserI__0C85DE4D" Association="myRep_Model.FK__UserCrede__UserI__0C85DE4D">
+            <End Role="User" EntitySet="UserSet" />
+            <End Role="UserCredentialsSet" EntitySet="UserCredentialsSet" />
+          </AssociationSet>
+          <AssociationSet Name="UserUser" Association="myRep_Model.UserUser">
+            <End Role="User" EntitySet="UserSet" />
+            <End Role="User1" EntitySet="UserSet" />
+          </AssociationSet>
+          <EntitySet Name="SampleSet" EntityType="myRep_Model.Sample" />
+          <AssociationSet Name="ProductSample" Association="myRep_Model.ProductSample">
+            <End Role="Product" EntitySet="ProductSet" />
+            <End Role="Sample" EntitySet="SampleSet" />
+          </AssociationSet>
+          <EntitySet Name="SampleWarehouseSet" EntityType="myRep_Model.SampleWarehouse" />
+          <AssociationSet Name="UserSampleWarehouse" Association="myRep_Model.UserSampleWarehouse">
+            <End Role="User" EntitySet="UserSet" />
+            <End Role="SampleWarehouse" EntitySet="SampleWarehouseSet" />
+          </AssociationSet>
+          <AssociationSet Name="SampleSampleWarehouse" Association="myRep_Model.SampleSampleWarehouse">
+            <End Role="Sample" EntitySet="SampleSet" />
+            <End Role="SampleWarehouse" EntitySet="SampleWarehouseSet" />
+          </AssociationSet>
+          <EntitySet Name="SuggestionSet" EntityType="myRep_Model.Suggestion" />
+          <AssociationSet Name="SuggestionUser" Association="myRep_Model.SuggestionUser">
+            <End Role="Suggestion" EntitySet="SuggestionSet" />
+            <End Role="User" EntitySet="UserSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="HCO">
+          <Key>
+            <PropertyRef Name="hcoID" />
+          </Key>
+          <Property Name="hcoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PhoneNumber" Type="Int32" Nullable="true" />
+          <Property Name="Email" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Website" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="AddressID" Type="Int32" Nullable="false" />
+          <Property Name="Range" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Level" Type="Int32" Nullable="true" />
+          <Property Name="SpecialType" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="BedsAmount" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="EmployeesAmount" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="HCP" Relationship="myRep_Model.HCOHCP" FromRole="HCO" ToRole="HCP" />
+          <NavigationProperty Name="Address" Relationship="myRep_Model.HCOAddress" FromRole="HCO" ToRole="Address" />
+        </EntityType>
+        <EntityType Name="HCP">
+          <Key>
+            <PropertyRef Name="hcpID" />
+          </Key>
+          <Property Name="hcpID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="HCO" Relationship="myRep_Model.HCOHCP" FromRole="HCP" ToRole="HCO" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="MiddleName" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Gender" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="AcademicTitle" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Specialty" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Birthdate" Type="DateTime" Nullable="true" Precision="3" />
+          <Property Name="PhoneNumber" Type="Int32" Nullable="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="KOL" Type="Boolean" Nullable="true" />
+          <NavigationProperty Name="Meeting" Relationship="myRep_Model.HCPMeeting" FromRole="HCP" ToRole="Meeting" />
+          <Property Name="LanguageSpoken" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="AddressID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Address" Relationship="myRep_Model.AddressHCP" FromRole="HCP" ToRole="Address" />
+        </EntityType>
+        <Association Name="HCOHCP">
+          <End Type="myRep_Model.HCO" Role="HCO" Multiplicity="*" />
+          <End Type="myRep_Model.HCP" Role="HCP" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="addressID" />
+          </Key>
+          <Property Name="addressID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Street" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Territory" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Country" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ZipCode" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="HCO" Relationship="myRep_Model.HCOAddress" FromRole="Address" ToRole="HCO" />
+          <NavigationProperty Name="HCP" Relationship="myRep_Model.AddressHCP" FromRole="Address" ToRole="HCP" />
+        </EntityType>
+        <Association Name="HCOAddress">
+          <End Type="myRep_Model.HCO" Role="HCO" Multiplicity="*" />
+          <End Type="myRep_Model.Address" Role="Address" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="addressID" />
+            </Principal>
+            <Dependent Role="HCO">
+              <PropertyRef Name="AddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Meeting">
+          <Key>
+            <PropertyRef Name="meetingID" />
+          </Key>
+          <Property Name="meetingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HCPID" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Type" Type="String" Nullable="false" />
+          <Property Name="Topic" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="HCP" Relationship="myRep_Model.HCPMeeting" FromRole="Meeting" ToRole="HCP" />
+          <Property Name="NextMtgNote" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="MedicalEnquiryID" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="MedicalEnquiry" Relationship="myRep_Model.MedicalEnquiryMeeting" FromRole="Meeting" ToRole="MedicalEnquiry" />
+          <NavigationProperty Name="Product" Relationship="myRep_Model.MeetingProduct" FromRole="Meeting" ToRole="Product" />
+          <NavigationProperty Name="User" Relationship="myRep_Model.MeetingUser" FromRole="Meeting" ToRole="User" />
+          <Property Name="SampleDrop" Type="Int32" Nullable="true" />
+          <Property Name="SampleDropQty" Type="Int32" annotation:StoreGeneratedPattern="None" Nullable="true" />
+        </EntityType>
+        <Association Name="HCPMeeting">
+          <End Type="myRep_Model.HCP" Role="HCP" Multiplicity="*" />
+          <End Type="myRep_Model.Meeting" Role="Meeting" Multiplicity="*" />
+        </Association>
+        <EntityType Name="MedicalEnquiry">
+          <Key>
+            <PropertyRef Name="meID" />
+          </Key>
+          <Property Name="meID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Question" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Answer" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ExpectedAnswerDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MeetingID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Meeting" Relationship="myRep_Model.MedicalEnquiryMeeting" FromRole="MedicalEnquiry" ToRole="Meeting" />
+        </EntityType>
+        <Association Name="MedicalEnquiryMeeting">
+          <End Type="myRep_Model.MedicalEnquiry" Role="MedicalEnquiry" Multiplicity="*" />
+          <End Type="myRep_Model.Meeting" Role="Meeting" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Meeting">
+              <PropertyRef Name="meetingID" />
+            </Principal>
+            <Dependent Role="MedicalEnquiry">
+              <PropertyRef Name="MeetingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="productID" />
+          </Key>
+          <Property Name="productID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="AntiDisease" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Manufacturer" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="MainIngredient" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Meeting" Relationship="myRep_Model.MeetingProduct" FromRole="Product" ToRole="Meeting" />
+          <NavigationProperty Name="Sample" Relationship="myRep_Model.ProductSample" FromRole="Product" ToRole="Sample" />
+        </EntityType>
+        <Association Name="MeetingProduct">
+          <End Type="myRep_Model.Meeting" Role="Meeting" Multiplicity="*" />
+          <End Type="myRep_Model.Product" Role="Product" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="productID" />
+            </Principal>
+            <Dependent Role="Meeting">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="MiddleName" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="JobTitile" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PhoneNumber" Type="Int32" Nullable="true" />
+          <Property Name="HireDate" Type="DateTime" Nullable="true" Precision="3" />
+          <Property Name="ManagerID" Type="Int32" Nullable="true" />
+          <Property Name="Territory" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Meeting" Relationship="myRep_Model.MeetingUser" FromRole="User" ToRole="Meeting" />
+          <NavigationProperty Name="UserCredentialsSet" Relationship="myRep_Model.FK__UserCrede__UserI__0C85DE4D" FromRole="User" ToRole="UserCredentialsSet" />
+          <NavigationProperty Name="User1" Relationship="myRep_Model.UserUser" FromRole="User" ToRole="User1" />
+          <NavigationProperty Name="User2" Relationship="myRep_Model.UserUser" FromRole="User1" ToRole="User" />
+          <NavigationProperty Name="SampleWarehouse" Relationship="myRep_Model.UserSampleWarehouse" FromRole="User" ToRole="SampleWarehouse" />
+          <NavigationProperty Name="Suggestion" Relationship="myRep_Model.SuggestionUser" FromRole="User" ToRole="Suggestion" />
+        </EntityType>
+        <Association Name="AddressHCP">
+          <End Type="myRep_Model.Address" Role="Address" Multiplicity="1" />
+          <End Type="myRep_Model.HCP" Role="HCP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="addressID" />
+            </Principal>
+            <Dependent Role="HCP">
+              <PropertyRef Name="AddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MeetingUser">
+          <End Type="myRep_Model.Meeting" Role="Meeting" Multiplicity="*" />
+          <End Type="myRep_Model.User" Role="User" Multiplicity="*" />
+        </Association>
+        <EntityType Name="UserCredentialsSet">
+          <Key>
+            <PropertyRef Name="UCID" />
+          </Key>
+          <Property Name="UCID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="PWD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="UserSet" Relationship="myRep_Model.FK__UserCrede__UserI__0C85DE4D" FromRole="UserCredentialsSet" ToRole="User" />
+        </EntityType>
+        <Association Name="FK__UserCrede__UserI__0C85DE4D">
+          <End Type="myRep_Model.User" Role="User" Multiplicity="1" />
+          <End Type="myRep_Model.UserCredentialsSet" Role="UserCredentialsSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="UserCredentialsSet">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserUser">
+          <End Type="myRep_Model.User" Role="User" Multiplicity="0..1" />
+          <End Type="myRep_Model.User" Role="User1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="User1">
+              <PropertyRef Name="ManagerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Sample">
+          <Key>
+            <PropertyRef Name="sampleID" />
+          </Key>
+          <Property Name="sampleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SampleName" Type="String" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="myRep_Model.ProductSample" FromRole="Sample" ToRole="Product" />
+          <Property Name="QtyPerBox" Type="Int32" Nullable="false" />
+          <Property Name="Value" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SampleWarehouse" Relationship="myRep_Model.SampleSampleWarehouse" FromRole="Sample" ToRole="SampleWarehouse" />
+        </EntityType>
+        <Association Name="ProductSample">
+          <End Type="myRep_Model.Product" Role="Product" Multiplicity="1" />
+          <End Type="myRep_Model.Sample" Role="Sample" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="productID" />
+            </Principal>
+            <Dependent Role="Sample">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SampleWarehouse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="SampleID" Type="Int32" Nullable="false" />
+          <Property Name="Qty" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="myRep_Model.UserSampleWarehouse" FromRole="SampleWarehouse" ToRole="User" />
+          <NavigationProperty Name="Sample" Relationship="myRep_Model.SampleSampleWarehouse" FromRole="SampleWarehouse" ToRole="Sample" />
+        </EntityType>
+        <Association Name="UserSampleWarehouse">
+          <End Type="myRep_Model.User" Role="User" Multiplicity="1" />
+          <End Type="myRep_Model.SampleWarehouse" Role="SampleWarehouse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="SampleWarehouse">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SampleSampleWarehouse">
+          <End Type="myRep_Model.Sample" Role="Sample" Multiplicity="1" />
+          <End Type="myRep_Model.SampleWarehouse" Role="SampleWarehouse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sample">
+              <PropertyRef Name="sampleID" />
+            </Principal>
+            <Dependent Role="SampleWarehouse">
+              <PropertyRef Name="Qty" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Suggestion">
+          <Key>
+            <PropertyRef Name="suggestionID" />
+          </Key>
+          <Property Name="suggestionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="HCPID" Type="Int32" Nullable="true" />
+          <Property Name="HCOID" Type="Int32" Nullable="true" />
+          <Property Name="Message" Type="String" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="myRep_Model.SuggestionUser" FromRole="Suggestion" ToRole="User" />
+        </EntityType>
+        <Association Name="SuggestionUser">
+          <End Type="myRep_Model.Suggestion" Role="Suggestion" Multiplicity="*" />
+          <End Type="myRep_Model.User" Role="User" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="myRep_ModelStoreContainer" CdmEntityContainer="myRep_ModelContainer">
+    <EntitySetMapping Name="HCOSet">
+      <EntityTypeMapping TypeName="IsTypeOf(myRep_Model.HCO)">
+        <MappingFragment StoreEntitySet="HCOSet">
+          <ScalarProperty Name="hcoID" ColumnName="hcoID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="Range" ColumnName="Range" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="SpecialType" ColumnName="SpecialType" />
+          <ScalarProperty Name="BedsAmount" ColumnName="BedsAmount" />
+          <ScalarProperty Name="EmployeesAmount" ColumnName="EmployeesAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HCPSet">
+      <EntityTypeMapping TypeName="IsTypeOf(myRep_Model.HCP)">
+        <MappingFragment StoreEntitySet="HCPSet">
+          <ScalarProperty Name="hcpID" ColumnName="hcpID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="AcademicTitle" ColumnName="AcademicTitle" />
+          <ScalarProperty Name="Specialty" ColumnName="Specialty" />
+          <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="KOL" ColumnName="KOL" />
+          <ScalarProperty Name="LanguageSpoken" ColumnName="LanguageSpoken" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AddressSet">
+      <EntityTypeMapping TypeName="IsTypeOf(myRep_Model.Address)">
+        <MappingFragment StoreEntitySet="AddressSet">
+          <ScalarProperty Name="addressID" ColumnName="addressID" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Territory" ColumnName="Territory" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MeetingSet">
+      <EntityTypeMapping TypeName="IsTypeOf(myRep_Model.Meeting)">
+        <MappingFragment StoreEntitySet="MeetingSet">
+          <ScalarProperty Name="meetingID" ColumnName="meetingID" />
+          <ScalarProperty Name="HCPID" ColumnName="HCPID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Topic" ColumnName="Topic" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="NextMtgNote" ColumnName="NextMtgNote" />
+          <ScalarProperty Name="MedicalEnquiryID" ColumnName="MedicalEnquiryID" />
+          <ScalarProperty Name="SampleDrop" ColumnName="SampleDrop" />
+          <ScalarProperty Name="SampleDropQty" ColumnName="SampleDropQty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MedicalEnquirySet">
+      <EntityTypeMapping TypeName="IsTypeOf(myRep_Model.MedicalEnquiry)">
+        <MappingFragment StoreEntitySet="MedicalEnquirySet">
+          <ScalarProperty Name="meID" ColumnName="meID" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="ExpectedAnswerDate" ColumnName="ExpectedAnswerDate" />
+          <ScalarProperty Name="MeetingID" ColumnName="MeetingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductSet">
+      <EntityTypeMapping TypeName="IsTypeOf(myRep_Model.Product)">
+        <MappingFragment StoreEntitySet="ProductSet">
+          <ScalarProperty Name="productID" ColumnName="productID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="AntiDisease" ColumnName="AntiDisease" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="MainIngredient" ColumnName="MainIngredient" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserSet">
+      <EntityTypeMapping TypeName="IsTypeOf(myRep_Model.User)">
+        <MappingFragment StoreEntitySet="UserSet">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="JobTitile" ColumnName="JobTitile" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+          <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+          <ScalarProperty Name="Territory" ColumnName="Territory" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserCredentialsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(myRep_Model.UserCredentialsSet)">
+        <MappingFragment StoreEntitySet="UserCredentialsSet">
+          <ScalarProperty Name="UCID" ColumnName="UCID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="PWD" ColumnName="PWD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SampleSet">
+      <EntityTypeMapping TypeName="IsTypeOf(myRep_Model.Sample)">
+        <MappingFragment StoreEntitySet="SampleSet">
+          <ScalarProperty Name="sampleID" ColumnName="sampleID" />
+          <ScalarProperty Name="SampleName" ColumnName="SampleName" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="QtyPerBox" ColumnName="QtyPerBox" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SampleWarehouseSet">
+      <EntityTypeMapping TypeName="IsTypeOf(myRep_Model.SampleWarehouse)">
+        <MappingFragment StoreEntitySet="SampleWarehouseSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="SampleID" ColumnName="SampleID" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SuggestionSet">
+      <EntityTypeMapping TypeName="IsTypeOf(myRep_Model.Suggestion)">
+        <MappingFragment StoreEntitySet="SuggestionSet">
+          <ScalarProperty Name="suggestionID" ColumnName="suggestionID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="HCPID" ColumnName="HCPID" />
+          <ScalarProperty Name="HCOID" ColumnName="HCOID" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="HCOHCP" TypeName="myRep_Model.HCOHCP" StoreEntitySet="HCOHCP">
+      <EndProperty Name="HCO">
+        <ScalarProperty Name="hcoID" ColumnName="HCO_hcoID" />
+      </EndProperty>
+      <EndProperty Name="HCP">
+        <ScalarProperty Name="hcpID" ColumnName="HCP_hcpID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="HCPMeeting" TypeName="myRep_Model.HCPMeeting" StoreEntitySet="HCPMeeting">
+      <EndProperty Name="HCP">
+        <ScalarProperty Name="hcpID" ColumnName="HCP_hcpID" />
+      </EndProperty>
+      <EndProperty Name="Meeting">
+        <ScalarProperty Name="meetingID" ColumnName="Meeting_meetingID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MeetingUser" TypeName="myRep_Model.MeetingUser" StoreEntitySet="MeetingUser">
+      <EndProperty Name="Meeting">
+        <ScalarProperty Name="meetingID" ColumnName="Meeting_meetingID" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="userID" ColumnName="User_userID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SuggestionUser" TypeName="myRep_Model.SuggestionUser" StoreEntitySet="SuggestionSet">
+      <EndProperty Name="User">
+        <ScalarProperty Name="userID" ColumnName="User_userID" />
+      </EndProperty>
+      <EndProperty Name="Suggestion">
+        <ScalarProperty Name="suggestionID" ColumnName="suggestionID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
