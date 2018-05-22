@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/13/2018 00:02:56
+-- Date Created: 05/21/2018 21:13:52
 -- Generated from EDMX file: E:\Praca_Inzynierska\myRep\myRep_app\myRep_Model.edmx
 -- --------------------------------------------------
 
@@ -203,7 +203,7 @@ CREATE TABLE [dbo].[UserSet] (
     [FirstName] nvarchar(max)  NOT NULL,
     [MiddleName] nvarchar(max)  NULL,
     [LastName] nvarchar(max)  NOT NULL,
-    [JobTitile] nvarchar(max)  NOT NULL,
+    [JobTitle] nvarchar(max)  NOT NULL,
     [PhoneNumber] int  NULL,
     [HireDate] datetime  NULL,
     [ManagerID] int  NULL,

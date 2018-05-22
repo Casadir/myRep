@@ -173,7 +173,7 @@
     <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="MiddleName" Type="nvarchar(max)" Nullable="true" />
     <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="JobTitile" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="JobTitle" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PhoneNumber" Type="int" Nullable="true" />
     <Property Name="HireDate" Type="datetime" Nullable="true" />
     <Property Name="ManagerID" Type="int" Nullable="true" />
@@ -649,7 +649,7 @@
           <Property Name="FirstName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="MiddleName" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="JobTitile" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="JobTitle" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="PhoneNumber" Type="Int32" Nullable="true" />
           <Property Name="HireDate" Type="DateTime" Nullable="true" Precision="3" />
           <Property Name="ManagerID" Type="Int32" Nullable="true" />
@@ -884,7 +884,7 @@
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="JobTitile" ColumnName="JobTitile" />
+          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
           <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
           <ScalarProperty Name="HireDate" ColumnName="HireDate" />
           <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
