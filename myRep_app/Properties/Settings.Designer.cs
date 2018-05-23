@@ -33,5 +33,16 @@ namespace myRep_app.Properties {
                 return ((string)(this["ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=46.227.246.133,51433;Initial Catalog=myRep_ODS;Persist Security Info=" +
+            "True;User ID=sa;Password=LV9QF1ty0r")]
+        public string myRep_ODSConnectionString {
+            get {
+                return ((string)(this["myRep_ODSConnectionString"]));
+            }
+        }
     }
 }

@@ -109,9 +109,9 @@
     <Property Name="Specialty" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Birthdate" Type="datetime" Nullable="true" />
     <Property Name="PhoneNumber" Type="int" Nullable="true" />
-    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
     <Property Name="KOL" Type="bit" Nullable="true" />
-    <Property Name="LanguageSpoken" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LanguageSpoken" Type="nvarchar(max)" Nullable="true" />
     <Property Name="AddressID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="AddressSet">

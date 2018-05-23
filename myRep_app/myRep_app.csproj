@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -90,6 +91,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>myRep_Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="myRep_ODS_Address_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>myRep_ODS_Address_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="myRep_ODS_HCO_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>myRep_ODS_HCO_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="myRep_ODS_HCP_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>myRep_ODS_HCP_DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Product.cs">
       <DependentUpon>myRep_Model.tt</DependentUpon>
     </Compile>
@@ -128,6 +144,39 @@
     </EntityDeploy>
     <None Include="myRep_Model.edmx.diagram">
       <DependentUpon>myRep_Model.edmx</DependentUpon>
+    </None>
+    <None Include="myRep_ODS_Address_DataSet.xsc">
+      <DependentUpon>myRep_ODS_Address_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="myRep_ODS_Address_DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>myRep_ODS_Address_DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="myRep_ODS_Address_DataSet.xss">
+      <DependentUpon>myRep_ODS_Address_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="myRep_ODS_HCO_DataSet.xsc">
+      <DependentUpon>myRep_ODS_HCO_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="myRep_ODS_HCO_DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>myRep_ODS_HCO_DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="myRep_ODS_HCO_DataSet.xss">
+      <DependentUpon>myRep_ODS_HCO_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="myRep_ODS_HCP_DataSet.xsc">
+      <DependentUpon>myRep_ODS_HCP_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="myRep_ODS_HCP_DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>myRep_ODS_HCP_DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="myRep_ODS_HCP_DataSet.xss">
+      <DependentUpon>myRep_ODS_HCP_DataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

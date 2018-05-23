@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/21/2018 21:13:52
+-- Date Created: 05/23/2018 21:05:41
 -- Generated from EDMX file: E:\Praca_Inzynierska\myRep\myRep_app\myRep_Model.edmx
 -- --------------------------------------------------
 
@@ -17,14 +17,20 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK__UserCrede__UserI__0C85DE4D]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[UserCredentialsSet] DROP CONSTRAINT [FK__UserCrede__UserI__0C85DE4D];
+GO
+IF OBJECT_ID(N'[dbo].[FK_AddressHCP]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[HCPSet] DROP CONSTRAINT [FK_AddressHCP];
+GO
+IF OBJECT_ID(N'[dbo].[FK_HCOAddress]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[HCOSet] DROP CONSTRAINT [FK_HCOAddress];
+GO
 IF OBJECT_ID(N'[dbo].[FK_HCOHCP_HCO]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[HCOHCP] DROP CONSTRAINT [FK_HCOHCP_HCO];
 GO
 IF OBJECT_ID(N'[dbo].[FK_HCOHCP_HCP]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[HCOHCP] DROP CONSTRAINT [FK_HCOHCP_HCP];
-GO
-IF OBJECT_ID(N'[dbo].[FK_HCOAddress]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[HCOSet] DROP CONSTRAINT [FK_HCOAddress];
 GO
 IF OBJECT_ID(N'[dbo].[FK_HCPMeeting_HCP]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[HCPMeeting] DROP CONSTRAINT [FK_HCPMeeting_HCP];
@@ -38,26 +44,14 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_MeetingProduct]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[MeetingSet] DROP CONSTRAINT [FK_MeetingProduct];
 GO
-IF OBJECT_ID(N'[dbo].[FK_AddressHCP]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[HCPSet] DROP CONSTRAINT [FK_AddressHCP];
-GO
 IF OBJECT_ID(N'[dbo].[FK_MeetingUser_Meeting]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[MeetingUser] DROP CONSTRAINT [FK_MeetingUser_Meeting];
 GO
 IF OBJECT_ID(N'[dbo].[FK_MeetingUser_User]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[MeetingUser] DROP CONSTRAINT [FK_MeetingUser_User];
 GO
-IF OBJECT_ID(N'[dbo].[FK__UserCrede__UserI__0C85DE4D]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[UserCredentialsSet] DROP CONSTRAINT [FK__UserCrede__UserI__0C85DE4D];
-GO
-IF OBJECT_ID(N'[dbo].[FK_UserUser]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[UserSet] DROP CONSTRAINT [FK_UserUser];
-GO
 IF OBJECT_ID(N'[dbo].[FK_ProductSample]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[SampleSet] DROP CONSTRAINT [FK_ProductSample];
-GO
-IF OBJECT_ID(N'[dbo].[FK_UserSampleWarehouse]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[SampleWarehouseSet] DROP CONSTRAINT [FK_UserSampleWarehouse];
 GO
 IF OBJECT_ID(N'[dbo].[FK_SampleSampleWarehouse]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[SampleWarehouseSet] DROP CONSTRAINT [FK_SampleSampleWarehouse];
@@ -65,34 +59,43 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_SuggestionUser]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[SuggestionSet] DROP CONSTRAINT [FK_SuggestionUser];
 GO
+IF OBJECT_ID(N'[dbo].[FK_UserSampleWarehouse]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[SampleWarehouseSet] DROP CONSTRAINT [FK_UserSampleWarehouse];
+GO
+IF OBJECT_ID(N'[dbo].[FK_UserUser]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[UserSet] DROP CONSTRAINT [FK_UserUser];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[AddressSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AddressSet];
+GO
+IF OBJECT_ID(N'[dbo].[HCOHCP]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[HCOHCP];
+GO
 IF OBJECT_ID(N'[dbo].[HCOSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[HCOSet];
+GO
+IF OBJECT_ID(N'[dbo].[HCPMeeting]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[HCPMeeting];
 GO
 IF OBJECT_ID(N'[dbo].[HCPSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[HCPSet];
 GO
-IF OBJECT_ID(N'[dbo].[AddressSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[AddressSet];
+IF OBJECT_ID(N'[dbo].[MedicalEnquirySet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[MedicalEnquirySet];
 GO
 IF OBJECT_ID(N'[dbo].[MeetingSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[MeetingSet];
 GO
-IF OBJECT_ID(N'[dbo].[MedicalEnquirySet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[MedicalEnquirySet];
+IF OBJECT_ID(N'[dbo].[MeetingUser]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[MeetingUser];
 GO
 IF OBJECT_ID(N'[dbo].[ProductSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[ProductSet];
-GO
-IF OBJECT_ID(N'[dbo].[UserSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[UserSet];
-GO
-IF OBJECT_ID(N'[dbo].[UserCredentialsSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[UserCredentialsSet];
 GO
 IF OBJECT_ID(N'[dbo].[SampleSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SampleSet];
@@ -103,14 +106,11 @@ GO
 IF OBJECT_ID(N'[dbo].[SuggestionSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SuggestionSet];
 GO
-IF OBJECT_ID(N'[dbo].[HCOHCP]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[HCOHCP];
+IF OBJECT_ID(N'[dbo].[UserCredentialsSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[UserCredentialsSet];
 GO
-IF OBJECT_ID(N'[dbo].[HCPMeeting]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[HCPMeeting];
-GO
-IF OBJECT_ID(N'[dbo].[MeetingUser]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[MeetingUser];
+IF OBJECT_ID(N'[dbo].[UserSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[UserSet];
 GO
 
 -- --------------------------------------------------
@@ -144,9 +144,9 @@ CREATE TABLE [dbo].[HCPSet] (
     [Specialty] nvarchar(max)  NOT NULL,
     [Birthdate] datetime  NULL,
     [PhoneNumber] int  NULL,
-    [Email] nvarchar(max)  NOT NULL,
+    [Email] nvarchar(max)  NULL,
     [KOL] bit  NULL,
-    [LanguageSpoken] nvarchar(max)  NOT NULL,
+    [LanguageSpoken] nvarchar(max)  NULL,
     [AddressID] int  NOT NULL
 );
 GO
