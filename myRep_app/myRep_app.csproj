@@ -101,10 +101,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>myRep_ODS_HCO_DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="myRep_ODS_HCP_DataSet.cs">
+      <DependentUpon>myRep_ODS_HCP_DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="myRep_ODS_HCP_DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>myRep_ODS_HCP_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="myRep_ODS_User_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>myRep_ODS_User_DataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
       <DependentUpon>myRep_Model.tt</DependentUpon>
@@ -177,6 +185,17 @@
     </None>
     <None Include="myRep_ODS_HCP_DataSet.xss">
       <DependentUpon>myRep_ODS_HCP_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="myRep_ODS_User_DataSet.xsc">
+      <DependentUpon>myRep_ODS_User_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="myRep_ODS_User_DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>myRep_ODS_User_DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="myRep_ODS_User_DataSet.xss">
+      <DependentUpon>myRep_ODS_User_DataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -28,6 +28,7 @@ namespace myRep_app
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }
+        public string Email { get; set; }
         public string JobTitle { get; set; }
         public Nullable<int> PhoneNumber { get; set; }
         public Nullable<System.DateTime> HireDate { get; set; }

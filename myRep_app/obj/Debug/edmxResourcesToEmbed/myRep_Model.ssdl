@@ -168,6 +168,7 @@
     <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="MiddleName" Type="nvarchar(max)" Nullable="true" />
     <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
     <Property Name="JobTitle" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PhoneNumber" Type="int" Nullable="true" />
     <Property Name="HireDate" Type="datetime" Nullable="true" />

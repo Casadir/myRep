@@ -20,17 +20,17 @@ namespace myRep_app {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("myRep_ODS_HCP_DataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("myRep_ODS_User_DataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class myRep_ODS_HCP_DataSet : global::System.Data.DataSet {
+    public partial class myRep_ODS_User_DataSet : global::System.Data.DataSet {
         
-        private HCPSetDataTable tableHCPSet;
+        private UserSetDataTable tableUserSet;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public myRep_ODS_HCP_DataSet() {
+        public myRep_ODS_User_DataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace myRep_app {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected myRep_ODS_HCP_DataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected myRep_ODS_User_DataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace myRep_app {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["HCPSet"] != null)) {
-                    base.Tables.Add(new HCPSetDataTable(ds.Tables["HCPSet"]));
+                if ((ds.Tables["UserSet"] != null)) {
+                    base.Tables.Add(new UserSetDataTable(ds.Tables["UserSet"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace myRep_app {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public HCPSetDataTable HCPSet {
+        public UserSetDataTable UserSet {
             get {
-                return this.tableHCPSet;
+                return this.tableUserSet;
             }
         }
         
@@ -127,7 +127,7 @@ namespace myRep_app {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            myRep_ODS_HCP_DataSet cln = ((myRep_ODS_HCP_DataSet)(base.Clone()));
+            myRep_ODS_User_DataSet cln = ((myRep_ODS_User_DataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace myRep_app {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["HCPSet"] != null)) {
-                    base.Tables.Add(new HCPSetDataTable(ds.Tables["HCPSet"]));
+                if ((ds.Tables["UserSet"] != null)) {
+                    base.Tables.Add(new UserSetDataTable(ds.Tables["UserSet"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace myRep_app {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableHCPSet = ((HCPSetDataTable)(base.Tables["HCPSet"]));
+            this.tableUserSet = ((UserSetDataTable)(base.Tables["UserSet"]));
             if ((initTable == true)) {
-                if ((this.tableHCPSet != null)) {
-                    this.tableHCPSet.InitVars();
+                if ((this.tableUserSet != null)) {
+                    this.tableUserSet.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace myRep_app {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "myRep_ODS_HCP_DataSet";
+            this.DataSetName = "myRep_ODS_User_DataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/myRep_ODS_HCP_DataSet.xsd";
+            this.Namespace = "http://tempuri.org/myRep_ODS_User_DataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableHCPSet = new HCPSetDataTable();
-            base.Tables.Add(this.tableHCPSet);
+            this.tableUserSet = new UserSetDataTable();
+            base.Tables.Add(this.tableUserSet);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeHCPSet() {
+        private bool ShouldSerializeUserSet() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace myRep_app {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            myRep_ODS_HCP_DataSet ds = new myRep_ODS_HCP_DataSet();
+            myRep_ODS_User_DataSet ds = new myRep_ODS_User_DataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,25 +270,27 @@ namespace myRep_app {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void HCPSetRowChangeEventHandler(object sender, HCPSetRowChangeEvent e);
+        public delegate void UserSetRowChangeEventHandler(object sender, UserSetRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class HCPSetDataTable : global::System.Data.TypedTableBase<HCPSetRow> {
+        public partial class UserSetDataTable : global::System.Data.TypedTableBase<UserSetRow> {
             
-            private global::System.Data.DataColumn columnhcpID;
+            private global::System.Data.DataColumn columnuserID;
             
             private global::System.Data.DataColumn columnFirstName;
             
             private global::System.Data.DataColumn columnLastName;
             
+            private global::System.Data.DataColumn columnUsername;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public HCPSetDataTable() {
-                this.TableName = "HCPSet";
+            public UserSetDataTable() {
+                this.TableName = "UserSet";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -296,7 +298,7 @@ namespace myRep_app {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal HCPSetDataTable(global::System.Data.DataTable table) {
+            internal UserSetDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -313,16 +315,16 @@ namespace myRep_app {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected HCPSetDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected UserSetDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn hcpIDColumn {
+            public global::System.Data.DataColumn userIDColumn {
                 get {
-                    return this.columnhcpID;
+                    return this.columnuserID;
                 }
             }
             
@@ -344,6 +346,14 @@ namespace myRep_app {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn UsernameColumn {
+                get {
+                    return this.columnUsername;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -353,54 +363,55 @@ namespace myRep_app {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public HCPSetRow this[int index] {
+            public UserSetRow this[int index] {
                 get {
-                    return ((HCPSetRow)(this.Rows[index]));
+                    return ((UserSetRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event HCPSetRowChangeEventHandler HCPSetRowChanging;
+            public event UserSetRowChangeEventHandler UserSetRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event HCPSetRowChangeEventHandler HCPSetRowChanged;
+            public event UserSetRowChangeEventHandler UserSetRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event HCPSetRowChangeEventHandler HCPSetRowDeleting;
+            public event UserSetRowChangeEventHandler UserSetRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event HCPSetRowChangeEventHandler HCPSetRowDeleted;
+            public event UserSetRowChangeEventHandler UserSetRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddHCPSetRow(HCPSetRow row) {
+            public void AddUserSetRow(UserSetRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public HCPSetRow AddHCPSetRow(string FirstName, string LastName) {
-                HCPSetRow rowHCPSetRow = ((HCPSetRow)(this.NewRow()));
+            public UserSetRow AddUserSetRow(string FirstName, string LastName, string Username) {
+                UserSetRow rowUserSetRow = ((UserSetRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         FirstName,
-                        LastName};
-                rowHCPSetRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowHCPSetRow);
-                return rowHCPSetRow;
+                        LastName,
+                        Username};
+                rowUserSetRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowUserSetRow);
+                return rowUserSetRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public HCPSetRow FindByhcpID(int hcpID) {
-                return ((HCPSetRow)(this.Rows.Find(new object[] {
-                            hcpID})));
+            public UserSetRow FindByuserID(int userID) {
+                return ((UserSetRow)(this.Rows.Find(new object[] {
+                            userID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                HCPSetDataTable cln = ((HCPSetDataTable)(base.Clone()));
+                UserSetDataTable cln = ((UserSetDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -408,64 +419,69 @@ namespace myRep_app {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new HCPSetDataTable();
+                return new UserSetDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
-                this.columnhcpID = base.Columns["hcpID"];
+                this.columnuserID = base.Columns["userID"];
                 this.columnFirstName = base.Columns["FirstName"];
                 this.columnLastName = base.Columns["LastName"];
+                this.columnUsername = base.Columns["Username"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
-                this.columnhcpID = new global::System.Data.DataColumn("hcpID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnhcpID);
+                this.columnuserID = new global::System.Data.DataColumn("userID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnuserID);
                 this.columnFirstName = new global::System.Data.DataColumn("FirstName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFirstName);
                 this.columnLastName = new global::System.Data.DataColumn("LastName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLastName);
+                this.columnUsername = new global::System.Data.DataColumn("Username", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUsername);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnhcpID}, true));
-                this.columnhcpID.AutoIncrement = true;
-                this.columnhcpID.AutoIncrementSeed = -1;
-                this.columnhcpID.AutoIncrementStep = -1;
-                this.columnhcpID.AllowDBNull = false;
-                this.columnhcpID.ReadOnly = true;
-                this.columnhcpID.Unique = true;
+                                this.columnuserID}, true));
+                this.columnuserID.AutoIncrement = true;
+                this.columnuserID.AutoIncrementSeed = -1;
+                this.columnuserID.AutoIncrementStep = -1;
+                this.columnuserID.AllowDBNull = false;
+                this.columnuserID.ReadOnly = true;
+                this.columnuserID.Unique = true;
                 this.columnFirstName.AllowDBNull = false;
                 this.columnFirstName.MaxLength = 2147483647;
                 this.columnLastName.AllowDBNull = false;
                 this.columnLastName.MaxLength = 2147483647;
+                this.columnUsername.AllowDBNull = false;
+                this.columnUsername.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public HCPSetRow NewHCPSetRow() {
-                return ((HCPSetRow)(this.NewRow()));
+            public UserSetRow NewUserSetRow() {
+                return ((UserSetRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new HCPSetRow(builder);
+                return new UserSetRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(HCPSetRow);
+                return typeof(UserSetRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.HCPSetRowChanged != null)) {
-                    this.HCPSetRowChanged(this, new HCPSetRowChangeEvent(((HCPSetRow)(e.Row)), e.Action));
+                if ((this.UserSetRowChanged != null)) {
+                    this.UserSetRowChanged(this, new UserSetRowChangeEvent(((UserSetRow)(e.Row)), e.Action));
                 }
             }
             
@@ -473,8 +489,8 @@ namespace myRep_app {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.HCPSetRowChanging != null)) {
-                    this.HCPSetRowChanging(this, new HCPSetRowChangeEvent(((HCPSetRow)(e.Row)), e.Action));
+                if ((this.UserSetRowChanging != null)) {
+                    this.UserSetRowChanging(this, new UserSetRowChangeEvent(((UserSetRow)(e.Row)), e.Action));
                 }
             }
             
@@ -482,8 +498,8 @@ namespace myRep_app {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.HCPSetRowDeleted != null)) {
-                    this.HCPSetRowDeleted(this, new HCPSetRowChangeEvent(((HCPSetRow)(e.Row)), e.Action));
+                if ((this.UserSetRowDeleted != null)) {
+                    this.UserSetRowDeleted(this, new UserSetRowChangeEvent(((UserSetRow)(e.Row)), e.Action));
                 }
             }
             
@@ -491,14 +507,14 @@ namespace myRep_app {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.HCPSetRowDeleting != null)) {
-                    this.HCPSetRowDeleting(this, new HCPSetRowChangeEvent(((HCPSetRow)(e.Row)), e.Action));
+                if ((this.UserSetRowDeleting != null)) {
+                    this.UserSetRowDeleting(this, new UserSetRowChangeEvent(((UserSetRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemoveHCPSetRow(HCPSetRow row) {
+            public void RemoveUserSetRow(UserSetRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -507,7 +523,7 @@ namespace myRep_app {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                myRep_ODS_HCP_DataSet ds = new myRep_ODS_HCP_DataSet();
+                myRep_ODS_User_DataSet ds = new myRep_ODS_User_DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -525,7 +541,7 @@ namespace myRep_app {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "HCPSetDataTable";
+                attribute2.FixedValue = "UserSetDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -569,25 +585,25 @@ namespace myRep_app {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class HCPSetRow : global::System.Data.DataRow {
+        public partial class UserSetRow : global::System.Data.DataRow {
             
-            private HCPSetDataTable tableHCPSet;
+            private UserSetDataTable tableUserSet;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal HCPSetRow(global::System.Data.DataRowBuilder rb) : 
+            internal UserSetRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableHCPSet = ((HCPSetDataTable)(this.Table));
+                this.tableUserSet = ((UserSetDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int hcpID {
+            public int userID {
                 get {
-                    return ((int)(this[this.tableHCPSet.hcpIDColumn]));
+                    return ((int)(this[this.tableUserSet.userIDColumn]));
                 }
                 set {
-                    this[this.tableHCPSet.hcpIDColumn] = value;
+                    this[this.tableUserSet.userIDColumn] = value;
                 }
             }
             
@@ -595,10 +611,10 @@ namespace myRep_app {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string FirstName {
                 get {
-                    return ((string)(this[this.tableHCPSet.FirstNameColumn]));
+                    return ((string)(this[this.tableUserSet.FirstNameColumn]));
                 }
                 set {
-                    this[this.tableHCPSet.FirstNameColumn] = value;
+                    this[this.tableUserSet.FirstNameColumn] = value;
                 }
             }
             
@@ -606,10 +622,21 @@ namespace myRep_app {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string LastName {
                 get {
-                    return ((string)(this[this.tableHCPSet.LastNameColumn]));
+                    return ((string)(this[this.tableUserSet.LastNameColumn]));
                 }
                 set {
-                    this[this.tableHCPSet.LastNameColumn] = value;
+                    this[this.tableUserSet.LastNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Username {
+                get {
+                    return ((string)(this[this.tableUserSet.UsernameColumn]));
+                }
+                set {
+                    this[this.tableUserSet.UsernameColumn] = value;
                 }
             }
         }
@@ -618,22 +645,22 @@ namespace myRep_app {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class HCPSetRowChangeEvent : global::System.EventArgs {
+        public class UserSetRowChangeEvent : global::System.EventArgs {
             
-            private HCPSetRow eventRow;
+            private UserSetRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public HCPSetRowChangeEvent(HCPSetRow row, global::System.Data.DataRowAction action) {
+            public UserSetRowChangeEvent(UserSetRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public HCPSetRow Row {
+            public UserSetRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -649,7 +676,7 @@ namespace myRep_app {
         }
     }
 }
-namespace myRep_app.myRep_ODS_HCP_DataSetTableAdapters {
+namespace myRep_app.myRep_ODS_User_DataSetTableAdapters {
     
     
     /// <summary>
@@ -661,7 +688,7 @@ namespace myRep_app.myRep_ODS_HCP_DataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class HCPSetTableAdapter : global::System.ComponentModel.Component {
+    public partial class UserSetTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -675,7 +702,7 @@ namespace myRep_app.myRep_ODS_HCP_DataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public HCPSetTableAdapter() {
+        public UserSetTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -772,26 +799,28 @@ namespace myRep_app.myRep_ODS_HCP_DataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "HCPSet";
-            tableMapping.ColumnMappings.Add("hcpID", "hcpID");
+            tableMapping.DataSetTable = "UserSet";
+            tableMapping.ColumnMappings.Add("userID", "userID");
             tableMapping.ColumnMappings.Add("FirstName", "FirstName");
             tableMapping.ColumnMappings.Add("LastName", "LastName");
+            tableMapping.ColumnMappings.Add("Username", "Username");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[HCPSet] WHERE (([hcpID] = @Original_hcpID))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [UserSet] WHERE (([userID] = @Original_userID))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_hcpID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hcpID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_userID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "userID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[HCPSet] SET [FirstName] = @FirstName, [LastName] = @LastName WHERE " +
-                "(([hcpID] = @Original_hcpID));\r\nSELECT hcpID, FirstName, LastName FROM HCPSet WH" +
-                "ERE (hcpID = @hcpID)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [UserSet] SET [FirstName] = @FirstName, [LastName] = @LastName, [Username]" +
+                " = @Username WHERE (([userID] = @Original_userID));\r\nSELECT userID, FirstName, L" +
+                "astName, Username FROM UserSet WHERE (userID = @userID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_hcpID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hcpID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hcpID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "hcpID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_userID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "userID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "userID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -807,7 +836,7 @@ namespace myRep_app.myRep_ODS_HCP_DataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT hcpID, FirstName, LastName FROM dbo.HCPSet";
+            this._commandCollection[0].CommandText = "SELECT   userID, FirstName, LastName, Username\r\nFROM         UserSet";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -815,7 +844,7 @@ namespace myRep_app.myRep_ODS_HCP_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(myRep_ODS_HCP_DataSet.HCPSetDataTable dataTable) {
+        public virtual int Fill(myRep_ODS_User_DataSet.UserSetDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -828,9 +857,9 @@ namespace myRep_app.myRep_ODS_HCP_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual myRep_ODS_HCP_DataSet.HCPSetDataTable GetData() {
+        public virtual myRep_ODS_User_DataSet.UserSetDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            myRep_ODS_HCP_DataSet.HCPSetDataTable dataTable = new myRep_ODS_HCP_DataSet.HCPSetDataTable();
+            myRep_ODS_User_DataSet.UserSetDataTable dataTable = new myRep_ODS_User_DataSet.UserSetDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -838,15 +867,15 @@ namespace myRep_app.myRep_ODS_HCP_DataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(myRep_ODS_HCP_DataSet.HCPSetDataTable dataTable) {
+        public virtual int Update(myRep_ODS_User_DataSet.UserSetDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(myRep_ODS_HCP_DataSet dataSet) {
-            return this.Adapter.Update(dataSet, "HCPSet");
+        public virtual int Update(myRep_ODS_User_DataSet dataSet) {
+            return this.Adapter.Update(dataSet, "UserSet");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -868,8 +897,8 @@ namespace myRep_app.myRep_ODS_HCP_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_hcpID) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_hcpID));
+        public virtual int Delete(int Original_userID) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_userID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -890,7 +919,7 @@ namespace myRep_app.myRep_ODS_HCP_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string FirstName, string LastName, int Original_hcpID, int hcpID) {
+        public virtual int Update(string FirstName, string LastName, string Username, int Original_userID, int userID) {
             if ((FirstName == null)) {
                 throw new global::System.ArgumentNullException("FirstName");
             }
@@ -903,8 +932,14 @@ namespace myRep_app.myRep_ODS_HCP_DataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(LastName));
             }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_hcpID));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(hcpID));
+            if ((Username == null)) {
+                throw new global::System.ArgumentNullException("Username");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Username));
+            }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_userID));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(userID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -925,8 +960,8 @@ namespace myRep_app.myRep_ODS_HCP_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string FirstName, string LastName, int Original_hcpID) {
-            return this.Update(FirstName, LastName, Original_hcpID, Original_hcpID);
+        public virtual int Update(string FirstName, string LastName, string Username, int Original_userID) {
+            return this.Update(FirstName, LastName, Username, Original_userID, Original_userID);
         }
     }
     
@@ -942,7 +977,7 @@ namespace myRep_app.myRep_ODS_HCP_DataSetTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private HCPSetTableAdapter _hCPSetTableAdapter;
+        private UserSetTableAdapter _userSetTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -964,12 +999,12 @@ namespace myRep_app.myRep_ODS_HCP_DataSetTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public HCPSetTableAdapter HCPSetTableAdapter {
+        public UserSetTableAdapter UserSetTableAdapter {
             get {
-                return this._hCPSetTableAdapter;
+                return this._userSetTableAdapter;
             }
             set {
-                this._hCPSetTableAdapter = value;
+                this._userSetTableAdapter = value;
             }
         }
         
@@ -992,9 +1027,9 @@ namespace myRep_app.myRep_ODS_HCP_DataSetTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._hCPSetTableAdapter != null) 
-                            && (this._hCPSetTableAdapter.Connection != null))) {
-                    return this._hCPSetTableAdapter.Connection;
+                if (((this._userSetTableAdapter != null) 
+                            && (this._userSetTableAdapter.Connection != null))) {
+                    return this._userSetTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1009,7 +1044,7 @@ namespace myRep_app.myRep_ODS_HCP_DataSetTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._hCPSetTableAdapter != null)) {
+                if ((this._userSetTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1021,14 +1056,14 @@ namespace myRep_app.myRep_ODS_HCP_DataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateUpdatedRows(myRep_ODS_HCP_DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(myRep_ODS_User_DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._hCPSetTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.HCPSet.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._userSetTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.UserSet.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._hCPSetTableAdapter.Update(updatedRows));
+                    result = (result + this._userSetTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1040,13 +1075,13 @@ namespace myRep_app.myRep_ODS_HCP_DataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateInsertedRows(myRep_ODS_HCP_DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(myRep_ODS_User_DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._hCPSetTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.HCPSet.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._userSetTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.UserSet.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._hCPSetTableAdapter.Update(addedRows));
+                    result = (result + this._userSetTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1058,13 +1093,13 @@ namespace myRep_app.myRep_ODS_HCP_DataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateDeletedRows(myRep_ODS_HCP_DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(myRep_ODS_User_DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._hCPSetTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.HCPSet.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._userSetTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.UserSet.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._hCPSetTableAdapter.Update(deletedRows));
+                    result = (result + this._userSetTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1100,15 +1135,15 @@ namespace myRep_app.myRep_ODS_HCP_DataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public virtual int UpdateAll(myRep_ODS_HCP_DataSet dataSet) {
+        public virtual int UpdateAll(myRep_ODS_User_DataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._hCPSetTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._hCPSetTableAdapter.Connection) == false))) {
+            if (((this._userSetTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._userSetTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -1144,13 +1179,13 @@ namespace myRep_app.myRep_ODS_HCP_DataSetTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._hCPSetTableAdapter != null)) {
-                    revertConnections.Add(this._hCPSetTableAdapter, this._hCPSetTableAdapter.Connection);
-                    this._hCPSetTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._hCPSetTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._hCPSetTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._hCPSetTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._hCPSetTableAdapter.Adapter);
+                if ((this._userSetTableAdapter != null)) {
+                    revertConnections.Add(this._userSetTableAdapter, this._userSetTableAdapter.Connection);
+                    this._userSetTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._userSetTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._userSetTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._userSetTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._userSetTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1211,9 +1246,9 @@ namespace myRep_app.myRep_ODS_HCP_DataSetTableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._hCPSetTableAdapter != null)) {
-                    this._hCPSetTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._hCPSetTableAdapter]));
-                    this._hCPSetTableAdapter.Transaction = null;
+                if ((this._userSetTableAdapter != null)) {
+                    this._userSetTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._userSetTableAdapter]));
+                    this._userSetTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
