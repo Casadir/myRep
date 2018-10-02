@@ -396,5 +396,12 @@ namespace myRep_app
             usernameUserBox.Text = fnameUserBox.Text.ToString() + ".x." + lnameUserBox.Text.ToString();
 
         }
+
+        private void createnewhcoButton_Click(object sender, EventArgs e)
+        {
+            mainController.SelectedTab = newHCOPage;
+        }
+
+
     }
 }
