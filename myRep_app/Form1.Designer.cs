@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainController = new System.Windows.Forms.TabControl();
             this.homePage = new System.Windows.Forms.TabPage();
             this.userMgmtButton = new System.Windows.Forms.Button();
@@ -229,7 +229,7 @@
             this.hcoEmailLabel = new System.Windows.Forms.Label();
             this.hcoWWWLabel = new System.Windows.Forms.Label();
             this.hcoRangeLabel = new System.Windows.Forms.Label();
-            this.levelHCOLabel = new System.Windows.Forms.Label();
+            this.hcoLevelLabel = new System.Windows.Forms.Label();
             this.hcoSpecialTypeLabel = new System.Windows.Forms.Label();
             this.hcoNoBedLabel = new System.Windows.Forms.Label();
             this.hcoNoEmpLabel = new System.Windows.Forms.Label();
@@ -237,7 +237,7 @@
             this.hcoCityLabel = new System.Windows.Forms.Label();
             this.hcoZipLabel = new System.Windows.Forms.Label();
             this.hcoTerrLabel = new System.Windows.Forms.Label();
-            this.labhcoCountryLabelel47 = new System.Windows.Forms.Label();
+            this.hcoCountryLabel = new System.Windows.Forms.Label();
             this.mainController.SuspendLayout();
             this.homePage.SuspendLayout();
             this.myAccountsPage.SuspendLayout();
@@ -707,39 +707,39 @@
             this.hcpDataGridView.AllowUserToDeleteRows = false;
             this.hcpDataGridView.AutoGenerateColumns = false;
             this.hcpDataGridView.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.hcpDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.hcpDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.hcpDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.hcpDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.hcpIDDataGridViewTextBoxColumn,
             this.firstNameDataGridViewTextBoxColumn,
             this.lastNameDataGridViewTextBoxColumn});
             this.hcpDataGridView.DataSource = this.hCPSetBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.hcpDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.hcpDataGridView.DefaultCellStyle = dataGridViewCellStyle8;
             this.hcpDataGridView.Location = new System.Drawing.Point(3, 3);
             this.hcpDataGridView.Name = "hcpDataGridView";
             this.hcpDataGridView.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.hcpDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.hcpDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.hcpDataGridView.RowHeadersVisible = false;
             this.hcpDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.hcpDataGridView.Size = new System.Drawing.Size(253, 378);
@@ -782,7 +782,7 @@
             // 
             // hcoPage
             // 
-            this.hcoPage.Controls.Add(this.labhcoCountryLabelel47);
+            this.hcoPage.Controls.Add(this.hcoCountryLabel);
             this.hcoPage.Controls.Add(this.hcoTerrLabel);
             this.hcoPage.Controls.Add(this.hcoZipLabel);
             this.hcoPage.Controls.Add(this.hcoCityLabel);
@@ -790,7 +790,7 @@
             this.hcoPage.Controls.Add(this.hcoNoEmpLabel);
             this.hcoPage.Controls.Add(this.hcoNoBedLabel);
             this.hcoPage.Controls.Add(this.hcoSpecialTypeLabel);
-            this.hcoPage.Controls.Add(this.levelHCOLabel);
+            this.hcoPage.Controls.Add(this.hcoLevelLabel);
             this.hcoPage.Controls.Add(this.hcoRangeLabel);
             this.hcoPage.Controls.Add(this.hcoWWWLabel);
             this.hcoPage.Controls.Add(this.hcoEmailLabel);
@@ -996,14 +996,14 @@
             this.addressDataGridView.AllowUserToDeleteRows = false;
             this.addressDataGridView.AutoGenerateColumns = false;
             this.addressDataGridView.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.addressDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.addressDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.addressDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.addressDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.addressIDDataGridViewTextBoxColumn1,
@@ -1013,25 +1013,25 @@
             this.countryDataGridViewTextBoxColumn,
             this.zipCodeDataGridViewTextBoxColumn});
             this.addressDataGridView.DataSource = this.addressSetBindingSource;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.addressDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.addressDataGridView.DefaultCellStyle = dataGridViewCellStyle11;
             this.addressDataGridView.Location = new System.Drawing.Point(3, 3);
             this.addressDataGridView.Name = "addressDataGridView";
             this.addressDataGridView.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.addressDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.addressDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.addressDataGridView.RowHeadersVisible = false;
             this.addressDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.addressDataGridView.Size = new System.Drawing.Size(504, 378);
@@ -2276,14 +2276,14 @@
             this.hcoRangeLabel.TabIndex = 34;
             this.hcoRangeLabel.Text = "-";
             // 
-            // levelHCOLabel
+            // hcoLevelLabel
             // 
-            this.levelHCOLabel.AutoSize = true;
-            this.levelHCOLabel.Location = new System.Drawing.Point(437, 160);
-            this.levelHCOLabel.Name = "levelHCOLabel";
-            this.levelHCOLabel.Size = new System.Drawing.Size(10, 13);
-            this.levelHCOLabel.TabIndex = 35;
-            this.levelHCOLabel.Text = "-";
+            this.hcoLevelLabel.AutoSize = true;
+            this.hcoLevelLabel.Location = new System.Drawing.Point(437, 160);
+            this.hcoLevelLabel.Name = "hcoLevelLabel";
+            this.hcoLevelLabel.Size = new System.Drawing.Size(10, 13);
+            this.hcoLevelLabel.TabIndex = 35;
+            this.hcoLevelLabel.Text = "-";
             // 
             // hcoSpecialTypeLabel
             // 
@@ -2348,14 +2348,14 @@
             this.hcoTerrLabel.TabIndex = 42;
             this.hcoTerrLabel.Text = "-";
             // 
-            // labhcoCountryLabelel47
+            // hcoCountryLabel
             // 
-            this.labhcoCountryLabelel47.AutoSize = true;
-            this.labhcoCountryLabelel47.Location = new System.Drawing.Point(416, 299);
-            this.labhcoCountryLabelel47.Name = "labhcoCountryLabelel47";
-            this.labhcoCountryLabelel47.Size = new System.Drawing.Size(10, 13);
-            this.labhcoCountryLabelel47.TabIndex = 43;
-            this.labhcoCountryLabelel47.Text = "-";
+            this.hcoCountryLabel.AutoSize = true;
+            this.hcoCountryLabel.Location = new System.Drawing.Point(416, 299);
+            this.hcoCountryLabel.Name = "hcoCountryLabel";
+            this.hcoCountryLabel.Size = new System.Drawing.Size(10, 13);
+            this.hcoCountryLabel.TabIndex = 43;
+            this.hcoCountryLabel.Text = "-";
             // 
             // Form1
             // 
@@ -2615,7 +2615,7 @@
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.Label labhcoCountryLabelel47;
+        private System.Windows.Forms.Label hcoCountryLabel;
         private System.Windows.Forms.Label hcoTerrLabel;
         private System.Windows.Forms.Label hcoZipLabel;
         private System.Windows.Forms.Label hcoCityLabel;
@@ -2623,7 +2623,7 @@
         private System.Windows.Forms.Label hcoNoEmpLabel;
         private System.Windows.Forms.Label hcoNoBedLabel;
         private System.Windows.Forms.Label hcoSpecialTypeLabel;
-        private System.Windows.Forms.Label levelHCOLabel;
+        private System.Windows.Forms.Label hcoLevelLabel;
         private System.Windows.Forms.Label hcoRangeLabel;
         private System.Windows.Forms.Label hcoWWWLabel;
         private System.Windows.Forms.Label hcoEmailLabel;

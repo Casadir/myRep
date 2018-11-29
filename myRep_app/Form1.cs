@@ -95,6 +95,7 @@ namespace myRep_app
                     SqlDataAdapter dataAdapter1 = new SqlDataAdapter(command30);
                     dataAdapter1.Fill(dt1);
                     hcoDataGridView.DataSource = dt1;
+                    hcoDataGridView.Columns[1].Visible = false;
 
 
                     //Nadanie dostępu do odpowiednich zasobów na podstawie Job Title
@@ -545,7 +546,100 @@ namespace myRep_app
 
         private void hcoDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            string sConnection = Properties.Settings.Default.myRep_ODSConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                SqlCommand command = new SqlCommand("", conn);
+                command.CommandText = "SELECT Name FROM dbo.HCOSet where hcoID = @Id";
+                command.Parameters.AddWithValue("@Id", hcoDataGridView.CurrentRow.Cells[1].Value.ToString());
+                hcoNameLabel.Text = (String)command.ExecuteScalar();
 
+                command.CommandText = "SELECT PhoneNumber FROM dbo.HCOSet where hcoID = @Id";
+                if (command.ExecuteScalar() != DBNull.Value)
+                    hcoTelLabel.Text = Convert.ToString(command.ExecuteScalar());
+                else
+                    hcoTelLabel.Text = "Brak danych!";
+
+                command.CommandText = "SELECT Email FROM dbo.HCOSet where hcoID = @Id";
+                if (command.ExecuteScalar() != DBNull.Value)
+                    hcoEmailLabel.Text = Convert.ToString(command.ExecuteScalar());
+                else
+                    hcoEmailLabel.Text = "Brak danych!";
+
+                command.CommandText = "SELECT Website FROM dbo.HCOSet where hcoID = @Id";
+                if (command.ExecuteScalar() != DBNull.Value)
+                    hcoWWWLabel.Text = Convert.ToString(command.ExecuteScalar());
+                else
+                    hcoWWWLabel.Text = "Brak danych!";
+
+                command.CommandText = "SELECT Range FROM dbo.HCOSet where hcoID = @Id";
+                if (command.ExecuteScalar() != DBNull.Value)
+                    hcoRangeLabel.Text = Convert.ToString(command.ExecuteScalar());
+                else
+                    hcoRangeLabel.Text = "Brak danych!";
+
+                command.CommandText = "SELECT Level FROM dbo.HCOSet where hcoID = @Id";
+                if (command.ExecuteScalar() != DBNull.Value)
+                    hcoLevelLabel.Text = Convert.ToString(command.ExecuteScalar());
+                else
+                    hcoLevelLabel.Text = "Brak danych!";
+
+                command.CommandText = "SELECT SpecialType FROM dbo.HCOSet where hcoID = @Id";
+                if (command.ExecuteScalar() != DBNull.Value)
+                    hcoSpecialTypeLabel.Text = Convert.ToString(command.ExecuteScalar());
+                else
+                    hcoSpecialTypeLabel.Text = "Brak danych!";
+
+                command.CommandText = "SELECT BedsAmount FROM dbo.HCOSet where hcoID = @Id";
+                if (command.ExecuteScalar() != DBNull.Value)
+                    hcoNoBedLabel.Text = Convert.ToString(command.ExecuteScalar());
+                else
+                    hcoNoBedLabel.Text = "Brak danych!";
+
+                command.CommandText = "SELECT EmployeesAmount FROM dbo.HCOSet where hcoID = @Id";
+                if (command.ExecuteScalar() != DBNull.Value)
+                    hcoNoEmpLabel.Text = Convert.ToString(command.ExecuteScalar());
+                else
+                    hcoNoEmpLabel.Text = "Brak danych!";
+
+                command.CommandText = "SELECT AddressSet.Street from dbo.HCOSet join dbo.AddressSet on HCOSet.AddressID = AddressSet.addressID WHERE hcoID = @Id";
+                if (command.ExecuteScalar() != DBNull.Value)
+                    hcoStreetLabel.Text = Convert.ToString(command.ExecuteScalar());
+                else
+                    hcoStreetLabel.Text = "Brak danych!";
+
+                command.CommandText = "SELECT AddressSet.City from dbo.HCOSet join dbo.AddressSet on HCOSet.AddressID = AddressSet.addressID WHERE hcoID = @Id";
+                if (command.ExecuteScalar() != DBNull.Value)
+                    hcoCityLabel.Text = Convert.ToString(command.ExecuteScalar());
+                else
+                    hcoCityLabel.Text = "Brak danych!";
+
+                command.CommandText = "SELECT AddressSet.Territory from dbo.HCOSet join dbo.AddressSet on HCOSet.AddressID = AddressSet.addressID WHERE hcoID = @Id";
+                if (command.ExecuteScalar() != DBNull.Value)
+                    hcoTerrLabel.Text = Convert.ToString(command.ExecuteScalar());
+                else
+                    hcoTerrLabel.Text = "Brak danych!";
+
+                command.CommandText = "SELECT AddressSet.Country from dbo.HCOSet join dbo.AddressSet on HCOSet.AddressID = AddressSet.addressID WHERE hcoID = @Id";
+                if (command.ExecuteScalar() != DBNull.Value)
+                    hcoCountryLabel.Text = Convert.ToString(command.ExecuteScalar());
+                else
+                    hcoCountryLabel.Text = "Brak danych!";
+
+                command.CommandText = "SELECT AddressSet.ZipCode from dbo.HCOSet join dbo.AddressSet on HCOSet.AddressID = AddressSet.addressID WHERE hcoID = @Id";
+                if (command.ExecuteScalar() != DBNull.Value)
+                    hcoZipLabel.Text = Convert.ToString(command.ExecuteScalar());
+                else
+                    hcoZipLabel.Text = "Brak danych!";
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
         }
     }
 }
