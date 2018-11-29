@@ -96,6 +96,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>myRep_ODS_Address_DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="myRep_ODS_HCOHCPDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>myRep_ODS_HCOHCPDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="myRep_ODS_HCO_DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -136,6 +141,7 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -163,6 +169,17 @@
     </None>
     <None Include="myRep_ODS_Address_DataSet.xss">
       <DependentUpon>myRep_ODS_Address_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="myRep_ODS_HCOHCPDataSet.xsc">
+      <DependentUpon>myRep_ODS_HCOHCPDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="myRep_ODS_HCOHCPDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>myRep_ODS_HCOHCPDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="myRep_ODS_HCOHCPDataSet.xss">
+      <DependentUpon>myRep_ODS_HCOHCPDataSet.xsd</DependentUpon>
     </None>
     <None Include="myRep_ODS_HCO_DataSet.xsc">
       <DependentUpon>myRep_ODS_HCO_DataSet.xsd</DependentUpon>

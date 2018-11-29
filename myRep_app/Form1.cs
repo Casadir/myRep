@@ -14,13 +14,20 @@ namespace myRep_app
     public partial class Form1 : Form
     {
         public static int loggedUserID;
+        public static string loggedUserTerritory;
         public static String username;
+
         public Form1()
         {
             InitializeComponent();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'myRep_ODS_HCOHCPDataSet.HCOSet' table. You can move, or remove it, as needed.
+            this.hCOSetTableAdapter1.Fill(this.myRep_ODS_HCOHCPDataSet.HCOSet);
+            // TODO: This line of code loads data into the 'myRep_ODS_HCOHCPDataSet.HCOHCP' table. You can move, or remove it, as needed.
+            this.hCOHCPTableAdapter.Fill(this.myRep_ODS_HCOHCPDataSet.HCOHCP);
+            // TODO: This line of code loads data into the 'myRep_ODS_HCOHCP_DataSet.HCOHCP' table. You can move, or remove it, as needed.
             // TODO: This line of code loads data into the 'myRep_ODS_User_DataSet.UserSet' table. You can move, or remove it, as needed.
             this.userSetTableAdapter.Fill(this.myRep_ODS_User_DataSet.UserSet);
             this.myRep_ODS_HCP_DataSet.EnforceConstraints = false;
@@ -35,12 +42,10 @@ namespace myRep_app
             //Ukrywa kolumny z ID w poszczególnych dataGridView
             this.hcpDataGridView.Columns[0].Visible = false;
             this.addressDataGridView.Columns[0].Visible = false;
-            this.hcoDataGridView.Columns[0].Visible = false;
-        }
 
-/********
-* HOME*
-* *****/
+        }
+        #region HomePage
+
         private void LoginButton_Click_1(object sender, EventArgs e)
         {
 
@@ -70,10 +75,27 @@ namespace myRep_app
                     UsernameBox.Enabled = false;
                     PasswordBox.Enabled = false;
 
-                    //Zapisanie w pamięci ID zalogowanego User'a
+                    //Zapisanie w pamięci ID i Territory zalogowanego User'a
                     command.CommandText = "SELECT UserID FROM dbo.UserSet WHERE Username = @param5";
                     command.Parameters.AddWithValue("@param5", UsernameBox.Text.ToString());
                     loggedUserID = Convert.ToInt32(command.ExecuteScalar());
+                    command.CommandText = "SELECT Territory FROM dbo.UserSet WHERE Username = @param5";
+                    loggedUserTerritory = Convert.ToString(command.ExecuteScalar());
+                    //Ustawienie parametru do wyświetlania HCP
+                    param_show_HCP7ToolStripTextBox.Text = loggedUserTerritory.ToString();
+                    showDedicatedHCPToolStripButton.PerformClick();
+
+                    //Wyswietlanie tabelki z dedykowanymi HCO
+                    SqlCommand command30 = new SqlCommand("HCODedicatedDisplay", conn);
+                    command30.CommandType = CommandType.StoredProcedure;
+                    command30.Parameters.AddWithValue("@terr", loggedUserTerritory.ToString());
+                    MessageBox.Show(loggedUserTerritory.ToString());
+                    //WYPEŁNIANIE GRIDA Z MIEJSCEM PRACY
+                    DataTable dt1 = new DataTable();
+                    SqlDataAdapter dataAdapter1 = new SqlDataAdapter(command30);
+                    dataAdapter1.Fill(dt1);
+                    hcoDataGridView.DataSource = dt1;
+
 
                     //Nadanie dostępu do odpowiednich zasobów na podstawie Job Title
                     command.CommandText = "SELECT JobTitle FROM dbo.UserSet WHERE Username = @param4";
@@ -84,7 +106,14 @@ namespace myRep_app
                                 myAccountsButton.Visible = true; myAccountsButton.Enabled = true;
                                 userMgmtButton.Visible = true; userMgmtButton.Enabled = true;
                                 break; }
-                        
+                        case "REP":
+                            {
+                                myAccountsButton.Visible = true; myAccountsButton.Enabled = true;
+                                userMgmtButton.Visible = false; userMgmtButton.Enabled = false;
+                                break;
+                            }
+
+
                         default: { myAccountsButton.Visible = false; myAccountsButton.Enabled = false; break; }
                     }
                     UsernameBox.Text = "";
@@ -117,29 +146,21 @@ namespace myRep_app
         {
             mainController.SelectedTab = myAccountsPage;
         }
+        #endregion HomePage
 
-
-/**************
-* My Accounts*
-**************/
+        /**************
+        * My Accounts*
+        **************/
         private void createnewhcpButon(object sender, EventArgs e)
         {
             mainController.SelectedTab = newHCPPage;
         }
 
-/**************
-* newHCP*
-**************/
+ 
+        /**************
+        * newHCP*
+        **************/
 
-        //Pokazanie i schowanie panelu do wyboru znanych języków
-        private void LanguageSpokenComboBox_DropDown(object sender, EventArgs e)
-        {
-            languagespokenPanel.Visible = true;
-        }
-        private void LanguageSpokenComboBox_DropDownClosed(object sender, EventArgs e)
-        {
-            languagespokenPanel.Visible = false;
-        }
 
         //AKTYWACJA PRZYCISKU "CREATE!" TYLKO KIEDY POLA MANDATORY SĄ WYPEŁNIONE - trzeba dać to na każde pole przy textChanged
         private void ToogleCreateNewHCPButton()
@@ -209,7 +230,19 @@ namespace myRep_app
                 if (string.IsNullOrEmpty(phnumberBox.Text.ToString())) command.Parameters.AddWithValue("@phonenumber", DBNull.Value); else command.Parameters.AddWithValue("@phonenumber", Convert.ToInt32(phnumberBox.Text.ToString()));
                 command.Parameters.AddWithValue("@email", emailBox.Text.ToString());
                 command.Parameters.AddWithValue("@kol", Convert.ToBoolean(kolBox.Checked.ToString()));
-                command.Parameters.AddWithValue("@languagesspoken", DBNull.Value); 
+
+                if (langSpoken.SelectedItems.Count > 0)
+                {
+                    string text = string.Join(",", langSpoken.SelectedItems.OfType<string>().Select(x => x.ToString()).ToArray());
+                    if (otherLangTextBox.Text.ToString() != "") text = text + "," + otherLangTextBox.Text.ToString();
+                    command.Parameters.AddWithValue("@languagesspoken", text);
+                }
+                else
+                {
+                    command.Parameters.AddWithValue("@languagesspoken", DBNull.Value);
+                }
+                              
+
                 command.Parameters.AddWithValue("@specialty", SpecialtyList.Text.ToString());
                 command.Parameters.AddWithValue("@addressid", Convert.ToInt32(selectedAddressLabel.Text.ToString()));
                 //command.Parameters.AddWithValue("@hcoid", Convert.ToInt32(label11.Text.ToString()));
@@ -402,6 +435,117 @@ namespace myRep_app
             mainController.SelectedTab = newHCOPage;
         }
 
+        private void hcpDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string sConnection = Properties.Settings.Default.myRep_ODSConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                SqlCommand command = new SqlCommand("", conn);
+                command.CommandType = CommandType.Text;
+                command.Parameters.AddWithValue("@Id", hcpDataGridView.CurrentRow.Cells[0].Value.ToString());
 
+                command.CommandText = "SELECT FirstName FROM dbo.HCPSet where hcpID = @Id";
+                fnameLabel.Text = (String)command.ExecuteScalar();
+
+                command.CommandText = "SELECT MiddleName FROM dbo.HCPSet where hcpID = @Id";
+                if (command.ExecuteScalar() != DBNull.Value)
+                { mnameLabel.Text = (String)command.ExecuteScalar(); }
+                else
+                { mnameLabel.Text = "Brak danych!"; }
+
+                command.CommandText = "SELECT LastName FROM dbo.HCPSet where hcpID = @Id";
+                lnameLabel.Text = (String)command.ExecuteScalar();
+
+                command.CommandText = "SELECT AcademicTitle FROM dbo.HCPSet where hcpID = @Id";
+                hcpTitle.Text = (String)command.ExecuteScalar();
+
+                command.CommandText = "SELECT Specialty FROM dbo.HCPSet where hcpID = @Id";
+                hcpSpec.Text = (String)command.ExecuteScalar();
+
+                command.CommandText = "SELECT Birthdate FROM dbo.HCPSet where hcpID = @Id";
+                DateTime DateTime = (DateTime)command.ExecuteScalar();   
+                dateBirthHCP.Text = Convert.ToString(DateTime.ToShortDateString());
+
+                command.CommandText = "SELECT Gender FROM dbo.HCPSet where hcpID = @Id";
+                genderHCP.Text = (String)command.ExecuteScalar();
+
+                command.CommandText = "SELECT LanguageSpoken FROM dbo.HCPSet where hcpID = @Id";
+                if (command.ExecuteScalar() != DBNull.Value)
+                { languageHCP.Text = (String)command.ExecuteScalar(); }
+                else
+                { languageHCP.Text = "Brak danych!"; }
+
+                command.CommandText = "SELECT Email FROM dbo.HCPSet where hcpID = @Id";
+                emailHCP.Text = (String)command.ExecuteScalar();
+
+                command.CommandText = "SELECT PhoneNumber FROM dbo.HCPSet where hcpID = @Id";
+                if (command.ExecuteScalar() != DBNull.Value)
+                { phoneHCP.Text = Convert.ToString(command.ExecuteScalar()); }
+                else
+                { phoneHCP.Text = "Brak danych!"; }
+
+                SqlCommand command2 = new SqlCommand("dbo.HCPWorkPlaceDisplay",conn);
+                command2.CommandType = CommandType.StoredProcedure;
+                command2.Parameters.AddWithValue("@hcpID", hcpDataGridView.CurrentRow.Cells[0].Value);
+                //WYPEŁNIANIE GRIDA Z MIEJSCEM PRACY
+                DataTable dt = new DataTable();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command2);
+                dataAdapter.Fill(dt);
+                dataGridViewHCPWorkPlace.DataSource = dt;
+                // dataGridViewHCPWorkPlace.DataBindings.
+
+                command.CommandText = "SELECT KOL FROM dbo.HCPSet where hcpID = @Id";
+                if (Convert.ToInt32(command.ExecuteScalar()) == 1)
+                    kolHCP.Checked = true;
+                else
+                    kolHCP.Checked = false;
+
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+        MessageBox.Show(text, "ERROR");
+            }
+}
+
+        private void showDedicatedHCPToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.hCPSetTableAdapter.ShowDedicatedHCP(this.myRep_ODS_HCP_DataSet.HCPSet, param_show_HCP7ToolStripTextBox.Text);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void listBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void otherLangCheck_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (otherLangCheck.Checked == true)
+            {
+                otherLangTextBox.Enabled = true;
+            }
+            if (otherLangCheck.Checked == false)
+            {
+                otherLangTextBox.Enabled = false;
+                otherLangTextBox.Text = "";
+            }
+        }
+
+        private void hcoDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

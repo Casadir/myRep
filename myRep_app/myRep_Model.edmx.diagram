@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="78c34a286f3e4d35b6c80fb4486edf68" Name="Diagram1" DisplayType="true" ZoomLevel="78" >
+      <Diagram DiagramId="78c34a286f3e4d35b6c80fb4486edf68" Name="Diagram1" DisplayType="true" ZoomLevel="117" >
         <EntityTypeShape EntityType="myRep_Model.HCO" Width="2" PointX="0.5" PointY="3.375" />
         <EntityTypeShape EntityType="myRep_Model.HCP" Width="2.125" PointX="3.875" PointY="3.375" />
         <AssociationConnector Association="myRep_Model.HCOHCP" />
