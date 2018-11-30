@@ -552,6 +552,7 @@ namespace myRep_app
                 else
                     kolHCP.Checked = false;
 
+                dataGridViewHCPWorkPlace.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             }
             catch (SqlException er)
             {
@@ -861,6 +862,72 @@ namespace myRep_app
         private void SelectedHCO_AddressIDLabel_TextChanged(object sender, EventArgs e)
         {
             CreateHCOButton.Enabled = (HCONameBox.Text != "") && (Convert.ToInt32(SelectedHCO_AddressIDLabel.Text) > 0);
+        }
+
+        private void NewAssossiationButton_Click(object sender, EventArgs e)
+        {
+            string sConnection = Properties.Settings.Default.ConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                //Wyswietlanie tabelki z dedykowanymi HCO
+                SqlCommand command = new SqlCommand("WhereHCO_isNotWorking", conn);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@hcpID", Convert.ToInt32(hcpDataGridView.CurrentRow.Cells[0].Value));
+                command.Parameters.AddWithValue("@territory", loggedUserTerritory);
+                //WYPEŁNIANIE GRIDA Z MIEJSCEM PRACY
+                DataTable dt1 = new DataTable();
+                SqlDataAdapter dataAdapter1 = new SqlDataAdapter(command);
+                dataAdapter1.Fill(dt1);
+                Assossiation_AddManualView.DataSource = dt1;
+                Assossiation_AddManualView.Columns[0].Visible = false;
+                Assossiation_AddManualView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                //Uzupełnienie imienia i nazwiska na karcie do New Assossiation + przełączenie karty
+                HCPname_newAssossiation.Text = HCPname_newAssossiation.Text + hcpDataGridView.CurrentRow.Cells[1].Value.ToString() + " " + hcpDataGridView.CurrentRow.Cells[2].Value.ToString();
+                mainController.SelectedTab = new_HCPHCO_Assossiation_Page;
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
+        }
+
+        private void addAssossiationButton_Click(object sender, EventArgs e)
+        {
+            string sConnection = Properties.Settings.Default.ConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                //Dodanie nowego powiązania
+                String commandText = "INSERT INTO HCOHCP VALUES(@hcoid, @hcpid)";
+                SqlCommand command = new SqlCommand(commandText, conn);
+                command.Parameters.AddWithValue("@hcoid", Convert.ToInt32(Assossiation_AddManualView.CurrentRow.Cells[0].Value.ToString()));
+                command.Parameters.AddWithValue("@hcpid", Convert.ToInt32(hcpDataGridView.CurrentRow.Cells[0].Value.ToString()));
+                command.ExecuteNonQuery();
+               
+                //Odświeżenie tabeli z miejscem pracy i powrót do MyAccounts
+                SqlCommand command2 = new SqlCommand("dbo.HCPWorkPlaceDisplay", conn);
+                command2.CommandType = CommandType.StoredProcedure;
+                command2.Parameters.AddWithValue("@hcpID", hcpDataGridView.CurrentRow.Cells[0].Value);
+                //WYPEŁNIANIE GRIDA Z MIEJSCEM PRACY
+                DataTable dt = new DataTable();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command2);
+                dataAdapter.Fill(dt);
+                dataGridViewHCPWorkPlace.DataSource = dt;
+                dataGridViewHCPWorkPlace.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
+                mainController.SelectedTab = myAccountsPage;
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
         }
     }
 }

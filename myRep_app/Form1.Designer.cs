@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle82 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle83 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle84 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle79 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle80 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle81 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainController = new System.Windows.Forms.TabControl();
             this.homePage = new System.Windows.Forms.TabPage();
             this.userMgmtButton = new System.Windows.Forms.Button();
@@ -281,6 +281,12 @@
             this.label58 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.label60 = new System.Windows.Forms.Label();
+            this.NewAssossiationButton = new System.Windows.Forms.Button();
+            this.new_HCPHCO_Assossiation_Page = new System.Windows.Forms.TabPage();
+            this.titlelabel1 = new System.Windows.Forms.Label();
+            this.HCPname_newAssossiation = new System.Windows.Forms.Label();
+            this.Assossiation_AddManualView = new System.Windows.Forms.DataGridView();
+            this.addAssossiationButton = new System.Windows.Forms.Button();
             this.mainController.SuspendLayout();
             this.homePage.SuspendLayout();
             this.myAccountsPage.SuspendLayout();
@@ -321,6 +327,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.BedsHCOBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeesHCOBox)).BeginInit();
             this.newAddressPage.SuspendLayout();
+            this.new_HCPHCO_Assossiation_Page.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Assossiation_AddManualView)).BeginInit();
             this.SuspendLayout();
             // 
             // mainController
@@ -334,6 +342,7 @@
             this.mainController.Controls.Add(this.newUserPage);
             this.mainController.Controls.Add(this.setPasswordPage);
             this.mainController.Controls.Add(this.select_address_Page);
+            this.mainController.Controls.Add(this.new_HCPHCO_Assossiation_Page);
             this.mainController.Location = new System.Drawing.Point(12, 25);
             this.mainController.Name = "mainController";
             this.mainController.SelectedIndex = 0;
@@ -459,6 +468,7 @@
             // hcpPage
             // 
             this.hcpPage.AutoScroll = true;
+            this.hcpPage.Controls.Add(this.NewAssossiationButton);
             this.hcpPage.Controls.Add(this.hcpSpec);
             this.hcpPage.Controls.Add(this.label31);
             this.hcpPage.Controls.Add(this.dataGridViewHCPWorkPlace);
@@ -522,6 +532,7 @@
             this.dataGridViewHCPWorkPlace.Location = new System.Drawing.Point(396, 261);
             this.dataGridViewHCPWorkPlace.Name = "dataGridViewHCPWorkPlace";
             this.dataGridViewHCPWorkPlace.ReadOnly = true;
+            this.dataGridViewHCPWorkPlace.RowHeadersVisible = false;
             this.dataGridViewHCPWorkPlace.Size = new System.Drawing.Size(283, 89);
             this.dataGridViewHCPWorkPlace.TabIndex = 29;
             // 
@@ -761,39 +772,39 @@
             this.hcpDataGridView.AllowUserToDeleteRows = false;
             this.hcpDataGridView.AutoGenerateColumns = false;
             this.hcpDataGridView.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle82.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle82.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle82.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle82.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle82.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle82.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle82.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.hcpDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle82;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.hcpDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.hcpDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.hcpDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.hcpIDDataGridViewTextBoxColumn,
             this.firstNameDataGridViewTextBoxColumn,
             this.lastNameDataGridViewTextBoxColumn});
             this.hcpDataGridView.DataSource = this.hCPSetBindingSource;
-            dataGridViewCellStyle83.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle83.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle83.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle83.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle83.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle83.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle83.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.hcpDataGridView.DefaultCellStyle = dataGridViewCellStyle83;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.hcpDataGridView.DefaultCellStyle = dataGridViewCellStyle14;
             this.hcpDataGridView.Location = new System.Drawing.Point(3, 3);
             this.hcpDataGridView.Name = "hcpDataGridView";
             this.hcpDataGridView.ReadOnly = true;
-            dataGridViewCellStyle84.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle84.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle84.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle84.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle84.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle84.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle84.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.hcpDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle84;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.hcpDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.hcpDataGridView.RowHeadersVisible = false;
             this.hcpDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.hcpDataGridView.Size = new System.Drawing.Size(253, 378);
@@ -1055,16 +1066,18 @@
             // 
             this.addressDataGridView.AllowUserToAddRows = false;
             this.addressDataGridView.AllowUserToDeleteRows = false;
+            this.addressDataGridView.AllowUserToResizeColumns = false;
+            this.addressDataGridView.AllowUserToResizeRows = false;
             this.addressDataGridView.AutoGenerateColumns = false;
             this.addressDataGridView.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle79.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle79.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle79.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle79.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle79.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle79.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle79.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.addressDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle79;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.addressDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.addressDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.addressDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.addressIDDataGridViewTextBoxColumn1,
@@ -1074,25 +1087,25 @@
             this.countryDataGridViewTextBoxColumn,
             this.zipCodeDataGridViewTextBoxColumn});
             this.addressDataGridView.DataSource = this.addressSetBindingSource;
-            dataGridViewCellStyle80.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle80.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle80.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle80.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle80.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle80.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle80.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.addressDataGridView.DefaultCellStyle = dataGridViewCellStyle80;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.addressDataGridView.DefaultCellStyle = dataGridViewCellStyle17;
             this.addressDataGridView.Location = new System.Drawing.Point(3, 3);
             this.addressDataGridView.Name = "addressDataGridView";
             this.addressDataGridView.ReadOnly = true;
-            dataGridViewCellStyle81.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle81.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle81.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle81.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle81.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle81.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle81.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.addressDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle81;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.addressDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.addressDataGridView.RowHeadersVisible = false;
             this.addressDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.addressDataGridView.Size = new System.Drawing.Size(406, 315);
@@ -2440,6 +2453,7 @@
             // 
             // HCOunderAddressGridView
             // 
+            this.HCOunderAddressGridView.AllowUserToResizeRows = false;
             this.HCOunderAddressGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.HCOunderAddressGridView.Location = new System.Drawing.Point(428, 225);
             this.HCOunderAddressGridView.MultiSelect = false;
@@ -2890,6 +2904,72 @@
             this.label60.TabIndex = 35;
             this.label60.Text = "*";
             // 
+            // NewAssossiationButton
+            // 
+            this.NewAssossiationButton.Location = new System.Drawing.Point(281, 291);
+            this.NewAssossiationButton.Name = "NewAssossiationButton";
+            this.NewAssossiationButton.Size = new System.Drawing.Size(75, 23);
+            this.NewAssossiationButton.TabIndex = 32;
+            this.NewAssossiationButton.Text = "Dodaj ->";
+            this.NewAssossiationButton.UseVisualStyleBackColor = true;
+            this.NewAssossiationButton.Click += new System.EventHandler(this.NewAssossiationButton_Click);
+            // 
+            // new_HCPHCO_Assossiation_Page
+            // 
+            this.new_HCPHCO_Assossiation_Page.Controls.Add(this.addAssossiationButton);
+            this.new_HCPHCO_Assossiation_Page.Controls.Add(this.Assossiation_AddManualView);
+            this.new_HCPHCO_Assossiation_Page.Controls.Add(this.HCPname_newAssossiation);
+            this.new_HCPHCO_Assossiation_Page.Controls.Add(this.titlelabel1);
+            this.new_HCPHCO_Assossiation_Page.Location = new System.Drawing.Point(4, 22);
+            this.new_HCPHCO_Assossiation_Page.Name = "new_HCPHCO_Assossiation_Page";
+            this.new_HCPHCO_Assossiation_Page.Padding = new System.Windows.Forms.Padding(3);
+            this.new_HCPHCO_Assossiation_Page.Size = new System.Drawing.Size(720, 452);
+            this.new_HCPHCO_Assossiation_Page.TabIndex = 9;
+            this.new_HCPHCO_Assossiation_Page.Text = "new_Assossiation";
+            this.new_HCPHCO_Assossiation_Page.UseVisualStyleBackColor = true;
+            // 
+            // titlelabel1
+            // 
+            this.titlelabel1.AutoSize = true;
+            this.titlelabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.titlelabel1.Location = new System.Drawing.Point(6, 16);
+            this.titlelabel1.Name = "titlelabel1";
+            this.titlelabel1.Size = new System.Drawing.Size(341, 20);
+            this.titlelabel1.TabIndex = 0;
+            this.titlelabel1.Text = "DODAWANIE NOWEJ ZALEŻNOŚCI DLA";
+            // 
+            // HCPname_newAssossiation
+            // 
+            this.HCPname_newAssossiation.AutoSize = true;
+            this.HCPname_newAssossiation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.HCPname_newAssossiation.Location = new System.Drawing.Point(10, 40);
+            this.HCPname_newAssossiation.Name = "HCPname_newAssossiation";
+            this.HCPname_newAssossiation.Size = new System.Drawing.Size(44, 17);
+            this.HCPname_newAssossiation.TabIndex = 1;
+            this.HCPname_newAssossiation.Text = "HCP: ";
+            // 
+            // Assossiation_AddManualView
+            // 
+            this.Assossiation_AddManualView.AllowUserToAddRows = false;
+            this.Assossiation_AddManualView.AllowUserToDeleteRows = false;
+            this.Assossiation_AddManualView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Assossiation_AddManualView.Location = new System.Drawing.Point(13, 86);
+            this.Assossiation_AddManualView.Name = "Assossiation_AddManualView";
+            this.Assossiation_AddManualView.ReadOnly = true;
+            this.Assossiation_AddManualView.RowHeadersVisible = false;
+            this.Assossiation_AddManualView.Size = new System.Drawing.Size(334, 349);
+            this.Assossiation_AddManualView.TabIndex = 2;
+            // 
+            // addAssossiationButton
+            // 
+            this.addAssossiationButton.Location = new System.Drawing.Point(378, 224);
+            this.addAssossiationButton.Name = "addAssossiationButton";
+            this.addAssossiationButton.Size = new System.Drawing.Size(75, 42);
+            this.addAssossiationButton.TabIndex = 3;
+            this.addAssossiationButton.Text = "DODAJ RELACJE";
+            this.addAssossiationButton.UseVisualStyleBackColor = true;
+            this.addAssossiationButton.Click += new System.EventHandler(this.addAssossiationButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2956,6 +3036,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.EmployeesHCOBox)).EndInit();
             this.newAddressPage.ResumeLayout(false);
             this.newAddressPage.PerformLayout();
+            this.new_HCPHCO_Assossiation_Page.ResumeLayout(false);
+            this.new_HCPHCO_Assossiation_Page.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Assossiation_AddManualView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3220,6 +3303,12 @@
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Button NewAssossiationButton;
+        private System.Windows.Forms.TabPage new_HCPHCO_Assossiation_Page;
+        private System.Windows.Forms.DataGridView Assossiation_AddManualView;
+        private System.Windows.Forms.Label HCPname_newAssossiation;
+        private System.Windows.Forms.Label titlelabel1;
+        private System.Windows.Forms.Button addAssossiationButton;
     }
 }
 
