@@ -84,6 +84,10 @@ namespace myRep_app
                     //Ustawienie parametru do wyświetlania HCP
                     param_show_HCP7ToolStripTextBox.Text = loggedUserTerritory.ToString();
                     showDedicatedHCPToolStripButton.PerformClick();
+                    //Ustawienie parametru do wyswietlania Addressu
+                    paramToolStripTextBox.Text = loggedUserTerritory.ToString();
+                    addressDedicatedBookToolStripButton.PerformClick();
+                    addressDataGridView.Columns[0].Visible = false;
 
                     //Wyswietlanie tabelki z dedykowanymi HCO
                     SqlCommand command30 = new SqlCommand("HCODedicatedDisplay", conn);
@@ -246,8 +250,31 @@ namespace myRep_app
 
                 command.Parameters.AddWithValue("@specialty", SpecialtyList.Text.ToString());
                 command.Parameters.AddWithValue("@addressid", Convert.ToInt32(selectedAddressLabel.Text.ToString()));
-                //command.Parameters.AddWithValue("@hcoid", Convert.ToInt32(label11.Text.ToString()));
                 command.ExecuteNonQuery();
+
+                //Utworznie powiązania między HCP a HCO jeśli wybrany adres jest zarezerwowany dla jakiegoś HCO
+                commandText = "SELECT hcoID FROM HCOSet WHERE AddressID = @adID";
+                SqlCommand command2 = new SqlCommand(commandText, conn);
+                command2.Parameters.AddWithValue("@adID", selectedAddressLabel.Text.ToString());
+                if (command2.ExecuteScalar() != DBNull.Value)
+                {
+                    //Wybranie HCOID do powiązania
+                    int hcoid = Convert.ToInt32(command2.ExecuteScalar());
+                    MessageBox.Show("HCOID " + Convert.ToString(hcoid));
+                    //Wybranie HCPID do powiązania
+                    commandText = "SELECT max(hcpID) from HCPSet";
+                    SqlCommand command3 = new SqlCommand(commandText, conn);
+                    int latesthcpid = Convert.ToInt32(command3.ExecuteScalar());
+                    MessageBox.Show("HCPID " + Convert.ToString(latesthcpid));
+                    commandText = "INSERT INTO HCOHCP VALUES (@hcoID, @hcpID)";
+                    SqlCommand command4 = new SqlCommand(commandText, conn);
+                    command4.Parameters.AddWithValue("@hcoID", hcoid);
+                    command4.Parameters.AddWithValue("@hcpID", latesthcpid);
+                    command4.ExecuteNonQuery();
+                }
+                
+
+
                 conn.Close();
                 mainController.SelectedTab = myAccountsPage;
                 myAccounts_Controller.SelectedTab = hcpPage;
@@ -496,7 +523,6 @@ namespace myRep_app
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(command2);
                 dataAdapter.Fill(dt);
                 dataGridViewHCPWorkPlace.DataSource = dt;
-                // dataGridViewHCPWorkPlace.DataBindings.
 
                 command.CommandText = "SELECT KOL FROM dbo.HCPSet where hcpID = @Id";
                 if (Convert.ToInt32(command.ExecuteScalar()) == 1)
@@ -640,6 +666,93 @@ namespace myRep_app
                 String text = "There was an error reported by SQL Server, " + er.Message;
                 MessageBox.Show(text, "ERROR");
             }
+        }
+
+        private void addressDedicatedBookToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.addressSetTableAdapter.AddressDedicatedBook(this.myRep_ODS_Address_DataSet.AddressSet, paramToolStripTextBox.Text);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void addressDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string sConnection = Properties.Settings.Default.myRep_ODSConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+            SqlCommand command21 = new SqlCommand("dbo.HCPunderAddress", conn);
+            command21.CommandType = CommandType.StoredProcedure;
+            command21.Parameters.AddWithValue("@AdID", addressDataGridView.CurrentRow.Cells[0].Value);
+            //WYPEŁNIANIE GRIDA Z MIEJSCEM PRACY
+            DataTable dt3 = new DataTable();
+            SqlDataAdapter dataAdapter3 = new SqlDataAdapter(command21);
+            dataAdapter3.Fill(dt3);
+            HCPunderAddressGridView.DataSource = dt3;
+            HCPunderAddressGridView.Columns[0].Visible = false;
+
+            SqlCommand command22 = new SqlCommand("dbo.HCOunderAddress", conn);
+            command22.CommandType = CommandType.StoredProcedure;
+            command22.Parameters.AddWithValue("@AdID", addressDataGridView.CurrentRow.Cells[0].Value);
+            //WYPEŁNIANIE GRIDA Z MIEJSCEM PRACY
+            DataTable dt4 = new DataTable();
+            SqlDataAdapter dataAdapter4 = new SqlDataAdapter(command22);
+            dataAdapter4.Fill(dt4);
+            HCOunderAddressGridView.DataSource = dt4;
+            HCOunderAddressGridView.Columns[0].Visible = false;
+
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+        MessageBox.Show(text, "ERROR");
+            }
+}
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void HCPunderAddressGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            new_meeting.Enabled = true;
+        }
+
+        private void selectAddressButton_Click(object sender, EventArgs e)
+        {
+            mainController.SelectedTab = select_address_Page;
+        }
+
+
+
+        private void addressDedicatedBookToolStripButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.addressSetTableAdapter.AddressDedicatedBook(this.myRep_ODS_Address_DataSet.AddressSet, paramToolStripTextBox1.Text);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            mainController.SelectedTab = newHCPPage;
+            selectedAddressLabel.Text = Convert.ToString(setAddressGridView.CurrentRow.Cells[0].Value);
+            selectedAddressFullLabel.Text = Convert.ToString(setAddressGridView.CurrentRow.Cells[1].Value) + ", " + Convert.ToString(setAddressGridView.CurrentRow.Cells[2].Value);
+ 
         }
     }
 }

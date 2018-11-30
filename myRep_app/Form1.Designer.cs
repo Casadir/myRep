@@ -102,14 +102,6 @@
             this.createnewhcoButton = new System.Windows.Forms.Button();
             this.addressPage = new System.Windows.Forms.TabPage();
             this.addressDataGridView = new System.Windows.Forms.DataGridView();
-            this.addressIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.streetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.territoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.countryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zipCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.myRep_ODS_Address_DataSet = new myRep_app.myRep_ODS_Address_DataSet();
             this.userMgmtPage = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -210,7 +202,6 @@
             this.newpwdLabel = new System.Windows.Forms.Label();
             this.hCOSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.myRep_ODS_HCO_DataSet = new myRep_app.myRep_ODS_HCO_DataSet();
-            this.addressSetTableAdapter = new myRep_app.myRep_ODS_Address_DataSetTableAdapters.AddressSetTableAdapter();
             this.hCOSetTableAdapter = new myRep_app.myRep_ODS_HCO_DataSetTableAdapters.HCOSetTableAdapter();
             this.userSetTableAdapter = new myRep_app.myRep_ODS_User_DataSetTableAdapters.UserSetTableAdapter();
             this.myRep_ODS_HCOHCPDataSet = new myRep_app.myRep_ODS_HCOHCPDataSet();
@@ -238,6 +229,38 @@
             this.hcoZipLabel = new System.Windows.Forms.Label();
             this.hcoTerrLabel = new System.Windows.Forms.Label();
             this.hcoCountryLabel = new System.Windows.Forms.Label();
+            this.addressDedicatedBookToolStrip = new System.Windows.Forms.ToolStrip();
+            this.paramToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.paramToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.addressDedicatedBookToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.HCPunderAddressGridView = new System.Windows.Forms.DataGridView();
+            this.HCOunderAddressGridView = new System.Windows.Forms.DataGridView();
+            this.new_meeting = new System.Windows.Forms.Button();
+            this.select_address_Page = new System.Windows.Forms.TabPage();
+            this.setAddressGridView = new System.Windows.Forms.DataGridView();
+            this.addressIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.streetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.territoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zipCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.myRep_ODS_Address_DataSet = new myRep_app.myRep_ODS_Address_DataSet();
+            this.addressSetTableAdapter = new myRep_app.myRep_ODS_Address_DataSetTableAdapters.AddressSetTableAdapter();
+            this.addressDedicatedBookToolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.paramToolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.paramToolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.addressDedicatedBookToolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.streetDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.territoryDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countryDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zipCodeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button2 = new System.Windows.Forms.Button();
+            this.selectedAddressFullLabel = new System.Windows.Forms.Label();
             this.mainController.SuspendLayout();
             this.homePage.SuspendLayout();
             this.myAccountsPage.SuspendLayout();
@@ -251,8 +274,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.hcoDataGridView)).BeginInit();
             this.addressPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addressDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addressSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.myRep_ODS_Address_DataSet)).BeginInit();
             this.userMgmtPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userSetBindingSource)).BeginInit();
@@ -269,6 +290,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.hCOHCPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hCOSetBindingSource1)).BeginInit();
             this.showDedicatedHCPToolStrip.SuspendLayout();
+            this.addressDedicatedBookToolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.HCPunderAddressGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HCOunderAddressGridView)).BeginInit();
+            this.select_address_Page.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.setAddressGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addressSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myRep_ODS_Address_DataSet)).BeginInit();
+            this.addressDedicatedBookToolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainController
@@ -280,6 +309,7 @@
             this.mainController.Controls.Add(this.newHCOPage);
             this.mainController.Controls.Add(this.newUserPage);
             this.mainController.Controls.Add(this.setPasswordPage);
+            this.mainController.Controls.Add(this.select_address_Page);
             this.mainController.Location = new System.Drawing.Point(12, 25);
             this.mainController.Name = "mainController";
             this.mainController.SelectedIndex = 0;
@@ -982,6 +1012,12 @@
             // 
             // addressPage
             // 
+            this.addressPage.AutoScroll = true;
+            this.addressPage.Controls.Add(this.new_meeting);
+            this.addressPage.Controls.Add(this.HCOunderAddressGridView);
+            this.addressPage.Controls.Add(this.HCPunderAddressGridView);
+            this.addressPage.Controls.Add(this.label48);
+            this.addressPage.Controls.Add(this.label47);
             this.addressPage.Controls.Add(this.addressDataGridView);
             this.addressPage.Location = new System.Drawing.Point(4, 22);
             this.addressPage.Name = "addressPage";
@@ -1034,61 +1070,9 @@
             this.addressDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.addressDataGridView.RowHeadersVisible = false;
             this.addressDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.addressDataGridView.Size = new System.Drawing.Size(504, 378);
+            this.addressDataGridView.Size = new System.Drawing.Size(406, 315);
             this.addressDataGridView.TabIndex = 0;
-            // 
-            // addressIDDataGridViewTextBoxColumn1
-            // 
-            this.addressIDDataGridViewTextBoxColumn1.DataPropertyName = "addressID";
-            this.addressIDDataGridViewTextBoxColumn1.HeaderText = "addressID";
-            this.addressIDDataGridViewTextBoxColumn1.Name = "addressIDDataGridViewTextBoxColumn1";
-            this.addressIDDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.addressIDDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // streetDataGridViewTextBoxColumn
-            // 
-            this.streetDataGridViewTextBoxColumn.DataPropertyName = "Street";
-            this.streetDataGridViewTextBoxColumn.HeaderText = "Street";
-            this.streetDataGridViewTextBoxColumn.Name = "streetDataGridViewTextBoxColumn";
-            this.streetDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cityDataGridViewTextBoxColumn
-            // 
-            this.cityDataGridViewTextBoxColumn.DataPropertyName = "City";
-            this.cityDataGridViewTextBoxColumn.HeaderText = "City";
-            this.cityDataGridViewTextBoxColumn.Name = "cityDataGridViewTextBoxColumn";
-            this.cityDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // territoryDataGridViewTextBoxColumn
-            // 
-            this.territoryDataGridViewTextBoxColumn.DataPropertyName = "Territory";
-            this.territoryDataGridViewTextBoxColumn.HeaderText = "Territory";
-            this.territoryDataGridViewTextBoxColumn.Name = "territoryDataGridViewTextBoxColumn";
-            this.territoryDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // countryDataGridViewTextBoxColumn
-            // 
-            this.countryDataGridViewTextBoxColumn.DataPropertyName = "Country";
-            this.countryDataGridViewTextBoxColumn.HeaderText = "Country";
-            this.countryDataGridViewTextBoxColumn.Name = "countryDataGridViewTextBoxColumn";
-            this.countryDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // zipCodeDataGridViewTextBoxColumn
-            // 
-            this.zipCodeDataGridViewTextBoxColumn.DataPropertyName = "ZipCode";
-            this.zipCodeDataGridViewTextBoxColumn.HeaderText = "ZipCode";
-            this.zipCodeDataGridViewTextBoxColumn.Name = "zipCodeDataGridViewTextBoxColumn";
-            this.zipCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // addressSetBindingSource
-            // 
-            this.addressSetBindingSource.DataMember = "AddressSet";
-            this.addressSetBindingSource.DataSource = this.myRep_ODS_Address_DataSet;
-            // 
-            // myRep_ODS_Address_DataSet
-            // 
-            this.myRep_ODS_Address_DataSet.DataSetName = "myRep_ODS_Address_DataSet";
-            this.myRep_ODS_Address_DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.addressDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.addressDataGridView_CellClick);
             // 
             // userMgmtPage
             // 
@@ -1170,6 +1154,7 @@
             // 
             // newHCPPage
             // 
+            this.newHCPPage.Controls.Add(this.selectedAddressFullLabel);
             this.newHCPPage.Controls.Add(this.otherLangTextBox);
             this.newHCPPage.Controls.Add(this.otherLangCheck);
             this.newHCPPage.Controls.Add(this.createHCP);
@@ -1225,9 +1210,9 @@
             this.otherLangCheck.AutoSize = true;
             this.otherLangCheck.Location = new System.Drawing.Point(337, 169);
             this.otherLangCheck.Name = "otherLangCheck";
-            this.otherLangCheck.Size = new System.Drawing.Size(55, 17);
+            this.otherLangCheck.Size = new System.Drawing.Size(50, 17);
             this.otherLangCheck.TabIndex = 36;
-            this.otherLangCheck.Text = "Other:";
+            this.otherLangCheck.Text = "Inne:";
             this.otherLangCheck.UseVisualStyleBackColor = true;
             this.otherLangCheck.CheckedChanged += new System.EventHandler(this.otherLangCheck_CheckedChanged);
             // 
@@ -1238,7 +1223,7 @@
             this.createHCP.Name = "createHCP";
             this.createHCP.Size = new System.Drawing.Size(93, 43);
             this.createHCP.TabIndex = 35;
-            this.createHCP.Text = "Create!";
+            this.createHCP.Text = "STWÓRZ!";
             this.createHCP.UseVisualStyleBackColor = true;
             this.createHCP.Click += new System.EventHandler(this.createHCP_Click);
             // 
@@ -1263,9 +1248,9 @@
             this.AddressLabel.AutoSize = true;
             this.AddressLabel.Location = new System.Drawing.Point(23, 387);
             this.AddressLabel.Name = "AddressLabel";
-            this.AddressLabel.Size = new System.Drawing.Size(45, 13);
+            this.AddressLabel.Size = new System.Drawing.Size(34, 13);
             this.AddressLabel.TabIndex = 11;
-            this.AddressLabel.Text = "Address";
+            this.AddressLabel.Text = "Adres";
             // 
             // label6
             // 
@@ -1302,9 +1287,9 @@
             this.GenderLabel.AutoSize = true;
             this.GenderLabel.Location = new System.Drawing.Point(289, 20);
             this.GenderLabel.Name = "GenderLabel";
-            this.GenderLabel.Size = new System.Drawing.Size(42, 13);
+            this.GenderLabel.Size = new System.Drawing.Size(30, 13);
             this.GenderLabel.TabIndex = 3;
-            this.GenderLabel.Text = "Gender";
+            this.GenderLabel.Text = "Płeć";
             // 
             // label3
             // 
@@ -1321,9 +1306,9 @@
             this.LastNameLabel.AutoSize = true;
             this.LastNameLabel.Location = new System.Drawing.Point(23, 121);
             this.LastNameLabel.Name = "LastNameLabel";
-            this.LastNameLabel.Size = new System.Drawing.Size(58, 13);
+            this.LastNameLabel.Size = new System.Drawing.Size(53, 13);
             this.LastNameLabel.TabIndex = 2;
-            this.LastNameLabel.Text = "Last Name";
+            this.LastNameLabel.Text = "Nazwisko";
             // 
             // label2
             // 
@@ -1340,9 +1325,9 @@
             this.FirstNameLabel.AutoSize = true;
             this.FirstNameLabel.Location = new System.Drawing.Point(23, 20);
             this.FirstNameLabel.Name = "FirstNameLabel";
-            this.FirstNameLabel.Size = new System.Drawing.Size(57, 13);
+            this.FirstNameLabel.Size = new System.Drawing.Size(26, 13);
             this.FirstNameLabel.TabIndex = 0;
-            this.FirstNameLabel.Text = "First Name";
+            this.FirstNameLabel.Text = "Imię";
             // 
             // label1
             // 
@@ -1357,7 +1342,7 @@
             // selectedAddressLabel
             // 
             this.selectedAddressLabel.AutoSize = true;
-            this.selectedAddressLabel.Location = new System.Drawing.Point(159, 392);
+            this.selectedAddressLabel.Location = new System.Drawing.Point(104, 413);
             this.selectedAddressLabel.Name = "selectedAddressLabel";
             this.selectedAddressLabel.Size = new System.Drawing.Size(13, 13);
             this.selectedAddressLabel.TabIndex = 28;
@@ -1372,6 +1357,7 @@
             this.selectAddressButton.TabIndex = 27;
             this.selectAddressButton.Text = "Select";
             this.selectAddressButton.UseVisualStyleBackColor = true;
+            this.selectAddressButton.Click += new System.EventHandler(this.selectAddressButton_Click);
             // 
             // kolBox
             // 
@@ -1572,14 +1558,14 @@
             this.LanguageSpokenLabel.AutoSize = true;
             this.LanguageSpokenLabel.Location = new System.Drawing.Point(289, 121);
             this.LanguageSpokenLabel.Name = "LanguageSpokenLabel";
-            this.LanguageSpokenLabel.Size = new System.Drawing.Size(95, 13);
+            this.LanguageSpokenLabel.Size = new System.Drawing.Size(67, 13);
             this.LanguageSpokenLabel.TabIndex = 10;
-            this.LanguageSpokenLabel.Text = "Language Spoken";
+            this.LanguageSpokenLabel.Text = "Znane języki";
             // 
             // KOLLabel
             // 
             this.KOLLabel.AutoSize = true;
-            this.KOLLabel.Location = new System.Drawing.Point(520, 20);
+            this.KOLLabel.Location = new System.Drawing.Point(516, 20);
             this.KOLLabel.Name = "KOLLabel";
             this.KOLLabel.Size = new System.Drawing.Size(28, 13);
             this.KOLLabel.TabIndex = 9;
@@ -1599,45 +1585,45 @@
             this.PhoneNumberLabel.AutoSize = true;
             this.PhoneNumberLabel.Location = new System.Drawing.Point(23, 267);
             this.PhoneNumberLabel.Name = "PhoneNumberLabel";
-            this.PhoneNumberLabel.Size = new System.Drawing.Size(78, 13);
+            this.PhoneNumberLabel.Size = new System.Drawing.Size(59, 13);
             this.PhoneNumberLabel.TabIndex = 7;
-            this.PhoneNumberLabel.Text = "Phone Number";
+            this.PhoneNumberLabel.Text = "Nr telefonu";
             // 
             // BirthdateLabel
             // 
             this.BirthdateLabel.AutoSize = true;
             this.BirthdateLabel.Location = new System.Drawing.Point(289, 70);
             this.BirthdateLabel.Name = "BirthdateLabel";
-            this.BirthdateLabel.Size = new System.Drawing.Size(49, 13);
+            this.BirthdateLabel.Size = new System.Drawing.Size(79, 13);
             this.BirthdateLabel.TabIndex = 6;
-            this.BirthdateLabel.Text = "Birthdate";
+            this.BirthdateLabel.Text = "Data urodzenia";
             // 
             // SpecialtyLabel
             // 
             this.SpecialtyLabel.AutoSize = true;
             this.SpecialtyLabel.Location = new System.Drawing.Point(289, 334);
             this.SpecialtyLabel.Name = "SpecialtyLabel";
-            this.SpecialtyLabel.Size = new System.Drawing.Size(50, 13);
+            this.SpecialtyLabel.Size = new System.Drawing.Size(69, 13);
             this.SpecialtyLabel.TabIndex = 5;
-            this.SpecialtyLabel.Text = "Specialty";
+            this.SpecialtyLabel.Text = "Specjalizacja";
             // 
             // AcademicTitleLabel
             // 
             this.AcademicTitleLabel.AutoSize = true;
             this.AcademicTitleLabel.Location = new System.Drawing.Point(289, 267);
             this.AcademicTitleLabel.Name = "AcademicTitleLabel";
-            this.AcademicTitleLabel.Size = new System.Drawing.Size(77, 13);
+            this.AcademicTitleLabel.Size = new System.Drawing.Size(78, 13);
             this.AcademicTitleLabel.TabIndex = 4;
-            this.AcademicTitleLabel.Text = "Academic Title";
+            this.AcademicTitleLabel.Text = "Tytuł naukowy";
             // 
             // MiddleNameLabel
             // 
             this.MiddleNameLabel.AutoSize = true;
             this.MiddleNameLabel.Location = new System.Drawing.Point(23, 70);
             this.MiddleNameLabel.Name = "MiddleNameLabel";
-            this.MiddleNameLabel.Size = new System.Drawing.Size(69, 13);
+            this.MiddleNameLabel.Size = new System.Drawing.Size(59, 13);
             this.MiddleNameLabel.TabIndex = 1;
-            this.MiddleNameLabel.Text = "Middle Name";
+            this.MiddleNameLabel.Text = "Drugie imię";
             // 
             // newHCOPage
             // 
@@ -2155,10 +2141,6 @@
             this.myRep_ODS_HCO_DataSet.DataSetName = "myRep_ODS_HCO_DataSet";
             this.myRep_ODS_HCO_DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // addressSetTableAdapter
-            // 
-            this.addressSetTableAdapter.ClearBeforeFill = true;
-            // 
             // hCOSetTableAdapter
             // 
             this.hCOSetTableAdapter.ClearBeforeFill = true;
@@ -2357,11 +2339,286 @@
             this.hcoCountryLabel.TabIndex = 43;
             this.hcoCountryLabel.Text = "-";
             // 
+            // addressDedicatedBookToolStrip
+            // 
+            this.addressDedicatedBookToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.paramToolStripLabel,
+            this.paramToolStripTextBox,
+            this.addressDedicatedBookToolStripButton});
+            this.addressDedicatedBookToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.addressDedicatedBookToolStrip.Name = "addressDedicatedBookToolStrip";
+            this.addressDedicatedBookToolStrip.Size = new System.Drawing.Size(967, 25);
+            this.addressDedicatedBookToolStrip.TabIndex = 9;
+            this.addressDedicatedBookToolStrip.Text = "addressDedicatedBookToolStrip";
+            this.addressDedicatedBookToolStrip.Visible = false;
+            // 
+            // paramToolStripLabel
+            // 
+            this.paramToolStripLabel.Name = "paramToolStripLabel";
+            this.paramToolStripLabel.Size = new System.Drawing.Size(44, 22);
+            this.paramToolStripLabel.Text = "param:";
+            // 
+            // paramToolStripTextBox
+            // 
+            this.paramToolStripTextBox.Name = "paramToolStripTextBox";
+            this.paramToolStripTextBox.Size = new System.Drawing.Size(100, 25);
+            // 
+            // addressDedicatedBookToolStripButton
+            // 
+            this.addressDedicatedBookToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.addressDedicatedBookToolStripButton.Name = "addressDedicatedBookToolStripButton";
+            this.addressDedicatedBookToolStripButton.Size = new System.Drawing.Size(133, 22);
+            this.addressDedicatedBookToolStripButton.Text = "AddressDedicatedBook";
+            this.addressDedicatedBookToolStripButton.Click += new System.EventHandler(this.addressDedicatedBookToolStripButton_Click);
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(428, 20);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(121, 13);
+            this.label47.TabIndex = 1;
+            this.label47.Text = "POWIĄZANI LEKARZE";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(425, 209);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(129, 13);
+            this.label48.TabIndex = 2;
+            this.label48.Text = "POWIĄZNA PLACÓWKA";
+            // 
+            // HCPunderAddressGridView
+            // 
+            this.HCPunderAddressGridView.AllowUserToAddRows = false;
+            this.HCPunderAddressGridView.AllowUserToDeleteRows = false;
+            this.HCPunderAddressGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.HCPunderAddressGridView.Location = new System.Drawing.Point(431, 36);
+            this.HCPunderAddressGridView.MultiSelect = false;
+            this.HCPunderAddressGridView.Name = "HCPunderAddressGridView";
+            this.HCPunderAddressGridView.ReadOnly = true;
+            this.HCPunderAddressGridView.RowHeadersVisible = false;
+            this.HCPunderAddressGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.HCPunderAddressGridView.Size = new System.Drawing.Size(240, 150);
+            this.HCPunderAddressGridView.TabIndex = 3;
+            this.HCPunderAddressGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.HCPunderAddressGridView_CellClick);
+            // 
+            // HCOunderAddressGridView
+            // 
+            this.HCOunderAddressGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.HCOunderAddressGridView.Location = new System.Drawing.Point(428, 225);
+            this.HCOunderAddressGridView.MultiSelect = false;
+            this.HCOunderAddressGridView.Name = "HCOunderAddressGridView";
+            this.HCOunderAddressGridView.RowHeadersVisible = false;
+            this.HCOunderAddressGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.HCOunderAddressGridView.Size = new System.Drawing.Size(240, 150);
+            this.HCOunderAddressGridView.TabIndex = 4;
+            // 
+            // new_meeting
+            // 
+            this.new_meeting.Enabled = false;
+            this.new_meeting.Location = new System.Drawing.Point(153, 335);
+            this.new_meeting.Name = "new_meeting";
+            this.new_meeting.Size = new System.Drawing.Size(123, 23);
+            this.new_meeting.TabIndex = 5;
+            this.new_meeting.Text = "SPOTKANIE HCP";
+            this.new_meeting.UseVisualStyleBackColor = true;
+            this.new_meeting.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // select_address_Page
+            // 
+            this.select_address_Page.Controls.Add(this.button2);
+            this.select_address_Page.Controls.Add(this.setAddressGridView);
+            this.select_address_Page.Location = new System.Drawing.Point(4, 22);
+            this.select_address_Page.Name = "select_address_Page";
+            this.select_address_Page.Padding = new System.Windows.Forms.Padding(3);
+            this.select_address_Page.Size = new System.Drawing.Size(720, 452);
+            this.select_address_Page.TabIndex = 7;
+            this.select_address_Page.Text = "select_address";
+            this.select_address_Page.UseVisualStyleBackColor = true;
+            // 
+            // setAddressGridView
+            // 
+            this.setAddressGridView.AllowUserToAddRows = false;
+            this.setAddressGridView.AllowUserToDeleteRows = false;
+            this.setAddressGridView.AutoGenerateColumns = false;
+            this.setAddressGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.setAddressGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.streetDataGridViewTextBoxColumn1,
+            this.cityDataGridViewTextBoxColumn1,
+            this.territoryDataGridViewTextBoxColumn1,
+            this.countryDataGridViewTextBoxColumn1,
+            this.zipCodeDataGridViewTextBoxColumn1});
+            this.setAddressGridView.DataSource = this.addressSetBindingSource;
+            this.setAddressGridView.Location = new System.Drawing.Point(32, 22);
+            this.setAddressGridView.Name = "setAddressGridView";
+            this.setAddressGridView.ReadOnly = true;
+            this.setAddressGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.setAddressGridView.Size = new System.Drawing.Size(645, 326);
+            this.setAddressGridView.TabIndex = 0;
+            // 
+            // addressIDDataGridViewTextBoxColumn1
+            // 
+            this.addressIDDataGridViewTextBoxColumn1.DataPropertyName = "addressID";
+            this.addressIDDataGridViewTextBoxColumn1.HeaderText = "addressID";
+            this.addressIDDataGridViewTextBoxColumn1.Name = "addressIDDataGridViewTextBoxColumn1";
+            this.addressIDDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.addressIDDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // streetDataGridViewTextBoxColumn
+            // 
+            this.streetDataGridViewTextBoxColumn.DataPropertyName = "Street";
+            this.streetDataGridViewTextBoxColumn.HeaderText = "Street";
+            this.streetDataGridViewTextBoxColumn.Name = "streetDataGridViewTextBoxColumn";
+            this.streetDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cityDataGridViewTextBoxColumn
+            // 
+            this.cityDataGridViewTextBoxColumn.DataPropertyName = "City";
+            this.cityDataGridViewTextBoxColumn.HeaderText = "City";
+            this.cityDataGridViewTextBoxColumn.Name = "cityDataGridViewTextBoxColumn";
+            this.cityDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // territoryDataGridViewTextBoxColumn
+            // 
+            this.territoryDataGridViewTextBoxColumn.DataPropertyName = "Territory";
+            this.territoryDataGridViewTextBoxColumn.HeaderText = "Territory";
+            this.territoryDataGridViewTextBoxColumn.Name = "territoryDataGridViewTextBoxColumn";
+            this.territoryDataGridViewTextBoxColumn.ReadOnly = true;
+            this.territoryDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // countryDataGridViewTextBoxColumn
+            // 
+            this.countryDataGridViewTextBoxColumn.DataPropertyName = "Country";
+            this.countryDataGridViewTextBoxColumn.HeaderText = "Country";
+            this.countryDataGridViewTextBoxColumn.Name = "countryDataGridViewTextBoxColumn";
+            this.countryDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // zipCodeDataGridViewTextBoxColumn
+            // 
+            this.zipCodeDataGridViewTextBoxColumn.DataPropertyName = "ZipCode";
+            this.zipCodeDataGridViewTextBoxColumn.HeaderText = "ZipCode";
+            this.zipCodeDataGridViewTextBoxColumn.Name = "zipCodeDataGridViewTextBoxColumn";
+            this.zipCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // addressSetBindingSource
+            // 
+            this.addressSetBindingSource.DataMember = "AddressSet";
+            this.addressSetBindingSource.DataSource = this.myRep_ODS_Address_DataSet;
+            // 
+            // myRep_ODS_Address_DataSet
+            // 
+            this.myRep_ODS_Address_DataSet.DataSetName = "myRep_ODS_Address_DataSet";
+            this.myRep_ODS_Address_DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // addressSetTableAdapter
+            // 
+            this.addressSetTableAdapter.ClearBeforeFill = true;
+            // 
+            // addressDedicatedBookToolStrip1
+            // 
+            this.addressDedicatedBookToolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.paramToolStripLabel1,
+            this.paramToolStripTextBox1,
+            this.addressDedicatedBookToolStripButton1});
+            this.addressDedicatedBookToolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.addressDedicatedBookToolStrip1.Name = "addressDedicatedBookToolStrip1";
+            this.addressDedicatedBookToolStrip1.Size = new System.Drawing.Size(967, 25);
+            this.addressDedicatedBookToolStrip1.TabIndex = 10;
+            this.addressDedicatedBookToolStrip1.Text = "addressDedicatedBookToolStrip1";
+            this.addressDedicatedBookToolStrip1.Visible = false;
+            // 
+            // paramToolStripLabel1
+            // 
+            this.paramToolStripLabel1.Name = "paramToolStripLabel1";
+            this.paramToolStripLabel1.Size = new System.Drawing.Size(44, 22);
+            this.paramToolStripLabel1.Text = "param:";
+            // 
+            // paramToolStripTextBox1
+            // 
+            this.paramToolStripTextBox1.Name = "paramToolStripTextBox1";
+            this.paramToolStripTextBox1.Size = new System.Drawing.Size(100, 25);
+            // 
+            // addressDedicatedBookToolStripButton1
+            // 
+            this.addressDedicatedBookToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.addressDedicatedBookToolStripButton1.Name = "addressDedicatedBookToolStripButton1";
+            this.addressDedicatedBookToolStripButton1.Size = new System.Drawing.Size(133, 22);
+            this.addressDedicatedBookToolStripButton1.Text = "AddressDedicatedBook";
+            this.addressDedicatedBookToolStripButton1.Click += new System.EventHandler(this.addressDedicatedBookToolStripButton1_Click);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "addressID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "addressID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // streetDataGridViewTextBoxColumn1
+            // 
+            this.streetDataGridViewTextBoxColumn1.DataPropertyName = "Street";
+            this.streetDataGridViewTextBoxColumn1.HeaderText = "Street";
+            this.streetDataGridViewTextBoxColumn1.Name = "streetDataGridViewTextBoxColumn1";
+            this.streetDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // cityDataGridViewTextBoxColumn1
+            // 
+            this.cityDataGridViewTextBoxColumn1.DataPropertyName = "City";
+            this.cityDataGridViewTextBoxColumn1.HeaderText = "City";
+            this.cityDataGridViewTextBoxColumn1.Name = "cityDataGridViewTextBoxColumn1";
+            this.cityDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // territoryDataGridViewTextBoxColumn1
+            // 
+            this.territoryDataGridViewTextBoxColumn1.DataPropertyName = "Territory";
+            this.territoryDataGridViewTextBoxColumn1.HeaderText = "Territory";
+            this.territoryDataGridViewTextBoxColumn1.Name = "territoryDataGridViewTextBoxColumn1";
+            this.territoryDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.territoryDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // countryDataGridViewTextBoxColumn1
+            // 
+            this.countryDataGridViewTextBoxColumn1.DataPropertyName = "Country";
+            this.countryDataGridViewTextBoxColumn1.HeaderText = "Country";
+            this.countryDataGridViewTextBoxColumn1.Name = "countryDataGridViewTextBoxColumn1";
+            this.countryDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // zipCodeDataGridViewTextBoxColumn1
+            // 
+            this.zipCodeDataGridViewTextBoxColumn1.DataPropertyName = "ZipCode";
+            this.zipCodeDataGridViewTextBoxColumn1.HeaderText = "ZipCode";
+            this.zipCodeDataGridViewTextBoxColumn1.Name = "zipCodeDataGridViewTextBoxColumn1";
+            this.zipCodeDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(308, 372);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "SELECT";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // selectedAddressFullLabel
+            // 
+            this.selectedAddressFullLabel.AutoSize = true;
+            this.selectedAddressFullLabel.Location = new System.Drawing.Point(155, 392);
+            this.selectedAddressFullLabel.Name = "selectedAddressFullLabel";
+            this.selectedAddressFullLabel.Size = new System.Drawing.Size(10, 13);
+            this.selectedAddressFullLabel.TabIndex = 38;
+            this.selectedAddressFullLabel.Text = "-";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(967, 515);
+            this.Controls.Add(this.addressDedicatedBookToolStrip1);
+            this.Controls.Add(this.addressDedicatedBookToolStrip);
             this.Controls.Add(this.showDedicatedHCPToolStrip);
             this.Controls.Add(this.mainController);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -2383,9 +2640,8 @@
             this.hcoPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hcoDataGridView)).EndInit();
             this.addressPage.ResumeLayout(false);
+            this.addressPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addressDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addressSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.myRep_ODS_Address_DataSet)).EndInit();
             this.userMgmtPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userSetBindingSource)).EndInit();
@@ -2408,6 +2664,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.hCOSetBindingSource1)).EndInit();
             this.showDedicatedHCPToolStrip.ResumeLayout(false);
             this.showDedicatedHCPToolStrip.PerformLayout();
+            this.addressDedicatedBookToolStrip.ResumeLayout(false);
+            this.addressDedicatedBookToolStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.HCPunderAddressGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HCOunderAddressGridView)).EndInit();
+            this.select_address_Page.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.setAddressGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addressSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myRep_ODS_Address_DataSet)).EndInit();
+            this.addressDedicatedBookToolStrip1.ResumeLayout(false);
+            this.addressDedicatedBookToolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2447,12 +2713,6 @@
         private myRep_ODS_Address_DataSet myRep_ODS_Address_DataSet;
         private System.Windows.Forms.BindingSource addressSetBindingSource;
         private myRep_ODS_Address_DataSetTableAdapters.AddressSetTableAdapter addressSetTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addressIDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn streetDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn territoryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn countryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zipCodeDataGridViewTextBoxColumn;
         private myRep_ODS_HCO_DataSet myRep_ODS_HCO_DataSet;
         private System.Windows.Forms.BindingSource hCOSetBindingSource;
         private myRep_ODS_HCO_DataSetTableAdapters.HCOSetTableAdapter hCOSetTableAdapter;
@@ -2629,6 +2889,35 @@
         private System.Windows.Forms.Label hcoEmailLabel;
         private System.Windows.Forms.Label hcoTelLabel;
         private System.Windows.Forms.Label hcoNameLabel;
+        private System.Windows.Forms.ToolStrip addressDedicatedBookToolStrip;
+        private System.Windows.Forms.ToolStripLabel paramToolStripLabel;
+        private System.Windows.Forms.ToolStripTextBox paramToolStripTextBox;
+        private System.Windows.Forms.ToolStripButton addressDedicatedBookToolStripButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn streetDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn territoryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn countryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zipCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView HCOunderAddressGridView;
+        private System.Windows.Forms.DataGridView HCPunderAddressGridView;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Button new_meeting;
+        private System.Windows.Forms.TabPage select_address_Page;
+        private System.Windows.Forms.DataGridView setAddressGridView;
+        private System.Windows.Forms.ToolStrip addressDedicatedBookToolStrip1;
+        private System.Windows.Forms.ToolStripLabel paramToolStripLabel1;
+        private System.Windows.Forms.ToolStripTextBox paramToolStripTextBox1;
+        private System.Windows.Forms.ToolStripButton addressDedicatedBookToolStripButton1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn streetDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cityDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn territoryDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn countryDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zipCodeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.Label selectedAddressFullLabel;
     }
 }
 
