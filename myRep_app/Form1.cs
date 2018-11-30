@@ -16,7 +16,7 @@ namespace myRep_app
         public static int loggedUserID;
         public static string loggedUserTerritory;
         public static String username;
-
+        public static string action_backTo = "";
         public Form1()
         {
             InitializeComponent();
@@ -93,7 +93,6 @@ namespace myRep_app
                     SqlCommand command30 = new SqlCommand("HCODedicatedDisplay", conn);
                     command30.CommandType = CommandType.StoredProcedure;
                     command30.Parameters.AddWithValue("@terr", loggedUserTerritory.ToString());
-                    MessageBox.Show(loggedUserTerritory.ToString());
                     //WYPEŁNIANIE GRIDA Z MIEJSCEM PRACY
                     DataTable dt1 = new DataTable();
                     SqlDataAdapter dataAdapter1 = new SqlDataAdapter(command30);
@@ -172,9 +171,12 @@ namespace myRep_app
         {
             createHCP.Enabled = (fnameBox.Text != "") && (lnameBox.Text != "") && (selectedAddressLabel.Text != "") && ((mRadio.Checked==true) || (fRadio.Checked==true)) && (academicTitleList.Text != "") && (SpecialtyList.Text != "");
         }
+        private void ToogleCreateNewAddressButton()
+        {
+            CreateNewAddress.Enabled = (StreetNEWaddressBox.Text != "") && (CityNEWaddressBox.Text != "") && (TerritoryNEWaddressBox.Text != "") && (CountryNEWaddressBOX.Text != "") && (ZipNEWaddressBox.Text != "");
+        }
         private void fnameBox_TextChanged(object sender, EventArgs e)
         {
-          //      createHCP.Enabled = !string.IsNullOrEmpty(fnameBox.Text);
             ToogleCreateNewHCPButton();
 
         }
@@ -302,24 +304,44 @@ namespace myRep_app
             {
                 SqlCommand command = new SqlCommand(commandText, conn);
                 command.Parameters.AddWithValue("@Name", HCONameBox.Text.ToString());
-                command.Parameters.AddWithValue("@Range", RangeHCOBox.Text.ToString());
-                command.Parameters.AddWithValue("@Level", Convert.ToInt16(LevelHCOBox.Text.ToString()));
-                command.Parameters.AddWithValue("@SpecialType", SpecialTypeHCOBox.Text.ToString());
-                command.Parameters.AddWithValue("@Beds", BedsHCOBox.Text.ToString());
-                command.Parameters.AddWithValue("@Employees", EmployeesHCOBox.Text.ToString());
-                command.Parameters.AddWithValue("@PhoneNumber", Int32.Parse(PhNumberHCOBox.Text.ToString()));
-                command.Parameters.AddWithValue("@Email", EmailHCOBox.Text.ToString());
-                command.Parameters.AddWithValue("@Website", WebsiteHCOBox.Text.ToString());
-                command.Parameters.AddWithValue("@AddressID", 1);
-
-                //command.Parameters.AddWithValue("@AddressID", Int32.Parse(selectedAddressLabel.Text.ToString()));
-
+                if (string.IsNullOrEmpty(RangeHCOBox.Text.ToString())) command.Parameters.AddWithValue("@Range", DBNull.Value); else command.Parameters.AddWithValue("@Range", RangeHCOBox.Text.ToString());
+                if (string.IsNullOrEmpty(LevelHCOBox.Text.ToString()))
+                    command.Parameters.AddWithValue("@Level", DBNull.Value);
+                else
+                {
+                    if (LevelHCOBox.SelectedIndex == 1)
+                        command.Parameters.AddWithValue("@Level", 1);
+                    else if (LevelHCOBox.SelectedIndex == 2)
+                        command.Parameters.AddWithValue("@Level", 2);
+                    if (LevelHCOBox.SelectedIndex == 3)
+                        command.Parameters.AddWithValue("@Level", 3);
+                }
+                if (string.IsNullOrEmpty(SpecialTypeHCOBox.Text.ToString())) command.Parameters.AddWithValue("@SpecialType", DBNull.Value); else command.Parameters.AddWithValue("@SpecialType", SpecialTypeHCOBox.Text.ToString());
+                if (BedsHCOBox.Value == 0) command.Parameters.AddWithValue("@Beds", DBNull.Value); else command.Parameters.AddWithValue("@Beds", BedsHCOBox.Text.ToString());
+                if (EmployeesHCOBox.Value == 0) command.Parameters.AddWithValue("@Employees", DBNull.Value); else command.Parameters.AddWithValue("@Employees", EmployeesHCOBox.Text.ToString());
+                PhNumberHCOBox.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                if (string.IsNullOrEmpty(PhNumberHCOBox.Text.ToString())) command.Parameters.AddWithValue("@PhoneNumber", DBNull.Value); else command.Parameters.AddWithValue("@PhoneNumber", Convert.ToInt32(PhNumberHCOBox.Text.ToString()));
+                PhNumberHCOBox.TextMaskFormat = MaskFormat.IncludePromptAndLiterals;
+                if (string.IsNullOrEmpty(EmailHCOBox.Text.ToString())) command.Parameters.AddWithValue("@Email", DBNull.Value); else command.Parameters.AddWithValue("@Email", EmailHCOBox.Text.ToString());
+                if (string.IsNullOrEmpty(WebsiteHCOBox.Text.ToString())) command.Parameters.AddWithValue("@Website", DBNull.Value); else command.Parameters.AddWithValue("@Website", WebsiteHCOBox.Text.ToString());
+                command.Parameters.AddWithValue("@AddressID", Convert.ToInt32(SelectedHCO_AddressIDLabel.Text.ToString()));
                 command.ExecuteNonQuery();
                 conn.Close();
+
+
+                //REFRESH WYŚWIETLANYCH HCO W myAccounts
+                SqlCommand command30 = new SqlCommand("HCODedicatedDisplay", conn);
+                command30.CommandType = CommandType.StoredProcedure;
+                command30.Parameters.AddWithValue("@terr", loggedUserTerritory.ToString());
+                    //WYPEŁNIANIE GRIDA Z MIEJSCEM PRACY
+                DataTable dt1 = new DataTable();
+                SqlDataAdapter dataAdapter1 = new SqlDataAdapter(command30);
+                dataAdapter1.Fill(dt1);
+                hcoDataGridView.DataSource = dt1;
+                hcoDataGridView.Columns[1].Visible = false;
+
                 mainController.SelectedTab = myAccountsPage;
                 myAccounts_Controller.SelectedTab = hcoPage;
-                this.myRep_ODS_HCO_DataSet.Reset();
-                this.hCOSetTableAdapter.Fill(this.myRep_ODS_HCO_DataSet.HCOSet);
             }
             catch (SqlException er)
             {
@@ -730,6 +752,7 @@ namespace myRep_app
         private void selectAddressButton_Click(object sender, EventArgs e)
         {
             mainController.SelectedTab = select_address_Page;
+            action_backTo = "NEWHCP_PAGE";
         }
 
 
@@ -749,10 +772,95 @@ namespace myRep_app
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            mainController.SelectedTab = newHCPPage;
-            selectedAddressLabel.Text = Convert.ToString(setAddressGridView.CurrentRow.Cells[0].Value);
-            selectedAddressFullLabel.Text = Convert.ToString(setAddressGridView.CurrentRow.Cells[1].Value) + ", " + Convert.ToString(setAddressGridView.CurrentRow.Cells[2].Value);
- 
+            if (action_backTo == "NEWHCP_PAGE")
+            {
+                mainController.SelectedTab = newHCPPage;
+                selectedAddressLabel.Text = Convert.ToString(setAddressGridView.CurrentRow.Cells[0].Value);
+                selectedAddressFullLabel.Text = Convert.ToString(setAddressGridView.CurrentRow.Cells[1].Value) + ", " + Convert.ToString(setAddressGridView.CurrentRow.Cells[2].Value);
+                action_backTo = "";
+            }
+
+        }
+
+        private void AddressHCOButton_Click(object sender, EventArgs e)
+        {
+            mainController.SelectedTab = newAddressPage;
+            action_backTo = "NEWHCO_PAGE";
+
+        }
+
+        private void CreateNewAddress_Click(object sender, EventArgs e)
+        {
+            String commandText = "INSERT INTO AddressSet VALUES(@Street,@City,@Territory,@Country,@ZipCode)";
+            string sConnection = Properties.Settings.Default.ConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                SqlCommand command = new SqlCommand(commandText, conn);
+                command.Parameters.AddWithValue("@Street", StreetNEWaddressBox.Text.ToString());
+                command.Parameters.AddWithValue("@City", CityNEWaddressBox.Text.ToString());
+                //Territory powinno być brane z aktualnie zalogowanego usera
+                command.Parameters.AddWithValue("@Territory", TerritoryNEWaddressBox.Text.ToString());
+                command.Parameters.AddWithValue("@Country", CountryNEWaddressBOX.Text.ToString());
+                command.Parameters.AddWithValue("@ZipCode", Convert.ToInt32(ZipNEWaddressBox.Text));
+                command.ExecuteNonQuery();
+
+                commandText = "SELECT max(addressID) FROM AddressSet";
+                SqlCommand command2 = new SqlCommand(commandText, conn);
+                SelectedHCO_AddressIDLabel.Text = Convert.ToString(command2.ExecuteScalar());
+                SelectedHCO_AddressLabel.Text = StreetNEWaddressBox.Text.ToString() + ", " + CityNEWaddressBox.Text.ToString();
+
+                if (action_backTo == "NEWHCO_PAGE") mainController.SelectedTab = newHCOPage;
+
+
+                //CZYSZCZENIE PÓL
+                StreetNEWaddressBox.Text = "";
+                CityNEWaddressBox.Text = "";
+                ZipNEWaddressBox.Text = "";
+                
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
+        }
+
+        private void StreetNEWaddressBox_TextChanged(object sender, EventArgs e)
+        {
+            ToogleCreateNewAddressButton();
+        }
+
+        private void CityNEWaddressBox_TextChanged(object sender, EventArgs e)
+        {
+            ToogleCreateNewAddressButton();
+        }
+
+        private void TerritoryNEWaddressBox_TextChanged(object sender, EventArgs e)
+        {
+            ToogleCreateNewAddressButton();
+        }
+
+        private void CountryNEWaddressBOX_TextChanged(object sender, EventArgs e)
+        {
+            ToogleCreateNewAddressButton();
+        }
+
+        private void ZipNEWaddressBox_TextChanged(object sender, EventArgs e)
+        {
+            ToogleCreateNewAddressButton();
+        }
+
+        private void HCONameBox_TextChanged(object sender, EventArgs e)
+        {
+            CreateHCOButton.Enabled = (HCONameBox.Text != "") && (Convert.ToInt32(SelectedHCO_AddressIDLabel.Text) > 0);
+        }
+
+        private void SelectedHCO_AddressIDLabel_TextChanged(object sender, EventArgs e)
+        {
+            CreateHCOButton.Enabled = (HCONameBox.Text != "") && (Convert.ToInt32(SelectedHCO_AddressIDLabel.Text) > 0);
         }
     }
 }
