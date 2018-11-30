@@ -98,7 +98,7 @@ namespace myRep_app
                     SqlDataAdapter dataAdapter1 = new SqlDataAdapter(command30);
                     dataAdapter1.Fill(dt1);
                     hcoDataGridView.DataSource = dt1;
-                    hcoDataGridView.Columns[1].Visible = false;
+                    hcoDataGridView.Columns[0].Visible = false;
 
 
                     //Nadanie dostępu do odpowiednich zasobów na podstawie Job Title
@@ -338,7 +338,7 @@ namespace myRep_app
                 SqlDataAdapter dataAdapter1 = new SqlDataAdapter(command30);
                 dataAdapter1.Fill(dt1);
                 hcoDataGridView.DataSource = dt1;
-                hcoDataGridView.Columns[1].Visible = false;
+                hcoDataGridView.Columns[0].Visible = false;
 
                 mainController.SelectedTab = myAccountsPage;
                 myAccounts_Controller.SelectedTab = hcoPage;
@@ -603,7 +603,7 @@ namespace myRep_app
             {
                 SqlCommand command = new SqlCommand("", conn);
                 command.CommandText = "SELECT Name FROM dbo.HCOSet where hcoID = @Id";
-                command.Parameters.AddWithValue("@Id", hcoDataGridView.CurrentRow.Cells[1].Value.ToString());
+                command.Parameters.AddWithValue("@Id", hcoDataGridView.CurrentRow.Cells[0].Value.ToString());
                 hcoNameLabel.Text = (String)command.ExecuteScalar();
 
                 command.CommandText = "SELECT PhoneNumber FROM dbo.HCOSet where hcoID = @Id";
@@ -683,6 +683,22 @@ namespace myRep_app
                     hcoZipLabel.Text = Convert.ToString(command.ExecuteScalar());
                 else
                     hcoZipLabel.Text = "Brak danych!";
+
+                //WYPEŁNIANIE GRIDA Z PRACOWNIKAMI
+                SqlCommand command2 = new SqlCommand("HCPinHCO", conn);
+                command2.CommandType = CommandType.StoredProcedure;
+                command2.Parameters.AddWithValue("@hcoID", Convert.ToInt32(hcoDataGridView.CurrentRow.Cells[0].Value.ToString()));
+                //WYPEŁNIANIE GRIDA Z MIEJSCEM PRACY
+                DataTable dt = new DataTable();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command2);
+                dataAdapter.Fill(dt);
+                HCPinHCOGridView.DataSource = dt;
+                HCPinHCOGridView.Columns[0].Visible = false;
+                HCPinHCOGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                HCPinHCOGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+
+
             }
             catch (SqlException er)
             {
@@ -928,6 +944,23 @@ namespace myRep_app
                 String text = "There was an error reported by SQL Server, " + er.Message;
                 MessageBox.Show(text, "ERROR");
             }
+        }
+
+        private void edithcpbutton_Click(object sender, EventArgs e)
+        {
+            mainController.SelectedTab = editHCP_Page;
+            if (fnameLabel.Text.ToString() != "Brak danych!") fname_editHCPBox.Text = fnameLabel.Text;
+            if (mnameLabel.Text.ToString() != "Brak danych!") mname_editHCPBox.Text = mnameLabel.Text;
+            if (lnameLabel.Text.ToString() != "Brak danych!") lname_editHCPBox.Text = lnameLabel.Text;
+            if (hcpTitle.Text.ToString() != "Brak danych!") title_editHCPBox.Text = hcpTitle.Text;
+            if (hcpSpec.Text.ToString() != "Brak danych!") spec_editHCPBox.Text = hcpSpec.Text;
+            birthday_editHCPBox.Text = dateBirthHCP.Text;
+            if (genderHCP.Text == "M") Male_editHCPBox.Checked = true; else female_editHCPBox.Checked = true;
+            if (languageHCP.Text.ToString() != "Brak danych!") otherLang_editHCPBoxrlang.Text = languageHCP.Text;
+            if (emailHCP.Text.ToString() != "Brak danych!") email_editHCPBox.Text = emailHCP.Text;
+            tel_editHCPBox.Text = phoneHCP.Text;
+            if (kolHCP.Checked == true) kol_editHCPBox.Checked = true;
+            //TO DO ---> addressLabel_editHCPBox.Text = 
         }
     }
 }

@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainController = new System.Windows.Forms.TabControl();
             this.homePage = new System.Windows.Forms.TabPage();
             this.userMgmtButton = new System.Windows.Forms.Button();
@@ -287,6 +287,45 @@
             this.HCPname_newAssossiation = new System.Windows.Forms.Label();
             this.Assossiation_AddManualView = new System.Windows.Forms.DataGridView();
             this.addAssossiationButton = new System.Windows.Forms.Button();
+            this.HCPinHCOGridView = new System.Windows.Forms.DataGridView();
+            this.label61 = new System.Windows.Forms.Label();
+            this.edithcpbutton = new System.Windows.Forms.Button();
+            this.editHCP_Page = new System.Windows.Forms.TabPage();
+            this.otherLang_editHCPBoxrlang = new System.Windows.Forms.TextBox();
+            this.HCP_edit_BUTTON = new System.Windows.Forms.Button();
+            this.label65 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
+            this.label68 = new System.Windows.Forms.Label();
+            this.label69 = new System.Windows.Forms.Label();
+            this.label70 = new System.Windows.Forms.Label();
+            this.label71 = new System.Windows.Forms.Label();
+            this.label72 = new System.Windows.Forms.Label();
+            this.kol_editHCPBox = new System.Windows.Forms.CheckBox();
+            this.email_editHCPBox = new System.Windows.Forms.TextBox();
+            this.tel_editHCPBox = new System.Windows.Forms.MaskedTextBox();
+            this.birthday_editHCPBox = new System.Windows.Forms.DateTimePicker();
+            this.spec_editHCPBox = new System.Windows.Forms.ComboBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.female_editHCPBox = new System.Windows.Forms.RadioButton();
+            this.Male_editHCPBox = new System.Windows.Forms.RadioButton();
+            this.title_editHCPBox = new System.Windows.Forms.ComboBox();
+            this.lname_editHCPBox = new System.Windows.Forms.TextBox();
+            this.mname_editHCPBox = new System.Windows.Forms.TextBox();
+            this.fname_editHCPBox = new System.Windows.Forms.TextBox();
+            this.label74 = new System.Windows.Forms.Label();
+            this.label75 = new System.Windows.Forms.Label();
+            this.label76 = new System.Windows.Forms.Label();
+            this.label77 = new System.Windows.Forms.Label();
+            this.label78 = new System.Windows.Forms.Label();
+            this.label79 = new System.Windows.Forms.Label();
+            this.label80 = new System.Windows.Forms.Label();
+            this.label81 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label73 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.mainController.SuspendLayout();
             this.homePage.SuspendLayout();
             this.myAccountsPage.SuspendLayout();
@@ -329,6 +368,9 @@
             this.newAddressPage.SuspendLayout();
             this.new_HCPHCO_Assossiation_Page.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Assossiation_AddManualView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HCPinHCOGridView)).BeginInit();
+            this.editHCP_Page.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainController
@@ -343,10 +385,11 @@
             this.mainController.Controls.Add(this.setPasswordPage);
             this.mainController.Controls.Add(this.select_address_Page);
             this.mainController.Controls.Add(this.new_HCPHCO_Assossiation_Page);
+            this.mainController.Controls.Add(this.editHCP_Page);
             this.mainController.Location = new System.Drawing.Point(12, 25);
             this.mainController.Name = "mainController";
             this.mainController.SelectedIndex = 0;
-            this.mainController.Size = new System.Drawing.Size(728, 478);
+            this.mainController.Size = new System.Drawing.Size(904, 478);
             this.mainController.TabIndex = 7;
             // 
             // homePage
@@ -449,7 +492,7 @@
             this.myAccountsPage.Location = new System.Drawing.Point(4, 22);
             this.myAccountsPage.Name = "myAccountsPage";
             this.myAccountsPage.Padding = new System.Windows.Forms.Padding(3);
-            this.myAccountsPage.Size = new System.Drawing.Size(720, 452);
+            this.myAccountsPage.Size = new System.Drawing.Size(896, 452);
             this.myAccountsPage.TabIndex = 1;
             this.myAccountsPage.Text = "myAccounts";
             this.myAccountsPage.UseVisualStyleBackColor = true;
@@ -468,6 +511,7 @@
             // hcpPage
             // 
             this.hcpPage.AutoScroll = true;
+            this.hcpPage.Controls.Add(this.edithcpbutton);
             this.hcpPage.Controls.Add(this.NewAssossiationButton);
             this.hcpPage.Controls.Add(this.hcpSpec);
             this.hcpPage.Controls.Add(this.label31);
@@ -772,39 +816,39 @@
             this.hcpDataGridView.AllowUserToDeleteRows = false;
             this.hcpDataGridView.AutoGenerateColumns = false;
             this.hcpDataGridView.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.hcpDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle31.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle31.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.hcpDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
             this.hcpDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.hcpDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.hcpIDDataGridViewTextBoxColumn,
             this.firstNameDataGridViewTextBoxColumn,
             this.lastNameDataGridViewTextBoxColumn});
             this.hcpDataGridView.DataSource = this.hCPSetBindingSource;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.hcpDataGridView.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.hcpDataGridView.DefaultCellStyle = dataGridViewCellStyle32;
             this.hcpDataGridView.Location = new System.Drawing.Point(3, 3);
             this.hcpDataGridView.Name = "hcpDataGridView";
             this.hcpDataGridView.ReadOnly = true;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.hcpDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.hcpDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle33;
             this.hcpDataGridView.RowHeadersVisible = false;
             this.hcpDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.hcpDataGridView.Size = new System.Drawing.Size(253, 378);
@@ -847,6 +891,8 @@
             // 
             // hcoPage
             // 
+            this.hcoPage.Controls.Add(this.label61);
+            this.hcoPage.Controls.Add(this.HCPinHCOGridView);
             this.hcoPage.Controls.Add(this.hcoCountryLabel);
             this.hcoPage.Controls.Add(this.hcoTerrLabel);
             this.hcoPage.Controls.Add(this.hcoZipLabel);
@@ -889,7 +935,7 @@
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(512, 210);
+            this.label46.Location = new System.Drawing.Point(543, 210);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(90, 13);
             this.label46.TabIndex = 29;
@@ -898,7 +944,7 @@
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(389, 210);
+            this.label45.Location = new System.Drawing.Point(420, 210);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(54, 13);
             this.label45.TabIndex = 28;
@@ -907,7 +953,7 @@
             // label44
             // 
             this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(389, 176);
+            this.label44.Location = new System.Drawing.Point(420, 176);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(73, 13);
             this.label44.TabIndex = 27;
@@ -916,7 +962,7 @@
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(389, 156);
+            this.label43.Location = new System.Drawing.Point(420, 156);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(41, 13);
             this.label43.TabIndex = 26;
@@ -925,7 +971,7 @@
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(389, 137);
+            this.label42.Location = new System.Drawing.Point(420, 137);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(39, 13);
             this.label42.TabIndex = 25;
@@ -934,7 +980,7 @@
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(520, 265);
+            this.label41.Location = new System.Drawing.Point(551, 265);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(74, 13);
             this.label41.TabIndex = 24;
@@ -943,7 +989,7 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(391, 299);
+            this.label40.Location = new System.Drawing.Point(422, 299);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(25, 13);
             this.label40.TabIndex = 23;
@@ -952,7 +998,7 @@
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(391, 282);
+            this.label39.Location = new System.Drawing.Point(422, 282);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(56, 13);
             this.label39.TabIndex = 22;
@@ -961,7 +1007,7 @@
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(391, 265);
+            this.label38.Location = new System.Drawing.Point(422, 265);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(41, 13);
             this.label38.TabIndex = 21;
@@ -970,7 +1016,7 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(391, 248);
+            this.label37.Location = new System.Drawing.Point(422, 248);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(31, 13);
             this.label37.TabIndex = 20;
@@ -979,7 +1025,7 @@
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(389, 107);
+            this.label36.Location = new System.Drawing.Point(420, 107);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(43, 13);
             this.label36.TabIndex = 19;
@@ -988,7 +1034,7 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(389, 85);
+            this.label35.Location = new System.Drawing.Point(420, 85);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(38, 13);
             this.label35.TabIndex = 18;
@@ -997,7 +1043,7 @@
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(389, 63);
+            this.label34.Location = new System.Drawing.Point(420, 63);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(46, 13);
             this.label34.TabIndex = 17;
@@ -1006,7 +1052,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(389, 38);
+            this.label33.Location = new System.Drawing.Point(420, 38);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(43, 13);
             this.label33.TabIndex = 16;
@@ -1015,10 +1061,10 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label32.Location = new System.Drawing.Point(389, 16);
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label32.Location = new System.Drawing.Point(420, 13);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(98, 13);
+            this.label32.Size = new System.Drawing.Size(137, 20);
             this.label32.TabIndex = 15;
             this.label32.Text = "PODSTAWOWE";
             // 
@@ -1032,7 +1078,7 @@
             this.hcoDataGridView.Name = "hcoDataGridView";
             this.hcoDataGridView.ReadOnly = true;
             this.hcoDataGridView.RowHeadersVisible = false;
-            this.hcoDataGridView.Size = new System.Drawing.Size(240, 356);
+            this.hcoDataGridView.Size = new System.Drawing.Size(176, 356);
             this.hcoDataGridView.TabIndex = 4;
             this.hcoDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.hcoDataGridView_CellClick);
             // 
@@ -1070,14 +1116,14 @@
             this.addressDataGridView.AllowUserToResizeRows = false;
             this.addressDataGridView.AutoGenerateColumns = false;
             this.addressDataGridView.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.addressDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle34.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.addressDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
             this.addressDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.addressDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.addressIDDataGridViewTextBoxColumn1,
@@ -1087,25 +1133,25 @@
             this.countryDataGridViewTextBoxColumn,
             this.zipCodeDataGridViewTextBoxColumn});
             this.addressDataGridView.DataSource = this.addressSetBindingSource;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.addressDataGridView.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.addressDataGridView.DefaultCellStyle = dataGridViewCellStyle35;
             this.addressDataGridView.Location = new System.Drawing.Point(3, 3);
             this.addressDataGridView.Name = "addressDataGridView";
             this.addressDataGridView.ReadOnly = true;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.addressDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.addressDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle36;
             this.addressDataGridView.RowHeadersVisible = false;
             this.addressDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.addressDataGridView.Size = new System.Drawing.Size(406, 315);
@@ -1118,7 +1164,7 @@
             this.userMgmtPage.Controls.Add(this.dataGridView1);
             this.userMgmtPage.Location = new System.Drawing.Point(4, 22);
             this.userMgmtPage.Name = "userMgmtPage";
-            this.userMgmtPage.Size = new System.Drawing.Size(720, 452);
+            this.userMgmtPage.Size = new System.Drawing.Size(896, 452);
             this.userMgmtPage.TabIndex = 4;
             this.userMgmtPage.Text = "UserMgmt";
             this.userMgmtPage.UseVisualStyleBackColor = true;
@@ -1229,7 +1275,7 @@
             this.newHCPPage.Controls.Add(this.MiddleNameLabel);
             this.newHCPPage.Location = new System.Drawing.Point(4, 22);
             this.newHCPPage.Name = "newHCPPage";
-            this.newHCPPage.Size = new System.Drawing.Size(720, 452);
+            this.newHCPPage.Size = new System.Drawing.Size(896, 452);
             this.newHCPPage.TabIndex = 2;
             this.newHCPPage.Text = "new_HCP";
             this.newHCPPage.UseVisualStyleBackColor = true;
@@ -2261,7 +2307,7 @@
             // hcoNameLabel
             // 
             this.hcoNameLabel.AutoSize = true;
-            this.hcoNameLabel.Location = new System.Drawing.Point(439, 38);
+            this.hcoNameLabel.Location = new System.Drawing.Point(470, 38);
             this.hcoNameLabel.Name = "hcoNameLabel";
             this.hcoNameLabel.Size = new System.Drawing.Size(10, 13);
             this.hcoNameLabel.TabIndex = 30;
@@ -2270,7 +2316,7 @@
             // hcoTelLabel
             // 
             this.hcoTelLabel.AutoSize = true;
-            this.hcoTelLabel.Location = new System.Drawing.Point(442, 63);
+            this.hcoTelLabel.Location = new System.Drawing.Point(473, 63);
             this.hcoTelLabel.Name = "hcoTelLabel";
             this.hcoTelLabel.Size = new System.Drawing.Size(10, 13);
             this.hcoTelLabel.TabIndex = 31;
@@ -2279,7 +2325,7 @@
             // hcoEmailLabel
             // 
             this.hcoEmailLabel.AutoSize = true;
-            this.hcoEmailLabel.Location = new System.Drawing.Point(434, 85);
+            this.hcoEmailLabel.Location = new System.Drawing.Point(465, 85);
             this.hcoEmailLabel.Name = "hcoEmailLabel";
             this.hcoEmailLabel.Size = new System.Drawing.Size(10, 13);
             this.hcoEmailLabel.TabIndex = 32;
@@ -2288,7 +2334,7 @@
             // hcoWWWLabel
             // 
             this.hcoWWWLabel.AutoSize = true;
-            this.hcoWWWLabel.Location = new System.Drawing.Point(437, 107);
+            this.hcoWWWLabel.Location = new System.Drawing.Point(468, 107);
             this.hcoWWWLabel.Name = "hcoWWWLabel";
             this.hcoWWWLabel.Size = new System.Drawing.Size(10, 13);
             this.hcoWWWLabel.TabIndex = 33;
@@ -2297,7 +2343,7 @@
             // hcoRangeLabel
             // 
             this.hcoRangeLabel.AutoSize = true;
-            this.hcoRangeLabel.Location = new System.Drawing.Point(435, 137);
+            this.hcoRangeLabel.Location = new System.Drawing.Point(466, 137);
             this.hcoRangeLabel.Name = "hcoRangeLabel";
             this.hcoRangeLabel.Size = new System.Drawing.Size(10, 13);
             this.hcoRangeLabel.TabIndex = 34;
@@ -2306,7 +2352,7 @@
             // hcoLevelLabel
             // 
             this.hcoLevelLabel.AutoSize = true;
-            this.hcoLevelLabel.Location = new System.Drawing.Point(437, 160);
+            this.hcoLevelLabel.Location = new System.Drawing.Point(468, 160);
             this.hcoLevelLabel.Name = "hcoLevelLabel";
             this.hcoLevelLabel.Size = new System.Drawing.Size(10, 13);
             this.hcoLevelLabel.TabIndex = 35;
@@ -2315,7 +2361,7 @@
             // hcoSpecialTypeLabel
             // 
             this.hcoSpecialTypeLabel.AutoSize = true;
-            this.hcoSpecialTypeLabel.Location = new System.Drawing.Point(469, 176);
+            this.hcoSpecialTypeLabel.Location = new System.Drawing.Point(500, 176);
             this.hcoSpecialTypeLabel.Name = "hcoSpecialTypeLabel";
             this.hcoSpecialTypeLabel.Size = new System.Drawing.Size(10, 13);
             this.hcoSpecialTypeLabel.TabIndex = 36;
@@ -2324,7 +2370,7 @@
             // hcoNoBedLabel
             // 
             this.hcoNoBedLabel.AutoSize = true;
-            this.hcoNoBedLabel.Location = new System.Drawing.Point(450, 209);
+            this.hcoNoBedLabel.Location = new System.Drawing.Point(481, 209);
             this.hcoNoBedLabel.Name = "hcoNoBedLabel";
             this.hcoNoBedLabel.Size = new System.Drawing.Size(10, 13);
             this.hcoNoBedLabel.TabIndex = 37;
@@ -2333,7 +2379,7 @@
             // hcoNoEmpLabel
             // 
             this.hcoNoEmpLabel.AutoSize = true;
-            this.hcoNoEmpLabel.Location = new System.Drawing.Point(609, 210);
+            this.hcoNoEmpLabel.Location = new System.Drawing.Point(640, 210);
             this.hcoNoEmpLabel.Name = "hcoNoEmpLabel";
             this.hcoNoEmpLabel.Size = new System.Drawing.Size(10, 13);
             this.hcoNoEmpLabel.TabIndex = 38;
@@ -2342,7 +2388,7 @@
             // hcoStreetLabel
             // 
             this.hcoStreetLabel.AutoSize = true;
-            this.hcoStreetLabel.Location = new System.Drawing.Point(424, 248);
+            this.hcoStreetLabel.Location = new System.Drawing.Point(455, 248);
             this.hcoStreetLabel.Name = "hcoStreetLabel";
             this.hcoStreetLabel.Size = new System.Drawing.Size(10, 13);
             this.hcoStreetLabel.TabIndex = 39;
@@ -2351,7 +2397,7 @@
             // hcoCityLabel
             // 
             this.hcoCityLabel.AutoSize = true;
-            this.hcoCityLabel.Location = new System.Drawing.Point(442, 265);
+            this.hcoCityLabel.Location = new System.Drawing.Point(473, 265);
             this.hcoCityLabel.Name = "hcoCityLabel";
             this.hcoCityLabel.Size = new System.Drawing.Size(10, 13);
             this.hcoCityLabel.TabIndex = 40;
@@ -2360,7 +2406,7 @@
             // hcoZipLabel
             // 
             this.hcoZipLabel.AutoSize = true;
-            this.hcoZipLabel.Location = new System.Drawing.Point(601, 265);
+            this.hcoZipLabel.Location = new System.Drawing.Point(632, 265);
             this.hcoZipLabel.Name = "hcoZipLabel";
             this.hcoZipLabel.Size = new System.Drawing.Size(10, 13);
             this.hcoZipLabel.TabIndex = 41;
@@ -2369,7 +2415,7 @@
             // hcoTerrLabel
             // 
             this.hcoTerrLabel.AutoSize = true;
-            this.hcoTerrLabel.Location = new System.Drawing.Point(453, 282);
+            this.hcoTerrLabel.Location = new System.Drawing.Point(484, 282);
             this.hcoTerrLabel.Name = "hcoTerrLabel";
             this.hcoTerrLabel.Size = new System.Drawing.Size(10, 13);
             this.hcoTerrLabel.TabIndex = 42;
@@ -2378,7 +2424,7 @@
             // hcoCountryLabel
             // 
             this.hcoCountryLabel.AutoSize = true;
-            this.hcoCountryLabel.Location = new System.Drawing.Point(416, 299);
+            this.hcoCountryLabel.Location = new System.Drawing.Point(447, 299);
             this.hcoCountryLabel.Name = "hcoCountryLabel";
             this.hcoCountryLabel.Size = new System.Drawing.Size(10, 13);
             this.hcoCountryLabel.TabIndex = 43;
@@ -2970,6 +3016,480 @@
             this.addAssossiationButton.UseVisualStyleBackColor = true;
             this.addAssossiationButton.Click += new System.EventHandler(this.addAssossiationButton_Click);
             // 
+            // HCPinHCOGridView
+            // 
+            this.HCPinHCOGridView.AllowUserToAddRows = false;
+            this.HCPinHCOGridView.AllowUserToDeleteRows = false;
+            this.HCPinHCOGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.HCPinHCOGridView.Location = new System.Drawing.Point(188, 209);
+            this.HCPinHCOGridView.Name = "HCPinHCOGridView";
+            this.HCPinHCOGridView.ReadOnly = true;
+            this.HCPinHCOGridView.RowHeadersVisible = false;
+            this.HCPinHCOGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.HCPinHCOGridView.Size = new System.Drawing.Size(226, 153);
+            this.HCPinHCOGridView.TabIndex = 44;
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label61.Location = new System.Drawing.Point(184, 186);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(128, 20);
+            this.label61.TabIndex = 45;
+            this.label61.Text = "PRACOWNICY";
+            // 
+            // edithcpbutton
+            // 
+            this.edithcpbutton.Location = new System.Drawing.Point(281, 48);
+            this.edithcpbutton.Name = "edithcpbutton";
+            this.edithcpbutton.Size = new System.Drawing.Size(75, 23);
+            this.edithcpbutton.TabIndex = 33;
+            this.edithcpbutton.Text = "Edytuj";
+            this.edithcpbutton.UseVisualStyleBackColor = true;
+            this.edithcpbutton.Click += new System.EventHandler(this.edithcpbutton_Click);
+            // 
+            // editHCP_Page
+            // 
+            this.editHCP_Page.Controls.Add(this.label62);
+            this.editHCP_Page.Controls.Add(this.label63);
+            this.editHCP_Page.Controls.Add(this.label64);
+            this.editHCP_Page.Controls.Add(this.label73);
+            this.editHCP_Page.Controls.Add(this.button3);
+            this.editHCP_Page.Controls.Add(this.otherLang_editHCPBoxrlang);
+            this.editHCP_Page.Controls.Add(this.HCP_edit_BUTTON);
+            this.editHCP_Page.Controls.Add(this.label65);
+            this.editHCP_Page.Controls.Add(this.label66);
+            this.editHCP_Page.Controls.Add(this.label67);
+            this.editHCP_Page.Controls.Add(this.label68);
+            this.editHCP_Page.Controls.Add(this.label69);
+            this.editHCP_Page.Controls.Add(this.label70);
+            this.editHCP_Page.Controls.Add(this.label71);
+            this.editHCP_Page.Controls.Add(this.label72);
+            this.editHCP_Page.Controls.Add(this.kol_editHCPBox);
+            this.editHCP_Page.Controls.Add(this.email_editHCPBox);
+            this.editHCP_Page.Controls.Add(this.tel_editHCPBox);
+            this.editHCP_Page.Controls.Add(this.birthday_editHCPBox);
+            this.editHCP_Page.Controls.Add(this.spec_editHCPBox);
+            this.editHCP_Page.Controls.Add(this.panel2);
+            this.editHCP_Page.Controls.Add(this.title_editHCPBox);
+            this.editHCP_Page.Controls.Add(this.lname_editHCPBox);
+            this.editHCP_Page.Controls.Add(this.mname_editHCPBox);
+            this.editHCP_Page.Controls.Add(this.fname_editHCPBox);
+            this.editHCP_Page.Controls.Add(this.label74);
+            this.editHCP_Page.Controls.Add(this.label75);
+            this.editHCP_Page.Controls.Add(this.label76);
+            this.editHCP_Page.Controls.Add(this.label77);
+            this.editHCP_Page.Controls.Add(this.label78);
+            this.editHCP_Page.Controls.Add(this.label79);
+            this.editHCP_Page.Controls.Add(this.label80);
+            this.editHCP_Page.Controls.Add(this.label81);
+            this.editHCP_Page.Location = new System.Drawing.Point(4, 22);
+            this.editHCP_Page.Name = "editHCP_Page";
+            this.editHCP_Page.Padding = new System.Windows.Forms.Padding(3);
+            this.editHCP_Page.Size = new System.Drawing.Size(896, 452);
+            this.editHCP_Page.TabIndex = 10;
+            this.editHCP_Page.Text = "edit_HCP";
+            this.editHCP_Page.UseVisualStyleBackColor = true;
+            // 
+            // otherLang_editHCPBoxrlang
+            // 
+            this.otherLang_editHCPBoxrlang.Location = new System.Drawing.Point(295, 140);
+            this.otherLang_editHCPBoxrlang.Name = "otherLang_editHCPBoxrlang";
+            this.otherLang_editHCPBoxrlang.Size = new System.Drawing.Size(100, 20);
+            this.otherLang_editHCPBoxrlang.TabIndex = 72;
+            // 
+            // HCP_edit_BUTTON
+            // 
+            this.HCP_edit_BUTTON.Enabled = false;
+            this.HCP_edit_BUTTON.Location = new System.Drawing.Point(508, 353);
+            this.HCP_edit_BUTTON.Name = "HCP_edit_BUTTON";
+            this.HCP_edit_BUTTON.Size = new System.Drawing.Size(93, 43);
+            this.HCP_edit_BUTTON.TabIndex = 70;
+            this.HCP_edit_BUTTON.Text = "EDYTUJ!";
+            this.HCP_edit_BUTTON.UseVisualStyleBackColor = true;
+            // 
+            // label65
+            // 
+            this.label65.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label65.ForeColor = System.Drawing.Color.Red;
+            this.label65.Location = new System.Drawing.Point(280, 332);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(16, 15);
+            this.label65.TabIndex = 68;
+            this.label65.Text = "*";
+            // 
+            // label66
+            // 
+            this.label66.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label66.ForeColor = System.Drawing.Color.Red;
+            this.label66.Location = new System.Drawing.Point(280, 265);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(16, 15);
+            this.label66.TabIndex = 67;
+            this.label66.Text = "*";
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(292, 23);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(30, 13);
+            this.label67.TabIndex = 42;
+            this.label67.Text = "Płeć";
+            // 
+            // label68
+            // 
+            this.label68.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label68.ForeColor = System.Drawing.Color.Red;
+            this.label68.Location = new System.Drawing.Point(280, 18);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(16, 15);
+            this.label68.TabIndex = 66;
+            this.label68.Text = "*";
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(26, 124);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(53, 13);
+            this.label69.TabIndex = 41;
+            this.label69.Text = "Nazwisko";
+            // 
+            // label70
+            // 
+            this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label70.ForeColor = System.Drawing.Color.Red;
+            this.label70.Location = new System.Drawing.Point(15, 122);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(16, 15);
+            this.label70.TabIndex = 65;
+            this.label70.Text = "*";
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.Location = new System.Drawing.Point(26, 23);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(26, 13);
+            this.label71.TabIndex = 39;
+            this.label71.Text = "Imię";
+            // 
+            // label72
+            // 
+            this.label72.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label72.ForeColor = System.Drawing.Color.Red;
+            this.label72.Location = new System.Drawing.Point(15, 19);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(16, 15);
+            this.label72.TabIndex = 64;
+            this.label72.Text = "*";
+            // 
+            // kol_editHCPBox
+            // 
+            this.kol_editHCPBox.AutoSize = true;
+            this.kol_editHCPBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.kol_editHCPBox.Location = new System.Drawing.Point(526, 39);
+            this.kol_editHCPBox.Name = "kol_editHCPBox";
+            this.kol_editHCPBox.Size = new System.Drawing.Size(15, 14);
+            this.kol_editHCPBox.TabIndex = 61;
+            this.kol_editHCPBox.UseVisualStyleBackColor = true;
+            // 
+            // email_editHCPBox
+            // 
+            this.email_editHCPBox.Location = new System.Drawing.Point(29, 353);
+            this.email_editHCPBox.Name = "email_editHCPBox";
+            this.email_editHCPBox.Size = new System.Drawing.Size(143, 20);
+            this.email_editHCPBox.TabIndex = 60;
+            // 
+            // tel_editHCPBox
+            // 
+            this.tel_editHCPBox.Location = new System.Drawing.Point(29, 297);
+            this.tel_editHCPBox.Mask = "000-000-000";
+            this.tel_editHCPBox.Name = "tel_editHCPBox";
+            this.tel_editHCPBox.Size = new System.Drawing.Size(74, 20);
+            this.tel_editHCPBox.TabIndex = 59;
+            // 
+            // birthday_editHCPBox
+            // 
+            this.birthday_editHCPBox.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.birthday_editHCPBox.Location = new System.Drawing.Point(295, 89);
+            this.birthday_editHCPBox.Name = "birthday_editHCPBox";
+            this.birthday_editHCPBox.Size = new System.Drawing.Size(80, 20);
+            this.birthday_editHCPBox.TabIndex = 58;
+            // 
+            // spec_editHCPBox
+            // 
+            this.spec_editHCPBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.spec_editHCPBox.FormattingEnabled = true;
+            this.spec_editHCPBox.Items.AddRange(new object[] {
+            "Alergologia",
+            "Anestezjologia i intensywna terapia",
+            "Angiologia",
+            "Audiologia i foniatria",
+            "Balneologia i medycyna fizykalna",
+            "Chirurgia dziecięca",
+            "Chirurgia klatki piersiowej",
+            "Chirurgia naczyniowa",
+            "Chirurgia ogólna",
+            "Chirurgia onkologiczna",
+            "Chirurgia plastyczna",
+            "Chirurgia szczękowo-twarzowa",
+            "Choroby płuc",
+            "Choroby płuc dzieci",
+            "Choroby wewnętrzne",
+            "Choroby zakaźne",
+            "Dermatologia i wenerologia",
+            "Diabetologia",
+            "Diagnostyka laboratoryjna",
+            "Endokrynologia",
+            "Endokrynologia ginekologiczna i rozrodczość",
+            "Endokrynologia i diabetologia dziecięca",
+            "Epidemiologia",
+            "Farmakologia kliniczna",
+            "Gastroenterologia",
+            "Gastroenterologia dziecięca",
+            "Genetyka kliniczna",
+            "Geriatria",
+            "Ginekologia onkologiczna",
+            "Hematologia",
+            "Hipertensjologia",
+            "Immunologia kliniczna",
+            "Intensywna terapia",
+            "Kardiochirurgia",
+            "Kardiologia",
+            "Kardiologia dziecięca",
+            "Medycyna lotnicza",
+            "Medycyna morska i tropikalna",
+            "Medycyna nuklearna",
+            "Medycyna paliatywna",
+            "Medycyna pracy",
+            "Medycyna ratunkowa",
+            "Medycyna rodzinna",
+            "Medycyna sądowa",
+            "Medycyna sportowa",
+            "Mikrobiologia lekarska",
+            "Nefrologia",
+            "Nefrologia dziecięca",
+            "Neonatologia",
+            "Neurochirurgia",
+            "Neurologia",
+            "Neurologia dziecięca",
+            "Neuropatologia",
+            "Okulistyka",
+            "Onkologia i hematologia dziecięca",
+            "Onkologia kliniczna",
+            "Ortopedia i traumatologia narządu ruchu",
+            "Otorynolaryngologia",
+            "Otorynolaryngologia dziecięca",
+            "Patomorfologia",
+            "Pediatria",
+            "Pediatria metaboliczna",
+            "Perinatologia",
+            "Położnictwo i ginekologia",
+            "Psychiatria",
+            "Psychiatria dzieci i młodzieży",
+            "Radiologia i diagnostyka obrazowa",
+            "Radioterapia onkologiczna",
+            "Rehabilitacja medyczna",
+            "Reumatologia",
+            "Seksuologia",
+            "Toksykologia kliniczna",
+            "Transfuzjologia kliniczna",
+            "Transplantologia kliniczna",
+            "Urologia",
+            "Urologia dziecięca",
+            "Zdrowie publiczne"});
+            this.spec_editHCPBox.Location = new System.Drawing.Point(295, 353);
+            this.spec_editHCPBox.Name = "spec_editHCPBox";
+            this.spec_editHCPBox.Size = new System.Drawing.Size(121, 21);
+            this.spec_editHCPBox.TabIndex = 57;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.female_editHCPBox);
+            this.panel2.Controls.Add(this.Male_editHCPBox);
+            this.panel2.Location = new System.Drawing.Point(295, 39);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(79, 22);
+            this.panel2.TabIndex = 56;
+            // 
+            // female_editHCPBox
+            // 
+            this.female_editHCPBox.AutoSize = true;
+            this.female_editHCPBox.Location = new System.Drawing.Point(43, 3);
+            this.female_editHCPBox.Name = "female_editHCPBox";
+            this.female_editHCPBox.Size = new System.Drawing.Size(31, 17);
+            this.female_editHCPBox.TabIndex = 21;
+            this.female_editHCPBox.Text = "F";
+            this.female_editHCPBox.UseVisualStyleBackColor = true;
+            // 
+            // Male_editHCPBox
+            // 
+            this.Male_editHCPBox.AutoSize = true;
+            this.Male_editHCPBox.Location = new System.Drawing.Point(3, 3);
+            this.Male_editHCPBox.Name = "Male_editHCPBox";
+            this.Male_editHCPBox.Size = new System.Drawing.Size(34, 17);
+            this.Male_editHCPBox.TabIndex = 20;
+            this.Male_editHCPBox.Text = "M";
+            this.Male_editHCPBox.UseVisualStyleBackColor = true;
+            // 
+            // title_editHCPBox
+            // 
+            this.title_editHCPBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.title_editHCPBox.FormattingEnabled = true;
+            this.title_editHCPBox.Items.AddRange(new object[] {
+            "lek. med.",
+            "lek. dent.",
+            "dr n. med.",
+            "dr hab n. med.",
+            "prof. dr hab n. med."});
+            this.title_editHCPBox.Location = new System.Drawing.Point(295, 286);
+            this.title_editHCPBox.Name = "title_editHCPBox";
+            this.title_editHCPBox.Size = new System.Drawing.Size(121, 21);
+            this.title_editHCPBox.TabIndex = 55;
+            // 
+            // lname_editHCPBox
+            // 
+            this.lname_editHCPBox.Location = new System.Drawing.Point(29, 140);
+            this.lname_editHCPBox.Name = "lname_editHCPBox";
+            this.lname_editHCPBox.Size = new System.Drawing.Size(100, 20);
+            this.lname_editHCPBox.TabIndex = 54;
+            // 
+            // mname_editHCPBox
+            // 
+            this.mname_editHCPBox.Location = new System.Drawing.Point(29, 89);
+            this.mname_editHCPBox.Name = "mname_editHCPBox";
+            this.mname_editHCPBox.Size = new System.Drawing.Size(100, 20);
+            this.mname_editHCPBox.TabIndex = 53;
+            // 
+            // fname_editHCPBox
+            // 
+            this.fname_editHCPBox.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.fname_editHCPBox.Location = new System.Drawing.Point(29, 39);
+            this.fname_editHCPBox.Name = "fname_editHCPBox";
+            this.fname_editHCPBox.Size = new System.Drawing.Size(100, 20);
+            this.fname_editHCPBox.TabIndex = 52;
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Location = new System.Drawing.Point(292, 124);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(67, 13);
+            this.label74.TabIndex = 50;
+            this.label74.Text = "Znane języki";
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Location = new System.Drawing.Point(519, 23);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(28, 13);
+            this.label75.TabIndex = 49;
+            this.label75.Text = "KOL";
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Location = new System.Drawing.Point(26, 337);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(32, 13);
+            this.label76.TabIndex = 47;
+            this.label76.Text = "Email";
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Location = new System.Drawing.Point(26, 270);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(59, 13);
+            this.label77.TabIndex = 46;
+            this.label77.Text = "Nr telefonu";
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Location = new System.Drawing.Point(292, 73);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(79, 13);
+            this.label78.TabIndex = 45;
+            this.label78.Text = "Data urodzenia";
+            // 
+            // label79
+            // 
+            this.label79.AutoSize = true;
+            this.label79.Location = new System.Drawing.Point(292, 337);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(69, 13);
+            this.label79.TabIndex = 44;
+            this.label79.Text = "Specjalizacja";
+            // 
+            // label80
+            // 
+            this.label80.AutoSize = true;
+            this.label80.Location = new System.Drawing.Point(292, 270);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(78, 13);
+            this.label80.TabIndex = 43;
+            this.label80.Text = "Tytuł naukowy";
+            // 
+            // label81
+            // 
+            this.label81.AutoSize = true;
+            this.label81.Location = new System.Drawing.Point(26, 73);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(59, 13);
+            this.label81.TabIndex = 40;
+            this.label81.Text = "Drugie imię";
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(158, 402);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(10, 13);
+            this.label62.TabIndex = 77;
+            this.label62.Text = "-";
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(26, 397);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(34, 13);
+            this.label63.TabIndex = 73;
+            this.label63.Text = "Adres";
+            // 
+            // label64
+            // 
+            this.label64.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label64.ForeColor = System.Drawing.Color.Red;
+            this.label64.Location = new System.Drawing.Point(15, 392);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(16, 15);
+            this.label64.TabIndex = 76;
+            this.label64.Text = "*";
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Location = new System.Drawing.Point(107, 423);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(13, 13);
+            this.label73.TabIndex = 75;
+            this.label73.Text = "1";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(77, 397);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 74;
+            this.button3.Text = "Select";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3039,6 +3559,11 @@
             this.new_HCPHCO_Assossiation_Page.ResumeLayout(false);
             this.new_HCPHCO_Assossiation_Page.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Assossiation_AddManualView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HCPinHCOGridView)).EndInit();
+            this.editHCP_Page.ResumeLayout(false);
+            this.editHCP_Page.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3309,6 +3834,45 @@
         private System.Windows.Forms.Label HCPname_newAssossiation;
         private System.Windows.Forms.Label titlelabel1;
         private System.Windows.Forms.Button addAssossiationButton;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.DataGridView HCPinHCOGridView;
+        private System.Windows.Forms.Button edithcpbutton;
+        private System.Windows.Forms.TabPage editHCP_Page;
+        private System.Windows.Forms.TextBox otherLang_editHCPBoxrlang;
+        private System.Windows.Forms.Button HCP_edit_BUTTON;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.Label label69;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.Label label71;
+        private System.Windows.Forms.Label label72;
+        private System.Windows.Forms.CheckBox kol_editHCPBox;
+        private System.Windows.Forms.TextBox email_editHCPBox;
+        private System.Windows.Forms.MaskedTextBox tel_editHCPBox;
+        private System.Windows.Forms.DateTimePicker birthday_editHCPBox;
+        private System.Windows.Forms.ComboBox spec_editHCPBox;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.RadioButton female_editHCPBox;
+        private System.Windows.Forms.RadioButton Male_editHCPBox;
+        private System.Windows.Forms.ComboBox title_editHCPBox;
+        private System.Windows.Forms.TextBox lname_editHCPBox;
+        private System.Windows.Forms.TextBox mname_editHCPBox;
+        private System.Windows.Forms.TextBox fname_editHCPBox;
+        private System.Windows.Forms.Label label74;
+        private System.Windows.Forms.Label label75;
+        private System.Windows.Forms.Label label76;
+        private System.Windows.Forms.Label label77;
+        private System.Windows.Forms.Label label78;
+        private System.Windows.Forms.Label label79;
+        private System.Windows.Forms.Label label80;
+        private System.Windows.Forms.Label label81;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Label label73;
+        private System.Windows.Forms.Button button3;
     }
 }
 
