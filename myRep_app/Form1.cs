@@ -17,6 +17,7 @@ namespace myRep_app
         public static string loggedUserTerritory;
         public static String username;
         public static string action_backTo = "";
+        public static int old_HCOID_duringHCPupdate;
         public Form1()
         {
             InitializeComponent();
@@ -516,8 +517,13 @@ namespace myRep_app
                 hcpSpec.Text = (String)command.ExecuteScalar();
 
                 command.CommandText = "SELECT Birthdate FROM dbo.HCPSet where hcpID = @Id";
-                DateTime DateTime = (DateTime)command.ExecuteScalar();   
-                dateBirthHCP.Text = Convert.ToString(DateTime.ToShortDateString());
+                if (command.ExecuteScalar() != DBNull.Value)
+                {
+                    DateTime DateTime = (DateTime)command.ExecuteScalar();
+                    dateBirthHCP.Text = Convert.ToString(DateTime.ToShortDateString());
+                }
+                else
+                dateBirthHCP.Text = "Brak danych!";
 
                 command.CommandText = "SELECT Gender FROM dbo.HCPSet where hcpID = @Id";
                 genderHCP.Text = (String)command.ExecuteScalar();
@@ -796,6 +802,13 @@ namespace myRep_app
                 selectedAddressFullLabel.Text = Convert.ToString(setAddressGridView.CurrentRow.Cells[1].Value) + ", " + Convert.ToString(setAddressGridView.CurrentRow.Cells[2].Value);
                 action_backTo = "";
             }
+            if (action_backTo == "EDITHCP_PAGE")
+            {
+                mainController.SelectedTab = editHCP_Page;
+                selectedaddressID_editHCP.Text = Convert.ToString(setAddressGridView.CurrentRow.Cells[0].Value);
+                selected_addressLabel_editHCP.Text = Convert.ToString(setAddressGridView.CurrentRow.Cells[1].Value) + ", " + Convert.ToString(setAddressGridView.CurrentRow.Cells[2].Value);
+                action_backTo = "";
+            }
 
         }
 
@@ -954,13 +967,116 @@ namespace myRep_app
             if (lnameLabel.Text.ToString() != "Brak danych!") lname_editHCPBox.Text = lnameLabel.Text;
             if (hcpTitle.Text.ToString() != "Brak danych!") title_editHCPBox.Text = hcpTitle.Text;
             if (hcpSpec.Text.ToString() != "Brak danych!") spec_editHCPBox.Text = hcpSpec.Text;
-            birthday_editHCPBox.Text = dateBirthHCP.Text;
+            if (dateBirthHCP.Text.ToString() == "Brak danych!") birthday_editHCPBox.Text = DateTime.Today.Date.ToString(); else birthday_editHCPBox.Text = dateBirthHCP.Text;
             if (genderHCP.Text == "M") Male_editHCPBox.Checked = true; else female_editHCPBox.Checked = true;
             if (languageHCP.Text.ToString() != "Brak danych!") otherLang_editHCPBoxrlang.Text = languageHCP.Text;
             if (emailHCP.Text.ToString() != "Brak danych!") email_editHCPBox.Text = emailHCP.Text;
             tel_editHCPBox.Text = phoneHCP.Text;
             if (kolHCP.Checked == true) kol_editHCPBox.Checked = true;
-            //TO DO ---> addressLabel_editHCPBox.Text = 
+
+            string sConnection = Properties.Settings.Default.ConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                String commandText = "SELECT AddressID from HCPSet WHERE hcpID = @HCPID";
+                SqlCommand command = new SqlCommand(commandText, conn);
+                command.Parameters.AddWithValue("@HCPID", hcpDataGridView.CurrentRow.Cells[0].Value.ToString());
+                selectedaddressID_editHCP.Text = Convert.ToString(command.ExecuteScalar());
+
+                String commandText4 = "SELECT hcoID from HCOSet WHERE AddressID = @adID";
+                SqlCommand command4 = new SqlCommand(commandText4, conn);
+                command4.Parameters.AddWithValue("@adID", selectedaddressID_editHCP.Text.ToString());
+                old_HCOID_duringHCPupdate = Convert.ToInt32(command4.ExecuteScalar());
+
+                String commandText2 = "SELECT Street from AddressSet WHERE addressID = @adID";
+                SqlCommand command2 = new SqlCommand(commandText2, conn);
+                command2.Parameters.AddWithValue("@adID", selectedaddressID_editHCP.Text.ToString());
+                selected_addressLabel_editHCP.Text = Convert.ToString(command2.ExecuteScalar());
+
+                String commandText3 = "SELECT City from AddressSet WHERE addressID = @adID";
+                SqlCommand command3 = new SqlCommand(commandText3, conn);
+                command3.Parameters.AddWithValue("@adID", selectedaddressID_editHCP.Text.ToString());
+                selected_addressLabel_editHCP.Text = selected_addressLabel_editHCP.Text + ", " + Convert.ToString(command3.ExecuteScalar());
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
+        }
+
+        private void HCP_edit_BUTTON_Click(object sender, EventArgs e)
+        {
+            String commandText = "UPDATE HCPSet SET FirstName=@firstname, MiddleName=@middlename, LastName=@lastname, Gender=@gender, AcademicTitle=@academictitle, Birthdate=@birthdate, PhoneNumber=@phonenumber, Email=@email, KOL=@kol, Specialty=@specialty, LanguageSpoken=@lngspk, AddressID=@adID WHERE HCPID=@hcpid";
+            string sConnection = Properties.Settings.Default.ConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                SqlCommand command = new SqlCommand(commandText, conn);
+                command.Parameters.AddWithValue("@hcpid", Convert.ToInt32(hcpDataGridView.CurrentRow.Cells[0].Value));
+                command.Parameters.AddWithValue("@firstname", fname_editHCPBox.Text);
+                command.Parameters.AddWithValue("@middlename", mname_editHCPBox.Text);
+                command.Parameters.AddWithValue("@lastname", lname_editHCPBox.Text);
+                if (Male_editHCPBox.Checked == true) command.Parameters.AddWithValue("@gender", "M"); else if (female_editHCPBox.Checked == true) command.Parameters.AddWithValue("@gender", "F");
+                command.Parameters.AddWithValue("@academictitle", title_editHCPBox.Text);
+                if (birthday_editHCPBox.Value.Date == DateTime.Today.Date) command.Parameters.AddWithValue("@birthdate", DBNull.Value); else command.Parameters.AddWithValue("@birthdate", birthday_editHCPBox.Value.Date);
+                tel_editHCPBox.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                if (tel_editHCPBox.Text != "") command.Parameters.AddWithValue("@phonenumber", Convert.ToInt32(tel_editHCPBox.Text.ToString())); else command.Parameters.AddWithValue("@phonenumber", DBNull.Value);
+                command.Parameters.AddWithValue("@email", email_editHCPBox.Text);
+                command.Parameters.AddWithValue("@lngspk", otherLang_editHCPBoxrlang.Text);
+                if (kol_editHCPBox.Checked)
+                {
+                    command.Parameters.AddWithValue("@kol", true);
+                }
+                else
+                {
+                    command.Parameters.AddWithValue("@kol", false);
+                }
+                command.Parameters.AddWithValue("@specialty", spec_editHCPBox.Text);
+                command.Parameters.AddWithValue("@adID", selectedaddressID_editHCP.Text);
+                command.ExecuteNonQuery();
+
+                //USUNIĘCIE STAREJ AFILIACJI HCP-HCO
+                String commandText2 = "DELETE FROM HCOHCP WHERE HCO_hcoID = @hcoID AND HCP_hcpID = @hcpID";
+                SqlCommand command2 = new SqlCommand(commandText2, conn);
+                command2.Parameters.AddWithValue("@hcoID", old_HCOID_duringHCPupdate);
+                command2.Parameters.AddWithValue("@hcpID", Convert.ToInt32(hcpDataGridView.CurrentRow.Cells[0].Value.ToString()));
+                command2.ExecuteNonQuery();
+                
+                //UTWORZENIE NOWEJ AFILIACJI HCP-HCO, pobranie HCOID i dodanie nowego rekordu HCOHCP
+                String commandText3 = "SELECT hcoID FROM HCOSet WHERE AddressID = @adID2";
+                SqlCommand command3 = new SqlCommand(commandText3, conn);
+                command3.Parameters.AddWithValue("@adID2", Convert.ToInt32(selectedaddressID_editHCP.Text.ToString()));
+                int new_updated_hco_to_affiliate = Convert.ToInt32(command3.ExecuteScalar());
+
+                String commandText4 = "INSERT INTO HCOHCP VALUES ( @hcoID , @hcpID)";
+                SqlCommand command4 = new SqlCommand(commandText4, conn);
+                command4.Parameters.AddWithValue("@hcoID", new_updated_hco_to_affiliate);
+                command4.Parameters.AddWithValue("@hcpID", Convert.ToInt32(hcpDataGridView.CurrentRow.Cells[0].Value.ToString()));
+                command4.ExecuteNonQuery();
+
+                conn.Close();
+                myAccounts_Controller.SelectedTab = hcpPage;
+                this.myRep_ODS_HCP_DataSet.Reset();
+                this.hCPSetTableAdapter.Fill(this.myRep_ODS_HCP_DataSet.HCPSet);
+                mainController.SelectedTab = myAccountsPage;
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            mainController.SelectedTab = select_address_Page;
+            action_backTo = "EDITHCP_PAGE";
+
         }
     }
 }

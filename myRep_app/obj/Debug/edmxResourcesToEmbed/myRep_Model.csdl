@@ -13,10 +13,6 @@
       <End Role="Address" EntitySet="AddressSet" />
     </AssociationSet>
     <EntitySet Name="MeetingSet" EntityType="myRep_Model.Meeting" />
-    <AssociationSet Name="HCPMeeting" Association="myRep_Model.HCPMeeting">
-      <End Role="HCP" EntitySet="HCPSet" />
-      <End Role="Meeting" EntitySet="MeetingSet" />
-    </AssociationSet>
     <EntitySet Name="MedicalEnquirySet" EntityType="myRep_Model.MedicalEnquiry" />
     <AssociationSet Name="MedicalEnquiryMeeting" Association="myRep_Model.MedicalEnquiryMeeting">
       <End Role="MedicalEnquiry" EntitySet="MedicalEnquirySet" />
@@ -31,10 +27,6 @@
     <AssociationSet Name="AddressHCP" Association="myRep_Model.AddressHCP">
       <End Role="Address" EntitySet="AddressSet" />
       <End Role="HCP" EntitySet="HCPSet" />
-    </AssociationSet>
-    <AssociationSet Name="MeetingUser" Association="myRep_Model.MeetingUser">
-      <End Role="Meeting" EntitySet="MeetingSet" />
-      <End Role="User" EntitySet="UserSet" />
     </AssociationSet>
     <EntitySet Name="UserCredentialsSet" EntityType="myRep_Model.UserCredentialsSet" />
     <AssociationSet Name="FK__UserCrede__UserI__0C85DE4D" Association="myRep_Model.FK__UserCrede__UserI__0C85DE4D">
@@ -63,6 +55,14 @@
     <AssociationSet Name="SuggestionUser" Association="myRep_Model.SuggestionUser">
       <End Role="Suggestion" EntitySet="SuggestionSet" />
       <End Role="User" EntitySet="UserSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MeetingSet_UserSet" Association="myRep_Model.FK_MeetingSet_UserSet">
+      <End Role="User" EntitySet="UserSet" />
+      <End Role="Meeting" EntitySet="MeetingSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MeetingSet_HCPSet" Association="myRep_Model.FK_MeetingSet_HCPSet">
+      <End Role="HCP" EntitySet="HCPSet" />
+      <End Role="Meeting" EntitySet="MeetingSet" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="HCO">
@@ -99,10 +99,10 @@
     <Property Name="PhoneNumber" Type="Int32" Nullable="true" />
     <Property Name="Email" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" Nullable="true" />
     <Property Name="KOL" Type="Boolean" Nullable="true" />
-    <NavigationProperty Name="Meeting" Relationship="myRep_Model.HCPMeeting" FromRole="HCP" ToRole="Meeting" />
     <Property Name="LanguageSpoken" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" Nullable="true" />
     <Property Name="AddressID" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Address" Relationship="myRep_Model.AddressHCP" FromRole="HCP" ToRole="Address" />
+    <NavigationProperty Name="MeetingSet1" Relationship="myRep_Model.FK_MeetingSet_HCPSet" FromRole="HCP" ToRole="Meeting" />
   </EntityType>
   <Association Name="HCOHCP">
     <End Type="myRep_Model.HCO" Role="HCO" Multiplicity="*" />
@@ -139,23 +139,21 @@
     </Key>
     <Property Name="meetingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="HCPID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Type" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="Topic" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="ProductID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="HCP" Relationship="myRep_Model.HCPMeeting" FromRole="Meeting" ToRole="HCP" />
     <Property Name="NextMtgNote" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="MedicalEnquiryID" Type="Int32" Nullable="true" />
     <NavigationProperty Name="MedicalEnquiry" Relationship="myRep_Model.MedicalEnquiryMeeting" FromRole="Meeting" ToRole="MedicalEnquiry" />
     <NavigationProperty Name="Product" Relationship="myRep_Model.MeetingProduct" FromRole="Meeting" ToRole="Product" />
-    <NavigationProperty Name="User" Relationship="myRep_Model.MeetingUser" FromRole="Meeting" ToRole="User" />
     <Property Name="SampleDrop" Type="Int32" Nullable="true" />
     <Property Name="SampleDropQty" Type="Int32" annotation:StoreGeneratedPattern="None" Nullable="true" />
+    <Property Name="UserID1" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="UserSet" Relationship="myRep_Model.FK_MeetingSet_UserSet" FromRole="Meeting" ToRole="User" />
+    <NavigationProperty Name="HCPSet1" Relationship="myRep_Model.FK_MeetingSet_HCPSet" FromRole="Meeting" ToRole="HCP" />
   </EntityType>
-  <Association Name="HCPMeeting">
-    <End Type="myRep_Model.HCP" Role="HCP" Multiplicity="*" />
-    <End Type="myRep_Model.Meeting" Role="Meeting" Multiplicity="*" />
-  </Association>
   <EntityType Name="MedicalEnquiry">
     <Key>
       <PropertyRef Name="meID" />
@@ -211,19 +209,19 @@
     <Property Name="FirstName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="MiddleName" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="LastName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <Property Name="Email" Type="String" Nullable="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="JobTitle" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="PhoneNumber" Type="Int32" Nullable="true" />
     <Property Name="HireDate" Type="DateTime" Nullable="true" Precision="3" />
     <Property Name="ManagerID" Type="Int32" Nullable="true" />
     <Property Name="Territory" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="Username" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="Meeting" Relationship="myRep_Model.MeetingUser" FromRole="User" ToRole="Meeting" />
     <NavigationProperty Name="UserCredentialsSet" Relationship="myRep_Model.FK__UserCrede__UserI__0C85DE4D" FromRole="User" ToRole="UserCredentialsSet" />
     <NavigationProperty Name="User1" Relationship="myRep_Model.UserUser" FromRole="User" ToRole="User1" />
     <NavigationProperty Name="User2" Relationship="myRep_Model.UserUser" FromRole="User1" ToRole="User" />
     <NavigationProperty Name="SampleWarehouse" Relationship="myRep_Model.UserSampleWarehouse" FromRole="User" ToRole="SampleWarehouse" />
     <NavigationProperty Name="Suggestion" Relationship="myRep_Model.SuggestionUser" FromRole="User" ToRole="Suggestion" />
+    <NavigationProperty Name="MeetingSet" Relationship="myRep_Model.FK_MeetingSet_UserSet" FromRole="User" ToRole="Meeting" />
   </EntityType>
   <Association Name="AddressHCP">
     <End Type="myRep_Model.Address" Role="Address" Multiplicity="1" />
@@ -236,10 +234,6 @@
         <PropertyRef Name="AddressID" />
       </Dependent>
     </ReferentialConstraint>
-  </Association>
-  <Association Name="MeetingUser">
-    <End Type="myRep_Model.Meeting" Role="Meeting" Multiplicity="*" />
-    <End Type="myRep_Model.User" Role="User" Multiplicity="*" />
   </Association>
   <EntityType Name="UserCredentialsSet">
     <Key>
@@ -347,5 +341,29 @@
   <Association Name="SuggestionUser">
     <End Type="myRep_Model.Suggestion" Role="Suggestion" Multiplicity="*" />
     <End Type="myRep_Model.User" Role="User" Multiplicity="1" />
+  </Association>
+  <Association Name="FK_MeetingSet_UserSet">
+    <End Type="myRep_Model.User" Role="User" Multiplicity="1" />
+    <End Type="myRep_Model.Meeting" Role="Meeting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="Meeting">
+        <PropertyRef Name="UserID1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MeetingSet_HCPSet">
+    <End Type="myRep_Model.HCP" Role="HCP" Multiplicity="1" />
+    <End Type="myRep_Model.Meeting" Role="Meeting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HCP">
+        <PropertyRef Name="hcpID" />
+      </Principal>
+      <Dependent Role="Meeting">
+        <PropertyRef Name="HCPID" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
 </Schema>

@@ -17,11 +17,11 @@ namespace myRep_app
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            this.Meeting = new HashSet<Meeting>();
             this.UserCredentialsSet = new HashSet<UserCredentialsSet>();
             this.User1 = new HashSet<User>();
             this.SampleWarehouse = new HashSet<SampleWarehouse>();
             this.Suggestion = new HashSet<Suggestion>();
+            this.MeetingSet = new HashSet<Meeting>();
         }
     
         public int userID { get; set; }
@@ -37,8 +37,6 @@ namespace myRep_app
         public string Username { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Meeting> Meeting { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserCredentialsSet> UserCredentialsSet { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> User1 { get; set; }
@@ -47,5 +45,7 @@ namespace myRep_app
         public virtual ICollection<SampleWarehouse> SampleWarehouse { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Suggestion> Suggestion { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Meeting> MeetingSet { get; set; }
     }
 }

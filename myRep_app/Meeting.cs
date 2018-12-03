@@ -17,13 +17,12 @@ namespace myRep_app
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Meeting()
         {
-            this.HCP = new HashSet<HCP>();
             this.MedicalEnquiry = new HashSet<MedicalEnquiry>();
-            this.User = new HashSet<User>();
         }
     
         public int meetingID { get; set; }
         public int HCPID { get; set; }
+        public int UserID { get; set; }
         public System.DateTime Date { get; set; }
         public string Type { get; set; }
         public string Topic { get; set; }
@@ -32,13 +31,12 @@ namespace myRep_app
         public Nullable<int> MedicalEnquiryID { get; set; }
         public Nullable<int> SampleDrop { get; set; }
         public Nullable<int> SampleDropQty { get; set; }
+        public int UserID1 { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HCP> HCP { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MedicalEnquiry> MedicalEnquiry { get; set; }
         public virtual Product Product { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> User { get; set; }
+        public virtual User UserSet { get; set; }
+        public virtual HCP HCPSet1 { get; set; }
     }
 }

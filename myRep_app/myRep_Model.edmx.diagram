@@ -4,21 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="78c34a286f3e4d35b6c80fb4486edf68" Name="Diagram1" DisplayType="true" ZoomLevel="117" >
+      <Diagram DiagramId="78c34a286f3e4d35b6c80fb4486edf68" Name="Diagram1" DisplayType="true" ZoomLevel="89" >
         <EntityTypeShape EntityType="myRep_Model.HCO" Width="2" PointX="0.5" PointY="3.375" />
         <EntityTypeShape EntityType="myRep_Model.HCP" Width="2.125" PointX="3.875" PointY="3.375" />
         <AssociationConnector Association="myRep_Model.HCOHCP" />
         <EntityTypeShape EntityType="myRep_Model.Address" Width="2" PointX="0.5" PointY="8" />
         <AssociationConnector Association="myRep_Model.HCOAddress" />
         <EntityTypeShape EntityType="myRep_Model.Meeting" Width="1.875" PointX="7.625" PointY="3.375" IsExpanded="true" />
-        <AssociationConnector Association="myRep_Model.HCPMeeting" />
         <EntityTypeShape EntityType="myRep_Model.MedicalEnquiry" Width="2.375" PointX="7.375" PointY="0.5" />
         <AssociationConnector Association="myRep_Model.MedicalEnquiryMeeting" />
         <EntityTypeShape EntityType="myRep_Model.Product" Width="2.125" PointX="10.5" PointY="3.375" />
         <AssociationConnector Association="myRep_Model.MeetingProduct" />
-        <EntityTypeShape EntityType="myRep_Model.User" Width="1.875" PointX="7.625" PointY="7.75" />
+        <EntityTypeShape EntityType="myRep_Model.User" Width="1.875" PointX="7.625" PointY="9.75" />
         <AssociationConnector Association="myRep_Model.AddressHCP" />
-        <AssociationConnector Association="myRep_Model.MeetingUser" />
         <EntityTypeShape EntityType="myRep_Model.UserCredentialsSet" Width="1.875" PointX="10.125" PointY="10" />
         <AssociationConnector Association="myRep_Model.FK__UserCrede__UserI__0C85DE4D" />
         <AssociationConnector Association="myRep_Model.UserUser" />
@@ -29,6 +27,8 @@
         <AssociationConnector Association="myRep_Model.SampleSampleWarehouse" />
         <EntityTypeShape EntityType="myRep_Model.Suggestion" Width="1.625" PointX="5.125" PointY="9.625" />
         <AssociationConnector Association="myRep_Model.SuggestionUser" />
+        <AssociationConnector Association="myRep_Model.FK_MeetingSet_UserSet" />
+        <AssociationConnector Association="myRep_Model.FK_MeetingSet_HCPSet" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

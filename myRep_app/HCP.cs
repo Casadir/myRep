@@ -18,7 +18,7 @@ namespace myRep_app
         public HCP()
         {
             this.HCO = new HashSet<HCO>();
-            this.Meeting = new HashSet<Meeting>();
+            this.MeetingSet1 = new HashSet<Meeting>();
         }
     
         public int hcpID { get; set; }
@@ -37,8 +37,8 @@ namespace myRep_app
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HCO> HCO { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Meeting> Meeting { get; set; }
         public virtual Address Address { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Meeting> MeetingSet1 { get; set; }
     }
 }

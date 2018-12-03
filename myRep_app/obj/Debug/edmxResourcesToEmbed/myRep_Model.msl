@@ -52,6 +52,7 @@
     <EntitySetMapping Name="MeetingSet">
       <EntityTypeMapping TypeName="IsTypeOf(myRep_Model.Meeting)">
         <MappingFragment StoreEntitySet="MeetingSet">
+          <ScalarProperty Name="UserID1" ColumnName="UserID" />
           <ScalarProperty Name="meetingID" ColumnName="meetingID" />
           <ScalarProperty Name="HCPID" ColumnName="HCPID" />
           <ScalarProperty Name="Date" ColumnName="Date" />
@@ -151,22 +152,6 @@
       </EndProperty>
       <EndProperty Name="HCP">
         <ScalarProperty Name="hcpID" ColumnName="HCP_hcpID" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="HCPMeeting" TypeName="myRep_Model.HCPMeeting" StoreEntitySet="HCPMeeting">
-      <EndProperty Name="HCP">
-        <ScalarProperty Name="hcpID" ColumnName="HCP_hcpID" />
-      </EndProperty>
-      <EndProperty Name="Meeting">
-        <ScalarProperty Name="meetingID" ColumnName="Meeting_meetingID" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="MeetingUser" TypeName="myRep_Model.MeetingUser" StoreEntitySet="MeetingUser">
-      <EndProperty Name="Meeting">
-        <ScalarProperty Name="meetingID" ColumnName="Meeting_meetingID" />
-      </EndProperty>
-      <EndProperty Name="User">
-        <ScalarProperty Name="userID" ColumnName="User_userID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="SuggestionUser" TypeName="myRep_Model.SuggestionUser" StoreEntitySet="SuggestionSet">
