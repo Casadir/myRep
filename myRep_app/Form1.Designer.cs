@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainController = new System.Windows.Forms.TabControl();
             this.homePage = new System.Windows.Forms.TabPage();
             this.userMgmtButton = new System.Windows.Forms.Button();
@@ -357,6 +357,40 @@
             this.label92 = new System.Windows.Forms.Label();
             this.label93 = new System.Windows.Forms.Label();
             this.AffiliationErrorLabel = new System.Windows.Forms.Label();
+            this.productsMgmtButton = new System.Windows.Forms.Button();
+            this.products_Mgmt_Page = new System.Windows.Forms.TabPage();
+            this.productsDataGridView = new System.Windows.Forms.DataGridView();
+            this.myRep_ODSDataSet = new myRep_app.myRep_ODSDataSet();
+            this.productSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productSetTableAdapter = new myRep_app.myRep_ODSDataSetTableAdapters.ProductSetTableAdapter();
+            this.productIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.antiDiseaseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.manufacturerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mainIngredientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label62 = new System.Windows.Forms.Label();
+            this.samplelistGridView = new System.Windows.Forms.DataGridView();
+            this.label83 = new System.Windows.Forms.Label();
+            this.DisbursedSamplesGridView = new System.Windows.Forms.DataGridView();
+            this.label94 = new System.Windows.Forms.Label();
+            this.newProductButton = new System.Windows.Forms.Button();
+            this.editProductButton = new System.Windows.Forms.Button();
+            this.NewSampleButton = new System.Windows.Forms.Button();
+            this.EditSampleButton = new System.Windows.Forms.Button();
+            this.GiveSampleButton = new System.Windows.Forms.Button();
+            this.SampleRightsErrorLabel = new System.Windows.Forms.Label();
+            this.new_product_page = new System.Windows.Forms.TabPage();
+            this.label95 = new System.Windows.Forms.Label();
+            this.label96 = new System.Windows.Forms.Label();
+            this.label97 = new System.Windows.Forms.Label();
+            this.label98 = new System.Windows.Forms.Label();
+            this.label99 = new System.Windows.Forms.Label();
+            this.productname_newProductBox = new System.Windows.Forms.TextBox();
+            this.category_newProductBox = new System.Windows.Forms.ComboBox();
+            this.manufacturer_newproductBox = new System.Windows.Forms.TextBox();
+            this.MainIngredient_newProductBox = new System.Windows.Forms.TextBox();
+            this.addNewProductButton = new System.Windows.Forms.Button();
+            this.label100 = new System.Windows.Forms.Label();
             this.mainController.SuspendLayout();
             this.homePage.SuspendLayout();
             this.myAccountsPage.SuspendLayout();
@@ -405,11 +439,20 @@
             this.edit_HCO_Page.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employees_editHCOBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.beds_editHCOBox)).BeginInit();
+            this.products_Mgmt_Page.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myRep_ODSDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.samplelistGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DisbursedSamplesGridView)).BeginInit();
+            this.new_product_page.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainController
             // 
             this.mainController.Controls.Add(this.homePage);
+            this.mainController.Controls.Add(this.products_Mgmt_Page);
+            this.mainController.Controls.Add(this.new_product_page);
             this.mainController.Controls.Add(this.myAccountsPage);
             this.mainController.Controls.Add(this.userMgmtPage);
             this.mainController.Controls.Add(this.newHCPPage);
@@ -429,6 +472,7 @@
             // 
             // homePage
             // 
+            this.homePage.Controls.Add(this.productsMgmtButton);
             this.homePage.Controls.Add(this.userMgmtButton);
             this.homePage.Controls.Add(this.LogoutButton);
             this.homePage.Controls.Add(this.myAccountsButton);
@@ -513,6 +557,7 @@
             this.PasswordBox.PasswordChar = 'X';
             this.PasswordBox.Size = new System.Drawing.Size(100, 20);
             this.PasswordBox.TabIndex = 8;
+            this.PasswordBox.Text = "pl";
             // 
             // UsernameBox
             // 
@@ -520,6 +565,7 @@
             this.UsernameBox.Name = "UsernameBox";
             this.UsernameBox.Size = new System.Drawing.Size(100, 20);
             this.UsernameBox.TabIndex = 7;
+            this.UsernameBox.Text = "tomek.sample";
             // 
             // myAccountsPage
             // 
@@ -857,39 +903,39 @@
             this.hcpDataGridView.AllowUserToDeleteRows = false;
             this.hcpDataGridView.AutoGenerateColumns = false;
             this.hcpDataGridView.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.hcpDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.hcpDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.hcpDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.hcpDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.hcpIDDataGridViewTextBoxColumn,
             this.firstNameDataGridViewTextBoxColumn,
             this.lastNameDataGridViewTextBoxColumn});
             this.hcpDataGridView.DataSource = this.hCPSetBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.hcpDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.hcpDataGridView.DefaultCellStyle = dataGridViewCellStyle20;
             this.hcpDataGridView.Location = new System.Drawing.Point(3, 3);
             this.hcpDataGridView.Name = "hcpDataGridView";
             this.hcpDataGridView.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.hcpDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.hcpDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.hcpDataGridView.RowHeadersVisible = false;
             this.hcpDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.hcpDataGridView.Size = new System.Drawing.Size(253, 378);
@@ -1158,14 +1204,14 @@
             this.addressDataGridView.AllowUserToResizeRows = false;
             this.addressDataGridView.AutoGenerateColumns = false;
             this.addressDataGridView.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.addressDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.addressDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.addressDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.addressDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.addressIDDataGridViewTextBoxColumn1,
@@ -1175,25 +1221,25 @@
             this.countryDataGridViewTextBoxColumn,
             this.zipCodeDataGridViewTextBoxColumn});
             this.addressDataGridView.DataSource = this.addressSetBindingSource;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.addressDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.addressDataGridView.DefaultCellStyle = dataGridViewCellStyle23;
             this.addressDataGridView.Location = new System.Drawing.Point(3, 3);
             this.addressDataGridView.Name = "addressDataGridView";
             this.addressDataGridView.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.addressDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.addressDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.addressDataGridView.RowHeadersVisible = false;
             this.addressDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.addressDataGridView.Size = new System.Drawing.Size(406, 315);
@@ -3012,7 +3058,7 @@
             this.new_HCPHCO_Assossiation_Page.Location = new System.Drawing.Point(4, 22);
             this.new_HCPHCO_Assossiation_Page.Name = "new_HCPHCO_Assossiation_Page";
             this.new_HCPHCO_Assossiation_Page.Padding = new System.Windows.Forms.Padding(3);
-            this.new_HCPHCO_Assossiation_Page.Size = new System.Drawing.Size(747, 465);
+            this.new_HCPHCO_Assossiation_Page.Size = new System.Drawing.Size(812, 465);
             this.new_HCPHCO_Assossiation_Page.TabIndex = 9;
             this.new_HCPHCO_Assossiation_Page.Text = "new_Assossiation";
             this.new_HCPHCO_Assossiation_Page.UseVisualStyleBackColor = true;
@@ -3867,6 +3913,378 @@
             this.AffiliationErrorLabel.Text = "Nie można usunąć powiązania. \r\nWybrany HCO jest podstawowym adresem zatrudnienia " +
     "HCP. \r\nW celu zmiany podstawowego miejsca pracy edytuj HCP.";
             // 
+            // productsMgmtButton
+            // 
+            this.productsMgmtButton.Enabled = false;
+            this.productsMgmtButton.Location = new System.Drawing.Point(9, 196);
+            this.productsMgmtButton.Name = "productsMgmtButton";
+            this.productsMgmtButton.Size = new System.Drawing.Size(98, 53);
+            this.productsMgmtButton.TabIndex = 15;
+            this.productsMgmtButton.Text = "Produkty";
+            this.productsMgmtButton.UseVisualStyleBackColor = true;
+            this.productsMgmtButton.Visible = false;
+            this.productsMgmtButton.Click += new System.EventHandler(this.productsMgmtButton_Click);
+            // 
+            // products_Mgmt_Page
+            // 
+            this.products_Mgmt_Page.Controls.Add(this.SampleRightsErrorLabel);
+            this.products_Mgmt_Page.Controls.Add(this.GiveSampleButton);
+            this.products_Mgmt_Page.Controls.Add(this.EditSampleButton);
+            this.products_Mgmt_Page.Controls.Add(this.NewSampleButton);
+            this.products_Mgmt_Page.Controls.Add(this.editProductButton);
+            this.products_Mgmt_Page.Controls.Add(this.newProductButton);
+            this.products_Mgmt_Page.Controls.Add(this.label94);
+            this.products_Mgmt_Page.Controls.Add(this.DisbursedSamplesGridView);
+            this.products_Mgmt_Page.Controls.Add(this.label83);
+            this.products_Mgmt_Page.Controls.Add(this.samplelistGridView);
+            this.products_Mgmt_Page.Controls.Add(this.label62);
+            this.products_Mgmt_Page.Controls.Add(this.productsDataGridView);
+            this.products_Mgmt_Page.Location = new System.Drawing.Point(4, 22);
+            this.products_Mgmt_Page.Name = "products_Mgmt_Page";
+            this.products_Mgmt_Page.Padding = new System.Windows.Forms.Padding(3);
+            this.products_Mgmt_Page.Size = new System.Drawing.Size(812, 465);
+            this.products_Mgmt_Page.TabIndex = 12;
+            this.products_Mgmt_Page.Text = "ProductsMgmt";
+            this.products_Mgmt_Page.UseVisualStyleBackColor = true;
+            // 
+            // productsDataGridView
+            // 
+            this.productsDataGridView.AllowUserToAddRows = false;
+            this.productsDataGridView.AllowUserToDeleteRows = false;
+            this.productsDataGridView.AutoGenerateColumns = false;
+            this.productsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.productsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.productIDDataGridViewTextBoxColumn,
+            this.productNameDataGridViewTextBoxColumn,
+            this.antiDiseaseDataGridViewTextBoxColumn,
+            this.manufacturerDataGridViewTextBoxColumn,
+            this.mainIngredientDataGridViewTextBoxColumn});
+            this.productsDataGridView.DataSource = this.productSetBindingSource;
+            this.productsDataGridView.Location = new System.Drawing.Point(6, 45);
+            this.productsDataGridView.Name = "productsDataGridView";
+            this.productsDataGridView.ReadOnly = true;
+            this.productsDataGridView.RowHeadersVisible = false;
+            this.productsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.productsDataGridView.Size = new System.Drawing.Size(406, 414);
+            this.productsDataGridView.TabIndex = 0;
+            // 
+            // myRep_ODSDataSet
+            // 
+            this.myRep_ODSDataSet.DataSetName = "myRep_ODSDataSet";
+            this.myRep_ODSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // productSetBindingSource
+            // 
+            this.productSetBindingSource.DataMember = "ProductSet";
+            this.productSetBindingSource.DataSource = this.myRep_ODSDataSet;
+            // 
+            // productSetTableAdapter
+            // 
+            this.productSetTableAdapter.ClearBeforeFill = true;
+            // 
+            // productIDDataGridViewTextBoxColumn
+            // 
+            this.productIDDataGridViewTextBoxColumn.DataPropertyName = "productID";
+            this.productIDDataGridViewTextBoxColumn.HeaderText = "productID";
+            this.productIDDataGridViewTextBoxColumn.Name = "productIDDataGridViewTextBoxColumn";
+            this.productIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // productNameDataGridViewTextBoxColumn
+            // 
+            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
+            this.productNameDataGridViewTextBoxColumn.HeaderText = "Nazwa";
+            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // antiDiseaseDataGridViewTextBoxColumn
+            // 
+            this.antiDiseaseDataGridViewTextBoxColumn.DataPropertyName = "AntiDisease";
+            this.antiDiseaseDataGridViewTextBoxColumn.HeaderText = "Kategoria choroby";
+            this.antiDiseaseDataGridViewTextBoxColumn.Name = "antiDiseaseDataGridViewTextBoxColumn";
+            this.antiDiseaseDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // manufacturerDataGridViewTextBoxColumn
+            // 
+            this.manufacturerDataGridViewTextBoxColumn.DataPropertyName = "Manufacturer";
+            this.manufacturerDataGridViewTextBoxColumn.HeaderText = "Producent";
+            this.manufacturerDataGridViewTextBoxColumn.Name = "manufacturerDataGridViewTextBoxColumn";
+            this.manufacturerDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // mainIngredientDataGridViewTextBoxColumn
+            // 
+            this.mainIngredientDataGridViewTextBoxColumn.DataPropertyName = "MainIngredient";
+            this.mainIngredientDataGridViewTextBoxColumn.HeaderText = "Główny składnik";
+            this.mainIngredientDataGridViewTextBoxColumn.Name = "mainIngredientDataGridViewTextBoxColumn";
+            this.mainIngredientDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label62.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label62.Location = new System.Drawing.Point(71, 26);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(260, 16);
+            this.label62.TabIndex = 1;
+            this.label62.Text = "LISTA DOSTĘPNYCH PRODUKTÓW";
+            // 
+            // samplelistGridView
+            // 
+            this.samplelistGridView.AllowUserToAddRows = false;
+            this.samplelistGridView.AllowUserToDeleteRows = false;
+            this.samplelistGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.samplelistGridView.Location = new System.Drawing.Point(418, 45);
+            this.samplelistGridView.Name = "samplelistGridView";
+            this.samplelistGridView.ReadOnly = true;
+            this.samplelistGridView.RowHeadersVisible = false;
+            this.samplelistGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.samplelistGridView.Size = new System.Drawing.Size(376, 150);
+            this.samplelistGridView.TabIndex = 2;
+            // 
+            // label83
+            // 
+            this.label83.AutoSize = true;
+            this.label83.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label83.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label83.Location = new System.Drawing.Point(554, 26);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(115, 16);
+            this.label83.TabIndex = 3;
+            this.label83.Text = "LISTA PRÓBEK";
+            // 
+            // DisbursedSamplesGridView
+            // 
+            this.DisbursedSamplesGridView.AllowUserToAddRows = false;
+            this.DisbursedSamplesGridView.AllowUserToDeleteRows = false;
+            this.DisbursedSamplesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DisbursedSamplesGridView.Location = new System.Drawing.Point(418, 222);
+            this.DisbursedSamplesGridView.Name = "DisbursedSamplesGridView";
+            this.DisbursedSamplesGridView.ReadOnly = true;
+            this.DisbursedSamplesGridView.RowHeadersVisible = false;
+            this.DisbursedSamplesGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DisbursedSamplesGridView.Size = new System.Drawing.Size(376, 125);
+            this.DisbursedSamplesGridView.TabIndex = 4;
+            // 
+            // label94
+            // 
+            this.label94.AutoSize = true;
+            this.label94.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label94.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label94.Location = new System.Drawing.Point(538, 203);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(133, 16);
+            this.label94.TabIndex = 5;
+            this.label94.Text = "WYDANE PRÓBKI";
+            // 
+            // newProductButton
+            // 
+            this.newProductButton.Enabled = false;
+            this.newProductButton.Location = new System.Drawing.Point(422, 370);
+            this.newProductButton.Name = "newProductButton";
+            this.newProductButton.Size = new System.Drawing.Size(85, 29);
+            this.newProductButton.TabIndex = 6;
+            this.newProductButton.Text = "Nowy produkt";
+            this.newProductButton.UseVisualStyleBackColor = true;
+            this.newProductButton.Click += new System.EventHandler(this.newProductButton_Click);
+            // 
+            // editProductButton
+            // 
+            this.editProductButton.Enabled = false;
+            this.editProductButton.Location = new System.Drawing.Point(423, 412);
+            this.editProductButton.Name = "editProductButton";
+            this.editProductButton.Size = new System.Drawing.Size(84, 33);
+            this.editProductButton.TabIndex = 7;
+            this.editProductButton.Text = "Edytuj produkt";
+            this.editProductButton.UseVisualStyleBackColor = true;
+            // 
+            // NewSampleButton
+            // 
+            this.NewSampleButton.Enabled = false;
+            this.NewSampleButton.Location = new System.Drawing.Point(541, 373);
+            this.NewSampleButton.Name = "NewSampleButton";
+            this.NewSampleButton.Size = new System.Drawing.Size(86, 26);
+            this.NewSampleButton.TabIndex = 8;
+            this.NewSampleButton.Text = "Nowa próbka";
+            this.NewSampleButton.UseVisualStyleBackColor = true;
+            // 
+            // EditSampleButton
+            // 
+            this.EditSampleButton.Enabled = false;
+            this.EditSampleButton.Location = new System.Drawing.Point(539, 414);
+            this.EditSampleButton.Name = "EditSampleButton";
+            this.EditSampleButton.Size = new System.Drawing.Size(87, 30);
+            this.EditSampleButton.TabIndex = 9;
+            this.EditSampleButton.Text = "Edytuj próbki";
+            this.EditSampleButton.UseVisualStyleBackColor = true;
+            // 
+            // GiveSampleButton
+            // 
+            this.GiveSampleButton.Enabled = false;
+            this.GiveSampleButton.Location = new System.Drawing.Point(672, 383);
+            this.GiveSampleButton.Name = "GiveSampleButton";
+            this.GiveSampleButton.Size = new System.Drawing.Size(90, 49);
+            this.GiveSampleButton.TabIndex = 10;
+            this.GiveSampleButton.Text = "Wydaj próbkę";
+            this.GiveSampleButton.UseVisualStyleBackColor = true;
+            // 
+            // SampleRightsErrorLabel
+            // 
+            this.SampleRightsErrorLabel.AutoSize = true;
+            this.SampleRightsErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.SampleRightsErrorLabel.Location = new System.Drawing.Point(427, 445);
+            this.SampleRightsErrorLabel.Name = "SampleRightsErrorLabel";
+            this.SampleRightsErrorLabel.Size = new System.Drawing.Size(362, 13);
+            this.SampleRightsErrorLabel.TabIndex = 11;
+            this.SampleRightsErrorLabel.Text = "Funkcje zarezerwowane tylko dla administratora produktów i próbek (SnPA)";
+            this.SampleRightsErrorLabel.Visible = false;
+            // 
+            // new_product_page
+            // 
+            this.new_product_page.Controls.Add(this.label100);
+            this.new_product_page.Controls.Add(this.addNewProductButton);
+            this.new_product_page.Controls.Add(this.MainIngredient_newProductBox);
+            this.new_product_page.Controls.Add(this.manufacturer_newproductBox);
+            this.new_product_page.Controls.Add(this.category_newProductBox);
+            this.new_product_page.Controls.Add(this.productname_newProductBox);
+            this.new_product_page.Controls.Add(this.label99);
+            this.new_product_page.Controls.Add(this.label98);
+            this.new_product_page.Controls.Add(this.label97);
+            this.new_product_page.Controls.Add(this.label96);
+            this.new_product_page.Controls.Add(this.label95);
+            this.new_product_page.Location = new System.Drawing.Point(4, 22);
+            this.new_product_page.Name = "new_product_page";
+            this.new_product_page.Padding = new System.Windows.Forms.Padding(3);
+            this.new_product_page.Size = new System.Drawing.Size(812, 465);
+            this.new_product_page.TabIndex = 13;
+            this.new_product_page.Text = "new_product";
+            this.new_product_page.UseVisualStyleBackColor = true;
+            // 
+            // label95
+            // 
+            this.label95.AutoSize = true;
+            this.label95.Location = new System.Drawing.Point(31, 55);
+            this.label95.Name = "label95";
+            this.label95.Size = new System.Drawing.Size(40, 13);
+            this.label95.TabIndex = 0;
+            this.label95.Text = "Nazwa";
+            // 
+            // label96
+            // 
+            this.label96.AutoSize = true;
+            this.label96.Location = new System.Drawing.Point(31, 87);
+            this.label96.Name = "label96";
+            this.label96.Size = new System.Drawing.Size(93, 13);
+            this.label96.TabIndex = 1;
+            this.label96.Text = "Kategoria choroby";
+            // 
+            // label97
+            // 
+            this.label97.AutoSize = true;
+            this.label97.Location = new System.Drawing.Point(31, 115);
+            this.label97.Name = "label97";
+            this.label97.Size = new System.Drawing.Size(56, 13);
+            this.label97.TabIndex = 2;
+            this.label97.Text = "Producent";
+            // 
+            // label98
+            // 
+            this.label98.AutoSize = true;
+            this.label98.Location = new System.Drawing.Point(31, 143);
+            this.label98.Name = "label98";
+            this.label98.Size = new System.Drawing.Size(88, 13);
+            this.label98.TabIndex = 3;
+            this.label98.Text = "Główny składnik";
+            // 
+            // label99
+            // 
+            this.label99.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label99.ForeColor = System.Drawing.Color.Red;
+            this.label99.Location = new System.Drawing.Point(16, 50);
+            this.label99.Name = "label99";
+            this.label99.Size = new System.Drawing.Size(16, 15);
+            this.label99.TabIndex = 30;
+            this.label99.Text = "*";
+            // 
+            // productname_newProductBox
+            // 
+            this.productname_newProductBox.Location = new System.Drawing.Point(77, 52);
+            this.productname_newProductBox.Name = "productname_newProductBox";
+            this.productname_newProductBox.Size = new System.Drawing.Size(127, 20);
+            this.productname_newProductBox.TabIndex = 31;
+            // 
+            // category_newProductBox
+            // 
+            this.category_newProductBox.FormattingEnabled = true;
+            this.category_newProductBox.Items.AddRange(new object[] {
+            "",
+            "PRZEZIĘBIENIE",
+            "Przeziębienie - Ból gardła i chrypka",
+            "Przeziębienie - Gorączka",
+            "Przeziębienie - Inhalacje",
+            "Przeziębienie - Kaszel",
+            "Przeziębienie - Katar",
+            "CIĄŻA I DZIECKO",
+            "Ciąża i dziecko - Badania w ciąży",
+            "Ciąża i dziecko - Higiena nosa",
+            "Ciąża i dziecko - Kolki, wzdęcia, biegunki",
+            "Ciąża i dziecko - Kremy i maści",
+            "Ciąża i dziecko - Witaminy",
+            "ODCHUDZANIE",
+            "DERMOKOSMETYKI",
+            "PIELĘGNACJA",
+            "WITAMINY",
+            "Witaminy - dla dzieci",
+            "Witaminy - dla kobiet",
+            "Witaminy - dla mężczyzn",
+            "Witaminy - dla mocnych kości",
+            "Witaminy - dla oczu",
+            "Witaminy - dla seniorów",
+            "ZIELARNIA",
+            "Zielarnia - zioła i herbaty",
+            "Zielarnia - sumplementy diety",
+            "Zielarnia - homeopatia",
+            "Zielarnia - kosmetyki naturalne"});
+            this.category_newProductBox.Location = new System.Drawing.Point(131, 78);
+            this.category_newProductBox.Name = "category_newProductBox";
+            this.category_newProductBox.Size = new System.Drawing.Size(121, 21);
+            this.category_newProductBox.TabIndex = 32;
+            // 
+            // manufacturer_newproductBox
+            // 
+            this.manufacturer_newproductBox.Location = new System.Drawing.Point(93, 112);
+            this.manufacturer_newproductBox.Name = "manufacturer_newproductBox";
+            this.manufacturer_newproductBox.Size = new System.Drawing.Size(127, 20);
+            this.manufacturer_newproductBox.TabIndex = 33;
+            // 
+            // MainIngredient_newProductBox
+            // 
+            this.MainIngredient_newProductBox.Location = new System.Drawing.Point(125, 143);
+            this.MainIngredient_newProductBox.Name = "MainIngredient_newProductBox";
+            this.MainIngredient_newProductBox.Size = new System.Drawing.Size(127, 20);
+            this.MainIngredient_newProductBox.TabIndex = 34;
+            // 
+            // addNewProductButton
+            // 
+            this.addNewProductButton.Location = new System.Drawing.Point(93, 187);
+            this.addNewProductButton.Name = "addNewProductButton";
+            this.addNewProductButton.Size = new System.Drawing.Size(75, 23);
+            this.addNewProductButton.TabIndex = 35;
+            this.addNewProductButton.Text = "DODAJ";
+            this.addNewProductButton.UseVisualStyleBackColor = true;
+            this.addNewProductButton.Click += new System.EventHandler(this.addNewProductButton_Click);
+            // 
+            // label100
+            // 
+            this.label100.AutoSize = true;
+            this.label100.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label100.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label100.Location = new System.Drawing.Point(20, 16);
+            this.label100.Name = "label100";
+            this.label100.Size = new System.Drawing.Size(258, 16);
+            this.label100.TabIndex = 36;
+            this.label100.Text = "TWORZENIE NOWEGO PRODUKTU";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3945,6 +4363,15 @@
             this.edit_HCO_Page.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employees_editHCOBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.beds_editHCOBox)).EndInit();
+            this.products_Mgmt_Page.ResumeLayout(false);
+            this.products_Mgmt_Page.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myRep_ODSDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.samplelistGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DisbursedSamplesGridView)).EndInit();
+            this.new_product_page.ResumeLayout(false);
+            this.new_product_page.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4285,6 +4712,40 @@
         private System.Windows.Forms.Label label92;
         private System.Windows.Forms.Label label93;
         private System.Windows.Forms.Label AffiliationErrorLabel;
+        private System.Windows.Forms.Button productsMgmtButton;
+        private System.Windows.Forms.TabPage products_Mgmt_Page;
+        private System.Windows.Forms.DataGridView productsDataGridView;
+        private myRep_ODSDataSet myRep_ODSDataSet;
+        private System.Windows.Forms.BindingSource productSetBindingSource;
+        private myRep_ODSDataSetTableAdapters.ProductSetTableAdapter productSetTableAdapter;
+        private System.Windows.Forms.Button NewSampleButton;
+        private System.Windows.Forms.Button editProductButton;
+        private System.Windows.Forms.Button newProductButton;
+        private System.Windows.Forms.Label label94;
+        private System.Windows.Forms.DataGridView DisbursedSamplesGridView;
+        private System.Windows.Forms.Label label83;
+        private System.Windows.Forms.DataGridView samplelistGridView;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn antiDiseaseDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn manufacturerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mainIngredientDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button EditSampleButton;
+        private System.Windows.Forms.Button GiveSampleButton;
+        private System.Windows.Forms.Label SampleRightsErrorLabel;
+        private System.Windows.Forms.TabPage new_product_page;
+        private System.Windows.Forms.Label label100;
+        private System.Windows.Forms.Button addNewProductButton;
+        private System.Windows.Forms.TextBox MainIngredient_newProductBox;
+        private System.Windows.Forms.TextBox manufacturer_newproductBox;
+        private System.Windows.Forms.ComboBox category_newProductBox;
+        private System.Windows.Forms.TextBox productname_newProductBox;
+        private System.Windows.Forms.Label label99;
+        private System.Windows.Forms.Label label98;
+        private System.Windows.Forms.Label label97;
+        private System.Windows.Forms.Label label96;
+        private System.Windows.Forms.Label label95;
     }
 }
 

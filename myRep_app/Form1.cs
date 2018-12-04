@@ -24,6 +24,8 @@ namespace myRep_app
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'myRep_ODSDataSet.ProductSet' table. You can move, or remove it, as needed.
+            this.productSetTableAdapter.Fill(this.myRep_ODSDataSet.ProductSet);
             // TODO: This line of code loads data into the 'myRep_ODS_HCOHCPDataSet.HCOSet' table. You can move, or remove it, as needed.
             this.hCOSetTableAdapter1.Fill(this.myRep_ODS_HCOHCPDataSet.HCOSet);
             // TODO: This line of code loads data into the 'myRep_ODS_HCOHCPDataSet.HCOHCP' table. You can move, or remove it, as needed.
@@ -107,17 +109,30 @@ namespace myRep_app
                     command.Parameters.AddWithValue("@param4", UsernameBox.Text.ToString());
                     switch ((String)command.ExecuteScalar())
                     {
-                        case "SYSADMIN": {
+                        case "SYSADMIN":
+                            {
                                 myAccountsButton.Visible = true; myAccountsButton.Enabled = true;
                                 userMgmtButton.Visible = true; userMgmtButton.Enabled = true;
-                                break; }
+                                productsMgmtButton.Visible = true; productsMgmtButton.Enabled = true;
+                                SampleRightsErrorLabel.Visible = true; newProductButton.Enabled = false; editProductButton.Enabled = false; NewSampleButton.Enabled = false; EditSampleButton.Enabled = false; GiveSampleButton.Enabled = false;
+                                break;
+                            }
+                        case "SnPA":
+                            {
+                                myAccountsButton.Visible = false; myAccountsButton.Enabled = false;
+                                userMgmtButton.Visible = false; userMgmtButton.Enabled = false;
+                                productsMgmtButton.Visible = true; productsMgmtButton.Enabled = true;
+                                newProductButton.Enabled = true; editProductButton.Enabled = true; NewSampleButton.Enabled = true; EditSampleButton.Enabled = true; GiveSampleButton.Enabled = true;
+                                break;
+                            }
                         case "REP":
                             {
                                 myAccountsButton.Visible = true; myAccountsButton.Enabled = true;
                                 userMgmtButton.Visible = false; userMgmtButton.Enabled = false;
+                                productsMgmtButton.Visible = true; productsMgmtButton.Enabled = true;
+                                SampleRightsErrorLabel.Visible = true; newProductButton.Enabled = false; editProductButton.Enabled = false; NewSampleButton.Enabled = false; EditSampleButton.Enabled = false; GiveSampleButton.Enabled = false;
                                 break;
                             }
-
 
                         default: { myAccountsButton.Visible = false; myAccountsButton.Enabled = false; break; }
                     }
@@ -778,8 +793,6 @@ namespace myRep_app
             action_backTo = "NEWHCP_PAGE";
         }
 
-
-
         private void addressDedicatedBookToolStripButton1_Click(object sender, EventArgs e)
         {
             try
@@ -1077,14 +1090,7 @@ namespace myRep_app
                 command.Parameters.AddWithValue("@specialty", spec_editHCPBox.Text);
                 command.Parameters.AddWithValue("@adID", selectedaddressID_editHCP.Text);
                 command.ExecuteNonQuery();
-
-                //USUNIĘCIE STAREJ AFILIACJI HCP-HCO
- //               String commandText2 = "DELETE FROM HCOHCP WHERE HCO_hcoID = @hcoID AND HCP_hcpID = @hcpID";
- //               SqlCommand command2 = new SqlCommand(commandText2, conn);
- //               command2.Parameters.AddWithValue("@hcoID", old_HCOID_duringHCPupdate);
- //               command2.Parameters.AddWithValue("@hcpID", Convert.ToInt32(hcpDataGridView.CurrentRow.Cells[0].Value.ToString()));
- //               command2.ExecuteNonQuery();
-                
+            
                 //UTWORZENIE NOWEJ AFILIACJI HCP-HCO, pobranie HCOID i dodanie nowego rekordu HCOHCP
                 String commandText3 = "SELECT hcoID FROM HCOSet WHERE AddressID = @adID2";
                 SqlCommand command3 = new SqlCommand(commandText3, conn);
@@ -1294,6 +1300,55 @@ namespace myRep_app
                 String text = "There was an error reported by SQL Server, " + er.Message;
                 MessageBox.Show(text, "ERROR");
             }
+        }
+
+        private void productsMgmtButton_Click(object sender, EventArgs e)
+        {
+            mainController.SelectedTab = products_Mgmt_Page;
+
+        }
+
+        private void addNewProductButton_Click(object sender, EventArgs e)
+        {
+            string sConnection = Properties.Settings.Default.ConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                if (action_backTo == "NEWPRODUCT_PAGE")
+                {
+                    String commandText = "INSERT INTO ProductSet VALUES(@ProductName,@AntiDisease,@Manufacturer,@MainIngredient)";
+                    SqlCommand command = new SqlCommand(commandText, conn);
+                    command.Parameters.AddWithValue("@ProductName", productname_newProductBox.Text.ToString());
+                    if (string.IsNullOrEmpty(category_newProductBox.Text.ToString())) command.Parameters.AddWithValue("@AntiDisease", DBNull.Value); else command.Parameters.AddWithValue("@AntiDisease", category_newProductBox.Text.ToString());
+                    if (string.IsNullOrEmpty(manufacturer_newproductBox.Text.ToString())) command.Parameters.AddWithValue("@Manufacturer", DBNull.Value); else command.Parameters.AddWithValue("@Manufacturer", manufacturer_newproductBox.Text.ToString());
+                    if (string.IsNullOrEmpty(MainIngredient_newProductBox.Text.ToString())) command.Parameters.AddWithValue("@MainIngredient", DBNull.Value); else command.Parameters.AddWithValue("@MainIngredient", MainIngredient_newProductBox.Text.ToString());
+                    command.ExecuteNonQuery();
+                    mainController.SelectedTab = products_Mgmt_Page;
+                    action_backTo = "";
+                    productname_newProductBox.Text = "";
+                    category_newProductBox.Text = "";
+                    manufacturer_newproductBox.Text = "";
+                    MainIngredient_newProductBox.Text = "";
+                    this.myRep_ODSDataSet.Reset();
+                    this.productSetTableAdapter.Fill(this.myRep_ODSDataSet.ProductSet);
+                }
+                
+
+                conn.Close();
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
+        }
+
+        private void newProductButton_Click(object sender, EventArgs e)
+        {
+            action_backTo = "NEWPRODUCT_PAGE";
+            mainController.SelectedTab = new_product_page;
         }
     }
 }

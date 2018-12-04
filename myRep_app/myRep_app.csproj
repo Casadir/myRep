@@ -91,6 +91,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>myRep_Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="myRep_ODSDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>myRep_ODSDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="myRep_ODS_Address_DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -158,6 +163,17 @@
     </EntityDeploy>
     <None Include="myRep_Model.edmx.diagram">
       <DependentUpon>myRep_Model.edmx</DependentUpon>
+    </None>
+    <None Include="myRep_ODSDataSet.xsc">
+      <DependentUpon>myRep_ODSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="myRep_ODSDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>myRep_ODSDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="myRep_ODSDataSet.xss">
+      <DependentUpon>myRep_ODSDataSet.xsd</DependentUpon>
     </None>
     <None Include="myRep_ODS_Address_DataSet.xsc">
       <DependentUpon>myRep_ODS_Address_DataSet.xsd</DependentUpon>
