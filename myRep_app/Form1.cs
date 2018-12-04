@@ -1333,8 +1333,28 @@ namespace myRep_app
                     MainIngredient_newProductBox.Text = "";
                     this.myRep_ODSDataSet.Reset();
                     this.productSetTableAdapter.Fill(this.myRep_ODSDataSet.ProductSet);
+                    productsDataGridView.Columns[0].Visible = false;
                 }
-                
+                if (action_backTo == "EDITPRODUCT_PAGE")
+                {
+                    String commandText = "UPDATE ProductSet SET ProductName = @ProductName, AntiDisease = @AntiDisease, Manufacturer = @Manufacturer, MainIngredient = @MainIngredient WHERE productID = @pID";
+                    SqlCommand command = new SqlCommand(commandText, conn);
+                    command.Parameters.AddWithValue("@pID", Convert.ToInt32(productsDataGridView.CurrentRow.Cells[0].Value.ToString()));
+                    command.Parameters.AddWithValue("@ProductName", productname_newProductBox.Text.ToString());
+                    if (string.IsNullOrEmpty(category_newProductBox.Text.ToString())) command.Parameters.AddWithValue("@AntiDisease", DBNull.Value); else command.Parameters.AddWithValue("@AntiDisease", category_newProductBox.Text.ToString());
+                    if (string.IsNullOrEmpty(manufacturer_newproductBox.Text.ToString())) command.Parameters.AddWithValue("@Manufacturer", DBNull.Value); else command.Parameters.AddWithValue("@Manufacturer", manufacturer_newproductBox.Text.ToString());
+                    if (string.IsNullOrEmpty(MainIngredient_newProductBox.Text.ToString())) command.Parameters.AddWithValue("@MainIngredient", DBNull.Value); else command.Parameters.AddWithValue("@MainIngredient", MainIngredient_newProductBox.Text.ToString());
+                    command.ExecuteNonQuery();
+                    mainController.SelectedTab = products_Mgmt_Page;
+                    action_backTo = "";
+                    productname_newProductBox.Text = "";
+                    category_newProductBox.Text = "";
+                    manufacturer_newproductBox.Text = "";
+                    MainIngredient_newProductBox.Text = "";
+                    this.myRep_ODSDataSet.Reset();
+                    this.productSetTableAdapter.Fill(this.myRep_ODSDataSet.ProductSet);
+                    productsDataGridView.Columns[0].Visible = false;
+                }
 
                 conn.Close();
             }
@@ -1348,6 +1368,16 @@ namespace myRep_app
         private void newProductButton_Click(object sender, EventArgs e)
         {
             action_backTo = "NEWPRODUCT_PAGE";
+            mainController.SelectedTab = new_product_page;
+        }
+
+        private void editProductButton_Click(object sender, EventArgs e)
+        {
+            action_backTo = "EDITPRODUCT_PAGE";
+            productname_newProductBox.Text = productsDataGridView.CurrentRow.Cells[1].Value.ToString();
+            category_newProductBox.Text = productsDataGridView.CurrentRow.Cells[2].Value.ToString();
+            manufacturer_newproductBox.Text = productsDataGridView.CurrentRow.Cells[3].Value.ToString();
+            MainIngredient_newProductBox.Text = productsDataGridView.CurrentRow.Cells[4].Value.ToString();
             mainController.SelectedTab = new_product_page;
         }
     }
