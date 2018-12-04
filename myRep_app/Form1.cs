@@ -703,9 +703,6 @@ namespace myRep_app
                 HCPinHCOGridView.Columns[0].Visible = false;
                 HCPinHCOGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 HCPinHCOGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
-
-
             }
             catch (SqlException er)
             {
@@ -775,6 +772,8 @@ namespace myRep_app
 
         private void selectAddressButton_Click(object sender, EventArgs e)
         {
+            addressDedicatedBookToolStripButton.PerformClick();
+            addressDataGridView.Columns[0].Visible = false;
             mainController.SelectedTab = select_address_Page;
             action_backTo = "NEWHCP_PAGE";
         }
@@ -810,12 +809,20 @@ namespace myRep_app
                 selected_addressLabel_editHCP.Text = Convert.ToString(setAddressGridView.CurrentRow.Cells[1].Value) + ", " + Convert.ToString(setAddressGridView.CurrentRow.Cells[2].Value);
                 action_backTo = "";
             }
+            if (action_backTo == "EDITHCO_PAGE")
+            {
+                AddressID_editHCOBox.Text = Convert.ToString(setAddressGridView.CurrentRow.Cells[0].Value);
+                AddressLabel_editHCOBox.Text = Convert.ToString(setAddressGridView.CurrentRow.Cells[1].Value) + ", " + Convert.ToString(setAddressGridView.CurrentRow.Cells[2].Value);
+                mainController.SelectedTab = edit_HCO_Page;
+                action_backTo = "";
+            }
 
         }
 
         private void AddressHCOButton_Click(object sender, EventArgs e)
         {
             mainController.SelectedTab = newAddressPage;
+            TerritoryNEWaddressBox.Text = loggedUserTerritory;
             action_backTo = "NEWHCO_PAGE";
 
         }
@@ -829,10 +836,10 @@ namespace myRep_app
             conn.Open();
             try
             {
+                //STWORZENIE NOWEGO ADRESU
                 SqlCommand command = new SqlCommand(commandText, conn);
                 command.Parameters.AddWithValue("@Street", StreetNEWaddressBox.Text.ToString());
                 command.Parameters.AddWithValue("@City", CityNEWaddressBox.Text.ToString());
-                //Territory powinno być brane z aktualnie zalogowanego usera
                 command.Parameters.AddWithValue("@Territory", TerritoryNEWaddressBox.Text.ToString());
                 command.Parameters.AddWithValue("@Country", CountryNEWaddressBOX.Text.ToString());
                 command.Parameters.AddWithValue("@ZipCode", Convert.ToInt32(ZipNEWaddressBox.Text));
@@ -840,10 +847,40 @@ namespace myRep_app
 
                 commandText = "SELECT max(addressID) FROM AddressSet";
                 SqlCommand command2 = new SqlCommand(commandText, conn);
-                SelectedHCO_AddressIDLabel.Text = Convert.ToString(command2.ExecuteScalar());
-                SelectedHCO_AddressLabel.Text = StreetNEWaddressBox.Text.ToString() + ", " + CityNEWaddressBox.Text.ToString();
 
-                if (action_backTo == "NEWHCO_PAGE") mainController.SelectedTab = newHCOPage;
+                if (action_backTo == "NEWHCO_PAGE")
+                {
+                    SelectedHCO_AddressIDLabel.Text = Convert.ToString(command2.ExecuteScalar());
+                    SelectedHCO_AddressLabel.Text = StreetNEWaddressBox.Text.ToString() + ", " + CityNEWaddressBox.Text.ToString();
+                    mainController.SelectedTab = newHCOPage;
+                }
+
+                if (action_backTo == "EDITHCO_PAGE")
+                {
+                    //AKTUALIZACJA ADRESó NA HCP. STARY ADRES ZOSTAJE WYKASOWANY A NOWY ZASTĄPIONY W MIEJSCU.
+                    String commandText2 = "UPDATE HCPSet SET AddressID = @newAdID WHERE AddressID = @oldAdID";
+                    SqlCommand command3 = new SqlCommand(commandText2, conn);
+                    command3.Parameters.AddWithValue("@newAdID", Convert.ToInt32(command2.ExecuteScalar()));
+                    command3.Parameters.AddWithValue("@oldAdID", AddressID_editHCOBox.Text.ToString());
+                    command3.ExecuteNonQuery();
+
+                    //AKTUALIZACJA ADRESU NA OBECNYM HCO.
+                    String commandText4 = "UPDATE HCOSet SET AddressID = @newAdID WHERE hcoID = @HCOID";
+                    SqlCommand command4 = new SqlCommand(commandText4, conn);
+                    command4.Parameters.AddWithValue("@newAdID", Convert.ToInt32(command2.ExecuteScalar()));
+                    command4.Parameters.AddWithValue("@HCOID", Convert.ToInt32(hcoDataGridView.CurrentRow.Cells[0].Value.ToString()));
+                    command4.ExecuteNonQuery();
+
+                    //USUNIĘCIE STAREGO ADRESU
+                    String commandText5 = "DELETE FROM AddressSet WHERE addressID = @oldAdID2";
+                    SqlCommand command5 = new SqlCommand(commandText5, conn);
+                    command5.Parameters.AddWithValue("@oldAdID2", AddressID_editHCOBox.Text.ToString());
+                    command5.ExecuteNonQuery();
+
+                    AddressID_editHCOBox.Text = Convert.ToString(command2.ExecuteScalar());
+                    AddressLabel_editHCOBox.Text = StreetNEWaddressBox.Text.ToString() + ", " + CityNEWaddressBox.Text.ToString();
+                    mainController.SelectedTab = edit_HCO_Page;
+                }
 
 
                 //CZYSZCZENIE PÓL
@@ -1148,5 +1185,105 @@ namespace myRep_app
         MessageBox.Show(text, "ERROR");
             }
 }
+
+        private void editHCObutton_Click(object sender, EventArgs e)
+        {
+            mainController.SelectedTab = edit_HCO_Page;
+            hconame_editHCO.Text = hcoNameLabel.Text;
+            if (hcoRangeLabel.Text.ToString() != "Brak danych!") range_editHCOBox.Text = hcoRangeLabel.Text; else range_editHCOBox.Text = "";
+            if (hcoLevelLabel.Text.ToString() != "Brak danych!")
+                if (hcoLevelLabel.Text.ToString() == "1")
+                    level_editHCOBox.SelectedIndex = 1;
+                else if (hcoLevelLabel.Text.ToString() == "2")
+                    level_editHCOBox.SelectedIndex = 2;
+                else if (hcoLevelLabel.Text.ToString() == "3")
+                    level_editHCOBox.SelectedIndex = 3;
+                else
+                {
+                    level_editHCOBox.Text = "";
+                }
+            if (hcoSpecialTypeLabel.Text.ToString() != "Brak danych!") type_editHCOBox.Text = hcoSpecialTypeLabel.Text; else type_editHCOBox.Text = "";
+            if (hcoNoBedLabel.Text.ToString() != "Brak danych!") beds_editHCOBox.Text = hcoNoBedLabel.Text; else beds_editHCOBox.Text = "0";
+            if (hcoNoEmpLabel.Text.ToString() != "Brak danych!") employees_editHCOBox.Text = hcoNoEmpLabel.Text; else employees_editHCOBox.Text = "0";
+            if (hcoTelLabel.Text.ToString() != "Brak danych!") tel_editHCOBox.Text = hcoTelLabel.Text; else tel_editHCOBox.Text = "";
+            if (hcoEmailLabel.Text.ToString() != "Brak danych!") email_editHCOBox.Text = hcoEmailLabel.Text; else email_editHCOBox.Text = "";
+            if (hcoWWWLabel.Text.ToString() != "Brak danych!") www_editHCOBox.Text = hcoWWWLabel.Text; else www_editHCOBox.Text = "";
+            AddressLabel_editHCOBox.Text = hcoStreetLabel.Text + ", " + hcoCityLabel.Text;
+
+            //POBRANIE AddressID dla HCO
+            string sConnection = Properties.Settings.Default.myRep_ODSConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                SqlCommand command = new SqlCommand("", conn);
+                command.CommandText = "SELECT AddressID FROM dbo.HCOSet WHERE hcoID = @Id";
+                command.Parameters.AddWithValue("@Id", hcoDataGridView.CurrentRow.Cells[0].Value.ToString());
+                AddressID_editHCOBox.Text = Convert.ToString(command.ExecuteScalar());
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+        MessageBox.Show(text, "ERROR");
+            }
+}
+
+        private void select_address_editHCOBox_Click(object sender, EventArgs e)
+        {
+            action_backTo = "EDITHCO_PAGE";
+            StreetNEWaddressBox.Text = hcoStreetLabel.Text;
+            CityNEWaddressBox.Text = hcoCityLabel.Text;
+            TerritoryNEWaddressBox.Text = loggedUserTerritory;
+            CountryNEWaddressBOX.Text = hcoCountryLabel.Text;
+            ZipNEWaddressBox.Text = hcoZipLabel.Text;
+            mainController.SelectedTab = newAddressPage;
+        }
+
+        private void edit_OK_HCOButton_Click(object sender, EventArgs e)
+        {
+            String commandText = "UPDATE HCOSet SET Name=@name, PhoneNumber=@phonenumber, Email=@email, Website=@www, Range=@rng, Level=@lvl, SpecialType=@spectype, BedsAmount=@bedsno, EmployeesAmount=@empno WHERE hcoID=@HCOID";
+            string sConnection = Properties.Settings.Default.ConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                SqlCommand command = new SqlCommand(commandText, conn);
+                command.Parameters.AddWithValue("@HCOID", Convert.ToInt32(hcoDataGridView.CurrentRow.Cells[0].Value));
+                command.Parameters.AddWithValue("@name", hconame_editHCO.Text.ToString());
+                if (range_editHCOBox.Text.ToString() != "") command.Parameters.AddWithValue("@rng", range_editHCOBox.Text.ToString()); else command.Parameters.AddWithValue("@rng",DBNull.Value);
+                tel_editHCOBox.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                if (tel_editHCOBox.Text != "") command.Parameters.AddWithValue("@phonenumber", Convert.ToInt32(tel_editHCOBox.Text.ToString())); else command.Parameters.AddWithValue("@phonenumber", DBNull.Value);
+                if (email_editHCOBox.Text.ToString() != "") command.Parameters.AddWithValue("@email", email_editHCOBox.Text.ToString()); else command.Parameters.AddWithValue("@email", DBNull.Value);
+                if (www_editHCOBox.Text.ToString() != "") command.Parameters.AddWithValue("@www", www_editHCOBox.Text.ToString()); else command.Parameters.AddWithValue("@www", DBNull.Value);
+
+                if (string.IsNullOrEmpty(level_editHCOBox.Text.ToString()))
+                    command.Parameters.AddWithValue("@lvl", DBNull.Value);
+                else
+                {
+                    if (level_editHCOBox.SelectedIndex == 1)
+                        command.Parameters.AddWithValue("@lvl", 1);
+                    else if (level_editHCOBox.SelectedIndex == 2)
+                        command.Parameters.AddWithValue("@lvl", 2);
+                    else if (level_editHCOBox.SelectedIndex == 3)
+                        command.Parameters.AddWithValue("@lvl", 3);
+                }
+                if (type_editHCOBox.Text.ToString() != "") command.Parameters.AddWithValue("@spectype", type_editHCOBox.Text.ToString()); else command.Parameters.AddWithValue("@spectype", DBNull.Value);
+                if (beds_editHCOBox.Value == 0) command.Parameters.AddWithValue("@bedsno", DBNull.Value); else command.Parameters.AddWithValue("@bedsno", beds_editHCOBox.Text.ToString());
+                if (employees_editHCOBox.Value == 0) command.Parameters.AddWithValue("@empno", DBNull.Value); else command.Parameters.AddWithValue("@empno", employees_editHCOBox.Text.ToString());
+                command.ExecuteNonQuery();
+                conn.Close();
+                this.myRep_ODS_HCP_DataSet.Reset();
+                this.hCPSetTableAdapter.Fill(this.myRep_ODS_HCP_DataSet.HCPSet);
+                mainController.SelectedTab = myAccountsPage;
+                myAccounts_Controller.SelectedTab = hcoPage;
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
+        }
     }
 }
