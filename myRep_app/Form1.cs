@@ -187,6 +187,10 @@ namespace myRep_app
         {
             createHCP.Enabled = (fnameBox.Text != "") && (lnameBox.Text != "") && (selectedAddressLabel.Text != "") && ((mRadio.Checked==true) || (fRadio.Checked==true)) && (academicTitleList.Text != "") && (SpecialtyList.Text != "");
         }
+        private void ToogleCreateUpdateSampleButton()
+        {
+            newedit_Sample_Button.Enabled = (name_neweditdampleBox.Text != "") && (Qty_neweditdampleBox.Value > 0) && (Value_neweditdampleBox.Value > 0);
+        }
         private void ToogleCreateNewAddressButton()
         {
             CreateNewAddress.Enabled = (StreetNEWaddressBox.Text != "") && (CityNEWaddressBox.Text != "") && (TerritoryNEWaddressBox.Text != "") && (CountryNEWaddressBOX.Text != "") && (ZipNEWaddressBox.Text != "");
@@ -1379,6 +1383,111 @@ namespace myRep_app
             manufacturer_newproductBox.Text = productsDataGridView.CurrentRow.Cells[3].Value.ToString();
             MainIngredient_newProductBox.Text = productsDataGridView.CurrentRow.Cells[4].Value.ToString();
             mainController.SelectedTab = new_product_page;
+        }
+
+        private void productsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string sConnection = Properties.Settings.Default.myRep_ODSConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                SqlCommand command = new SqlCommand("dbo.SamplesPerProduct", conn);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@pID", productsDataGridView.CurrentRow.Cells[0].Value);
+                //WYPEŁNIANIE GRIDA Z SAMPLAMI
+                DataTable dt = new DataTable();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                dataAdapter.Fill(dt);
+                samplelistGridView.DataSource = dt;
+                samplelistGridView.Columns[0].Visible = false;
+                samplelistGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                conn.Close();
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
+        }
+
+        private void NewSampleButton_Click(object sender, EventArgs e)
+        {
+            action_backTo = "NEWSAMPLE_PAGE";
+            mainController.SelectedTab = new_Sample_Page;
+        }
+
+        private void name_neweditdampleBox_TextChanged(object sender, EventArgs e)
+        {
+            ToogleCreateUpdateSampleButton();
+        }
+
+        private void Qty_neweditdampleBox_ValueChanged(object sender, EventArgs e)
+        {
+            ToogleCreateUpdateSampleButton();
+        }
+
+        private void Qty_neweditdampleBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            ToogleCreateUpdateSampleButton();
+        }
+
+        private void Value_neweditdampleBox_ValueChanged(object sender, EventArgs e)
+        {
+            ToogleCreateUpdateSampleButton();
+        }
+
+        private void Value_neweditdampleBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            ToogleCreateUpdateSampleButton();
+        }
+
+        private void newedit_Sample_Button_Click(object sender, EventArgs e)
+        {
+            string sConnection = Properties.Settings.Default.ConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                if (action_backTo == "NEWSAMPLE_PAGE")
+                {
+                    String commandText = "INSERT INTO SampleSet VALUES(@SampleName, @pID, @Qty, @Val)";
+                    SqlCommand command = new SqlCommand(commandText, conn);
+                    command.Parameters.AddWithValue("@SampleName", name_neweditdampleBox.Text.ToString());
+                    command.Parameters.AddWithValue("@pID", Convert.ToInt32(productsDataGridView.CurrentRow.Cells[0].Value.ToString()));
+                    command.Parameters.AddWithValue("@Qty", Convert.ToInt32(Qty_neweditdampleBox.Value.ToString()));
+                    command.Parameters.AddWithValue("@Val", Convert.ToInt32(Value_neweditdampleBox.Value.ToString()));
+                    command.ExecuteNonQuery();
+                    mainController.SelectedTab = products_Mgmt_Page;
+                    action_backTo = "";
+                    name_neweditdampleBox.Text = "";
+                    Qty_neweditdampleBox.Value = 0;
+                    Value_neweditdampleBox.Value = 0;
+                    //REFRESH SAMPLE GRIDA
+                    SqlCommand command2 = new SqlCommand("dbo.SamplesPerProduct", conn);
+                    command2.CommandType = CommandType.StoredProcedure;
+                    command2.Parameters.AddWithValue("@pID", productsDataGridView.CurrentRow.Cells[0].Value);
+                    //WYPEŁNIANIE GRIDA Z SAMPLAMI
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command2);
+                    dataAdapter.Fill(dt);
+                    samplelistGridView.DataSource = dt;
+                    samplelistGridView.Columns[0].Visible = false;
+                    samplelistGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                }
+                if (action_backTo == "EDITSAMPLE_PAGE")
+                {
+
+                }
+                conn.Close();
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
         }
     }
 }
