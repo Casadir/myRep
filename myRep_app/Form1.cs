@@ -1079,11 +1079,11 @@ namespace myRep_app
                 command.ExecuteNonQuery();
 
                 //USUNIĘCIE STAREJ AFILIACJI HCP-HCO
-                String commandText2 = "DELETE FROM HCOHCP WHERE HCO_hcoID = @hcoID AND HCP_hcpID = @hcpID";
-                SqlCommand command2 = new SqlCommand(commandText2, conn);
-                command2.Parameters.AddWithValue("@hcoID", old_HCOID_duringHCPupdate);
-                command2.Parameters.AddWithValue("@hcpID", Convert.ToInt32(hcpDataGridView.CurrentRow.Cells[0].Value.ToString()));
-                command2.ExecuteNonQuery();
+ //               String commandText2 = "DELETE FROM HCOHCP WHERE HCO_hcoID = @hcoID AND HCP_hcpID = @hcpID";
+ //               SqlCommand command2 = new SqlCommand(commandText2, conn);
+ //               command2.Parameters.AddWithValue("@hcoID", old_HCOID_duringHCPupdate);
+ //               command2.Parameters.AddWithValue("@hcpID", Convert.ToInt32(hcpDataGridView.CurrentRow.Cells[0].Value.ToString()));
+ //               command2.ExecuteNonQuery();
                 
                 //UTWORZENIE NOWEJ AFILIACJI HCP-HCO, pobranie HCOID i dodanie nowego rekordu HCOHCP
                 String commandText3 = "SELECT hcoID FROM HCOSet WHERE AddressID = @adID2";
@@ -1091,12 +1091,19 @@ namespace myRep_app
                 command3.Parameters.AddWithValue("@adID2", Convert.ToInt32(selectedaddressID_editHCP.Text.ToString()));
                 int new_updated_hco_to_affiliate = Convert.ToInt32(command3.ExecuteScalar());
 
-                String commandText4 = "INSERT INTO HCOHCP VALUES ( @hcoID , @hcpID)";
-                SqlCommand command4 = new SqlCommand(commandText4, conn);
-                command4.Parameters.AddWithValue("@hcoID", new_updated_hco_to_affiliate);
-                command4.Parameters.AddWithValue("@hcpID", Convert.ToInt32(hcpDataGridView.CurrentRow.Cells[0].Value.ToString()));
-                command4.ExecuteNonQuery();
-
+                //SPRAWDZENIE CZY CZASAMI NOWA AFILIACJA JUŻ NIE ISTNIEJE. Jeżeli tak - nie rób nic , jeżeli nie - utwórz
+                String commandText5 = "SELECT count(*) FROM HCOHCP WHERE HCO_hcoID=@hcoID3 AND HCP_hcpID=@hcpID3";
+                SqlCommand command5 = new SqlCommand(commandText5, conn);
+                command5.Parameters.AddWithValue("@hcoID3", new_updated_hco_to_affiliate);
+                command5.Parameters.AddWithValue("@hcpID3", Convert.ToInt32(hcpDataGridView.CurrentRow.Cells[0].Value.ToString()));
+                if (Convert.ToInt32(command5.ExecuteScalar()) == 0)
+                {
+                    String commandText4 = "INSERT INTO HCOHCP VALUES ( @hcoID , @hcpID)";
+                    SqlCommand command4 = new SqlCommand(commandText4, conn);
+                    command4.Parameters.AddWithValue("@hcoID", new_updated_hco_to_affiliate);
+                    command4.Parameters.AddWithValue("@hcpID", Convert.ToInt32(hcpDataGridView.CurrentRow.Cells[0].Value.ToString()));
+                    command4.ExecuteNonQuery();
+                }
                 conn.Close();
                 myAccounts_Controller.SelectedTab = hcpPage;
                 this.myRep_ODS_HCP_DataSet.Reset();
@@ -1142,10 +1149,13 @@ namespace myRep_app
                 if (HCOaddressID.Equals(HCPaddressID))
                 {
                     RemoveAssossiationButton.Enabled = false;
+                    AffiliationErrorLabel.Visible = true;
                 }
                 else
                 {
                     RemoveAssossiationButton.Enabled = true;
+                    AffiliationErrorLabel.Visible = false;
+
                 }
             }
             catch (SqlException er)
