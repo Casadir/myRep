@@ -1479,7 +1479,29 @@ namespace myRep_app
                 }
                 if (action_backTo == "EDITSAMPLE_PAGE")
                 {
-
+                    String commandText = "UPDATE SampleSet SET SampleName=@sampname, QtyPerBox=@qty, Value=@val WHERE ProductID=@pID2";
+                    SqlCommand command = new SqlCommand(commandText, conn);
+                    command.Parameters.AddWithValue("@sampname", name_neweditdampleBox.Text.ToString());
+                    command.Parameters.AddWithValue("@pID2", productsDataGridView.CurrentRow.Cells[0].Value.ToString());
+                    command.Parameters.AddWithValue("@qty", Convert.ToInt32(Qty_neweditdampleBox.Value.ToString()));
+                    command.Parameters.AddWithValue("@val", Convert.ToInt32(Value_neweditdampleBox.Value.ToString()));
+                    command.ExecuteNonQuery();
+                    mainController.SelectedTab = products_Mgmt_Page;
+                    action_backTo = "";
+                    name_neweditdampleBox.Text = "";
+                    Qty_neweditdampleBox.Value = 0;
+                    Value_neweditdampleBox.Value = 0;
+                    //REFRESH SAMPLE GRIDA
+                    SqlCommand command2 = new SqlCommand("dbo.SamplesPerProduct", conn);
+                    command2.CommandType = CommandType.StoredProcedure;
+                    command2.Parameters.AddWithValue("@pID", productsDataGridView.CurrentRow.Cells[0].Value);
+                    //WYPEŁNIANIE GRIDA Z SAMPLAMI
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command2);
+                    dataAdapter.Fill(dt);
+                    samplelistGridView.DataSource = dt;
+                    samplelistGridView.Columns[0].Visible = false;
+                    samplelistGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                 }
                 conn.Close();
             }
@@ -1488,6 +1510,16 @@ namespace myRep_app
                 String text = "There was an error reported by SQL Server, " + er.Message;
                 MessageBox.Show(text, "ERROR");
             }
+        }
+
+        private void EditSampleButton_Click(object sender, EventArgs e)
+        {
+            action_backTo = "EDITSAMPLE_PAGE";
+            name_neweditdampleBox.Text = samplelistGridView.CurrentRow.Cells[1].Value.ToString();
+            Value_neweditdampleBox.Value = Convert.ToInt32(samplelistGridView.CurrentRow.Cells[2].Value.ToString());
+            Qty_neweditdampleBox.Value = Convert.ToInt32(samplelistGridView.CurrentRow.Cells[3].Value.ToString());
+            mainController.SelectedTab = new_Sample_Page;
+
         }
     }
 }
