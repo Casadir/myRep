@@ -551,6 +551,7 @@ namespace myRep_app
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(command2);
                 dataAdapter.Fill(dt);
                 dataGridViewHCPWorkPlace.DataSource = dt;
+                dataGridViewHCPWorkPlace.Columns[0].Visible = false;
 
                 command.CommandText = "SELECT KOL FROM dbo.HCPSet where hcpID = @Id";
                 if (Convert.ToInt32(command.ExecuteScalar()) == 1)
@@ -1078,5 +1079,74 @@ namespace myRep_app
             action_backTo = "EDITHCP_PAGE";
 
         }
+
+        private void dataGridViewHCPWorkPlace_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            String commandText = "SELECT AddressID FROM HCOSet WHERE hcoID = @HCOID";
+            string sConnection = Properties.Settings.Default.ConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                //POBIERZ ADDRESSID DLA WYBRANEGO HCO
+                SqlCommand command = new SqlCommand(commandText, conn);
+                command.Parameters.AddWithValue("@HCOID", Convert.ToInt32(dataGridViewHCPWorkPlace.CurrentRow.Cells[0].Value));
+                int HCOaddressID = Convert.ToInt32(command.ExecuteScalar());
+
+                //POBIERZ ADDRESSID DLA WYBRANEGO HCP
+                String commandText2 = "SELECT AddressID FROM HCPSet WHERE hcpID = @HCPID";
+                SqlCommand command2 = new SqlCommand(commandText2, conn);
+                command2.Parameters.AddWithValue("@HCPID", Convert.ToInt32(hcpDataGridView.CurrentRow.Cells[0].Value.ToString()));
+                int HCPaddressID = Convert.ToInt32(command2.ExecuteScalar());
+
+                //JEŻELI OBA ADRESY SĄ TAKIE SAME TO ZABLOKUJ MOŻLIWOŚĆ USUNIĘCIA AFILIACJI - POWINNO SIĘ TO ROBIĆ POPRZEZ EDYCJE HCP
+                //JEŻELI ADRESY SĄ RÓŻNE TO USUŃ POWIĄZANIE Z TABELI HCOHCP
+                if (HCOaddressID.Equals(HCPaddressID))
+                {
+                    RemoveAssossiationButton.Enabled = false;
+                }
+                else
+                {
+                    RemoveAssossiationButton.Enabled = true;
+                }
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
+}
+
+        private void RemoveAssossiationButton_Click(object sender, EventArgs e)
+        {
+            string sConnection = Properties.Settings.Default.ConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                String commandText3 = "DELETE FROM HCOHCP WHERE HCO_hcoID = @hcoID AND HCP_hcpID = @hcpID1 ";
+                SqlCommand command3 = new SqlCommand(commandText3, conn);
+                command3.Parameters.AddWithValue("@hcpID1", Convert.ToInt32(hcpDataGridView.CurrentRow.Cells[0].Value.ToString()));
+                command3.Parameters.AddWithValue("@hcoID", Convert.ToInt32(dataGridViewHCPWorkPlace.CurrentRow.Cells[0].Value.ToString()));
+                command3.ExecuteNonQuery();
+
+                SqlCommand command = new SqlCommand("dbo.HCPWorkPlaceDisplay", conn);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@hcpID", hcpDataGridView.CurrentRow.Cells[0].Value);
+                //WYPEŁNIANIE GRIDA Z MIEJSCEM PRACY
+                DataTable dt = new DataTable();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                dataAdapter.Fill(dt);
+                dataGridViewHCPWorkPlace.DataSource = dt;
+                dataGridViewHCPWorkPlace.Columns[0].Visible = false;
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+        MessageBox.Show(text, "ERROR");
+            }
+}
     }
 }
