@@ -96,6 +96,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>myRep_ODSDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="myRep_ODSDataSet_UserSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>myRep_ODSDataSet_UserSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="myRep_ODS_Address_DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -174,6 +179,17 @@
     </None>
     <None Include="myRep_ODSDataSet.xss">
       <DependentUpon>myRep_ODSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="myRep_ODSDataSet_UserSet.xsc">
+      <DependentUpon>myRep_ODSDataSet_UserSet.xsd</DependentUpon>
+    </None>
+    <None Include="myRep_ODSDataSet_UserSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>myRep_ODSDataSet_UserSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="myRep_ODSDataSet_UserSet.xss">
+      <DependentUpon>myRep_ODSDataSet_UserSet.xsd</DependentUpon>
     </None>
     <None Include="myRep_ODS_Address_DataSet.xsc">
       <DependentUpon>myRep_ODS_Address_DataSet.xsd</DependentUpon>

@@ -15,6 +15,7 @@ namespace myRep_app
     {
         public static int loggedUserID;
         public static string loggedUserTerritory;
+        public static string loggedUserJobTitle;
         public static String username;
         public static string action_backTo = "";
         public static int old_HCOID_duringHCPupdate;
@@ -24,6 +25,8 @@ namespace myRep_app
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'myRep_ODSDataSet_UserSet.UserSet' table. You can move, or remove it, as needed.
+            this.userSetTableAdapter1.Fill(this.myRep_ODSDataSet_UserSet.UserSet);
             // TODO: This line of code loads data into the 'myRep_ODSDataSet.ProductSet' table. You can move, or remove it, as needed.
             this.productSetTableAdapter.Fill(this.myRep_ODSDataSet.ProductSet);
             // TODO: This line of code loads data into the 'myRep_ODS_HCOHCPDataSet.HCOSet' table. You can move, or remove it, as needed.
@@ -72,7 +75,7 @@ namespace myRep_app
                     command.CommandText = "SELECT LastName FROM dbo.UserSet WHERE Username = @param3";
                     command.Parameters.AddWithValue("@param3", UsernameBox.Text.ToString());
                     fullname = fullname + " " + Convert.ToString(command.ExecuteScalar());
-                    MessageBox.Show("Login successful. Welcome, " + fullname, "SIGN IN INFO");
+                    MessageBox.Show("Logowanie zakończone powodzeniem! Witaj, " + fullname, "INFORMACJA");
                     LogoutButton.Enabled = true;
                     LoginButton.Enabled = false;
                     UsernameBox.Enabled = false;
@@ -107,6 +110,7 @@ namespace myRep_app
                     //Nadanie dostępu do odpowiednich zasobów na podstawie Job Title
                     command.CommandText = "SELECT JobTitle FROM dbo.UserSet WHERE Username = @param4";
                     command.Parameters.AddWithValue("@param4", UsernameBox.Text.ToString());
+                    loggedUserJobTitle = Convert.ToString(command.ExecuteScalar());
                     switch ((String)command.ExecuteScalar())
                     {
                         case "SYSADMIN":
@@ -114,7 +118,8 @@ namespace myRep_app
                                 myAccountsButton.Visible = true; myAccountsButton.Enabled = true;
                                 userMgmtButton.Visible = true; userMgmtButton.Enabled = true;
                                 productsMgmtButton.Visible = true; productsMgmtButton.Enabled = true;
-                                SampleRightsErrorLabel.Visible = true; newProductButton.Enabled = false; editProductButton.Enabled = false; NewSampleButton.Enabled = false; EditSampleButton.Enabled = false; GiveSampleButton.Enabled = false;
+                                //Sterowanie kontrolkami na ProductsMgmt page tak aby nie zostały aktywowane
+                                label94.Visible = false; DisbursedSamplesGridView.Visible = false; SampleRightsErrorLabel.Visible = true; newProductButton.Enabled = false; editProductButton.Enabled = false; NewSampleButton.Enabled = false; EditSampleButton.Enabled = false; GiveSampleButton.Enabled = false;
                                 break;
                             }
                         case "SnPA":
@@ -122,7 +127,8 @@ namespace myRep_app
                                 myAccountsButton.Visible = false; myAccountsButton.Enabled = false;
                                 userMgmtButton.Visible = false; userMgmtButton.Enabled = false;
                                 productsMgmtButton.Visible = true; productsMgmtButton.Enabled = true;
-                                newProductButton.Enabled = true; editProductButton.Enabled = true; NewSampleButton.Enabled = true; EditSampleButton.Enabled = true; GiveSampleButton.Enabled = true;
+                                //Sterowanie kontrolkami na ProductsMgmt page tak aby zostały aktywowane tylko dla Sample&Product Admina
+                                label94.Visible = true; DisbursedSamplesGridView.Visible = true; newProductButton.Enabled = true; editProductButton.Enabled = false; NewSampleButton.Enabled = false; EditSampleButton.Enabled = false; GiveSampleButton.Enabled = false;
                                 break;
                             }
                         case "REP":
@@ -130,7 +136,8 @@ namespace myRep_app
                                 myAccountsButton.Visible = true; myAccountsButton.Enabled = true;
                                 userMgmtButton.Visible = false; userMgmtButton.Enabled = false;
                                 productsMgmtButton.Visible = true; productsMgmtButton.Enabled = true;
-                                SampleRightsErrorLabel.Visible = true; newProductButton.Enabled = false; editProductButton.Enabled = false; NewSampleButton.Enabled = false; EditSampleButton.Enabled = false; GiveSampleButton.Enabled = false;
+                                //Sterowanie kontrolkami na ProductsMgmt page tak aby nie zostały aktywowane
+                                label94.Visible = false; DisbursedSamplesGridView.Visible = false; SampleRightsErrorLabel.Visible = true; newProductButton.Enabled = false; editProductButton.Enabled = false; NewSampleButton.Enabled = false; EditSampleButton.Enabled = false; GiveSampleButton.Enabled = false;
                                 break;
                             }
 
@@ -151,6 +158,8 @@ namespace myRep_app
         private void LogoutButton_Click_1(object sender, EventArgs e)
         {
             loggedUserID = 0;
+            loggedUserTerritory = "";
+            loggedUserJobTitle = "";
             LogoutButton.Enabled = false;
             LoginButton.Enabled = true;
             UsernameBox.Enabled = true;
@@ -159,7 +168,8 @@ namespace myRep_app
             myAccountsButton.Enabled = false;
             userMgmtButton.Visible = false;
             userMgmtButton.Enabled = false;
-            MessageBox.Show("GOODBYE!");
+            productsMgmtButton.Enabled = false; productsMgmtButton.Visible = false;
+            MessageBox.Show("DO ZOBACZENIA!");
         }
 
         private void myAccountsButton_Click(object sender, EventArgs e)
@@ -1387,6 +1397,12 @@ namespace myRep_app
 
         private void productsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (loggedUserJobTitle == "SnPA")
+            {
+                editProductButton.Enabled = true;
+                NewSampleButton.Enabled = true;
+            }
+            
             string sConnection = Properties.Settings.Default.myRep_ODSConnectionString;
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = sConnection;
@@ -1519,7 +1535,152 @@ namespace myRep_app
             Value_neweditdampleBox.Value = Convert.ToInt32(samplelistGridView.CurrentRow.Cells[2].Value.ToString());
             Qty_neweditdampleBox.Value = Convert.ToInt32(samplelistGridView.CurrentRow.Cells[3].Value.ToString());
             mainController.SelectedTab = new_Sample_Page;
+            
+        }
 
+        private void GiveSampleButton_Click(object sender, EventArgs e)
+        {
+            mainController.SelectedTab = give_sample_page;
+            action_backTo = "PRD_MGMT_PAGE";
+            terriToolStripTextBox.Text = loggedUserTerritory;
+            filterUsersbyTerritoryToolStripButton.PerformClick();
+            selectUser_giveSampleGridView.Columns[0].Visible = false;
+            samplelabel_toGive_label.Text = samplelabel_toGive_label.Text + "   " + samplelistGridView.CurrentRow.Cells[1].Value.ToString() + "   IL/OP.: " + samplelistGridView.CurrentRow.Cells[3].Value.ToString();
+        }
+
+        private void filterUsersbyTerritoryToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.userSetTableAdapter1.filterUsersbyTerritory(this.myRep_ODSDataSet_UserSet.UserSet, terriToolStripTextBox.Text);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void samplelistGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (loggedUserJobTitle == "SnPA")
+            {
+                EditSampleButton.Enabled = true;
+                GiveSampleButton.Enabled = true;
+                string sConnection = Properties.Settings.Default.myRep_ODSConnectionString;
+                SqlConnection conn = new SqlConnection();
+                conn.ConnectionString = sConnection;
+                conn.Open();
+                try
+                {
+                    SqlCommand command = new SqlCommand("dbo.SamplePerUser", conn);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@sID", samplelistGridView.CurrentRow.Cells[0].Value);
+                    //WYPEŁNIANIE GRIDA Z OWNERAMI SAMPLAMI
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                    dataAdapter.Fill(dt);
+                    DisbursedSamplesGridView.DataSource = dt;
+                    DisbursedSamplesGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                    conn.Close();
+                }
+                catch (SqlException er)
+                {
+                    String text = "There was an error reported by SQL Server, " + er.Message;
+                    MessageBox.Show(text, "ERROR");
+                }
+            }
+
+        }
+
+        private void selectUser_giveSampleGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            give_sample_Button.Enabled = ((selectUser_giveSampleGridView.SelectedRows.Count > 0) && (qty_giveSampleBox.Value > 0));
+        }
+
+        private void qty_giveSampleBox_ValueChanged(object sender, EventArgs e)
+        {
+            give_sample_Button.Enabled = ((selectUser_giveSampleGridView.SelectedRows.Count > 0) && (qty_giveSampleBox.Value > 0));
+            value_giveSampleBox.Text = Convert.ToString(qty_giveSampleBox.Value * Convert.ToInt32(samplelistGridView.CurrentRow.Cells[2].Value));
+
+        }
+
+        private void qty_giveSampleBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            give_sample_Button.Enabled = ((selectUser_giveSampleGridView.SelectedRows.Count > 0) && (qty_giveSampleBox.Value > 0));
+            value_giveSampleBox.Text = Convert.ToString(qty_giveSampleBox.Value * Convert.ToInt32(samplelistGridView.CurrentRow.Cells[2].Value));
+        }
+
+        private void give_sample_Button_Click(object sender, EventArgs e)
+        {
+            string sConnection = Properties.Settings.Default.ConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                if (action_backTo == "PRD_MGMT_PAGE")
+                {
+                    //SPRAWDZENIE CZY OBY USER JUŻ NIE MA WYDANEJ PRÓBKI - JEŚLI TAK TO DODAJ ILOŚĆ DO OBECNIE POSIADANEJ, JEŚLI NIE TO UTWÓRZ NOWY REKORD
+                    String commandText2 = "SELECT SampleWarehouseSet.Id FROM dbo.SampleWarehouseSet WHERE UserID = @usID AND SampleID = @saID";
+                    SqlCommand command2 = new SqlCommand(commandText2, conn);
+                    command2.Parameters.AddWithValue("@usID", Convert.ToInt32(selectUser_giveSampleGridView.CurrentRow.Cells[0].Value.ToString()));
+                    command2.Parameters.AddWithValue("@saID", Convert.ToInt32(samplelistGridView.CurrentRow.Cells[0].Value.ToString()));
+                    if ( String.IsNullOrEmpty(Convert.ToString(command2.ExecuteScalar())))
+                    {
+                        String commandText = "INSERT INTO SampleWarehouseSet VALUES(@uID, @sID, @Qty)";
+                        SqlCommand command = new SqlCommand(commandText, conn);
+                        command.Parameters.AddWithValue("@uID", Convert.ToInt32(selectUser_giveSampleGridView.CurrentRow.Cells[0].Value.ToString()));
+                        command.Parameters.AddWithValue("@sID", Convert.ToInt32(samplelistGridView.CurrentRow.Cells[0].Value.ToString()));
+                        command.Parameters.AddWithValue("@Qty", Convert.ToInt32(qty_giveSampleBox.Value.ToString()));
+                        command.ExecuteNonQuery();
+                        mainController.SelectedTab = products_Mgmt_Page;
+                        action_backTo = "";
+                        qty_giveSampleBox.Value = 0;
+
+                        SqlCommand command4 = new SqlCommand("dbo.SamplePerUser", conn);
+                        command4.CommandType = CommandType.StoredProcedure;
+                        command4.Parameters.AddWithValue("@sID", samplelistGridView.CurrentRow.Cells[0].Value);
+                        //WYPEŁNIANIE GRIDA Z OWNERAMI SAMPLAMI
+                        DataTable dt = new DataTable();
+                        SqlDataAdapter dataAdapter = new SqlDataAdapter(command4);
+                        dataAdapter.Fill(dt);
+                        DisbursedSamplesGridView.DataSource = dt;
+                        DisbursedSamplesGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                    }
+                    else
+                    {
+                        String commandText = "UPDATE SampleWarehouseSet SET SampleWarehouseSet.Qty = SampleWarehouseSet.Qty + @Qty WHERE SampleWarehouseSet.Id = @idToUpdate";
+                        SqlCommand command = new SqlCommand(commandText, conn);
+                        command.Parameters.AddWithValue("@Qty", Convert.ToInt32(qty_giveSampleBox.Value.ToString()));
+                        command.Parameters.AddWithValue("@idToUpdate", Convert.ToInt32(command2.ExecuteScalar()));
+                        command.ExecuteNonQuery();
+                        mainController.SelectedTab = products_Mgmt_Page;
+                        action_backTo = "";
+                        qty_giveSampleBox.Value = 0;
+
+                        
+                        SqlCommand command3 = new SqlCommand("dbo.SamplePerUser", conn);
+                        command3.CommandType = CommandType.StoredProcedure;
+                        command3.Parameters.AddWithValue("@sID", samplelistGridView.CurrentRow.Cells[0].Value);
+                        //WYPEŁNIANIE GRIDA Z OWNERAMI SAMPLAMI
+                        DataTable dt = new DataTable();
+                        SqlDataAdapter dataAdapter = new SqlDataAdapter(command3);
+                        dataAdapter.Fill(dt);
+                        DisbursedSamplesGridView.DataSource = dt;
+                        DisbursedSamplesGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                    }
+
+                    
+                }
+                
+                conn.Close();
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
         }
     }
 }

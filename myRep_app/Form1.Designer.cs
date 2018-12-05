@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle66 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainController = new System.Windows.Forms.TabControl();
             this.homePage = new System.Windows.Forms.TabPage();
+            this.productsMgmtButton = new System.Windows.Forms.Button();
             this.userMgmtButton = new System.Windows.Forms.Button();
             this.LogoutButton = new System.Windows.Forms.Button();
             this.myAccountsButton = new System.Windows.Forms.Button();
@@ -45,9 +46,65 @@
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.PasswordBox = new System.Windows.Forms.TextBox();
             this.UsernameBox = new System.Windows.Forms.TextBox();
+            this.products_Mgmt_Page = new System.Windows.Forms.TabPage();
+            this.SampleRightsErrorLabel = new System.Windows.Forms.Label();
+            this.GiveSampleButton = new System.Windows.Forms.Button();
+            this.EditSampleButton = new System.Windows.Forms.Button();
+            this.NewSampleButton = new System.Windows.Forms.Button();
+            this.editProductButton = new System.Windows.Forms.Button();
+            this.newProductButton = new System.Windows.Forms.Button();
+            this.label94 = new System.Windows.Forms.Label();
+            this.DisbursedSamplesGridView = new System.Windows.Forms.DataGridView();
+            this.label83 = new System.Windows.Forms.Label();
+            this.samplelistGridView = new System.Windows.Forms.DataGridView();
+            this.label62 = new System.Windows.Forms.Label();
+            this.productsDataGridView = new System.Windows.Forms.DataGridView();
+            this.productIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.antiDiseaseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.manufacturerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mainIngredientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.myRep_ODSDataSet = new myRep_app.myRep_ODSDataSet();
+            this.give_sample_page = new System.Windows.Forms.TabPage();
+            this.selectUser_giveSampleGridView = new System.Windows.Forms.DataGridView();
+            this.userSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.myRep_ODSDataSet_UserSet = new myRep_app.myRep_ODSDataSet_UserSet();
+            this.label109 = new System.Windows.Forms.Label();
+            this.samplelabel_toGive_label = new System.Windows.Forms.Label();
+            this.new_product_page = new System.Windows.Forms.TabPage();
+            this.label100 = new System.Windows.Forms.Label();
+            this.addNewProductButton = new System.Windows.Forms.Button();
+            this.MainIngredient_newProductBox = new System.Windows.Forms.TextBox();
+            this.manufacturer_newproductBox = new System.Windows.Forms.TextBox();
+            this.category_newProductBox = new System.Windows.Forms.ComboBox();
+            this.productname_newProductBox = new System.Windows.Forms.TextBox();
+            this.label99 = new System.Windows.Forms.Label();
+            this.label98 = new System.Windows.Forms.Label();
+            this.label97 = new System.Windows.Forms.Label();
+            this.label96 = new System.Windows.Forms.Label();
+            this.label95 = new System.Windows.Forms.Label();
+            this.new_Sample_Page = new System.Windows.Forms.TabPage();
+            this.label107 = new System.Windows.Forms.Label();
+            this.label106 = new System.Windows.Forms.Label();
+            this.label105 = new System.Windows.Forms.Label();
+            this.newedit_Sample_Button = new System.Windows.Forms.Button();
+            this.Value_neweditdampleBox = new System.Windows.Forms.NumericUpDown();
+            this.Qty_neweditdampleBox = new System.Windows.Forms.NumericUpDown();
+            this.name_neweditdampleBox = new System.Windows.Forms.TextBox();
+            this.label104 = new System.Windows.Forms.Label();
+            this.label103 = new System.Windows.Forms.Label();
+            this.label102 = new System.Windows.Forms.Label();
+            this.label101 = new System.Windows.Forms.Label();
             this.myAccountsPage = new System.Windows.Forms.TabPage();
             this.myAccounts_Controller = new System.Windows.Forms.TabControl();
             this.hcpPage = new System.Windows.Forms.TabPage();
+            this.AffiliationErrorLabel = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.RemoveAssossiationButton = new System.Windows.Forms.Button();
+            this.edithcpbutton = new System.Windows.Forms.Button();
+            this.NewAssossiationButton = new System.Windows.Forms.Button();
             this.hcpSpec = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.dataGridViewHCPWorkPlace = new System.Windows.Forms.DataGridView();
@@ -83,6 +140,23 @@
             this.hCPSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.myRep_ODS_HCP_DataSet = new myRep_app.myRep_ODS_HCP_DataSet();
             this.hcoPage = new System.Windows.Forms.TabPage();
+            this.editHCObutton = new System.Windows.Forms.Button();
+            this.label61 = new System.Windows.Forms.Label();
+            this.HCPinHCOGridView = new System.Windows.Forms.DataGridView();
+            this.hcoCountryLabel = new System.Windows.Forms.Label();
+            this.hcoTerrLabel = new System.Windows.Forms.Label();
+            this.hcoZipLabel = new System.Windows.Forms.Label();
+            this.hcoCityLabel = new System.Windows.Forms.Label();
+            this.hcoStreetLabel = new System.Windows.Forms.Label();
+            this.hcoNoEmpLabel = new System.Windows.Forms.Label();
+            this.hcoNoBedLabel = new System.Windows.Forms.Label();
+            this.hcoSpecialTypeLabel = new System.Windows.Forms.Label();
+            this.hcoLevelLabel = new System.Windows.Forms.Label();
+            this.hcoRangeLabel = new System.Windows.Forms.Label();
+            this.hcoWWWLabel = new System.Windows.Forms.Label();
+            this.hcoEmailLabel = new System.Windows.Forms.Label();
+            this.hcoTelLabel = new System.Windows.Forms.Label();
+            this.hcoNameLabel = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
@@ -101,7 +175,20 @@
             this.hcoDataGridView = new System.Windows.Forms.DataGridView();
             this.createnewhcoButton = new System.Windows.Forms.Button();
             this.addressPage = new System.Windows.Forms.TabPage();
+            this.new_meeting = new System.Windows.Forms.Button();
+            this.HCOunderAddressGridView = new System.Windows.Forms.DataGridView();
+            this.HCPunderAddressGridView = new System.Windows.Forms.DataGridView();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
             this.addressDataGridView = new System.Windows.Forms.DataGridView();
+            this.addressIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.streetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.territoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zipCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.myRep_ODS_Address_DataSet = new myRep_app.myRep_ODS_Address_DataSet();
             this.userMgmtPage = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -112,6 +199,7 @@
             this.userSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.myRep_ODS_User_DataSet = new myRep_app.myRep_ODS_User_DataSet();
             this.newHCPPage = new System.Windows.Forms.TabPage();
+            this.selectedAddressFullLabel = new System.Windows.Forms.Label();
             this.otherLangTextBox = new System.Windows.Forms.TextBox();
             this.otherLangCheck = new System.Windows.Forms.CheckBox();
             this.createHCP = new System.Windows.Forms.Button();
@@ -149,6 +237,12 @@
             this.AcademicTitleLabel = new System.Windows.Forms.Label();
             this.MiddleNameLabel = new System.Windows.Forms.Label();
             this.newHCOPage = new System.Windows.Forms.TabPage();
+            this.PhNumberHCOBox = new System.Windows.Forms.MaskedTextBox();
+            this.SelectedHCO_AddressLabel = new System.Windows.Forms.Label();
+            this.EmployeesHCOBox = new System.Windows.Forms.NumericUpDown();
+            this.BedsHCOBox = new System.Windows.Forms.NumericUpDown();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
             this.SelectedHCO_AddressIDLabel = new System.Windows.Forms.Label();
             this.CreateHCOButton = new System.Windows.Forms.Button();
             this.AddressHCOButton = new System.Windows.Forms.Button();
@@ -168,6 +262,23 @@
             this.newHCO_emaillabel = new System.Windows.Forms.Label();
             this.newHCO_phonelabel = new System.Windows.Forms.Label();
             this.newHCO_NameLabel = new System.Windows.Forms.Label();
+            this.newAddressPage = new System.Windows.Forms.TabPage();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.CountryNEWaddressBOX = new System.Windows.Forms.TextBox();
+            this.CreateNewAddress = new System.Windows.Forms.Button();
+            this.TerritoryNEWaddressBox = new System.Windows.Forms.ComboBox();
+            this.ZipNEWaddressBox = new System.Windows.Forms.TextBox();
+            this.CityNEWaddressBox = new System.Windows.Forms.TextBox();
+            this.StreetNEWaddressBox = new System.Windows.Forms.TextBox();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
             this.newUserPage = new System.Windows.Forms.TabPage();
             this.emailUserBox = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -197,100 +308,26 @@
             this.newpwdBox = new System.Windows.Forms.TextBox();
             this.newpwd_confirm_label = new System.Windows.Forms.Label();
             this.newpwdLabel = new System.Windows.Forms.Label();
-            this.hCOSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.myRep_ODS_HCO_DataSet = new myRep_app.myRep_ODS_HCO_DataSet();
-            this.hCOSetTableAdapter = new myRep_app.myRep_ODS_HCO_DataSetTableAdapters.HCOSetTableAdapter();
-            this.userSetTableAdapter = new myRep_app.myRep_ODS_User_DataSetTableAdapters.UserSetTableAdapter();
-            this.myRep_ODS_HCOHCPDataSet = new myRep_app.myRep_ODS_HCOHCPDataSet();
-            this.myRepODSHCOHCPDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hCOHCPBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hCOHCPTableAdapter = new myRep_app.myRep_ODS_HCOHCPDataSetTableAdapters.HCOHCPTableAdapter();
-            this.hCOSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.hCOSetTableAdapter1 = new myRep_app.myRep_ODS_HCOHCPDataSetTableAdapters.HCOSetTableAdapter();
-            this.hCPSetTableAdapter = new myRep_app.myRep_ODS_HCP_DataSetTableAdapters.HCPSetTableAdapter();
-            this.showDedicatedHCPToolStrip = new System.Windows.Forms.ToolStrip();
-            this.param_show_HCP7ToolStripLabel = new System.Windows.Forms.ToolStripLabel();
-            this.param_show_HCP7ToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.showDedicatedHCPToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.hcoNameLabel = new System.Windows.Forms.Label();
-            this.hcoTelLabel = new System.Windows.Forms.Label();
-            this.hcoEmailLabel = new System.Windows.Forms.Label();
-            this.hcoWWWLabel = new System.Windows.Forms.Label();
-            this.hcoRangeLabel = new System.Windows.Forms.Label();
-            this.hcoLevelLabel = new System.Windows.Forms.Label();
-            this.hcoSpecialTypeLabel = new System.Windows.Forms.Label();
-            this.hcoNoBedLabel = new System.Windows.Forms.Label();
-            this.hcoNoEmpLabel = new System.Windows.Forms.Label();
-            this.hcoStreetLabel = new System.Windows.Forms.Label();
-            this.hcoCityLabel = new System.Windows.Forms.Label();
-            this.hcoZipLabel = new System.Windows.Forms.Label();
-            this.hcoTerrLabel = new System.Windows.Forms.Label();
-            this.hcoCountryLabel = new System.Windows.Forms.Label();
-            this.addressDedicatedBookToolStrip = new System.Windows.Forms.ToolStrip();
-            this.paramToolStripLabel = new System.Windows.Forms.ToolStripLabel();
-            this.paramToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.addressDedicatedBookToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.label47 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
-            this.HCPunderAddressGridView = new System.Windows.Forms.DataGridView();
-            this.HCOunderAddressGridView = new System.Windows.Forms.DataGridView();
-            this.new_meeting = new System.Windows.Forms.Button();
             this.select_address_Page = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
             this.setAddressGridView = new System.Windows.Forms.DataGridView();
-            this.addressIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.streetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.territoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.countryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zipCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.myRep_ODS_Address_DataSet = new myRep_app.myRep_ODS_Address_DataSet();
-            this.addressSetTableAdapter = new myRep_app.myRep_ODS_Address_DataSetTableAdapters.AddressSetTableAdapter();
-            this.addressDedicatedBookToolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.paramToolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.paramToolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
-            this.addressDedicatedBookToolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.streetDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.territoryDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countryDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zipCodeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button2 = new System.Windows.Forms.Button();
-            this.selectedAddressFullLabel = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
-            this.label50 = new System.Windows.Forms.Label();
-            this.BedsHCOBox = new System.Windows.Forms.NumericUpDown();
-            this.EmployeesHCOBox = new System.Windows.Forms.NumericUpDown();
-            this.SelectedHCO_AddressLabel = new System.Windows.Forms.Label();
-            this.PhNumberHCOBox = new System.Windows.Forms.MaskedTextBox();
-            this.newAddressPage = new System.Windows.Forms.TabPage();
-            this.label51 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
-            this.StreetNEWaddressBox = new System.Windows.Forms.TextBox();
-            this.CityNEWaddressBox = new System.Windows.Forms.TextBox();
-            this.ZipNEWaddressBox = new System.Windows.Forms.TextBox();
-            this.TerritoryNEWaddressBox = new System.Windows.Forms.ComboBox();
-            this.CreateNewAddress = new System.Windows.Forms.Button();
-            this.CountryNEWaddressBOX = new System.Windows.Forms.TextBox();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
-            this.label58 = new System.Windows.Forms.Label();
-            this.label59 = new System.Windows.Forms.Label();
-            this.label60 = new System.Windows.Forms.Label();
-            this.NewAssossiationButton = new System.Windows.Forms.Button();
             this.new_HCPHCO_Assossiation_Page = new System.Windows.Forms.TabPage();
-            this.titlelabel1 = new System.Windows.Forms.Label();
-            this.HCPname_newAssossiation = new System.Windows.Forms.Label();
-            this.Assossiation_AddManualView = new System.Windows.Forms.DataGridView();
             this.addAssossiationButton = new System.Windows.Forms.Button();
-            this.HCPinHCOGridView = new System.Windows.Forms.DataGridView();
-            this.label61 = new System.Windows.Forms.Label();
-            this.edithcpbutton = new System.Windows.Forms.Button();
+            this.Assossiation_AddManualView = new System.Windows.Forms.DataGridView();
+            this.HCPname_newAssossiation = new System.Windows.Forms.Label();
+            this.titlelabel1 = new System.Windows.Forms.Label();
             this.editHCP_Page = new System.Windows.Forms.TabPage();
+            this.selected_addressLabel_editHCP = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
+            this.selectedaddressID_editHCP = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.otherLang_editHCPBoxrlang = new System.Windows.Forms.TextBox();
             this.HCP_edit_BUTTON = new System.Windows.Forms.Button();
             this.label65 = new System.Windows.Forms.Label();
@@ -321,15 +358,6 @@
             this.label79 = new System.Windows.Forms.Label();
             this.label80 = new System.Windows.Forms.Label();
             this.label81 = new System.Windows.Forms.Label();
-            this.selected_addressLabel_editHCP = new System.Windows.Forms.Label();
-            this.label63 = new System.Windows.Forms.Label();
-            this.label64 = new System.Windows.Forms.Label();
-            this.selectedaddressID_editHCP = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.RemoveAssossiationButton = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.editHCObutton = new System.Windows.Forms.Button();
             this.edit_HCO_Page = new System.Windows.Forms.TabPage();
             this.tel_editHCOBox = new System.Windows.Forms.MaskedTextBox();
             this.AddressLabel_editHCOBox = new System.Windows.Forms.Label();
@@ -356,55 +384,68 @@
             this.label91 = new System.Windows.Forms.Label();
             this.label92 = new System.Windows.Forms.Label();
             this.label93 = new System.Windows.Forms.Label();
-            this.AffiliationErrorLabel = new System.Windows.Forms.Label();
-            this.productsMgmtButton = new System.Windows.Forms.Button();
-            this.products_Mgmt_Page = new System.Windows.Forms.TabPage();
-            this.productsDataGridView = new System.Windows.Forms.DataGridView();
-            this.myRep_ODSDataSet = new myRep_app.myRep_ODSDataSet();
-            this.productSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hCOSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.myRep_ODS_HCO_DataSet = new myRep_app.myRep_ODS_HCO_DataSet();
+            this.hCOSetTableAdapter = new myRep_app.myRep_ODS_HCO_DataSetTableAdapters.HCOSetTableAdapter();
+            this.userSetTableAdapter = new myRep_app.myRep_ODS_User_DataSetTableAdapters.UserSetTableAdapter();
+            this.myRep_ODS_HCOHCPDataSet = new myRep_app.myRep_ODS_HCOHCPDataSet();
+            this.myRepODSHCOHCPDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hCOHCPBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hCOHCPTableAdapter = new myRep_app.myRep_ODS_HCOHCPDataSetTableAdapters.HCOHCPTableAdapter();
+            this.hCOSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.hCOSetTableAdapter1 = new myRep_app.myRep_ODS_HCOHCPDataSetTableAdapters.HCOSetTableAdapter();
+            this.hCPSetTableAdapter = new myRep_app.myRep_ODS_HCP_DataSetTableAdapters.HCPSetTableAdapter();
+            this.showDedicatedHCPToolStrip = new System.Windows.Forms.ToolStrip();
+            this.param_show_HCP7ToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.param_show_HCP7ToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.showDedicatedHCPToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.addressDedicatedBookToolStrip = new System.Windows.Forms.ToolStrip();
+            this.paramToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.paramToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.addressDedicatedBookToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.addressSetTableAdapter = new myRep_app.myRep_ODS_Address_DataSetTableAdapters.AddressSetTableAdapter();
+            this.addressDedicatedBookToolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.paramToolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.paramToolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.addressDedicatedBookToolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.productSetTableAdapter = new myRep_app.myRep_ODSDataSetTableAdapters.ProductSetTableAdapter();
-            this.productIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.antiDiseaseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.manufacturerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mainIngredientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label62 = new System.Windows.Forms.Label();
-            this.samplelistGridView = new System.Windows.Forms.DataGridView();
-            this.label83 = new System.Windows.Forms.Label();
-            this.DisbursedSamplesGridView = new System.Windows.Forms.DataGridView();
-            this.label94 = new System.Windows.Forms.Label();
-            this.newProductButton = new System.Windows.Forms.Button();
-            this.editProductButton = new System.Windows.Forms.Button();
-            this.NewSampleButton = new System.Windows.Forms.Button();
-            this.EditSampleButton = new System.Windows.Forms.Button();
-            this.GiveSampleButton = new System.Windows.Forms.Button();
-            this.SampleRightsErrorLabel = new System.Windows.Forms.Label();
-            this.new_product_page = new System.Windows.Forms.TabPage();
-            this.label95 = new System.Windows.Forms.Label();
-            this.label96 = new System.Windows.Forms.Label();
-            this.label97 = new System.Windows.Forms.Label();
-            this.label98 = new System.Windows.Forms.Label();
-            this.label99 = new System.Windows.Forms.Label();
-            this.productname_newProductBox = new System.Windows.Forms.TextBox();
-            this.category_newProductBox = new System.Windows.Forms.ComboBox();
-            this.manufacturer_newproductBox = new System.Windows.Forms.TextBox();
-            this.MainIngredient_newProductBox = new System.Windows.Forms.TextBox();
-            this.addNewProductButton = new System.Windows.Forms.Button();
-            this.label100 = new System.Windows.Forms.Label();
-            this.new_Sample_Page = new System.Windows.Forms.TabPage();
-            this.label101 = new System.Windows.Forms.Label();
-            this.label102 = new System.Windows.Forms.Label();
-            this.label103 = new System.Windows.Forms.Label();
-            this.label104 = new System.Windows.Forms.Label();
-            this.name_neweditdampleBox = new System.Windows.Forms.TextBox();
-            this.Qty_neweditdampleBox = new System.Windows.Forms.NumericUpDown();
-            this.Value_neweditdampleBox = new System.Windows.Forms.NumericUpDown();
-            this.newedit_Sample_Button = new System.Windows.Forms.Button();
-            this.label105 = new System.Windows.Forms.Label();
-            this.label106 = new System.Windows.Forms.Label();
-            this.label107 = new System.Windows.Forms.Label();
+            this.userSetTableAdapter1 = new myRep_app.myRep_ODSDataSet_UserSetTableAdapters.UserSetTableAdapter();
+            this.filterUsersbyTerritoryToolStrip = new System.Windows.Forms.ToolStrip();
+            this.terriToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.terriToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.filterUsersbyTerritoryToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.userIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usernameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hireDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.managerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.territoryDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.give_sample_Button = new System.Windows.Forms.Button();
+            this.label108 = new System.Windows.Forms.Label();
+            this.qty_giveSampleBox = new System.Windows.Forms.NumericUpDown();
+            this.label110 = new System.Windows.Forms.Label();
+            this.value_giveSampleBox = new System.Windows.Forms.TextBox();
             this.mainController.SuspendLayout();
             this.homePage.SuspendLayout();
+            this.products_Mgmt_Page.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DisbursedSamplesGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.samplelistGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myRep_ODSDataSet)).BeginInit();
+            this.give_sample_page.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.selectUser_giveSampleGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userSetBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myRep_ODSDataSet_UserSet)).BeginInit();
+            this.new_product_page.SuspendLayout();
+            this.new_Sample_Page.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Value_neweditdampleBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Qty_neweditdampleBox)).BeginInit();
             this.myAccountsPage.SuspendLayout();
             this.myAccounts_Controller.SuspendLayout();
             this.hcpPage.SuspendLayout();
@@ -413,9 +454,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.hCPSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myRep_ODS_HCP_DataSet)).BeginInit();
             this.hcoPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.HCPinHCOGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hcoDataGridView)).BeginInit();
             this.addressPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.HCOunderAddressGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HCPunderAddressGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addressSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myRep_ODS_Address_DataSet)).BeginInit();
             this.userMgmtPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userSetBindingSource)).BeginInit();
@@ -423,8 +469,20 @@
             this.newHCPPage.SuspendLayout();
             this.panel1.SuspendLayout();
             this.newHCOPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EmployeesHCOBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BedsHCOBox)).BeginInit();
+            this.newAddressPage.SuspendLayout();
             this.newUserPage.SuspendLayout();
             this.setPasswordPage.SuspendLayout();
+            this.select_address_Page.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.setAddressGridView)).BeginInit();
+            this.new_HCPHCO_Assossiation_Page.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Assossiation_AddManualView)).BeginInit();
+            this.editHCP_Page.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.edit_HCO_Page.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.employees_editHCOBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.beds_editHCOBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hCOSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myRep_ODS_HCO_DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myRep_ODS_HCOHCPDataSet)).BeginInit();
@@ -433,40 +491,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.hCOSetBindingSource1)).BeginInit();
             this.showDedicatedHCPToolStrip.SuspendLayout();
             this.addressDedicatedBookToolStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.HCPunderAddressGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.HCOunderAddressGridView)).BeginInit();
-            this.select_address_Page.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.setAddressGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addressSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.myRep_ODS_Address_DataSet)).BeginInit();
             this.addressDedicatedBookToolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BedsHCOBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EmployeesHCOBox)).BeginInit();
-            this.newAddressPage.SuspendLayout();
-            this.new_HCPHCO_Assossiation_Page.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Assossiation_AddManualView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.HCPinHCOGridView)).BeginInit();
-            this.editHCP_Page.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.edit_HCO_Page.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employees_editHCOBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.beds_editHCOBox)).BeginInit();
-            this.products_Mgmt_Page.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.myRep_ODSDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.samplelistGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DisbursedSamplesGridView)).BeginInit();
-            this.new_product_page.SuspendLayout();
-            this.new_Sample_Page.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Qty_neweditdampleBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Value_neweditdampleBox)).BeginInit();
+            this.filterUsersbyTerritoryToolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.qty_giveSampleBox)).BeginInit();
             this.SuspendLayout();
             // 
             // mainController
             // 
             this.mainController.Controls.Add(this.homePage);
             this.mainController.Controls.Add(this.products_Mgmt_Page);
+            this.mainController.Controls.Add(this.give_sample_page);
             this.mainController.Controls.Add(this.new_product_page);
             this.mainController.Controls.Add(this.new_Sample_Page);
             this.mainController.Controls.Add(this.myAccountsPage);
@@ -504,6 +538,18 @@
             this.homePage.TabIndex = 0;
             this.homePage.Text = "home";
             this.homePage.UseVisualStyleBackColor = true;
+            // 
+            // productsMgmtButton
+            // 
+            this.productsMgmtButton.Enabled = false;
+            this.productsMgmtButton.Location = new System.Drawing.Point(9, 196);
+            this.productsMgmtButton.Name = "productsMgmtButton";
+            this.productsMgmtButton.Size = new System.Drawing.Size(98, 53);
+            this.productsMgmtButton.TabIndex = 15;
+            this.productsMgmtButton.Text = "Produkty";
+            this.productsMgmtButton.UseVisualStyleBackColor = true;
+            this.productsMgmtButton.Visible = false;
+            this.productsMgmtButton.Click += new System.EventHandler(this.productsMgmtButton_Click);
             // 
             // userMgmtButton
             // 
@@ -583,6 +629,587 @@
             this.UsernameBox.TabIndex = 7;
             this.UsernameBox.Text = "tomek.sample";
             // 
+            // products_Mgmt_Page
+            // 
+            this.products_Mgmt_Page.Controls.Add(this.SampleRightsErrorLabel);
+            this.products_Mgmt_Page.Controls.Add(this.GiveSampleButton);
+            this.products_Mgmt_Page.Controls.Add(this.EditSampleButton);
+            this.products_Mgmt_Page.Controls.Add(this.NewSampleButton);
+            this.products_Mgmt_Page.Controls.Add(this.editProductButton);
+            this.products_Mgmt_Page.Controls.Add(this.newProductButton);
+            this.products_Mgmt_Page.Controls.Add(this.label94);
+            this.products_Mgmt_Page.Controls.Add(this.DisbursedSamplesGridView);
+            this.products_Mgmt_Page.Controls.Add(this.label83);
+            this.products_Mgmt_Page.Controls.Add(this.samplelistGridView);
+            this.products_Mgmt_Page.Controls.Add(this.label62);
+            this.products_Mgmt_Page.Controls.Add(this.productsDataGridView);
+            this.products_Mgmt_Page.Location = new System.Drawing.Point(4, 22);
+            this.products_Mgmt_Page.Name = "products_Mgmt_Page";
+            this.products_Mgmt_Page.Padding = new System.Windows.Forms.Padding(3);
+            this.products_Mgmt_Page.Size = new System.Drawing.Size(812, 465);
+            this.products_Mgmt_Page.TabIndex = 12;
+            this.products_Mgmt_Page.Text = "ProductsMgmt";
+            this.products_Mgmt_Page.UseVisualStyleBackColor = true;
+            // 
+            // SampleRightsErrorLabel
+            // 
+            this.SampleRightsErrorLabel.AutoSize = true;
+            this.SampleRightsErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.SampleRightsErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.SampleRightsErrorLabel.Location = new System.Drawing.Point(427, 445);
+            this.SampleRightsErrorLabel.Name = "SampleRightsErrorLabel";
+            this.SampleRightsErrorLabel.Size = new System.Drawing.Size(356, 12);
+            this.SampleRightsErrorLabel.TabIndex = 11;
+            this.SampleRightsErrorLabel.Text = "Część funkcji zarezerwowana jest tylko dla administratora produktów i próbek (SnP" +
+    "A)";
+            this.SampleRightsErrorLabel.Visible = false;
+            // 
+            // GiveSampleButton
+            // 
+            this.GiveSampleButton.Enabled = false;
+            this.GiveSampleButton.Location = new System.Drawing.Point(672, 383);
+            this.GiveSampleButton.Name = "GiveSampleButton";
+            this.GiveSampleButton.Size = new System.Drawing.Size(90, 49);
+            this.GiveSampleButton.TabIndex = 10;
+            this.GiveSampleButton.Text = "Wydaj próbkę";
+            this.GiveSampleButton.UseVisualStyleBackColor = true;
+            this.GiveSampleButton.Click += new System.EventHandler(this.GiveSampleButton_Click);
+            // 
+            // EditSampleButton
+            // 
+            this.EditSampleButton.Enabled = false;
+            this.EditSampleButton.Location = new System.Drawing.Point(539, 414);
+            this.EditSampleButton.Name = "EditSampleButton";
+            this.EditSampleButton.Size = new System.Drawing.Size(87, 30);
+            this.EditSampleButton.TabIndex = 9;
+            this.EditSampleButton.Text = "Edytuj próbki";
+            this.EditSampleButton.UseVisualStyleBackColor = true;
+            this.EditSampleButton.Click += new System.EventHandler(this.EditSampleButton_Click);
+            // 
+            // NewSampleButton
+            // 
+            this.NewSampleButton.Enabled = false;
+            this.NewSampleButton.Location = new System.Drawing.Point(541, 370);
+            this.NewSampleButton.Name = "NewSampleButton";
+            this.NewSampleButton.Size = new System.Drawing.Size(86, 29);
+            this.NewSampleButton.TabIndex = 8;
+            this.NewSampleButton.Text = "Nowa próbka";
+            this.NewSampleButton.UseVisualStyleBackColor = true;
+            this.NewSampleButton.Click += new System.EventHandler(this.NewSampleButton_Click);
+            // 
+            // editProductButton
+            // 
+            this.editProductButton.Enabled = false;
+            this.editProductButton.Location = new System.Drawing.Point(423, 412);
+            this.editProductButton.Name = "editProductButton";
+            this.editProductButton.Size = new System.Drawing.Size(84, 33);
+            this.editProductButton.TabIndex = 7;
+            this.editProductButton.Text = "Edytuj produkt";
+            this.editProductButton.UseVisualStyleBackColor = true;
+            this.editProductButton.Click += new System.EventHandler(this.editProductButton_Click);
+            // 
+            // newProductButton
+            // 
+            this.newProductButton.Enabled = false;
+            this.newProductButton.Location = new System.Drawing.Point(422, 370);
+            this.newProductButton.Name = "newProductButton";
+            this.newProductButton.Size = new System.Drawing.Size(85, 29);
+            this.newProductButton.TabIndex = 6;
+            this.newProductButton.Text = "Nowy produkt";
+            this.newProductButton.UseVisualStyleBackColor = true;
+            this.newProductButton.Click += new System.EventHandler(this.newProductButton_Click);
+            // 
+            // label94
+            // 
+            this.label94.AutoSize = true;
+            this.label94.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label94.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label94.Location = new System.Drawing.Point(538, 203);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(133, 16);
+            this.label94.TabIndex = 5;
+            this.label94.Text = "WYDANE PRÓBKI";
+            // 
+            // DisbursedSamplesGridView
+            // 
+            this.DisbursedSamplesGridView.AllowUserToAddRows = false;
+            this.DisbursedSamplesGridView.AllowUserToDeleteRows = false;
+            this.DisbursedSamplesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DisbursedSamplesGridView.Location = new System.Drawing.Point(418, 222);
+            this.DisbursedSamplesGridView.Name = "DisbursedSamplesGridView";
+            this.DisbursedSamplesGridView.ReadOnly = true;
+            this.DisbursedSamplesGridView.RowHeadersVisible = false;
+            this.DisbursedSamplesGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DisbursedSamplesGridView.Size = new System.Drawing.Size(376, 125);
+            this.DisbursedSamplesGridView.TabIndex = 4;
+            // 
+            // label83
+            // 
+            this.label83.AutoSize = true;
+            this.label83.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label83.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label83.Location = new System.Drawing.Point(554, 26);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(115, 16);
+            this.label83.TabIndex = 3;
+            this.label83.Text = "LISTA PRÓBEK";
+            // 
+            // samplelistGridView
+            // 
+            this.samplelistGridView.AllowUserToAddRows = false;
+            this.samplelistGridView.AllowUserToDeleteRows = false;
+            this.samplelistGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.samplelistGridView.Location = new System.Drawing.Point(418, 45);
+            this.samplelistGridView.Name = "samplelistGridView";
+            this.samplelistGridView.ReadOnly = true;
+            this.samplelistGridView.RowHeadersVisible = false;
+            this.samplelistGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.samplelistGridView.Size = new System.Drawing.Size(376, 150);
+            this.samplelistGridView.TabIndex = 2;
+            this.samplelistGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.samplelistGridView_CellClick);
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label62.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label62.Location = new System.Drawing.Point(71, 26);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(260, 16);
+            this.label62.TabIndex = 1;
+            this.label62.Text = "LISTA DOSTĘPNYCH PRODUKTÓW";
+            // 
+            // productsDataGridView
+            // 
+            this.productsDataGridView.AllowUserToAddRows = false;
+            this.productsDataGridView.AllowUserToDeleteRows = false;
+            this.productsDataGridView.AutoGenerateColumns = false;
+            this.productsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.productsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.productIDDataGridViewTextBoxColumn,
+            this.productNameDataGridViewTextBoxColumn,
+            this.antiDiseaseDataGridViewTextBoxColumn,
+            this.manufacturerDataGridViewTextBoxColumn,
+            this.mainIngredientDataGridViewTextBoxColumn});
+            this.productsDataGridView.DataSource = this.productSetBindingSource;
+            this.productsDataGridView.Location = new System.Drawing.Point(6, 45);
+            this.productsDataGridView.Name = "productsDataGridView";
+            this.productsDataGridView.ReadOnly = true;
+            this.productsDataGridView.RowHeadersVisible = false;
+            this.productsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.productsDataGridView.Size = new System.Drawing.Size(406, 414);
+            this.productsDataGridView.TabIndex = 0;
+            this.productsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsDataGridView_CellClick);
+            // 
+            // productIDDataGridViewTextBoxColumn
+            // 
+            this.productIDDataGridViewTextBoxColumn.DataPropertyName = "productID";
+            this.productIDDataGridViewTextBoxColumn.HeaderText = "productID";
+            this.productIDDataGridViewTextBoxColumn.Name = "productIDDataGridViewTextBoxColumn";
+            this.productIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // productNameDataGridViewTextBoxColumn
+            // 
+            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
+            this.productNameDataGridViewTextBoxColumn.HeaderText = "Nazwa";
+            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // antiDiseaseDataGridViewTextBoxColumn
+            // 
+            this.antiDiseaseDataGridViewTextBoxColumn.DataPropertyName = "AntiDisease";
+            this.antiDiseaseDataGridViewTextBoxColumn.HeaderText = "Kategoria choroby";
+            this.antiDiseaseDataGridViewTextBoxColumn.Name = "antiDiseaseDataGridViewTextBoxColumn";
+            this.antiDiseaseDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // manufacturerDataGridViewTextBoxColumn
+            // 
+            this.manufacturerDataGridViewTextBoxColumn.DataPropertyName = "Manufacturer";
+            this.manufacturerDataGridViewTextBoxColumn.HeaderText = "Producent";
+            this.manufacturerDataGridViewTextBoxColumn.Name = "manufacturerDataGridViewTextBoxColumn";
+            this.manufacturerDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // mainIngredientDataGridViewTextBoxColumn
+            // 
+            this.mainIngredientDataGridViewTextBoxColumn.DataPropertyName = "MainIngredient";
+            this.mainIngredientDataGridViewTextBoxColumn.HeaderText = "Główny składnik";
+            this.mainIngredientDataGridViewTextBoxColumn.Name = "mainIngredientDataGridViewTextBoxColumn";
+            this.mainIngredientDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // productSetBindingSource
+            // 
+            this.productSetBindingSource.DataMember = "ProductSet";
+            this.productSetBindingSource.DataSource = this.myRep_ODSDataSet;
+            // 
+            // myRep_ODSDataSet
+            // 
+            this.myRep_ODSDataSet.DataSetName = "myRep_ODSDataSet";
+            this.myRep_ODSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // give_sample_page
+            // 
+            this.give_sample_page.AutoScroll = true;
+            this.give_sample_page.Controls.Add(this.value_giveSampleBox);
+            this.give_sample_page.Controls.Add(this.label110);
+            this.give_sample_page.Controls.Add(this.qty_giveSampleBox);
+            this.give_sample_page.Controls.Add(this.label108);
+            this.give_sample_page.Controls.Add(this.give_sample_Button);
+            this.give_sample_page.Controls.Add(this.selectUser_giveSampleGridView);
+            this.give_sample_page.Controls.Add(this.label109);
+            this.give_sample_page.Controls.Add(this.samplelabel_toGive_label);
+            this.give_sample_page.Location = new System.Drawing.Point(4, 22);
+            this.give_sample_page.Name = "give_sample_page";
+            this.give_sample_page.Padding = new System.Windows.Forms.Padding(3);
+            this.give_sample_page.Size = new System.Drawing.Size(812, 465);
+            this.give_sample_page.TabIndex = 15;
+            this.give_sample_page.Text = "give_sample";
+            this.give_sample_page.UseVisualStyleBackColor = true;
+            // 
+            // selectUser_giveSampleGridView
+            // 
+            this.selectUser_giveSampleGridView.AllowUserToAddRows = false;
+            this.selectUser_giveSampleGridView.AllowUserToDeleteRows = false;
+            this.selectUser_giveSampleGridView.AutoGenerateColumns = false;
+            this.selectUser_giveSampleGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.selectUser_giveSampleGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.selectUser_giveSampleGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.selectUser_giveSampleGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.userIDDataGridViewTextBoxColumn1,
+            this.firstNameDataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn2,
+            this.lastNameDataGridViewTextBoxColumn2,
+            this.usernameDataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.hireDateDataGridViewTextBoxColumn,
+            this.managerIDDataGridViewTextBoxColumn,
+            this.territoryDataGridViewTextBoxColumn2});
+            this.selectUser_giveSampleGridView.DataSource = this.userSetBindingSource1;
+            this.selectUser_giveSampleGridView.Location = new System.Drawing.Point(41, 74);
+            this.selectUser_giveSampleGridView.Name = "selectUser_giveSampleGridView";
+            this.selectUser_giveSampleGridView.ReadOnly = true;
+            this.selectUser_giveSampleGridView.RowHeadersVisible = false;
+            this.selectUser_giveSampleGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.selectUser_giveSampleGridView.Size = new System.Drawing.Size(410, 343);
+            this.selectUser_giveSampleGridView.TabIndex = 2;
+            this.selectUser_giveSampleGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.selectUser_giveSampleGridView_CellClick);
+            // 
+            // userSetBindingSource1
+            // 
+            this.userSetBindingSource1.DataMember = "UserSet";
+            this.userSetBindingSource1.DataSource = this.myRep_ODSDataSet_UserSet;
+            // 
+            // myRep_ODSDataSet_UserSet
+            // 
+            this.myRep_ODSDataSet_UserSet.DataSetName = "myRep_ODSDataSet_UserSet";
+            this.myRep_ODSDataSet_UserSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // label109
+            // 
+            this.label109.AutoSize = true;
+            this.label109.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label109.ForeColor = System.Drawing.Color.DeepPink;
+            this.label109.Location = new System.Drawing.Point(38, 55);
+            this.label109.Name = "label109";
+            this.label109.Size = new System.Drawing.Size(188, 16);
+            this.label109.TabIndex = 1;
+            this.label109.Text = "WYBIERZ UŻYTKOWNIKA";
+            // 
+            // samplelabel_toGive_label
+            // 
+            this.samplelabel_toGive_label.AutoSize = true;
+            this.samplelabel_toGive_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.samplelabel_toGive_label.Location = new System.Drawing.Point(38, 26);
+            this.samplelabel_toGive_label.Name = "samplelabel_toGive_label";
+            this.samplelabel_toGive_label.Size = new System.Drawing.Size(155, 18);
+            this.samplelabel_toGive_label.TabIndex = 0;
+            this.samplelabel_toGive_label.Text = "WYDANIE PRÓBKI:";
+            // 
+            // new_product_page
+            // 
+            this.new_product_page.Controls.Add(this.label100);
+            this.new_product_page.Controls.Add(this.addNewProductButton);
+            this.new_product_page.Controls.Add(this.MainIngredient_newProductBox);
+            this.new_product_page.Controls.Add(this.manufacturer_newproductBox);
+            this.new_product_page.Controls.Add(this.category_newProductBox);
+            this.new_product_page.Controls.Add(this.productname_newProductBox);
+            this.new_product_page.Controls.Add(this.label99);
+            this.new_product_page.Controls.Add(this.label98);
+            this.new_product_page.Controls.Add(this.label97);
+            this.new_product_page.Controls.Add(this.label96);
+            this.new_product_page.Controls.Add(this.label95);
+            this.new_product_page.Location = new System.Drawing.Point(4, 22);
+            this.new_product_page.Name = "new_product_page";
+            this.new_product_page.Padding = new System.Windows.Forms.Padding(3);
+            this.new_product_page.Size = new System.Drawing.Size(812, 465);
+            this.new_product_page.TabIndex = 13;
+            this.new_product_page.Text = "new_product";
+            this.new_product_page.UseVisualStyleBackColor = true;
+            // 
+            // label100
+            // 
+            this.label100.AutoSize = true;
+            this.label100.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label100.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label100.Location = new System.Drawing.Point(20, 16);
+            this.label100.Name = "label100";
+            this.label100.Size = new System.Drawing.Size(260, 16);
+            this.label100.TabIndex = 36;
+            this.label100.Text = "DODAWANIE / EDYCJA PRODUKTU";
+            // 
+            // addNewProductButton
+            // 
+            this.addNewProductButton.Location = new System.Drawing.Point(93, 187);
+            this.addNewProductButton.Name = "addNewProductButton";
+            this.addNewProductButton.Size = new System.Drawing.Size(75, 23);
+            this.addNewProductButton.TabIndex = 35;
+            this.addNewProductButton.Text = "OK";
+            this.addNewProductButton.UseVisualStyleBackColor = true;
+            this.addNewProductButton.Click += new System.EventHandler(this.addNewProductButton_Click);
+            // 
+            // MainIngredient_newProductBox
+            // 
+            this.MainIngredient_newProductBox.Location = new System.Drawing.Point(125, 143);
+            this.MainIngredient_newProductBox.Name = "MainIngredient_newProductBox";
+            this.MainIngredient_newProductBox.Size = new System.Drawing.Size(127, 20);
+            this.MainIngredient_newProductBox.TabIndex = 34;
+            // 
+            // manufacturer_newproductBox
+            // 
+            this.manufacturer_newproductBox.Location = new System.Drawing.Point(93, 112);
+            this.manufacturer_newproductBox.Name = "manufacturer_newproductBox";
+            this.manufacturer_newproductBox.Size = new System.Drawing.Size(127, 20);
+            this.manufacturer_newproductBox.TabIndex = 33;
+            // 
+            // category_newProductBox
+            // 
+            this.category_newProductBox.FormattingEnabled = true;
+            this.category_newProductBox.Items.AddRange(new object[] {
+            "",
+            "PRZEZIĘBIENIE",
+            "Przeziębienie - Ból gardła i chrypka",
+            "Przeziębienie - Gorączka",
+            "Przeziębienie - Inhalacje",
+            "Przeziębienie - Kaszel",
+            "Przeziębienie - Katar",
+            "CIĄŻA I DZIECKO",
+            "Ciąża i dziecko - Badania w ciąży",
+            "Ciąża i dziecko - Higiena nosa",
+            "Ciąża i dziecko - Kolki, wzdęcia, biegunki",
+            "Ciąża i dziecko - Kremy i maści",
+            "Ciąża i dziecko - Witaminy",
+            "ODCHUDZANIE",
+            "DERMOKOSMETYKI",
+            "PIELĘGNACJA",
+            "WITAMINY",
+            "Witaminy - dla dzieci",
+            "Witaminy - dla kobiet",
+            "Witaminy - dla mężczyzn",
+            "Witaminy - dla mocnych kości",
+            "Witaminy - dla oczu",
+            "Witaminy - dla seniorów",
+            "ZIELARNIA",
+            "Zielarnia - zioła i herbaty",
+            "Zielarnia - sumplementy diety",
+            "Zielarnia - homeopatia",
+            "Zielarnia - kosmetyki naturalne",
+            "---INNE---"});
+            this.category_newProductBox.Location = new System.Drawing.Point(131, 78);
+            this.category_newProductBox.Name = "category_newProductBox";
+            this.category_newProductBox.Size = new System.Drawing.Size(121, 21);
+            this.category_newProductBox.TabIndex = 32;
+            // 
+            // productname_newProductBox
+            // 
+            this.productname_newProductBox.Location = new System.Drawing.Point(77, 52);
+            this.productname_newProductBox.Name = "productname_newProductBox";
+            this.productname_newProductBox.Size = new System.Drawing.Size(127, 20);
+            this.productname_newProductBox.TabIndex = 31;
+            // 
+            // label99
+            // 
+            this.label99.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label99.ForeColor = System.Drawing.Color.Red;
+            this.label99.Location = new System.Drawing.Point(16, 50);
+            this.label99.Name = "label99";
+            this.label99.Size = new System.Drawing.Size(16, 15);
+            this.label99.TabIndex = 30;
+            this.label99.Text = "*";
+            // 
+            // label98
+            // 
+            this.label98.AutoSize = true;
+            this.label98.Location = new System.Drawing.Point(31, 143);
+            this.label98.Name = "label98";
+            this.label98.Size = new System.Drawing.Size(88, 13);
+            this.label98.TabIndex = 3;
+            this.label98.Text = "Główny składnik";
+            // 
+            // label97
+            // 
+            this.label97.AutoSize = true;
+            this.label97.Location = new System.Drawing.Point(31, 115);
+            this.label97.Name = "label97";
+            this.label97.Size = new System.Drawing.Size(56, 13);
+            this.label97.TabIndex = 2;
+            this.label97.Text = "Producent";
+            // 
+            // label96
+            // 
+            this.label96.AutoSize = true;
+            this.label96.Location = new System.Drawing.Point(31, 87);
+            this.label96.Name = "label96";
+            this.label96.Size = new System.Drawing.Size(93, 13);
+            this.label96.TabIndex = 1;
+            this.label96.Text = "Kategoria choroby";
+            // 
+            // label95
+            // 
+            this.label95.AutoSize = true;
+            this.label95.Location = new System.Drawing.Point(31, 55);
+            this.label95.Name = "label95";
+            this.label95.Size = new System.Drawing.Size(40, 13);
+            this.label95.TabIndex = 0;
+            this.label95.Text = "Nazwa";
+            // 
+            // new_Sample_Page
+            // 
+            this.new_Sample_Page.Controls.Add(this.label107);
+            this.new_Sample_Page.Controls.Add(this.label106);
+            this.new_Sample_Page.Controls.Add(this.label105);
+            this.new_Sample_Page.Controls.Add(this.newedit_Sample_Button);
+            this.new_Sample_Page.Controls.Add(this.Value_neweditdampleBox);
+            this.new_Sample_Page.Controls.Add(this.Qty_neweditdampleBox);
+            this.new_Sample_Page.Controls.Add(this.name_neweditdampleBox);
+            this.new_Sample_Page.Controls.Add(this.label104);
+            this.new_Sample_Page.Controls.Add(this.label103);
+            this.new_Sample_Page.Controls.Add(this.label102);
+            this.new_Sample_Page.Controls.Add(this.label101);
+            this.new_Sample_Page.Location = new System.Drawing.Point(4, 22);
+            this.new_Sample_Page.Name = "new_Sample_Page";
+            this.new_Sample_Page.Padding = new System.Windows.Forms.Padding(3);
+            this.new_Sample_Page.Size = new System.Drawing.Size(812, 465);
+            this.new_Sample_Page.TabIndex = 14;
+            this.new_Sample_Page.Text = "new_Sample";
+            this.new_Sample_Page.UseVisualStyleBackColor = true;
+            // 
+            // label107
+            // 
+            this.label107.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label107.ForeColor = System.Drawing.Color.Red;
+            this.label107.Location = new System.Drawing.Point(14, 157);
+            this.label107.Name = "label107";
+            this.label107.Size = new System.Drawing.Size(16, 15);
+            this.label107.TabIndex = 47;
+            this.label107.Text = "*";
+            // 
+            // label106
+            // 
+            this.label106.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label106.ForeColor = System.Drawing.Color.Red;
+            this.label106.Location = new System.Drawing.Point(14, 121);
+            this.label106.Name = "label106";
+            this.label106.Size = new System.Drawing.Size(16, 15);
+            this.label106.TabIndex = 46;
+            this.label106.Text = "*";
+            // 
+            // label105
+            // 
+            this.label105.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label105.ForeColor = System.Drawing.Color.Red;
+            this.label105.Location = new System.Drawing.Point(14, 88);
+            this.label105.Name = "label105";
+            this.label105.Size = new System.Drawing.Size(16, 15);
+            this.label105.TabIndex = 45;
+            this.label105.Text = "*";
+            // 
+            // newedit_Sample_Button
+            // 
+            this.newedit_Sample_Button.Enabled = false;
+            this.newedit_Sample_Button.Location = new System.Drawing.Point(95, 212);
+            this.newedit_Sample_Button.Name = "newedit_Sample_Button";
+            this.newedit_Sample_Button.Size = new System.Drawing.Size(75, 23);
+            this.newedit_Sample_Button.TabIndex = 44;
+            this.newedit_Sample_Button.Text = "OK";
+            this.newedit_Sample_Button.UseVisualStyleBackColor = true;
+            this.newedit_Sample_Button.Click += new System.EventHandler(this.newedit_Sample_Button_Click);
+            // 
+            // Value_neweditdampleBox
+            // 
+            this.Value_neweditdampleBox.Location = new System.Drawing.Point(114, 160);
+            this.Value_neweditdampleBox.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.Value_neweditdampleBox.Name = "Value_neweditdampleBox";
+            this.Value_neweditdampleBox.Size = new System.Drawing.Size(120, 20);
+            this.Value_neweditdampleBox.TabIndex = 43;
+            this.Value_neweditdampleBox.ValueChanged += new System.EventHandler(this.Value_neweditdampleBox_ValueChanged);
+            this.Value_neweditdampleBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Value_neweditdampleBox_KeyUp);
+            // 
+            // Qty_neweditdampleBox
+            // 
+            this.Qty_neweditdampleBox.Location = new System.Drawing.Point(131, 124);
+            this.Qty_neweditdampleBox.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.Qty_neweditdampleBox.Name = "Qty_neweditdampleBox";
+            this.Qty_neweditdampleBox.Size = new System.Drawing.Size(120, 20);
+            this.Qty_neweditdampleBox.TabIndex = 42;
+            this.Qty_neweditdampleBox.ValueChanged += new System.EventHandler(this.Qty_neweditdampleBox_ValueChanged);
+            this.Qty_neweditdampleBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Qty_neweditdampleBox_KeyUp);
+            // 
+            // name_neweditdampleBox
+            // 
+            this.name_neweditdampleBox.Location = new System.Drawing.Point(74, 90);
+            this.name_neweditdampleBox.Name = "name_neweditdampleBox";
+            this.name_neweditdampleBox.Size = new System.Drawing.Size(112, 20);
+            this.name_neweditdampleBox.TabIndex = 41;
+            this.name_neweditdampleBox.TextChanged += new System.EventHandler(this.name_neweditdampleBox_TextChanged);
+            // 
+            // label104
+            // 
+            this.label104.AutoSize = true;
+            this.label104.Location = new System.Drawing.Point(31, 164);
+            this.label104.Name = "label104";
+            this.label104.Size = new System.Drawing.Size(77, 13);
+            this.label104.TabIndex = 40;
+            this.label104.Text = "Wartość [PLN]";
+            // 
+            // label103
+            // 
+            this.label103.AutoSize = true;
+            this.label103.Location = new System.Drawing.Point(28, 128);
+            this.label103.Name = "label103";
+            this.label103.Size = new System.Drawing.Size(96, 13);
+            this.label103.TabIndex = 39;
+            this.label103.Text = "Szt. / Opakowanie";
+            // 
+            // label102
+            // 
+            this.label102.AutoSize = true;
+            this.label102.Location = new System.Drawing.Point(28, 93);
+            this.label102.Name = "label102";
+            this.label102.Size = new System.Drawing.Size(40, 13);
+            this.label102.TabIndex = 38;
+            this.label102.Text = "Nazwa";
+            // 
+            // label101
+            // 
+            this.label101.AutoSize = true;
+            this.label101.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label101.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label101.Location = new System.Drawing.Point(25, 25);
+            this.label101.Name = "label101";
+            this.label101.Size = new System.Drawing.Size(231, 16);
+            this.label101.TabIndex = 37;
+            this.label101.Text = "DODAWANIE / EDYCJA PRÓBKI";
+            // 
             // myAccountsPage
             // 
             this.myAccountsPage.Controls.Add(this.myAccounts_Controller);
@@ -650,6 +1277,67 @@
             this.hcpPage.TabIndex = 0;
             this.hcpPage.Text = "HCP";
             this.hcpPage.UseVisualStyleBackColor = true;
+            // 
+            // AffiliationErrorLabel
+            // 
+            this.AffiliationErrorLabel.AutoSize = true;
+            this.AffiliationErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.AffiliationErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.AffiliationErrorLabel.Location = new System.Drawing.Point(343, 353);
+            this.AffiliationErrorLabel.Name = "AffiliationErrorLabel";
+            this.AffiliationErrorLabel.Size = new System.Drawing.Size(298, 39);
+            this.AffiliationErrorLabel.TabIndex = 37;
+            this.AffiliationErrorLabel.Text = "Nie można usunąć powiązania. \r\nWybrany HCO jest podstawowym adresem zatrudnienia " +
+    "HCP. \r\nW celu zmiany podstawowego miejsca pracy edytuj HCP.";
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(281, 187);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 58);
+            this.button5.TabIndex = 36;
+            this.button5.Text = "[TODO] CALL MGMT";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(281, 112);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 62);
+            this.button4.TabIndex = 35;
+            this.button4.Text = "[TODO] DELETE HCP";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // RemoveAssossiationButton
+            // 
+            this.RemoveAssossiationButton.Enabled = false;
+            this.RemoveAssossiationButton.Location = new System.Drawing.Point(315, 320);
+            this.RemoveAssossiationButton.Name = "RemoveAssossiationButton";
+            this.RemoveAssossiationButton.Size = new System.Drawing.Size(75, 23);
+            this.RemoveAssossiationButton.TabIndex = 34;
+            this.RemoveAssossiationButton.Text = "Usuń <-";
+            this.RemoveAssossiationButton.UseVisualStyleBackColor = true;
+            this.RemoveAssossiationButton.Click += new System.EventHandler(this.RemoveAssossiationButton_Click);
+            // 
+            // edithcpbutton
+            // 
+            this.edithcpbutton.Location = new System.Drawing.Point(281, 48);
+            this.edithcpbutton.Name = "edithcpbutton";
+            this.edithcpbutton.Size = new System.Drawing.Size(75, 23);
+            this.edithcpbutton.TabIndex = 33;
+            this.edithcpbutton.Text = "Edytuj";
+            this.edithcpbutton.UseVisualStyleBackColor = true;
+            this.edithcpbutton.Click += new System.EventHandler(this.edithcpbutton_Click);
+            // 
+            // NewAssossiationButton
+            // 
+            this.NewAssossiationButton.Location = new System.Drawing.Point(315, 291);
+            this.NewAssossiationButton.Name = "NewAssossiationButton";
+            this.NewAssossiationButton.Size = new System.Drawing.Size(75, 23);
+            this.NewAssossiationButton.TabIndex = 32;
+            this.NewAssossiationButton.Text = "Dodaj ->";
+            this.NewAssossiationButton.UseVisualStyleBackColor = true;
+            this.NewAssossiationButton.Click += new System.EventHandler(this.NewAssossiationButton_Click);
             // 
             // hcpSpec
             // 
@@ -919,39 +1607,39 @@
             this.hcpDataGridView.AllowUserToDeleteRows = false;
             this.hcpDataGridView.AutoGenerateColumns = false;
             this.hcpDataGridView.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle61.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle61.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle61.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle61.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle61.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle61.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle61.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.hcpDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle61;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.hcpDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             this.hcpDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.hcpDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.hcpIDDataGridViewTextBoxColumn,
             this.firstNameDataGridViewTextBoxColumn,
             this.lastNameDataGridViewTextBoxColumn});
             this.hcpDataGridView.DataSource = this.hCPSetBindingSource;
-            dataGridViewCellStyle62.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle62.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle62.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle62.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle62.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle62.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle62.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.hcpDataGridView.DefaultCellStyle = dataGridViewCellStyle62;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.hcpDataGridView.DefaultCellStyle = dataGridViewCellStyle26;
             this.hcpDataGridView.Location = new System.Drawing.Point(3, 3);
             this.hcpDataGridView.Name = "hcpDataGridView";
             this.hcpDataGridView.ReadOnly = true;
-            dataGridViewCellStyle63.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle63.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle63.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle63.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle63.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle63.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle63.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.hcpDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle63;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.hcpDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.hcpDataGridView.RowHeadersVisible = false;
             this.hcpDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.hcpDataGridView.Size = new System.Drawing.Size(253, 378);
@@ -1031,10 +1719,169 @@
             this.hcoPage.Location = new System.Drawing.Point(4, 22);
             this.hcoPage.Name = "hcoPage";
             this.hcoPage.Padding = new System.Windows.Forms.Padding(3);
-            this.hcoPage.Size = new System.Drawing.Size(685, 387);
+            this.hcoPage.Size = new System.Drawing.Size(699, 410);
             this.hcoPage.TabIndex = 1;
             this.hcoPage.Text = "HCO";
             this.hcoPage.UseVisualStyleBackColor = true;
+            // 
+            // editHCObutton
+            // 
+            this.editHCObutton.Location = new System.Drawing.Point(252, 38);
+            this.editHCObutton.Name = "editHCObutton";
+            this.editHCObutton.Size = new System.Drawing.Size(75, 23);
+            this.editHCObutton.TabIndex = 46;
+            this.editHCObutton.Text = "Edytuj";
+            this.editHCObutton.UseVisualStyleBackColor = true;
+            this.editHCObutton.Click += new System.EventHandler(this.editHCObutton_Click);
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label61.Location = new System.Drawing.Point(184, 186);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(128, 20);
+            this.label61.TabIndex = 45;
+            this.label61.Text = "PRACOWNICY";
+            // 
+            // HCPinHCOGridView
+            // 
+            this.HCPinHCOGridView.AllowUserToAddRows = false;
+            this.HCPinHCOGridView.AllowUserToDeleteRows = false;
+            this.HCPinHCOGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.HCPinHCOGridView.Location = new System.Drawing.Point(188, 209);
+            this.HCPinHCOGridView.Name = "HCPinHCOGridView";
+            this.HCPinHCOGridView.ReadOnly = true;
+            this.HCPinHCOGridView.RowHeadersVisible = false;
+            this.HCPinHCOGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.HCPinHCOGridView.Size = new System.Drawing.Size(226, 153);
+            this.HCPinHCOGridView.TabIndex = 44;
+            // 
+            // hcoCountryLabel
+            // 
+            this.hcoCountryLabel.AutoSize = true;
+            this.hcoCountryLabel.Location = new System.Drawing.Point(447, 299);
+            this.hcoCountryLabel.Name = "hcoCountryLabel";
+            this.hcoCountryLabel.Size = new System.Drawing.Size(10, 13);
+            this.hcoCountryLabel.TabIndex = 43;
+            this.hcoCountryLabel.Text = "-";
+            // 
+            // hcoTerrLabel
+            // 
+            this.hcoTerrLabel.AutoSize = true;
+            this.hcoTerrLabel.Location = new System.Drawing.Point(484, 282);
+            this.hcoTerrLabel.Name = "hcoTerrLabel";
+            this.hcoTerrLabel.Size = new System.Drawing.Size(10, 13);
+            this.hcoTerrLabel.TabIndex = 42;
+            this.hcoTerrLabel.Text = "-";
+            // 
+            // hcoZipLabel
+            // 
+            this.hcoZipLabel.AutoSize = true;
+            this.hcoZipLabel.Location = new System.Drawing.Point(632, 265);
+            this.hcoZipLabel.Name = "hcoZipLabel";
+            this.hcoZipLabel.Size = new System.Drawing.Size(10, 13);
+            this.hcoZipLabel.TabIndex = 41;
+            this.hcoZipLabel.Text = "-";
+            // 
+            // hcoCityLabel
+            // 
+            this.hcoCityLabel.AutoSize = true;
+            this.hcoCityLabel.Location = new System.Drawing.Point(473, 265);
+            this.hcoCityLabel.Name = "hcoCityLabel";
+            this.hcoCityLabel.Size = new System.Drawing.Size(10, 13);
+            this.hcoCityLabel.TabIndex = 40;
+            this.hcoCityLabel.Text = "-";
+            // 
+            // hcoStreetLabel
+            // 
+            this.hcoStreetLabel.AutoSize = true;
+            this.hcoStreetLabel.Location = new System.Drawing.Point(455, 248);
+            this.hcoStreetLabel.Name = "hcoStreetLabel";
+            this.hcoStreetLabel.Size = new System.Drawing.Size(10, 13);
+            this.hcoStreetLabel.TabIndex = 39;
+            this.hcoStreetLabel.Text = "-";
+            // 
+            // hcoNoEmpLabel
+            // 
+            this.hcoNoEmpLabel.AutoSize = true;
+            this.hcoNoEmpLabel.Location = new System.Drawing.Point(640, 210);
+            this.hcoNoEmpLabel.Name = "hcoNoEmpLabel";
+            this.hcoNoEmpLabel.Size = new System.Drawing.Size(10, 13);
+            this.hcoNoEmpLabel.TabIndex = 38;
+            this.hcoNoEmpLabel.Text = "-";
+            // 
+            // hcoNoBedLabel
+            // 
+            this.hcoNoBedLabel.AutoSize = true;
+            this.hcoNoBedLabel.Location = new System.Drawing.Point(481, 209);
+            this.hcoNoBedLabel.Name = "hcoNoBedLabel";
+            this.hcoNoBedLabel.Size = new System.Drawing.Size(10, 13);
+            this.hcoNoBedLabel.TabIndex = 37;
+            this.hcoNoBedLabel.Text = "-";
+            // 
+            // hcoSpecialTypeLabel
+            // 
+            this.hcoSpecialTypeLabel.AutoSize = true;
+            this.hcoSpecialTypeLabel.Location = new System.Drawing.Point(500, 176);
+            this.hcoSpecialTypeLabel.Name = "hcoSpecialTypeLabel";
+            this.hcoSpecialTypeLabel.Size = new System.Drawing.Size(10, 13);
+            this.hcoSpecialTypeLabel.TabIndex = 36;
+            this.hcoSpecialTypeLabel.Text = "-";
+            // 
+            // hcoLevelLabel
+            // 
+            this.hcoLevelLabel.AutoSize = true;
+            this.hcoLevelLabel.Location = new System.Drawing.Point(468, 160);
+            this.hcoLevelLabel.Name = "hcoLevelLabel";
+            this.hcoLevelLabel.Size = new System.Drawing.Size(10, 13);
+            this.hcoLevelLabel.TabIndex = 35;
+            this.hcoLevelLabel.Text = "-";
+            // 
+            // hcoRangeLabel
+            // 
+            this.hcoRangeLabel.AutoSize = true;
+            this.hcoRangeLabel.Location = new System.Drawing.Point(466, 137);
+            this.hcoRangeLabel.Name = "hcoRangeLabel";
+            this.hcoRangeLabel.Size = new System.Drawing.Size(10, 13);
+            this.hcoRangeLabel.TabIndex = 34;
+            this.hcoRangeLabel.Text = "-";
+            // 
+            // hcoWWWLabel
+            // 
+            this.hcoWWWLabel.AutoSize = true;
+            this.hcoWWWLabel.Location = new System.Drawing.Point(468, 107);
+            this.hcoWWWLabel.Name = "hcoWWWLabel";
+            this.hcoWWWLabel.Size = new System.Drawing.Size(10, 13);
+            this.hcoWWWLabel.TabIndex = 33;
+            this.hcoWWWLabel.Text = "-";
+            // 
+            // hcoEmailLabel
+            // 
+            this.hcoEmailLabel.AutoSize = true;
+            this.hcoEmailLabel.Location = new System.Drawing.Point(465, 85);
+            this.hcoEmailLabel.Name = "hcoEmailLabel";
+            this.hcoEmailLabel.Size = new System.Drawing.Size(10, 13);
+            this.hcoEmailLabel.TabIndex = 32;
+            this.hcoEmailLabel.Text = "-";
+            // 
+            // hcoTelLabel
+            // 
+            this.hcoTelLabel.AutoSize = true;
+            this.hcoTelLabel.Location = new System.Drawing.Point(473, 63);
+            this.hcoTelLabel.Name = "hcoTelLabel";
+            this.hcoTelLabel.Size = new System.Drawing.Size(10, 13);
+            this.hcoTelLabel.TabIndex = 31;
+            this.hcoTelLabel.Text = "-";
+            // 
+            // hcoNameLabel
+            // 
+            this.hcoNameLabel.AutoSize = true;
+            this.hcoNameLabel.Location = new System.Drawing.Point(470, 38);
+            this.hcoNameLabel.Name = "hcoNameLabel";
+            this.hcoNameLabel.Size = new System.Drawing.Size(10, 13);
+            this.hcoNameLabel.TabIndex = 30;
+            this.hcoNameLabel.Text = "-";
             // 
             // label46
             // 
@@ -1207,10 +2054,68 @@
             this.addressPage.Controls.Add(this.addressDataGridView);
             this.addressPage.Location = new System.Drawing.Point(4, 22);
             this.addressPage.Name = "addressPage";
-            this.addressPage.Size = new System.Drawing.Size(685, 387);
+            this.addressPage.Size = new System.Drawing.Size(699, 410);
             this.addressPage.TabIndex = 2;
             this.addressPage.Text = "Książka adresowa";
             this.addressPage.UseVisualStyleBackColor = true;
+            // 
+            // new_meeting
+            // 
+            this.new_meeting.Enabled = false;
+            this.new_meeting.Location = new System.Drawing.Point(153, 335);
+            this.new_meeting.Name = "new_meeting";
+            this.new_meeting.Size = new System.Drawing.Size(123, 23);
+            this.new_meeting.TabIndex = 5;
+            this.new_meeting.Text = "SPOTKANIE HCP";
+            this.new_meeting.UseVisualStyleBackColor = true;
+            this.new_meeting.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // HCOunderAddressGridView
+            // 
+            this.HCOunderAddressGridView.AllowUserToResizeRows = false;
+            this.HCOunderAddressGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.HCOunderAddressGridView.Location = new System.Drawing.Point(428, 225);
+            this.HCOunderAddressGridView.MultiSelect = false;
+            this.HCOunderAddressGridView.Name = "HCOunderAddressGridView";
+            this.HCOunderAddressGridView.RowHeadersVisible = false;
+            this.HCOunderAddressGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.HCOunderAddressGridView.Size = new System.Drawing.Size(240, 150);
+            this.HCOunderAddressGridView.TabIndex = 4;
+            // 
+            // HCPunderAddressGridView
+            // 
+            this.HCPunderAddressGridView.AllowUserToAddRows = false;
+            this.HCPunderAddressGridView.AllowUserToDeleteRows = false;
+            this.HCPunderAddressGridView.AllowUserToResizeColumns = false;
+            this.HCPunderAddressGridView.AllowUserToResizeRows = false;
+            this.HCPunderAddressGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.HCPunderAddressGridView.Location = new System.Drawing.Point(431, 36);
+            this.HCPunderAddressGridView.MultiSelect = false;
+            this.HCPunderAddressGridView.Name = "HCPunderAddressGridView";
+            this.HCPunderAddressGridView.ReadOnly = true;
+            this.HCPunderAddressGridView.RowHeadersVisible = false;
+            this.HCPunderAddressGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.HCPunderAddressGridView.Size = new System.Drawing.Size(240, 150);
+            this.HCPunderAddressGridView.TabIndex = 3;
+            this.HCPunderAddressGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.HCPunderAddressGridView_CellClick);
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(425, 209);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(129, 13);
+            this.label48.TabIndex = 2;
+            this.label48.Text = "POWIĄZNA PLACÓWKA";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(428, 20);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(121, 13);
+            this.label47.TabIndex = 1;
+            this.label47.Text = "POWIĄZANI LEKARZE";
             // 
             // addressDataGridView
             // 
@@ -1220,14 +2125,14 @@
             this.addressDataGridView.AllowUserToResizeRows = false;
             this.addressDataGridView.AutoGenerateColumns = false;
             this.addressDataGridView.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle64.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle64.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle64.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle64.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle64.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle64.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle64.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.addressDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle64;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.addressDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
             this.addressDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.addressDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.addressIDDataGridViewTextBoxColumn1,
@@ -1237,30 +2142,84 @@
             this.countryDataGridViewTextBoxColumn,
             this.zipCodeDataGridViewTextBoxColumn});
             this.addressDataGridView.DataSource = this.addressSetBindingSource;
-            dataGridViewCellStyle65.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle65.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle65.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle65.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle65.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle65.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle65.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.addressDataGridView.DefaultCellStyle = dataGridViewCellStyle65;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.addressDataGridView.DefaultCellStyle = dataGridViewCellStyle29;
             this.addressDataGridView.Location = new System.Drawing.Point(3, 3);
             this.addressDataGridView.Name = "addressDataGridView";
             this.addressDataGridView.ReadOnly = true;
-            dataGridViewCellStyle66.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle66.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle66.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle66.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle66.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle66.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle66.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.addressDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle66;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.addressDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle30;
             this.addressDataGridView.RowHeadersVisible = false;
             this.addressDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.addressDataGridView.Size = new System.Drawing.Size(406, 315);
             this.addressDataGridView.TabIndex = 0;
             this.addressDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.addressDataGridView_CellClick);
+            // 
+            // addressIDDataGridViewTextBoxColumn1
+            // 
+            this.addressIDDataGridViewTextBoxColumn1.DataPropertyName = "addressID";
+            this.addressIDDataGridViewTextBoxColumn1.HeaderText = "addressID";
+            this.addressIDDataGridViewTextBoxColumn1.Name = "addressIDDataGridViewTextBoxColumn1";
+            this.addressIDDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.addressIDDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // streetDataGridViewTextBoxColumn
+            // 
+            this.streetDataGridViewTextBoxColumn.DataPropertyName = "Street";
+            this.streetDataGridViewTextBoxColumn.HeaderText = "Street";
+            this.streetDataGridViewTextBoxColumn.Name = "streetDataGridViewTextBoxColumn";
+            this.streetDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cityDataGridViewTextBoxColumn
+            // 
+            this.cityDataGridViewTextBoxColumn.DataPropertyName = "City";
+            this.cityDataGridViewTextBoxColumn.HeaderText = "City";
+            this.cityDataGridViewTextBoxColumn.Name = "cityDataGridViewTextBoxColumn";
+            this.cityDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // territoryDataGridViewTextBoxColumn
+            // 
+            this.territoryDataGridViewTextBoxColumn.DataPropertyName = "Territory";
+            this.territoryDataGridViewTextBoxColumn.HeaderText = "Territory";
+            this.territoryDataGridViewTextBoxColumn.Name = "territoryDataGridViewTextBoxColumn";
+            this.territoryDataGridViewTextBoxColumn.ReadOnly = true;
+            this.territoryDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // countryDataGridViewTextBoxColumn
+            // 
+            this.countryDataGridViewTextBoxColumn.DataPropertyName = "Country";
+            this.countryDataGridViewTextBoxColumn.HeaderText = "Country";
+            this.countryDataGridViewTextBoxColumn.Name = "countryDataGridViewTextBoxColumn";
+            this.countryDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // zipCodeDataGridViewTextBoxColumn
+            // 
+            this.zipCodeDataGridViewTextBoxColumn.DataPropertyName = "ZipCode";
+            this.zipCodeDataGridViewTextBoxColumn.HeaderText = "ZipCode";
+            this.zipCodeDataGridViewTextBoxColumn.Name = "zipCodeDataGridViewTextBoxColumn";
+            this.zipCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // addressSetBindingSource
+            // 
+            this.addressSetBindingSource.DataMember = "AddressSet";
+            this.addressSetBindingSource.DataSource = this.myRep_ODS_Address_DataSet;
+            // 
+            // myRep_ODS_Address_DataSet
+            // 
+            this.myRep_ODS_Address_DataSet.DataSetName = "myRep_ODS_Address_DataSet";
+            this.myRep_ODS_Address_DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // userMgmtPage
             // 
@@ -1384,6 +2343,15 @@
             this.newHCPPage.Text = "new_HCP";
             this.newHCPPage.UseVisualStyleBackColor = true;
             this.newHCPPage.Click += new System.EventHandler(this.newHCPPage_Click);
+            // 
+            // selectedAddressFullLabel
+            // 
+            this.selectedAddressFullLabel.AutoSize = true;
+            this.selectedAddressFullLabel.Location = new System.Drawing.Point(174, 392);
+            this.selectedAddressFullLabel.Name = "selectedAddressFullLabel";
+            this.selectedAddressFullLabel.Size = new System.Drawing.Size(10, 13);
+            this.selectedAddressFullLabel.TabIndex = 38;
+            this.selectedAddressFullLabel.Text = "-";
             // 
             // otherLangTextBox
             // 
@@ -1847,6 +2815,57 @@
             this.newHCOPage.Text = "new_HCO";
             this.newHCOPage.UseVisualStyleBackColor = true;
             // 
+            // PhNumberHCOBox
+            // 
+            this.PhNumberHCOBox.Location = new System.Drawing.Point(430, 28);
+            this.PhNumberHCOBox.Mask = "000-000-000";
+            this.PhNumberHCOBox.Name = "PhNumberHCOBox";
+            this.PhNumberHCOBox.Size = new System.Drawing.Size(74, 20);
+            this.PhNumberHCOBox.TabIndex = 35;
+            // 
+            // SelectedHCO_AddressLabel
+            // 
+            this.SelectedHCO_AddressLabel.AutoSize = true;
+            this.SelectedHCO_AddressLabel.Location = new System.Drawing.Point(514, 202);
+            this.SelectedHCO_AddressLabel.Name = "SelectedHCO_AddressLabel";
+            this.SelectedHCO_AddressLabel.Size = new System.Drawing.Size(10, 13);
+            this.SelectedHCO_AddressLabel.TabIndex = 34;
+            this.SelectedHCO_AddressLabel.Text = "-";
+            // 
+            // EmployeesHCOBox
+            // 
+            this.EmployeesHCOBox.Location = new System.Drawing.Point(125, 238);
+            this.EmployeesHCOBox.Name = "EmployeesHCOBox";
+            this.EmployeesHCOBox.Size = new System.Drawing.Size(120, 20);
+            this.EmployeesHCOBox.TabIndex = 33;
+            // 
+            // BedsHCOBox
+            // 
+            this.BedsHCOBox.Location = new System.Drawing.Point(92, 201);
+            this.BedsHCOBox.Name = "BedsHCOBox";
+            this.BedsHCOBox.Size = new System.Drawing.Size(120, 20);
+            this.BedsHCOBox.TabIndex = 32;
+            // 
+            // label50
+            // 
+            this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label50.ForeColor = System.Drawing.Color.Red;
+            this.label50.Location = new System.Drawing.Point(369, 197);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(16, 15);
+            this.label50.TabIndex = 31;
+            this.label50.Text = "*";
+            // 
+            // label49
+            // 
+            this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label49.ForeColor = System.Drawing.Color.Red;
+            this.label49.Location = new System.Drawing.Point(17, 23);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(16, 15);
+            this.label49.TabIndex = 30;
+            this.label49.Text = "*";
+            // 
             // SelectedHCO_AddressIDLabel
             // 
             this.SelectedHCO_AddressIDLabel.AutoSize = true;
@@ -2034,6 +3053,200 @@
             this.newHCO_NameLabel.Size = new System.Drawing.Size(40, 13);
             this.newHCO_NameLabel.TabIndex = 0;
             this.newHCO_NameLabel.Text = "Nazwa";
+            // 
+            // newAddressPage
+            // 
+            this.newAddressPage.Controls.Add(this.label60);
+            this.newAddressPage.Controls.Add(this.label59);
+            this.newAddressPage.Controls.Add(this.label58);
+            this.newAddressPage.Controls.Add(this.label57);
+            this.newAddressPage.Controls.Add(this.label56);
+            this.newAddressPage.Controls.Add(this.CountryNEWaddressBOX);
+            this.newAddressPage.Controls.Add(this.CreateNewAddress);
+            this.newAddressPage.Controls.Add(this.TerritoryNEWaddressBox);
+            this.newAddressPage.Controls.Add(this.ZipNEWaddressBox);
+            this.newAddressPage.Controls.Add(this.CityNEWaddressBox);
+            this.newAddressPage.Controls.Add(this.StreetNEWaddressBox);
+            this.newAddressPage.Controls.Add(this.label55);
+            this.newAddressPage.Controls.Add(this.label54);
+            this.newAddressPage.Controls.Add(this.label53);
+            this.newAddressPage.Controls.Add(this.label52);
+            this.newAddressPage.Controls.Add(this.label51);
+            this.newAddressPage.Location = new System.Drawing.Point(4, 22);
+            this.newAddressPage.Name = "newAddressPage";
+            this.newAddressPage.Padding = new System.Windows.Forms.Padding(3);
+            this.newAddressPage.Size = new System.Drawing.Size(812, 465);
+            this.newAddressPage.TabIndex = 8;
+            this.newAddressPage.Text = "new_address";
+            this.newAddressPage.UseVisualStyleBackColor = true;
+            // 
+            // label60
+            // 
+            this.label60.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label60.ForeColor = System.Drawing.Color.Red;
+            this.label60.Location = new System.Drawing.Point(19, 149);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(16, 15);
+            this.label60.TabIndex = 35;
+            this.label60.Text = "*";
+            // 
+            // label59
+            // 
+            this.label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label59.ForeColor = System.Drawing.Color.Red;
+            this.label59.Location = new System.Drawing.Point(19, 120);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(16, 15);
+            this.label59.TabIndex = 34;
+            this.label59.Text = "*";
+            // 
+            // label58
+            // 
+            this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label58.ForeColor = System.Drawing.Color.Red;
+            this.label58.Location = new System.Drawing.Point(19, 87);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(16, 15);
+            this.label58.TabIndex = 33;
+            this.label58.Text = "*";
+            // 
+            // label57
+            // 
+            this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label57.ForeColor = System.Drawing.Color.Red;
+            this.label57.Location = new System.Drawing.Point(19, 57);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(16, 15);
+            this.label57.TabIndex = 32;
+            this.label57.Text = "*";
+            // 
+            // label56
+            // 
+            this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label56.ForeColor = System.Drawing.Color.Red;
+            this.label56.Location = new System.Drawing.Point(19, 26);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(16, 15);
+            this.label56.TabIndex = 31;
+            this.label56.Text = "*";
+            // 
+            // CountryNEWaddressBOX
+            // 
+            this.CountryNEWaddressBOX.Enabled = false;
+            this.CountryNEWaddressBOX.Location = new System.Drawing.Point(65, 122);
+            this.CountryNEWaddressBOX.Name = "CountryNEWaddressBOX";
+            this.CountryNEWaddressBOX.Size = new System.Drawing.Size(100, 20);
+            this.CountryNEWaddressBOX.TabIndex = 12;
+            this.CountryNEWaddressBOX.Text = "Polska";
+            this.CountryNEWaddressBOX.TextChanged += new System.EventHandler(this.CountryNEWaddressBOX_TextChanged);
+            // 
+            // CreateNewAddress
+            // 
+            this.CreateNewAddress.Enabled = false;
+            this.CreateNewAddress.Location = new System.Drawing.Point(92, 199);
+            this.CreateNewAddress.Name = "CreateNewAddress";
+            this.CreateNewAddress.Size = new System.Drawing.Size(75, 23);
+            this.CreateNewAddress.TabIndex = 11;
+            this.CreateNewAddress.Text = "UTWÓRZ!";
+            this.CreateNewAddress.UseVisualStyleBackColor = true;
+            this.CreateNewAddress.Click += new System.EventHandler(this.CreateNewAddress_Click);
+            // 
+            // TerritoryNEWaddressBox
+            // 
+            this.TerritoryNEWaddressBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TerritoryNEWaddressBox.Enabled = false;
+            this.TerritoryNEWaddressBox.FormattingEnabled = true;
+            this.TerritoryNEWaddressBox.Items.AddRange(new object[] {
+            "dolnośląskie",
+            "kujawsko-pomorskie",
+            "lubelskie",
+            "lubuskie",
+            "łódzkie",
+            "małopolskie",
+            "mazowieckie",
+            "opolskie",
+            "podkarpackie",
+            "podlaskie",
+            "pomorskie",
+            "śląskie",
+            "świętokrzyskie",
+            "warmińsko-mazurskie",
+            "wielkopolskie",
+            "zachodniopomorskie"});
+            this.TerritoryNEWaddressBox.Location = new System.Drawing.Point(97, 89);
+            this.TerritoryNEWaddressBox.Name = "TerritoryNEWaddressBox";
+            this.TerritoryNEWaddressBox.Size = new System.Drawing.Size(121, 21);
+            this.TerritoryNEWaddressBox.TabIndex = 9;
+            this.TerritoryNEWaddressBox.TextChanged += new System.EventHandler(this.TerritoryNEWaddressBox_TextChanged);
+            // 
+            // ZipNEWaddressBox
+            // 
+            this.ZipNEWaddressBox.Location = new System.Drawing.Point(114, 148);
+            this.ZipNEWaddressBox.Name = "ZipNEWaddressBox";
+            this.ZipNEWaddressBox.Size = new System.Drawing.Size(100, 20);
+            this.ZipNEWaddressBox.TabIndex = 8;
+            this.ZipNEWaddressBox.TextChanged += new System.EventHandler(this.ZipNEWaddressBox_TextChanged);
+            // 
+            // CityNEWaddressBox
+            // 
+            this.CityNEWaddressBox.Location = new System.Drawing.Point(78, 62);
+            this.CityNEWaddressBox.Name = "CityNEWaddressBox";
+            this.CityNEWaddressBox.Size = new System.Drawing.Size(100, 20);
+            this.CityNEWaddressBox.TabIndex = 6;
+            this.CityNEWaddressBox.TextChanged += new System.EventHandler(this.CityNEWaddressBox_TextChanged);
+            // 
+            // StreetNEWaddressBox
+            // 
+            this.StreetNEWaddressBox.Location = new System.Drawing.Point(75, 31);
+            this.StreetNEWaddressBox.Name = "StreetNEWaddressBox";
+            this.StreetNEWaddressBox.Size = new System.Drawing.Size(100, 20);
+            this.StreetNEWaddressBox.TabIndex = 5;
+            this.StreetNEWaddressBox.TextChanged += new System.EventHandler(this.StreetNEWaddressBox_TextChanged);
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(34, 154);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(74, 13);
+            this.label55.TabIndex = 4;
+            this.label55.Text = "Kod pocztowy";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(34, 125);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(25, 13);
+            this.label54.TabIndex = 3;
+            this.label54.Text = "Kraj";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(34, 94);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(56, 13);
+            this.label53.TabIndex = 2;
+            this.label53.Text = "Terytorium";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(34, 62);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(38, 13);
+            this.label52.TabIndex = 1;
+            this.label52.Text = "Miasto";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(34, 31);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(34, 13);
+            this.label51.TabIndex = 0;
+            this.label51.Text = "Ulica:";
             // 
             // newUserPage
             // 
@@ -2326,304 +3539,6 @@
             this.newpwdLabel.TabIndex = 0;
             this.newpwdLabel.Text = "Password";
             // 
-            // hCOSetBindingSource
-            // 
-            this.hCOSetBindingSource.DataMember = "HCOSet";
-            this.hCOSetBindingSource.DataSource = this.myRep_ODS_HCO_DataSet;
-            // 
-            // myRep_ODS_HCO_DataSet
-            // 
-            this.myRep_ODS_HCO_DataSet.DataSetName = "myRep_ODS_HCO_DataSet";
-            this.myRep_ODS_HCO_DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // hCOSetTableAdapter
-            // 
-            this.hCOSetTableAdapter.ClearBeforeFill = true;
-            // 
-            // userSetTableAdapter
-            // 
-            this.userSetTableAdapter.ClearBeforeFill = true;
-            // 
-            // myRep_ODS_HCOHCPDataSet
-            // 
-            this.myRep_ODS_HCOHCPDataSet.DataSetName = "myRep_ODS_HCOHCPDataSet";
-            this.myRep_ODS_HCOHCPDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // myRepODSHCOHCPDataSetBindingSource
-            // 
-            this.myRepODSHCOHCPDataSetBindingSource.DataSource = this.myRep_ODS_HCOHCPDataSet;
-            this.myRepODSHCOHCPDataSetBindingSource.Position = 0;
-            // 
-            // hCOHCPBindingSource
-            // 
-            this.hCOHCPBindingSource.DataMember = "HCOHCP";
-            this.hCOHCPBindingSource.DataSource = this.myRepODSHCOHCPDataSetBindingSource;
-            // 
-            // hCOHCPTableAdapter
-            // 
-            this.hCOHCPTableAdapter.ClearBeforeFill = true;
-            // 
-            // hCOSetBindingSource1
-            // 
-            this.hCOSetBindingSource1.DataMember = "HCOSet";
-            this.hCOSetBindingSource1.DataSource = this.myRepODSHCOHCPDataSetBindingSource;
-            // 
-            // hCOSetTableAdapter1
-            // 
-            this.hCOSetTableAdapter1.ClearBeforeFill = true;
-            // 
-            // hCPSetTableAdapter
-            // 
-            this.hCPSetTableAdapter.ClearBeforeFill = true;
-            // 
-            // showDedicatedHCPToolStrip
-            // 
-            this.showDedicatedHCPToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.param_show_HCP7ToolStripLabel,
-            this.param_show_HCP7ToolStripTextBox,
-            this.showDedicatedHCPToolStripButton});
-            this.showDedicatedHCPToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.showDedicatedHCPToolStrip.Name = "showDedicatedHCPToolStrip";
-            this.showDedicatedHCPToolStrip.Size = new System.Drawing.Size(967, 25);
-            this.showDedicatedHCPToolStrip.TabIndex = 8;
-            this.showDedicatedHCPToolStrip.Text = "showDedicatedHCPToolStrip";
-            this.showDedicatedHCPToolStrip.Visible = false;
-            // 
-            // param_show_HCP7ToolStripLabel
-            // 
-            this.param_show_HCP7ToolStripLabel.Name = "param_show_HCP7ToolStripLabel";
-            this.param_show_HCP7ToolStripLabel.Size = new System.Drawing.Size(112, 22);
-            this.param_show_HCP7ToolStripLabel.Text = "param_show_HCP7:";
-            // 
-            // param_show_HCP7ToolStripTextBox
-            // 
-            this.param_show_HCP7ToolStripTextBox.Name = "param_show_HCP7ToolStripTextBox";
-            this.param_show_HCP7ToolStripTextBox.Size = new System.Drawing.Size(100, 25);
-            // 
-            // showDedicatedHCPToolStripButton
-            // 
-            this.showDedicatedHCPToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.showDedicatedHCPToolStripButton.Name = "showDedicatedHCPToolStripButton";
-            this.showDedicatedHCPToolStripButton.Size = new System.Drawing.Size(117, 22);
-            this.showDedicatedHCPToolStripButton.Text = "ShowDedicatedHCP";
-            this.showDedicatedHCPToolStripButton.Click += new System.EventHandler(this.showDedicatedHCPToolStripButton_Click);
-            // 
-            // hcoNameLabel
-            // 
-            this.hcoNameLabel.AutoSize = true;
-            this.hcoNameLabel.Location = new System.Drawing.Point(470, 38);
-            this.hcoNameLabel.Name = "hcoNameLabel";
-            this.hcoNameLabel.Size = new System.Drawing.Size(10, 13);
-            this.hcoNameLabel.TabIndex = 30;
-            this.hcoNameLabel.Text = "-";
-            // 
-            // hcoTelLabel
-            // 
-            this.hcoTelLabel.AutoSize = true;
-            this.hcoTelLabel.Location = new System.Drawing.Point(473, 63);
-            this.hcoTelLabel.Name = "hcoTelLabel";
-            this.hcoTelLabel.Size = new System.Drawing.Size(10, 13);
-            this.hcoTelLabel.TabIndex = 31;
-            this.hcoTelLabel.Text = "-";
-            // 
-            // hcoEmailLabel
-            // 
-            this.hcoEmailLabel.AutoSize = true;
-            this.hcoEmailLabel.Location = new System.Drawing.Point(465, 85);
-            this.hcoEmailLabel.Name = "hcoEmailLabel";
-            this.hcoEmailLabel.Size = new System.Drawing.Size(10, 13);
-            this.hcoEmailLabel.TabIndex = 32;
-            this.hcoEmailLabel.Text = "-";
-            // 
-            // hcoWWWLabel
-            // 
-            this.hcoWWWLabel.AutoSize = true;
-            this.hcoWWWLabel.Location = new System.Drawing.Point(468, 107);
-            this.hcoWWWLabel.Name = "hcoWWWLabel";
-            this.hcoWWWLabel.Size = new System.Drawing.Size(10, 13);
-            this.hcoWWWLabel.TabIndex = 33;
-            this.hcoWWWLabel.Text = "-";
-            // 
-            // hcoRangeLabel
-            // 
-            this.hcoRangeLabel.AutoSize = true;
-            this.hcoRangeLabel.Location = new System.Drawing.Point(466, 137);
-            this.hcoRangeLabel.Name = "hcoRangeLabel";
-            this.hcoRangeLabel.Size = new System.Drawing.Size(10, 13);
-            this.hcoRangeLabel.TabIndex = 34;
-            this.hcoRangeLabel.Text = "-";
-            // 
-            // hcoLevelLabel
-            // 
-            this.hcoLevelLabel.AutoSize = true;
-            this.hcoLevelLabel.Location = new System.Drawing.Point(468, 160);
-            this.hcoLevelLabel.Name = "hcoLevelLabel";
-            this.hcoLevelLabel.Size = new System.Drawing.Size(10, 13);
-            this.hcoLevelLabel.TabIndex = 35;
-            this.hcoLevelLabel.Text = "-";
-            // 
-            // hcoSpecialTypeLabel
-            // 
-            this.hcoSpecialTypeLabel.AutoSize = true;
-            this.hcoSpecialTypeLabel.Location = new System.Drawing.Point(500, 176);
-            this.hcoSpecialTypeLabel.Name = "hcoSpecialTypeLabel";
-            this.hcoSpecialTypeLabel.Size = new System.Drawing.Size(10, 13);
-            this.hcoSpecialTypeLabel.TabIndex = 36;
-            this.hcoSpecialTypeLabel.Text = "-";
-            // 
-            // hcoNoBedLabel
-            // 
-            this.hcoNoBedLabel.AutoSize = true;
-            this.hcoNoBedLabel.Location = new System.Drawing.Point(481, 209);
-            this.hcoNoBedLabel.Name = "hcoNoBedLabel";
-            this.hcoNoBedLabel.Size = new System.Drawing.Size(10, 13);
-            this.hcoNoBedLabel.TabIndex = 37;
-            this.hcoNoBedLabel.Text = "-";
-            // 
-            // hcoNoEmpLabel
-            // 
-            this.hcoNoEmpLabel.AutoSize = true;
-            this.hcoNoEmpLabel.Location = new System.Drawing.Point(640, 210);
-            this.hcoNoEmpLabel.Name = "hcoNoEmpLabel";
-            this.hcoNoEmpLabel.Size = new System.Drawing.Size(10, 13);
-            this.hcoNoEmpLabel.TabIndex = 38;
-            this.hcoNoEmpLabel.Text = "-";
-            // 
-            // hcoStreetLabel
-            // 
-            this.hcoStreetLabel.AutoSize = true;
-            this.hcoStreetLabel.Location = new System.Drawing.Point(455, 248);
-            this.hcoStreetLabel.Name = "hcoStreetLabel";
-            this.hcoStreetLabel.Size = new System.Drawing.Size(10, 13);
-            this.hcoStreetLabel.TabIndex = 39;
-            this.hcoStreetLabel.Text = "-";
-            // 
-            // hcoCityLabel
-            // 
-            this.hcoCityLabel.AutoSize = true;
-            this.hcoCityLabel.Location = new System.Drawing.Point(473, 265);
-            this.hcoCityLabel.Name = "hcoCityLabel";
-            this.hcoCityLabel.Size = new System.Drawing.Size(10, 13);
-            this.hcoCityLabel.TabIndex = 40;
-            this.hcoCityLabel.Text = "-";
-            // 
-            // hcoZipLabel
-            // 
-            this.hcoZipLabel.AutoSize = true;
-            this.hcoZipLabel.Location = new System.Drawing.Point(632, 265);
-            this.hcoZipLabel.Name = "hcoZipLabel";
-            this.hcoZipLabel.Size = new System.Drawing.Size(10, 13);
-            this.hcoZipLabel.TabIndex = 41;
-            this.hcoZipLabel.Text = "-";
-            // 
-            // hcoTerrLabel
-            // 
-            this.hcoTerrLabel.AutoSize = true;
-            this.hcoTerrLabel.Location = new System.Drawing.Point(484, 282);
-            this.hcoTerrLabel.Name = "hcoTerrLabel";
-            this.hcoTerrLabel.Size = new System.Drawing.Size(10, 13);
-            this.hcoTerrLabel.TabIndex = 42;
-            this.hcoTerrLabel.Text = "-";
-            // 
-            // hcoCountryLabel
-            // 
-            this.hcoCountryLabel.AutoSize = true;
-            this.hcoCountryLabel.Location = new System.Drawing.Point(447, 299);
-            this.hcoCountryLabel.Name = "hcoCountryLabel";
-            this.hcoCountryLabel.Size = new System.Drawing.Size(10, 13);
-            this.hcoCountryLabel.TabIndex = 43;
-            this.hcoCountryLabel.Text = "-";
-            // 
-            // addressDedicatedBookToolStrip
-            // 
-            this.addressDedicatedBookToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.paramToolStripLabel,
-            this.paramToolStripTextBox,
-            this.addressDedicatedBookToolStripButton});
-            this.addressDedicatedBookToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.addressDedicatedBookToolStrip.Name = "addressDedicatedBookToolStrip";
-            this.addressDedicatedBookToolStrip.Size = new System.Drawing.Size(967, 25);
-            this.addressDedicatedBookToolStrip.TabIndex = 9;
-            this.addressDedicatedBookToolStrip.Text = "addressDedicatedBookToolStrip";
-            this.addressDedicatedBookToolStrip.Visible = false;
-            // 
-            // paramToolStripLabel
-            // 
-            this.paramToolStripLabel.Name = "paramToolStripLabel";
-            this.paramToolStripLabel.Size = new System.Drawing.Size(44, 22);
-            this.paramToolStripLabel.Text = "param:";
-            // 
-            // paramToolStripTextBox
-            // 
-            this.paramToolStripTextBox.Name = "paramToolStripTextBox";
-            this.paramToolStripTextBox.Size = new System.Drawing.Size(100, 25);
-            // 
-            // addressDedicatedBookToolStripButton
-            // 
-            this.addressDedicatedBookToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.addressDedicatedBookToolStripButton.Name = "addressDedicatedBookToolStripButton";
-            this.addressDedicatedBookToolStripButton.Size = new System.Drawing.Size(133, 22);
-            this.addressDedicatedBookToolStripButton.Text = "AddressDedicatedBook";
-            this.addressDedicatedBookToolStripButton.Click += new System.EventHandler(this.addressDedicatedBookToolStripButton_Click);
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(428, 20);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(121, 13);
-            this.label47.TabIndex = 1;
-            this.label47.Text = "POWIĄZANI LEKARZE";
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(425, 209);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(129, 13);
-            this.label48.TabIndex = 2;
-            this.label48.Text = "POWIĄZNA PLACÓWKA";
-            // 
-            // HCPunderAddressGridView
-            // 
-            this.HCPunderAddressGridView.AllowUserToAddRows = false;
-            this.HCPunderAddressGridView.AllowUserToDeleteRows = false;
-            this.HCPunderAddressGridView.AllowUserToResizeColumns = false;
-            this.HCPunderAddressGridView.AllowUserToResizeRows = false;
-            this.HCPunderAddressGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.HCPunderAddressGridView.Location = new System.Drawing.Point(431, 36);
-            this.HCPunderAddressGridView.MultiSelect = false;
-            this.HCPunderAddressGridView.Name = "HCPunderAddressGridView";
-            this.HCPunderAddressGridView.ReadOnly = true;
-            this.HCPunderAddressGridView.RowHeadersVisible = false;
-            this.HCPunderAddressGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.HCPunderAddressGridView.Size = new System.Drawing.Size(240, 150);
-            this.HCPunderAddressGridView.TabIndex = 3;
-            this.HCPunderAddressGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.HCPunderAddressGridView_CellClick);
-            // 
-            // HCOunderAddressGridView
-            // 
-            this.HCOunderAddressGridView.AllowUserToResizeRows = false;
-            this.HCOunderAddressGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.HCOunderAddressGridView.Location = new System.Drawing.Point(428, 225);
-            this.HCOunderAddressGridView.MultiSelect = false;
-            this.HCOunderAddressGridView.Name = "HCOunderAddressGridView";
-            this.HCOunderAddressGridView.RowHeadersVisible = false;
-            this.HCOunderAddressGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.HCOunderAddressGridView.Size = new System.Drawing.Size(240, 150);
-            this.HCOunderAddressGridView.TabIndex = 4;
-            // 
-            // new_meeting
-            // 
-            this.new_meeting.Enabled = false;
-            this.new_meeting.Location = new System.Drawing.Point(153, 335);
-            this.new_meeting.Name = "new_meeting";
-            this.new_meeting.Size = new System.Drawing.Size(123, 23);
-            this.new_meeting.TabIndex = 5;
-            this.new_meeting.Text = "SPOTKANIE HCP";
-            this.new_meeting.UseVisualStyleBackColor = true;
-            this.new_meeting.Click += new System.EventHandler(this.button2_Click);
-            // 
             // select_address_Page
             // 
             this.select_address_Page.Controls.Add(this.button2);
@@ -2635,6 +3550,16 @@
             this.select_address_Page.TabIndex = 7;
             this.select_address_Page.Text = "select_address";
             this.select_address_Page.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(308, 372);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "WYBIERZ";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // setAddressGridView
             // 
@@ -2656,96 +3581,6 @@
             this.setAddressGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.setAddressGridView.Size = new System.Drawing.Size(645, 326);
             this.setAddressGridView.TabIndex = 0;
-            // 
-            // addressIDDataGridViewTextBoxColumn1
-            // 
-            this.addressIDDataGridViewTextBoxColumn1.DataPropertyName = "addressID";
-            this.addressIDDataGridViewTextBoxColumn1.HeaderText = "addressID";
-            this.addressIDDataGridViewTextBoxColumn1.Name = "addressIDDataGridViewTextBoxColumn1";
-            this.addressIDDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.addressIDDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // streetDataGridViewTextBoxColumn
-            // 
-            this.streetDataGridViewTextBoxColumn.DataPropertyName = "Street";
-            this.streetDataGridViewTextBoxColumn.HeaderText = "Street";
-            this.streetDataGridViewTextBoxColumn.Name = "streetDataGridViewTextBoxColumn";
-            this.streetDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cityDataGridViewTextBoxColumn
-            // 
-            this.cityDataGridViewTextBoxColumn.DataPropertyName = "City";
-            this.cityDataGridViewTextBoxColumn.HeaderText = "City";
-            this.cityDataGridViewTextBoxColumn.Name = "cityDataGridViewTextBoxColumn";
-            this.cityDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // territoryDataGridViewTextBoxColumn
-            // 
-            this.territoryDataGridViewTextBoxColumn.DataPropertyName = "Territory";
-            this.territoryDataGridViewTextBoxColumn.HeaderText = "Territory";
-            this.territoryDataGridViewTextBoxColumn.Name = "territoryDataGridViewTextBoxColumn";
-            this.territoryDataGridViewTextBoxColumn.ReadOnly = true;
-            this.territoryDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // countryDataGridViewTextBoxColumn
-            // 
-            this.countryDataGridViewTextBoxColumn.DataPropertyName = "Country";
-            this.countryDataGridViewTextBoxColumn.HeaderText = "Country";
-            this.countryDataGridViewTextBoxColumn.Name = "countryDataGridViewTextBoxColumn";
-            this.countryDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // zipCodeDataGridViewTextBoxColumn
-            // 
-            this.zipCodeDataGridViewTextBoxColumn.DataPropertyName = "ZipCode";
-            this.zipCodeDataGridViewTextBoxColumn.HeaderText = "ZipCode";
-            this.zipCodeDataGridViewTextBoxColumn.Name = "zipCodeDataGridViewTextBoxColumn";
-            this.zipCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // addressSetBindingSource
-            // 
-            this.addressSetBindingSource.DataMember = "AddressSet";
-            this.addressSetBindingSource.DataSource = this.myRep_ODS_Address_DataSet;
-            // 
-            // myRep_ODS_Address_DataSet
-            // 
-            this.myRep_ODS_Address_DataSet.DataSetName = "myRep_ODS_Address_DataSet";
-            this.myRep_ODS_Address_DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // addressSetTableAdapter
-            // 
-            this.addressSetTableAdapter.ClearBeforeFill = true;
-            // 
-            // addressDedicatedBookToolStrip1
-            // 
-            this.addressDedicatedBookToolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.paramToolStripLabel1,
-            this.paramToolStripTextBox1,
-            this.addressDedicatedBookToolStripButton1});
-            this.addressDedicatedBookToolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.addressDedicatedBookToolStrip1.Name = "addressDedicatedBookToolStrip1";
-            this.addressDedicatedBookToolStrip1.Size = new System.Drawing.Size(967, 25);
-            this.addressDedicatedBookToolStrip1.TabIndex = 10;
-            this.addressDedicatedBookToolStrip1.Text = "addressDedicatedBookToolStrip1";
-            this.addressDedicatedBookToolStrip1.Visible = false;
-            // 
-            // paramToolStripLabel1
-            // 
-            this.paramToolStripLabel1.Name = "paramToolStripLabel1";
-            this.paramToolStripLabel1.Size = new System.Drawing.Size(44, 22);
-            this.paramToolStripLabel1.Text = "param:";
-            // 
-            // paramToolStripTextBox1
-            // 
-            this.paramToolStripTextBox1.Name = "paramToolStripTextBox1";
-            this.paramToolStripTextBox1.Size = new System.Drawing.Size(100, 25);
-            // 
-            // addressDedicatedBookToolStripButton1
-            // 
-            this.addressDedicatedBookToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.addressDedicatedBookToolStripButton1.Name = "addressDedicatedBookToolStripButton1";
-            this.addressDedicatedBookToolStripButton1.Size = new System.Drawing.Size(133, 22);
-            this.addressDedicatedBookToolStripButton1.Text = "AddressDedicatedBook";
-            this.addressDedicatedBookToolStripButton1.Click += new System.EventHandler(this.addressDedicatedBookToolStripButton1_Click);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -2791,280 +3626,6 @@
             this.zipCodeDataGridViewTextBoxColumn1.Name = "zipCodeDataGridViewTextBoxColumn1";
             this.zipCodeDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(308, 372);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "WYBIERZ";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
-            // 
-            // selectedAddressFullLabel
-            // 
-            this.selectedAddressFullLabel.AutoSize = true;
-            this.selectedAddressFullLabel.Location = new System.Drawing.Point(174, 392);
-            this.selectedAddressFullLabel.Name = "selectedAddressFullLabel";
-            this.selectedAddressFullLabel.Size = new System.Drawing.Size(10, 13);
-            this.selectedAddressFullLabel.TabIndex = 38;
-            this.selectedAddressFullLabel.Text = "-";
-            // 
-            // label49
-            // 
-            this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label49.ForeColor = System.Drawing.Color.Red;
-            this.label49.Location = new System.Drawing.Point(17, 23);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(16, 15);
-            this.label49.TabIndex = 30;
-            this.label49.Text = "*";
-            // 
-            // label50
-            // 
-            this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label50.ForeColor = System.Drawing.Color.Red;
-            this.label50.Location = new System.Drawing.Point(369, 197);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(16, 15);
-            this.label50.TabIndex = 31;
-            this.label50.Text = "*";
-            // 
-            // BedsHCOBox
-            // 
-            this.BedsHCOBox.Location = new System.Drawing.Point(92, 201);
-            this.BedsHCOBox.Name = "BedsHCOBox";
-            this.BedsHCOBox.Size = new System.Drawing.Size(120, 20);
-            this.BedsHCOBox.TabIndex = 32;
-            // 
-            // EmployeesHCOBox
-            // 
-            this.EmployeesHCOBox.Location = new System.Drawing.Point(125, 238);
-            this.EmployeesHCOBox.Name = "EmployeesHCOBox";
-            this.EmployeesHCOBox.Size = new System.Drawing.Size(120, 20);
-            this.EmployeesHCOBox.TabIndex = 33;
-            // 
-            // SelectedHCO_AddressLabel
-            // 
-            this.SelectedHCO_AddressLabel.AutoSize = true;
-            this.SelectedHCO_AddressLabel.Location = new System.Drawing.Point(514, 202);
-            this.SelectedHCO_AddressLabel.Name = "SelectedHCO_AddressLabel";
-            this.SelectedHCO_AddressLabel.Size = new System.Drawing.Size(10, 13);
-            this.SelectedHCO_AddressLabel.TabIndex = 34;
-            this.SelectedHCO_AddressLabel.Text = "-";
-            // 
-            // PhNumberHCOBox
-            // 
-            this.PhNumberHCOBox.Location = new System.Drawing.Point(430, 28);
-            this.PhNumberHCOBox.Mask = "000-000-000";
-            this.PhNumberHCOBox.Name = "PhNumberHCOBox";
-            this.PhNumberHCOBox.Size = new System.Drawing.Size(74, 20);
-            this.PhNumberHCOBox.TabIndex = 35;
-            // 
-            // newAddressPage
-            // 
-            this.newAddressPage.Controls.Add(this.label60);
-            this.newAddressPage.Controls.Add(this.label59);
-            this.newAddressPage.Controls.Add(this.label58);
-            this.newAddressPage.Controls.Add(this.label57);
-            this.newAddressPage.Controls.Add(this.label56);
-            this.newAddressPage.Controls.Add(this.CountryNEWaddressBOX);
-            this.newAddressPage.Controls.Add(this.CreateNewAddress);
-            this.newAddressPage.Controls.Add(this.TerritoryNEWaddressBox);
-            this.newAddressPage.Controls.Add(this.ZipNEWaddressBox);
-            this.newAddressPage.Controls.Add(this.CityNEWaddressBox);
-            this.newAddressPage.Controls.Add(this.StreetNEWaddressBox);
-            this.newAddressPage.Controls.Add(this.label55);
-            this.newAddressPage.Controls.Add(this.label54);
-            this.newAddressPage.Controls.Add(this.label53);
-            this.newAddressPage.Controls.Add(this.label52);
-            this.newAddressPage.Controls.Add(this.label51);
-            this.newAddressPage.Location = new System.Drawing.Point(4, 22);
-            this.newAddressPage.Name = "newAddressPage";
-            this.newAddressPage.Padding = new System.Windows.Forms.Padding(3);
-            this.newAddressPage.Size = new System.Drawing.Size(812, 465);
-            this.newAddressPage.TabIndex = 8;
-            this.newAddressPage.Text = "new_address";
-            this.newAddressPage.UseVisualStyleBackColor = true;
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(34, 31);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(34, 13);
-            this.label51.TabIndex = 0;
-            this.label51.Text = "Ulica:";
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(34, 62);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(38, 13);
-            this.label52.TabIndex = 1;
-            this.label52.Text = "Miasto";
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(34, 94);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(56, 13);
-            this.label53.TabIndex = 2;
-            this.label53.Text = "Terytorium";
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(34, 125);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(25, 13);
-            this.label54.TabIndex = 3;
-            this.label54.Text = "Kraj";
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(34, 154);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(74, 13);
-            this.label55.TabIndex = 4;
-            this.label55.Text = "Kod pocztowy";
-            // 
-            // StreetNEWaddressBox
-            // 
-            this.StreetNEWaddressBox.Location = new System.Drawing.Point(75, 31);
-            this.StreetNEWaddressBox.Name = "StreetNEWaddressBox";
-            this.StreetNEWaddressBox.Size = new System.Drawing.Size(100, 20);
-            this.StreetNEWaddressBox.TabIndex = 5;
-            this.StreetNEWaddressBox.TextChanged += new System.EventHandler(this.StreetNEWaddressBox_TextChanged);
-            // 
-            // CityNEWaddressBox
-            // 
-            this.CityNEWaddressBox.Location = new System.Drawing.Point(78, 62);
-            this.CityNEWaddressBox.Name = "CityNEWaddressBox";
-            this.CityNEWaddressBox.Size = new System.Drawing.Size(100, 20);
-            this.CityNEWaddressBox.TabIndex = 6;
-            this.CityNEWaddressBox.TextChanged += new System.EventHandler(this.CityNEWaddressBox_TextChanged);
-            // 
-            // ZipNEWaddressBox
-            // 
-            this.ZipNEWaddressBox.Location = new System.Drawing.Point(114, 148);
-            this.ZipNEWaddressBox.Name = "ZipNEWaddressBox";
-            this.ZipNEWaddressBox.Size = new System.Drawing.Size(100, 20);
-            this.ZipNEWaddressBox.TabIndex = 8;
-            this.ZipNEWaddressBox.TextChanged += new System.EventHandler(this.ZipNEWaddressBox_TextChanged);
-            // 
-            // TerritoryNEWaddressBox
-            // 
-            this.TerritoryNEWaddressBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TerritoryNEWaddressBox.Enabled = false;
-            this.TerritoryNEWaddressBox.FormattingEnabled = true;
-            this.TerritoryNEWaddressBox.Items.AddRange(new object[] {
-            "dolnośląskie",
-            "kujawsko-pomorskie",
-            "lubelskie",
-            "lubuskie",
-            "łódzkie",
-            "małopolskie",
-            "mazowieckie",
-            "opolskie",
-            "podkarpackie",
-            "podlaskie",
-            "pomorskie",
-            "śląskie",
-            "świętokrzyskie",
-            "warmińsko-mazurskie",
-            "wielkopolskie",
-            "zachodniopomorskie"});
-            this.TerritoryNEWaddressBox.Location = new System.Drawing.Point(97, 89);
-            this.TerritoryNEWaddressBox.Name = "TerritoryNEWaddressBox";
-            this.TerritoryNEWaddressBox.Size = new System.Drawing.Size(121, 21);
-            this.TerritoryNEWaddressBox.TabIndex = 9;
-            this.TerritoryNEWaddressBox.TextChanged += new System.EventHandler(this.TerritoryNEWaddressBox_TextChanged);
-            // 
-            // CreateNewAddress
-            // 
-            this.CreateNewAddress.Enabled = false;
-            this.CreateNewAddress.Location = new System.Drawing.Point(92, 199);
-            this.CreateNewAddress.Name = "CreateNewAddress";
-            this.CreateNewAddress.Size = new System.Drawing.Size(75, 23);
-            this.CreateNewAddress.TabIndex = 11;
-            this.CreateNewAddress.Text = "UTWÓRZ!";
-            this.CreateNewAddress.UseVisualStyleBackColor = true;
-            this.CreateNewAddress.Click += new System.EventHandler(this.CreateNewAddress_Click);
-            // 
-            // CountryNEWaddressBOX
-            // 
-            this.CountryNEWaddressBOX.Enabled = false;
-            this.CountryNEWaddressBOX.Location = new System.Drawing.Point(65, 122);
-            this.CountryNEWaddressBOX.Name = "CountryNEWaddressBOX";
-            this.CountryNEWaddressBOX.Size = new System.Drawing.Size(100, 20);
-            this.CountryNEWaddressBOX.TabIndex = 12;
-            this.CountryNEWaddressBOX.Text = "Polska";
-            this.CountryNEWaddressBOX.TextChanged += new System.EventHandler(this.CountryNEWaddressBOX_TextChanged);
-            // 
-            // label56
-            // 
-            this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label56.ForeColor = System.Drawing.Color.Red;
-            this.label56.Location = new System.Drawing.Point(19, 26);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(16, 15);
-            this.label56.TabIndex = 31;
-            this.label56.Text = "*";
-            // 
-            // label57
-            // 
-            this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label57.ForeColor = System.Drawing.Color.Red;
-            this.label57.Location = new System.Drawing.Point(19, 57);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(16, 15);
-            this.label57.TabIndex = 32;
-            this.label57.Text = "*";
-            // 
-            // label58
-            // 
-            this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label58.ForeColor = System.Drawing.Color.Red;
-            this.label58.Location = new System.Drawing.Point(19, 87);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(16, 15);
-            this.label58.TabIndex = 33;
-            this.label58.Text = "*";
-            // 
-            // label59
-            // 
-            this.label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label59.ForeColor = System.Drawing.Color.Red;
-            this.label59.Location = new System.Drawing.Point(19, 120);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(16, 15);
-            this.label59.TabIndex = 34;
-            this.label59.Text = "*";
-            // 
-            // label60
-            // 
-            this.label60.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label60.ForeColor = System.Drawing.Color.Red;
-            this.label60.Location = new System.Drawing.Point(19, 149);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(16, 15);
-            this.label60.TabIndex = 35;
-            this.label60.Text = "*";
-            // 
-            // NewAssossiationButton
-            // 
-            this.NewAssossiationButton.Location = new System.Drawing.Point(315, 291);
-            this.NewAssossiationButton.Name = "NewAssossiationButton";
-            this.NewAssossiationButton.Size = new System.Drawing.Size(75, 23);
-            this.NewAssossiationButton.TabIndex = 32;
-            this.NewAssossiationButton.Text = "Dodaj ->";
-            this.NewAssossiationButton.UseVisualStyleBackColor = true;
-            this.NewAssossiationButton.Click += new System.EventHandler(this.NewAssossiationButton_Click);
-            // 
             // new_HCPHCO_Assossiation_Page
             // 
             this.new_HCPHCO_Assossiation_Page.Controls.Add(this.addAssossiationButton);
@@ -3079,25 +3640,15 @@
             this.new_HCPHCO_Assossiation_Page.Text = "new_Assossiation";
             this.new_HCPHCO_Assossiation_Page.UseVisualStyleBackColor = true;
             // 
-            // titlelabel1
+            // addAssossiationButton
             // 
-            this.titlelabel1.AutoSize = true;
-            this.titlelabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.titlelabel1.Location = new System.Drawing.Point(6, 16);
-            this.titlelabel1.Name = "titlelabel1";
-            this.titlelabel1.Size = new System.Drawing.Size(341, 20);
-            this.titlelabel1.TabIndex = 0;
-            this.titlelabel1.Text = "DODAWANIE NOWEJ ZALEŻNOŚCI DLA";
-            // 
-            // HCPname_newAssossiation
-            // 
-            this.HCPname_newAssossiation.AutoSize = true;
-            this.HCPname_newAssossiation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.HCPname_newAssossiation.Location = new System.Drawing.Point(10, 40);
-            this.HCPname_newAssossiation.Name = "HCPname_newAssossiation";
-            this.HCPname_newAssossiation.Size = new System.Drawing.Size(44, 17);
-            this.HCPname_newAssossiation.TabIndex = 1;
-            this.HCPname_newAssossiation.Text = "HCP: ";
+            this.addAssossiationButton.Location = new System.Drawing.Point(378, 224);
+            this.addAssossiationButton.Name = "addAssossiationButton";
+            this.addAssossiationButton.Size = new System.Drawing.Size(75, 42);
+            this.addAssossiationButton.TabIndex = 3;
+            this.addAssossiationButton.Text = "DODAJ RELACJE";
+            this.addAssossiationButton.UseVisualStyleBackColor = true;
+            this.addAssossiationButton.Click += new System.EventHandler(this.addAssossiationButton_Click);
             // 
             // Assossiation_AddManualView
             // 
@@ -3111,48 +3662,25 @@
             this.Assossiation_AddManualView.Size = new System.Drawing.Size(334, 349);
             this.Assossiation_AddManualView.TabIndex = 2;
             // 
-            // addAssossiationButton
+            // HCPname_newAssossiation
             // 
-            this.addAssossiationButton.Location = new System.Drawing.Point(378, 224);
-            this.addAssossiationButton.Name = "addAssossiationButton";
-            this.addAssossiationButton.Size = new System.Drawing.Size(75, 42);
-            this.addAssossiationButton.TabIndex = 3;
-            this.addAssossiationButton.Text = "DODAJ RELACJE";
-            this.addAssossiationButton.UseVisualStyleBackColor = true;
-            this.addAssossiationButton.Click += new System.EventHandler(this.addAssossiationButton_Click);
+            this.HCPname_newAssossiation.AutoSize = true;
+            this.HCPname_newAssossiation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.HCPname_newAssossiation.Location = new System.Drawing.Point(10, 40);
+            this.HCPname_newAssossiation.Name = "HCPname_newAssossiation";
+            this.HCPname_newAssossiation.Size = new System.Drawing.Size(44, 17);
+            this.HCPname_newAssossiation.TabIndex = 1;
+            this.HCPname_newAssossiation.Text = "HCP: ";
             // 
-            // HCPinHCOGridView
+            // titlelabel1
             // 
-            this.HCPinHCOGridView.AllowUserToAddRows = false;
-            this.HCPinHCOGridView.AllowUserToDeleteRows = false;
-            this.HCPinHCOGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.HCPinHCOGridView.Location = new System.Drawing.Point(188, 209);
-            this.HCPinHCOGridView.Name = "HCPinHCOGridView";
-            this.HCPinHCOGridView.ReadOnly = true;
-            this.HCPinHCOGridView.RowHeadersVisible = false;
-            this.HCPinHCOGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.HCPinHCOGridView.Size = new System.Drawing.Size(226, 153);
-            this.HCPinHCOGridView.TabIndex = 44;
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label61.Location = new System.Drawing.Point(184, 186);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(128, 20);
-            this.label61.TabIndex = 45;
-            this.label61.Text = "PRACOWNICY";
-            // 
-            // edithcpbutton
-            // 
-            this.edithcpbutton.Location = new System.Drawing.Point(281, 48);
-            this.edithcpbutton.Name = "edithcpbutton";
-            this.edithcpbutton.Size = new System.Drawing.Size(75, 23);
-            this.edithcpbutton.TabIndex = 33;
-            this.edithcpbutton.Text = "Edytuj";
-            this.edithcpbutton.UseVisualStyleBackColor = true;
-            this.edithcpbutton.Click += new System.EventHandler(this.edithcpbutton_Click);
+            this.titlelabel1.AutoSize = true;
+            this.titlelabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.titlelabel1.Location = new System.Drawing.Point(6, 16);
+            this.titlelabel1.Name = "titlelabel1";
+            this.titlelabel1.Size = new System.Drawing.Size(341, 20);
+            this.titlelabel1.TabIndex = 0;
+            this.titlelabel1.Text = "DODAWANIE NOWEJ ZALEŻNOŚCI DLA";
             // 
             // editHCP_Page
             // 
@@ -3196,6 +3724,53 @@
             this.editHCP_Page.TabIndex = 10;
             this.editHCP_Page.Text = "edit_HCP";
             this.editHCP_Page.UseVisualStyleBackColor = true;
+            // 
+            // selected_addressLabel_editHCP
+            // 
+            this.selected_addressLabel_editHCP.AutoSize = true;
+            this.selected_addressLabel_editHCP.Location = new System.Drawing.Point(176, 406);
+            this.selected_addressLabel_editHCP.Name = "selected_addressLabel_editHCP";
+            this.selected_addressLabel_editHCP.Size = new System.Drawing.Size(10, 13);
+            this.selected_addressLabel_editHCP.TabIndex = 77;
+            this.selected_addressLabel_editHCP.Text = "-";
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(25, 401);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(67, 26);
+            this.label63.TabIndex = 73;
+            this.label63.Text = "Podstawowy\r\nadres pracy";
+            // 
+            // label64
+            // 
+            this.label64.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label64.ForeColor = System.Drawing.Color.Red;
+            this.label64.Location = new System.Drawing.Point(14, 396);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(16, 15);
+            this.label64.TabIndex = 76;
+            this.label64.Text = "*";
+            // 
+            // selectedaddressID_editHCP
+            // 
+            this.selectedaddressID_editHCP.AutoSize = true;
+            this.selectedaddressID_editHCP.Location = new System.Drawing.Point(120, 427);
+            this.selectedaddressID_editHCP.Name = "selectedaddressID_editHCP";
+            this.selectedaddressID_editHCP.Size = new System.Drawing.Size(13, 13);
+            this.selectedaddressID_editHCP.TabIndex = 75;
+            this.selectedaddressID_editHCP.Text = "1";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(97, 401);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 74;
+            this.button3.Text = "Zmień";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // otherLang_editHCPBoxrlang
             // 
@@ -3549,92 +4124,6 @@
             this.label81.TabIndex = 40;
             this.label81.Text = "Drugie imię";
             // 
-            // selected_addressLabel_editHCP
-            // 
-            this.selected_addressLabel_editHCP.AutoSize = true;
-            this.selected_addressLabel_editHCP.Location = new System.Drawing.Point(176, 406);
-            this.selected_addressLabel_editHCP.Name = "selected_addressLabel_editHCP";
-            this.selected_addressLabel_editHCP.Size = new System.Drawing.Size(10, 13);
-            this.selected_addressLabel_editHCP.TabIndex = 77;
-            this.selected_addressLabel_editHCP.Text = "-";
-            // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(25, 401);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(67, 26);
-            this.label63.TabIndex = 73;
-            this.label63.Text = "Podstawowy\r\nadres pracy";
-            // 
-            // label64
-            // 
-            this.label64.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label64.ForeColor = System.Drawing.Color.Red;
-            this.label64.Location = new System.Drawing.Point(14, 396);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(16, 15);
-            this.label64.TabIndex = 76;
-            this.label64.Text = "*";
-            // 
-            // selectedaddressID_editHCP
-            // 
-            this.selectedaddressID_editHCP.AutoSize = true;
-            this.selectedaddressID_editHCP.Location = new System.Drawing.Point(120, 427);
-            this.selectedaddressID_editHCP.Name = "selectedaddressID_editHCP";
-            this.selectedaddressID_editHCP.Size = new System.Drawing.Size(13, 13);
-            this.selectedaddressID_editHCP.TabIndex = 75;
-            this.selectedaddressID_editHCP.Text = "1";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(97, 401);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 74;
-            this.button3.Text = "Zmień";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // RemoveAssossiationButton
-            // 
-            this.RemoveAssossiationButton.Enabled = false;
-            this.RemoveAssossiationButton.Location = new System.Drawing.Point(315, 320);
-            this.RemoveAssossiationButton.Name = "RemoveAssossiationButton";
-            this.RemoveAssossiationButton.Size = new System.Drawing.Size(75, 23);
-            this.RemoveAssossiationButton.TabIndex = 34;
-            this.RemoveAssossiationButton.Text = "Usuń <-";
-            this.RemoveAssossiationButton.UseVisualStyleBackColor = true;
-            this.RemoveAssossiationButton.Click += new System.EventHandler(this.RemoveAssossiationButton_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(281, 112);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 62);
-            this.button4.TabIndex = 35;
-            this.button4.Text = "[TODO] DELETE HCP";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(281, 187);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 58);
-            this.button5.TabIndex = 36;
-            this.button5.Text = "[TODO] CALL MGMT";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // editHCObutton
-            // 
-            this.editHCObutton.Location = new System.Drawing.Point(252, 38);
-            this.editHCObutton.Name = "editHCObutton";
-            this.editHCObutton.Size = new System.Drawing.Size(75, 23);
-            this.editHCObutton.TabIndex = 46;
-            this.editHCObutton.Text = "Edytuj";
-            this.editHCObutton.UseVisualStyleBackColor = true;
-            this.editHCObutton.Click += new System.EventHandler(this.editHCObutton_Click);
-            // 
             // edit_HCO_Page
             // 
             this.edit_HCO_Page.Controls.Add(this.tel_editHCOBox);
@@ -3917,539 +4406,346 @@
             this.label93.TabIndex = 36;
             this.label93.Text = "Nazwa";
             // 
-            // AffiliationErrorLabel
+            // hCOSetBindingSource
             // 
-            this.AffiliationErrorLabel.AutoSize = true;
-            this.AffiliationErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AffiliationErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.AffiliationErrorLabel.Location = new System.Drawing.Point(343, 353);
-            this.AffiliationErrorLabel.Name = "AffiliationErrorLabel";
-            this.AffiliationErrorLabel.Size = new System.Drawing.Size(298, 39);
-            this.AffiliationErrorLabel.TabIndex = 37;
-            this.AffiliationErrorLabel.Text = "Nie można usunąć powiązania. \r\nWybrany HCO jest podstawowym adresem zatrudnienia " +
-    "HCP. \r\nW celu zmiany podstawowego miejsca pracy edytuj HCP.";
+            this.hCOSetBindingSource.DataMember = "HCOSet";
+            this.hCOSetBindingSource.DataSource = this.myRep_ODS_HCO_DataSet;
             // 
-            // productsMgmtButton
+            // myRep_ODS_HCO_DataSet
             // 
-            this.productsMgmtButton.Enabled = false;
-            this.productsMgmtButton.Location = new System.Drawing.Point(9, 196);
-            this.productsMgmtButton.Name = "productsMgmtButton";
-            this.productsMgmtButton.Size = new System.Drawing.Size(98, 53);
-            this.productsMgmtButton.TabIndex = 15;
-            this.productsMgmtButton.Text = "Produkty";
-            this.productsMgmtButton.UseVisualStyleBackColor = true;
-            this.productsMgmtButton.Visible = false;
-            this.productsMgmtButton.Click += new System.EventHandler(this.productsMgmtButton_Click);
+            this.myRep_ODS_HCO_DataSet.DataSetName = "myRep_ODS_HCO_DataSet";
+            this.myRep_ODS_HCO_DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // products_Mgmt_Page
+            // hCOSetTableAdapter
             // 
-            this.products_Mgmt_Page.Controls.Add(this.SampleRightsErrorLabel);
-            this.products_Mgmt_Page.Controls.Add(this.GiveSampleButton);
-            this.products_Mgmt_Page.Controls.Add(this.EditSampleButton);
-            this.products_Mgmt_Page.Controls.Add(this.NewSampleButton);
-            this.products_Mgmt_Page.Controls.Add(this.editProductButton);
-            this.products_Mgmt_Page.Controls.Add(this.newProductButton);
-            this.products_Mgmt_Page.Controls.Add(this.label94);
-            this.products_Mgmt_Page.Controls.Add(this.DisbursedSamplesGridView);
-            this.products_Mgmt_Page.Controls.Add(this.label83);
-            this.products_Mgmt_Page.Controls.Add(this.samplelistGridView);
-            this.products_Mgmt_Page.Controls.Add(this.label62);
-            this.products_Mgmt_Page.Controls.Add(this.productsDataGridView);
-            this.products_Mgmt_Page.Location = new System.Drawing.Point(4, 22);
-            this.products_Mgmt_Page.Name = "products_Mgmt_Page";
-            this.products_Mgmt_Page.Padding = new System.Windows.Forms.Padding(3);
-            this.products_Mgmt_Page.Size = new System.Drawing.Size(812, 465);
-            this.products_Mgmt_Page.TabIndex = 12;
-            this.products_Mgmt_Page.Text = "ProductsMgmt";
-            this.products_Mgmt_Page.UseVisualStyleBackColor = true;
+            this.hCOSetTableAdapter.ClearBeforeFill = true;
             // 
-            // productsDataGridView
+            // userSetTableAdapter
             // 
-            this.productsDataGridView.AllowUserToAddRows = false;
-            this.productsDataGridView.AllowUserToDeleteRows = false;
-            this.productsDataGridView.AutoGenerateColumns = false;
-            this.productsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.productsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.productIDDataGridViewTextBoxColumn,
-            this.productNameDataGridViewTextBoxColumn,
-            this.antiDiseaseDataGridViewTextBoxColumn,
-            this.manufacturerDataGridViewTextBoxColumn,
-            this.mainIngredientDataGridViewTextBoxColumn});
-            this.productsDataGridView.DataSource = this.productSetBindingSource;
-            this.productsDataGridView.Location = new System.Drawing.Point(6, 45);
-            this.productsDataGridView.Name = "productsDataGridView";
-            this.productsDataGridView.ReadOnly = true;
-            this.productsDataGridView.RowHeadersVisible = false;
-            this.productsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.productsDataGridView.Size = new System.Drawing.Size(406, 414);
-            this.productsDataGridView.TabIndex = 0;
-            this.productsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsDataGridView_CellClick);
+            this.userSetTableAdapter.ClearBeforeFill = true;
             // 
-            // myRep_ODSDataSet
+            // myRep_ODS_HCOHCPDataSet
             // 
-            this.myRep_ODSDataSet.DataSetName = "myRep_ODSDataSet";
-            this.myRep_ODSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.myRep_ODS_HCOHCPDataSet.DataSetName = "myRep_ODS_HCOHCPDataSet";
+            this.myRep_ODS_HCOHCPDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // productSetBindingSource
+            // myRepODSHCOHCPDataSetBindingSource
             // 
-            this.productSetBindingSource.DataMember = "ProductSet";
-            this.productSetBindingSource.DataSource = this.myRep_ODSDataSet;
+            this.myRepODSHCOHCPDataSetBindingSource.DataSource = this.myRep_ODS_HCOHCPDataSet;
+            this.myRepODSHCOHCPDataSetBindingSource.Position = 0;
+            // 
+            // hCOHCPBindingSource
+            // 
+            this.hCOHCPBindingSource.DataMember = "HCOHCP";
+            this.hCOHCPBindingSource.DataSource = this.myRepODSHCOHCPDataSetBindingSource;
+            // 
+            // hCOHCPTableAdapter
+            // 
+            this.hCOHCPTableAdapter.ClearBeforeFill = true;
+            // 
+            // hCOSetBindingSource1
+            // 
+            this.hCOSetBindingSource1.DataMember = "HCOSet";
+            this.hCOSetBindingSource1.DataSource = this.myRepODSHCOHCPDataSetBindingSource;
+            // 
+            // hCOSetTableAdapter1
+            // 
+            this.hCOSetTableAdapter1.ClearBeforeFill = true;
+            // 
+            // hCPSetTableAdapter
+            // 
+            this.hCPSetTableAdapter.ClearBeforeFill = true;
+            // 
+            // showDedicatedHCPToolStrip
+            // 
+            this.showDedicatedHCPToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.param_show_HCP7ToolStripLabel,
+            this.param_show_HCP7ToolStripTextBox,
+            this.showDedicatedHCPToolStripButton});
+            this.showDedicatedHCPToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.showDedicatedHCPToolStrip.Name = "showDedicatedHCPToolStrip";
+            this.showDedicatedHCPToolStrip.Size = new System.Drawing.Size(967, 25);
+            this.showDedicatedHCPToolStrip.TabIndex = 8;
+            this.showDedicatedHCPToolStrip.Text = "showDedicatedHCPToolStrip";
+            this.showDedicatedHCPToolStrip.Visible = false;
+            // 
+            // param_show_HCP7ToolStripLabel
+            // 
+            this.param_show_HCP7ToolStripLabel.Name = "param_show_HCP7ToolStripLabel";
+            this.param_show_HCP7ToolStripLabel.Size = new System.Drawing.Size(112, 22);
+            this.param_show_HCP7ToolStripLabel.Text = "param_show_HCP7:";
+            // 
+            // param_show_HCP7ToolStripTextBox
+            // 
+            this.param_show_HCP7ToolStripTextBox.Name = "param_show_HCP7ToolStripTextBox";
+            this.param_show_HCP7ToolStripTextBox.Size = new System.Drawing.Size(100, 25);
+            // 
+            // showDedicatedHCPToolStripButton
+            // 
+            this.showDedicatedHCPToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.showDedicatedHCPToolStripButton.Name = "showDedicatedHCPToolStripButton";
+            this.showDedicatedHCPToolStripButton.Size = new System.Drawing.Size(117, 22);
+            this.showDedicatedHCPToolStripButton.Text = "ShowDedicatedHCP";
+            this.showDedicatedHCPToolStripButton.Click += new System.EventHandler(this.showDedicatedHCPToolStripButton_Click);
+            // 
+            // addressDedicatedBookToolStrip
+            // 
+            this.addressDedicatedBookToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.paramToolStripLabel,
+            this.paramToolStripTextBox,
+            this.addressDedicatedBookToolStripButton});
+            this.addressDedicatedBookToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.addressDedicatedBookToolStrip.Name = "addressDedicatedBookToolStrip";
+            this.addressDedicatedBookToolStrip.Size = new System.Drawing.Size(967, 25);
+            this.addressDedicatedBookToolStrip.TabIndex = 9;
+            this.addressDedicatedBookToolStrip.Text = "addressDedicatedBookToolStrip";
+            this.addressDedicatedBookToolStrip.Visible = false;
+            // 
+            // paramToolStripLabel
+            // 
+            this.paramToolStripLabel.Name = "paramToolStripLabel";
+            this.paramToolStripLabel.Size = new System.Drawing.Size(44, 22);
+            this.paramToolStripLabel.Text = "param:";
+            // 
+            // paramToolStripTextBox
+            // 
+            this.paramToolStripTextBox.Name = "paramToolStripTextBox";
+            this.paramToolStripTextBox.Size = new System.Drawing.Size(100, 25);
+            // 
+            // addressDedicatedBookToolStripButton
+            // 
+            this.addressDedicatedBookToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.addressDedicatedBookToolStripButton.Name = "addressDedicatedBookToolStripButton";
+            this.addressDedicatedBookToolStripButton.Size = new System.Drawing.Size(133, 22);
+            this.addressDedicatedBookToolStripButton.Text = "AddressDedicatedBook";
+            this.addressDedicatedBookToolStripButton.Click += new System.EventHandler(this.addressDedicatedBookToolStripButton_Click);
+            // 
+            // addressSetTableAdapter
+            // 
+            this.addressSetTableAdapter.ClearBeforeFill = true;
+            // 
+            // addressDedicatedBookToolStrip1
+            // 
+            this.addressDedicatedBookToolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.paramToolStripLabel1,
+            this.paramToolStripTextBox1,
+            this.addressDedicatedBookToolStripButton1});
+            this.addressDedicatedBookToolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.addressDedicatedBookToolStrip1.Name = "addressDedicatedBookToolStrip1";
+            this.addressDedicatedBookToolStrip1.Size = new System.Drawing.Size(967, 25);
+            this.addressDedicatedBookToolStrip1.TabIndex = 10;
+            this.addressDedicatedBookToolStrip1.Text = "addressDedicatedBookToolStrip1";
+            this.addressDedicatedBookToolStrip1.Visible = false;
+            // 
+            // paramToolStripLabel1
+            // 
+            this.paramToolStripLabel1.Name = "paramToolStripLabel1";
+            this.paramToolStripLabel1.Size = new System.Drawing.Size(44, 22);
+            this.paramToolStripLabel1.Text = "param:";
+            // 
+            // paramToolStripTextBox1
+            // 
+            this.paramToolStripTextBox1.Name = "paramToolStripTextBox1";
+            this.paramToolStripTextBox1.Size = new System.Drawing.Size(100, 25);
+            // 
+            // addressDedicatedBookToolStripButton1
+            // 
+            this.addressDedicatedBookToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.addressDedicatedBookToolStripButton1.Name = "addressDedicatedBookToolStripButton1";
+            this.addressDedicatedBookToolStripButton1.Size = new System.Drawing.Size(133, 22);
+            this.addressDedicatedBookToolStripButton1.Text = "AddressDedicatedBook";
+            this.addressDedicatedBookToolStripButton1.Click += new System.EventHandler(this.addressDedicatedBookToolStripButton1_Click);
             // 
             // productSetTableAdapter
             // 
             this.productSetTableAdapter.ClearBeforeFill = true;
             // 
-            // productIDDataGridViewTextBoxColumn
-            // 
-            this.productIDDataGridViewTextBoxColumn.DataPropertyName = "productID";
-            this.productIDDataGridViewTextBoxColumn.HeaderText = "productID";
-            this.productIDDataGridViewTextBoxColumn.Name = "productIDDataGridViewTextBoxColumn";
-            this.productIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.productIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // productNameDataGridViewTextBoxColumn
-            // 
-            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
-            this.productNameDataGridViewTextBoxColumn.HeaderText = "Nazwa";
-            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
-            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // antiDiseaseDataGridViewTextBoxColumn
-            // 
-            this.antiDiseaseDataGridViewTextBoxColumn.DataPropertyName = "AntiDisease";
-            this.antiDiseaseDataGridViewTextBoxColumn.HeaderText = "Kategoria choroby";
-            this.antiDiseaseDataGridViewTextBoxColumn.Name = "antiDiseaseDataGridViewTextBoxColumn";
-            this.antiDiseaseDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // manufacturerDataGridViewTextBoxColumn
-            // 
-            this.manufacturerDataGridViewTextBoxColumn.DataPropertyName = "Manufacturer";
-            this.manufacturerDataGridViewTextBoxColumn.HeaderText = "Producent";
-            this.manufacturerDataGridViewTextBoxColumn.Name = "manufacturerDataGridViewTextBoxColumn";
-            this.manufacturerDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // mainIngredientDataGridViewTextBoxColumn
-            // 
-            this.mainIngredientDataGridViewTextBoxColumn.DataPropertyName = "MainIngredient";
-            this.mainIngredientDataGridViewTextBoxColumn.HeaderText = "Główny składnik";
-            this.mainIngredientDataGridViewTextBoxColumn.Name = "mainIngredientDataGridViewTextBoxColumn";
-            this.mainIngredientDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label62.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label62.Location = new System.Drawing.Point(71, 26);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(260, 16);
-            this.label62.TabIndex = 1;
-            this.label62.Text = "LISTA DOSTĘPNYCH PRODUKTÓW";
-            // 
-            // samplelistGridView
-            // 
-            this.samplelistGridView.AllowUserToAddRows = false;
-            this.samplelistGridView.AllowUserToDeleteRows = false;
-            this.samplelistGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.samplelistGridView.Location = new System.Drawing.Point(418, 45);
-            this.samplelistGridView.Name = "samplelistGridView";
-            this.samplelistGridView.ReadOnly = true;
-            this.samplelistGridView.RowHeadersVisible = false;
-            this.samplelistGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.samplelistGridView.Size = new System.Drawing.Size(376, 150);
-            this.samplelistGridView.TabIndex = 2;
-            // 
-            // label83
-            // 
-            this.label83.AutoSize = true;
-            this.label83.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label83.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label83.Location = new System.Drawing.Point(554, 26);
-            this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(115, 16);
-            this.label83.TabIndex = 3;
-            this.label83.Text = "LISTA PRÓBEK";
-            // 
-            // DisbursedSamplesGridView
-            // 
-            this.DisbursedSamplesGridView.AllowUserToAddRows = false;
-            this.DisbursedSamplesGridView.AllowUserToDeleteRows = false;
-            this.DisbursedSamplesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DisbursedSamplesGridView.Location = new System.Drawing.Point(418, 222);
-            this.DisbursedSamplesGridView.Name = "DisbursedSamplesGridView";
-            this.DisbursedSamplesGridView.ReadOnly = true;
-            this.DisbursedSamplesGridView.RowHeadersVisible = false;
-            this.DisbursedSamplesGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DisbursedSamplesGridView.Size = new System.Drawing.Size(376, 125);
-            this.DisbursedSamplesGridView.TabIndex = 4;
-            // 
-            // label94
-            // 
-            this.label94.AutoSize = true;
-            this.label94.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label94.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label94.Location = new System.Drawing.Point(538, 203);
-            this.label94.Name = "label94";
-            this.label94.Size = new System.Drawing.Size(133, 16);
-            this.label94.TabIndex = 5;
-            this.label94.Text = "WYDANE PRÓBKI";
-            // 
-            // newProductButton
-            // 
-            this.newProductButton.Enabled = false;
-            this.newProductButton.Location = new System.Drawing.Point(422, 370);
-            this.newProductButton.Name = "newProductButton";
-            this.newProductButton.Size = new System.Drawing.Size(85, 29);
-            this.newProductButton.TabIndex = 6;
-            this.newProductButton.Text = "Nowy produkt";
-            this.newProductButton.UseVisualStyleBackColor = true;
-            this.newProductButton.Click += new System.EventHandler(this.newProductButton_Click);
-            // 
-            // editProductButton
-            // 
-            this.editProductButton.Enabled = false;
-            this.editProductButton.Location = new System.Drawing.Point(423, 412);
-            this.editProductButton.Name = "editProductButton";
-            this.editProductButton.Size = new System.Drawing.Size(84, 33);
-            this.editProductButton.TabIndex = 7;
-            this.editProductButton.Text = "Edytuj produkt";
-            this.editProductButton.UseVisualStyleBackColor = true;
-            this.editProductButton.Click += new System.EventHandler(this.editProductButton_Click);
-            // 
-            // NewSampleButton
-            // 
-            this.NewSampleButton.Enabled = false;
-            this.NewSampleButton.Location = new System.Drawing.Point(541, 370);
-            this.NewSampleButton.Name = "NewSampleButton";
-            this.NewSampleButton.Size = new System.Drawing.Size(86, 29);
-            this.NewSampleButton.TabIndex = 8;
-            this.NewSampleButton.Text = "Nowa próbka";
-            this.NewSampleButton.UseVisualStyleBackColor = true;
-            this.NewSampleButton.Click += new System.EventHandler(this.NewSampleButton_Click);
-            // 
-            // EditSampleButton
-            // 
-            this.EditSampleButton.Enabled = false;
-            this.EditSampleButton.Location = new System.Drawing.Point(539, 414);
-            this.EditSampleButton.Name = "EditSampleButton";
-            this.EditSampleButton.Size = new System.Drawing.Size(87, 30);
-            this.EditSampleButton.TabIndex = 9;
-            this.EditSampleButton.Text = "Edytuj próbki";
-            this.EditSampleButton.UseVisualStyleBackColor = true;
-            this.EditSampleButton.Click += new System.EventHandler(this.EditSampleButton_Click);
-            // 
-            // GiveSampleButton
-            // 
-            this.GiveSampleButton.Enabled = false;
-            this.GiveSampleButton.Location = new System.Drawing.Point(672, 383);
-            this.GiveSampleButton.Name = "GiveSampleButton";
-            this.GiveSampleButton.Size = new System.Drawing.Size(90, 49);
-            this.GiveSampleButton.TabIndex = 10;
-            this.GiveSampleButton.Text = "Wydaj próbkę";
-            this.GiveSampleButton.UseVisualStyleBackColor = true;
-            // 
-            // SampleRightsErrorLabel
-            // 
-            this.SampleRightsErrorLabel.AutoSize = true;
-            this.SampleRightsErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.SampleRightsErrorLabel.Location = new System.Drawing.Point(427, 445);
-            this.SampleRightsErrorLabel.Name = "SampleRightsErrorLabel";
-            this.SampleRightsErrorLabel.Size = new System.Drawing.Size(362, 13);
-            this.SampleRightsErrorLabel.TabIndex = 11;
-            this.SampleRightsErrorLabel.Text = "Funkcje zarezerwowane tylko dla administratora produktów i próbek (SnPA)";
-            this.SampleRightsErrorLabel.Visible = false;
-            // 
-            // new_product_page
-            // 
-            this.new_product_page.Controls.Add(this.label100);
-            this.new_product_page.Controls.Add(this.addNewProductButton);
-            this.new_product_page.Controls.Add(this.MainIngredient_newProductBox);
-            this.new_product_page.Controls.Add(this.manufacturer_newproductBox);
-            this.new_product_page.Controls.Add(this.category_newProductBox);
-            this.new_product_page.Controls.Add(this.productname_newProductBox);
-            this.new_product_page.Controls.Add(this.label99);
-            this.new_product_page.Controls.Add(this.label98);
-            this.new_product_page.Controls.Add(this.label97);
-            this.new_product_page.Controls.Add(this.label96);
-            this.new_product_page.Controls.Add(this.label95);
-            this.new_product_page.Location = new System.Drawing.Point(4, 22);
-            this.new_product_page.Name = "new_product_page";
-            this.new_product_page.Padding = new System.Windows.Forms.Padding(3);
-            this.new_product_page.Size = new System.Drawing.Size(812, 465);
-            this.new_product_page.TabIndex = 13;
-            this.new_product_page.Text = "new_product";
-            this.new_product_page.UseVisualStyleBackColor = true;
-            // 
-            // label95
-            // 
-            this.label95.AutoSize = true;
-            this.label95.Location = new System.Drawing.Point(31, 55);
-            this.label95.Name = "label95";
-            this.label95.Size = new System.Drawing.Size(40, 13);
-            this.label95.TabIndex = 0;
-            this.label95.Text = "Nazwa";
-            // 
-            // label96
-            // 
-            this.label96.AutoSize = true;
-            this.label96.Location = new System.Drawing.Point(31, 87);
-            this.label96.Name = "label96";
-            this.label96.Size = new System.Drawing.Size(93, 13);
-            this.label96.TabIndex = 1;
-            this.label96.Text = "Kategoria choroby";
-            // 
-            // label97
-            // 
-            this.label97.AutoSize = true;
-            this.label97.Location = new System.Drawing.Point(31, 115);
-            this.label97.Name = "label97";
-            this.label97.Size = new System.Drawing.Size(56, 13);
-            this.label97.TabIndex = 2;
-            this.label97.Text = "Producent";
-            // 
-            // label98
-            // 
-            this.label98.AutoSize = true;
-            this.label98.Location = new System.Drawing.Point(31, 143);
-            this.label98.Name = "label98";
-            this.label98.Size = new System.Drawing.Size(88, 13);
-            this.label98.TabIndex = 3;
-            this.label98.Text = "Główny składnik";
-            // 
-            // label99
-            // 
-            this.label99.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label99.ForeColor = System.Drawing.Color.Red;
-            this.label99.Location = new System.Drawing.Point(16, 50);
-            this.label99.Name = "label99";
-            this.label99.Size = new System.Drawing.Size(16, 15);
-            this.label99.TabIndex = 30;
-            this.label99.Text = "*";
-            // 
-            // productname_newProductBox
-            // 
-            this.productname_newProductBox.Location = new System.Drawing.Point(77, 52);
-            this.productname_newProductBox.Name = "productname_newProductBox";
-            this.productname_newProductBox.Size = new System.Drawing.Size(127, 20);
-            this.productname_newProductBox.TabIndex = 31;
-            // 
-            // category_newProductBox
-            // 
-            this.category_newProductBox.FormattingEnabled = true;
-            this.category_newProductBox.Items.AddRange(new object[] {
-            "",
-            "PRZEZIĘBIENIE",
-            "Przeziębienie - Ból gardła i chrypka",
-            "Przeziębienie - Gorączka",
-            "Przeziębienie - Inhalacje",
-            "Przeziębienie - Kaszel",
-            "Przeziębienie - Katar",
-            "CIĄŻA I DZIECKO",
-            "Ciąża i dziecko - Badania w ciąży",
-            "Ciąża i dziecko - Higiena nosa",
-            "Ciąża i dziecko - Kolki, wzdęcia, biegunki",
-            "Ciąża i dziecko - Kremy i maści",
-            "Ciąża i dziecko - Witaminy",
-            "ODCHUDZANIE",
-            "DERMOKOSMETYKI",
-            "PIELĘGNACJA",
-            "WITAMINY",
-            "Witaminy - dla dzieci",
-            "Witaminy - dla kobiet",
-            "Witaminy - dla mężczyzn",
-            "Witaminy - dla mocnych kości",
-            "Witaminy - dla oczu",
-            "Witaminy - dla seniorów",
-            "ZIELARNIA",
-            "Zielarnia - zioła i herbaty",
-            "Zielarnia - sumplementy diety",
-            "Zielarnia - homeopatia",
-            "Zielarnia - kosmetyki naturalne",
-            "---INNE---"});
-            this.category_newProductBox.Location = new System.Drawing.Point(131, 78);
-            this.category_newProductBox.Name = "category_newProductBox";
-            this.category_newProductBox.Size = new System.Drawing.Size(121, 21);
-            this.category_newProductBox.TabIndex = 32;
-            // 
-            // manufacturer_newproductBox
-            // 
-            this.manufacturer_newproductBox.Location = new System.Drawing.Point(93, 112);
-            this.manufacturer_newproductBox.Name = "manufacturer_newproductBox";
-            this.manufacturer_newproductBox.Size = new System.Drawing.Size(127, 20);
-            this.manufacturer_newproductBox.TabIndex = 33;
-            // 
-            // MainIngredient_newProductBox
-            // 
-            this.MainIngredient_newProductBox.Location = new System.Drawing.Point(125, 143);
-            this.MainIngredient_newProductBox.Name = "MainIngredient_newProductBox";
-            this.MainIngredient_newProductBox.Size = new System.Drawing.Size(127, 20);
-            this.MainIngredient_newProductBox.TabIndex = 34;
-            // 
-            // addNewProductButton
-            // 
-            this.addNewProductButton.Location = new System.Drawing.Point(93, 187);
-            this.addNewProductButton.Name = "addNewProductButton";
-            this.addNewProductButton.Size = new System.Drawing.Size(75, 23);
-            this.addNewProductButton.TabIndex = 35;
-            this.addNewProductButton.Text = "OK";
-            this.addNewProductButton.UseVisualStyleBackColor = true;
-            this.addNewProductButton.Click += new System.EventHandler(this.addNewProductButton_Click);
-            // 
-            // label100
-            // 
-            this.label100.AutoSize = true;
-            this.label100.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label100.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label100.Location = new System.Drawing.Point(20, 16);
-            this.label100.Name = "label100";
-            this.label100.Size = new System.Drawing.Size(260, 16);
-            this.label100.TabIndex = 36;
-            this.label100.Text = "DODAWANIE / EDYCJA PRODUKTU";
-            // 
-            // new_Sample_Page
-            // 
-            this.new_Sample_Page.Controls.Add(this.label107);
-            this.new_Sample_Page.Controls.Add(this.label106);
-            this.new_Sample_Page.Controls.Add(this.label105);
-            this.new_Sample_Page.Controls.Add(this.newedit_Sample_Button);
-            this.new_Sample_Page.Controls.Add(this.Value_neweditdampleBox);
-            this.new_Sample_Page.Controls.Add(this.Qty_neweditdampleBox);
-            this.new_Sample_Page.Controls.Add(this.name_neweditdampleBox);
-            this.new_Sample_Page.Controls.Add(this.label104);
-            this.new_Sample_Page.Controls.Add(this.label103);
-            this.new_Sample_Page.Controls.Add(this.label102);
-            this.new_Sample_Page.Controls.Add(this.label101);
-            this.new_Sample_Page.Location = new System.Drawing.Point(4, 22);
-            this.new_Sample_Page.Name = "new_Sample_Page";
-            this.new_Sample_Page.Padding = new System.Windows.Forms.Padding(3);
-            this.new_Sample_Page.Size = new System.Drawing.Size(812, 465);
-            this.new_Sample_Page.TabIndex = 14;
-            this.new_Sample_Page.Text = "new_Sample";
-            this.new_Sample_Page.UseVisualStyleBackColor = true;
-            // 
-            // label101
-            // 
-            this.label101.AutoSize = true;
-            this.label101.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label101.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label101.Location = new System.Drawing.Point(25, 25);
-            this.label101.Name = "label101";
-            this.label101.Size = new System.Drawing.Size(231, 16);
-            this.label101.TabIndex = 37;
-            this.label101.Text = "DODAWANIE / EDYCJA PRÓBKI";
-            // 
-            // label102
-            // 
-            this.label102.AutoSize = true;
-            this.label102.Location = new System.Drawing.Point(28, 93);
-            this.label102.Name = "label102";
-            this.label102.Size = new System.Drawing.Size(40, 13);
-            this.label102.TabIndex = 38;
-            this.label102.Text = "Nazwa";
-            // 
-            // label103
-            // 
-            this.label103.AutoSize = true;
-            this.label103.Location = new System.Drawing.Point(28, 128);
-            this.label103.Name = "label103";
-            this.label103.Size = new System.Drawing.Size(96, 13);
-            this.label103.TabIndex = 39;
-            this.label103.Text = "Szt. / Opakowanie";
-            // 
-            // label104
-            // 
-            this.label104.AutoSize = true;
-            this.label104.Location = new System.Drawing.Point(31, 164);
-            this.label104.Name = "label104";
-            this.label104.Size = new System.Drawing.Size(77, 13);
-            this.label104.TabIndex = 40;
-            this.label104.Text = "Wartość [PLN]";
-            // 
-            // name_neweditdampleBox
-            // 
-            this.name_neweditdampleBox.Location = new System.Drawing.Point(74, 90);
-            this.name_neweditdampleBox.Name = "name_neweditdampleBox";
-            this.name_neweditdampleBox.Size = new System.Drawing.Size(112, 20);
-            this.name_neweditdampleBox.TabIndex = 41;
-            this.name_neweditdampleBox.TextChanged += new System.EventHandler(this.name_neweditdampleBox_TextChanged);
-            // 
-            // Qty_neweditdampleBox
-            // 
-            this.Qty_neweditdampleBox.Location = new System.Drawing.Point(131, 124);
-            this.Qty_neweditdampleBox.Maximum = new decimal(new int[] {
-            200,
-            0,
-            0,
-            0});
-            this.Qty_neweditdampleBox.Name = "Qty_neweditdampleBox";
-            this.Qty_neweditdampleBox.Size = new System.Drawing.Size(120, 20);
-            this.Qty_neweditdampleBox.TabIndex = 42;
-            this.Qty_neweditdampleBox.ValueChanged += new System.EventHandler(this.Qty_neweditdampleBox_ValueChanged);
-            this.Qty_neweditdampleBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Qty_neweditdampleBox_KeyUp);
-            // 
-            // Value_neweditdampleBox
-            // 
-            this.Value_neweditdampleBox.Location = new System.Drawing.Point(114, 160);
-            this.Value_neweditdampleBox.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.Value_neweditdampleBox.Name = "Value_neweditdampleBox";
-            this.Value_neweditdampleBox.Size = new System.Drawing.Size(120, 20);
-            this.Value_neweditdampleBox.TabIndex = 43;
-            this.Value_neweditdampleBox.ValueChanged += new System.EventHandler(this.Value_neweditdampleBox_ValueChanged);
-            this.Value_neweditdampleBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Value_neweditdampleBox_KeyUp);
-            // 
-            // newedit_Sample_Button
-            // 
-            this.newedit_Sample_Button.Enabled = false;
-            this.newedit_Sample_Button.Location = new System.Drawing.Point(95, 212);
-            this.newedit_Sample_Button.Name = "newedit_Sample_Button";
-            this.newedit_Sample_Button.Size = new System.Drawing.Size(75, 23);
-            this.newedit_Sample_Button.TabIndex = 44;
-            this.newedit_Sample_Button.Text = "OK";
-            this.newedit_Sample_Button.UseVisualStyleBackColor = true;
-            this.newedit_Sample_Button.Click += new System.EventHandler(this.newedit_Sample_Button_Click);
-            // 
-            // label105
-            // 
-            this.label105.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label105.ForeColor = System.Drawing.Color.Red;
-            this.label105.Location = new System.Drawing.Point(14, 88);
-            this.label105.Name = "label105";
-            this.label105.Size = new System.Drawing.Size(16, 15);
-            this.label105.TabIndex = 45;
-            this.label105.Text = "*";
-            // 
-            // label106
-            // 
-            this.label106.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label106.ForeColor = System.Drawing.Color.Red;
-            this.label106.Location = new System.Drawing.Point(14, 121);
-            this.label106.Name = "label106";
-            this.label106.Size = new System.Drawing.Size(16, 15);
-            this.label106.TabIndex = 46;
-            this.label106.Text = "*";
-            // 
-            // label107
-            // 
-            this.label107.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label107.ForeColor = System.Drawing.Color.Red;
-            this.label107.Location = new System.Drawing.Point(14, 157);
-            this.label107.Name = "label107";
-            this.label107.Size = new System.Drawing.Size(16, 15);
-            this.label107.TabIndex = 47;
-            this.label107.Text = "*";
+            // userSetTableAdapter1
+            // 
+            this.userSetTableAdapter1.ClearBeforeFill = true;
+            // 
+            // filterUsersbyTerritoryToolStrip
+            // 
+            this.filterUsersbyTerritoryToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.terriToolStripLabel,
+            this.terriToolStripTextBox,
+            this.filterUsersbyTerritoryToolStripButton});
+            this.filterUsersbyTerritoryToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.filterUsersbyTerritoryToolStrip.Name = "filterUsersbyTerritoryToolStrip";
+            this.filterUsersbyTerritoryToolStrip.Size = new System.Drawing.Size(967, 25);
+            this.filterUsersbyTerritoryToolStrip.TabIndex = 11;
+            this.filterUsersbyTerritoryToolStrip.Text = "filterUsersbyTerritoryToolStrip";
+            this.filterUsersbyTerritoryToolStrip.Visible = false;
+            // 
+            // terriToolStripLabel
+            // 
+            this.terriToolStripLabel.Name = "terriToolStripLabel";
+            this.terriToolStripLabel.Size = new System.Drawing.Size(31, 22);
+            this.terriToolStripLabel.Text = "terri:";
+            // 
+            // terriToolStripTextBox
+            // 
+            this.terriToolStripTextBox.Name = "terriToolStripTextBox";
+            this.terriToolStripTextBox.Size = new System.Drawing.Size(100, 25);
+            // 
+            // filterUsersbyTerritoryToolStripButton
+            // 
+            this.filterUsersbyTerritoryToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.filterUsersbyTerritoryToolStripButton.Name = "filterUsersbyTerritoryToolStripButton";
+            this.filterUsersbyTerritoryToolStripButton.Size = new System.Drawing.Size(120, 22);
+            this.filterUsersbyTerritoryToolStripButton.Text = "filterUsersbyTerritory";
+            this.filterUsersbyTerritoryToolStripButton.Click += new System.EventHandler(this.filterUsersbyTerritoryToolStripButton_Click);
+            // 
+            // userIDDataGridViewTextBoxColumn1
+            // 
+            this.userIDDataGridViewTextBoxColumn1.DataPropertyName = "userID";
+            this.userIDDataGridViewTextBoxColumn1.HeaderText = "userID";
+            this.userIDDataGridViewTextBoxColumn1.Name = "userIDDataGridViewTextBoxColumn1";
+            this.userIDDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.userIDDataGridViewTextBoxColumn1.Visible = false;
+            this.userIDDataGridViewTextBoxColumn1.Width = 44;
+            // 
+            // firstNameDataGridViewTextBoxColumn2
+            // 
+            this.firstNameDataGridViewTextBoxColumn2.DataPropertyName = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn2.HeaderText = "Imię";
+            this.firstNameDataGridViewTextBoxColumn2.Name = "firstNameDataGridViewTextBoxColumn2";
+            this.firstNameDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.firstNameDataGridViewTextBoxColumn2.Width = 51;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "MiddleName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Drugie imię";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 84;
+            // 
+            // lastNameDataGridViewTextBoxColumn2
+            // 
+            this.lastNameDataGridViewTextBoxColumn2.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn2.HeaderText = "Nazwisko";
+            this.lastNameDataGridViewTextBoxColumn2.Name = "lastNameDataGridViewTextBoxColumn2";
+            this.lastNameDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.lastNameDataGridViewTextBoxColumn2.Width = 78;
+            // 
+            // usernameDataGridViewTextBoxColumn1
+            // 
+            this.usernameDataGridViewTextBoxColumn1.DataPropertyName = "Username";
+            this.usernameDataGridViewTextBoxColumn1.HeaderText = "LOGIN";
+            this.usernameDataGridViewTextBoxColumn1.Name = "usernameDataGridViewTextBoxColumn1";
+            this.usernameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.usernameDataGridViewTextBoxColumn1.Width = 65;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Email";
+            this.dataGridViewTextBoxColumn3.HeaderText = "E-mail";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "JobTitle";
+            this.dataGridViewTextBoxColumn4.HeaderText = "JobTitle";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Visible = false;
+            this.dataGridViewTextBoxColumn4.Width = 69;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "PhoneNumber";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Telefon";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 68;
+            // 
+            // hireDateDataGridViewTextBoxColumn
+            // 
+            this.hireDateDataGridViewTextBoxColumn.DataPropertyName = "HireDate";
+            this.hireDateDataGridViewTextBoxColumn.HeaderText = "HireDate";
+            this.hireDateDataGridViewTextBoxColumn.Name = "hireDateDataGridViewTextBoxColumn";
+            this.hireDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.hireDateDataGridViewTextBoxColumn.Visible = false;
+            this.hireDateDataGridViewTextBoxColumn.Width = 74;
+            // 
+            // managerIDDataGridViewTextBoxColumn
+            // 
+            this.managerIDDataGridViewTextBoxColumn.DataPropertyName = "ManagerID";
+            this.managerIDDataGridViewTextBoxColumn.HeaderText = "ManagerID";
+            this.managerIDDataGridViewTextBoxColumn.Name = "managerIDDataGridViewTextBoxColumn";
+            this.managerIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.managerIDDataGridViewTextBoxColumn.Visible = false;
+            this.managerIDDataGridViewTextBoxColumn.Width = 85;
+            // 
+            // territoryDataGridViewTextBoxColumn2
+            // 
+            this.territoryDataGridViewTextBoxColumn2.DataPropertyName = "Territory";
+            this.territoryDataGridViewTextBoxColumn2.HeaderText = "Territory";
+            this.territoryDataGridViewTextBoxColumn2.Name = "territoryDataGridViewTextBoxColumn2";
+            this.territoryDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.territoryDataGridViewTextBoxColumn2.Visible = false;
+            this.territoryDataGridViewTextBoxColumn2.Width = 70;
+            // 
+            // give_sample_Button
+            // 
+            this.give_sample_Button.Enabled = false;
+            this.give_sample_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.give_sample_Button.Location = new System.Drawing.Point(599, 352);
+            this.give_sample_Button.Name = "give_sample_Button";
+            this.give_sample_Button.Size = new System.Drawing.Size(95, 65);
+            this.give_sample_Button.TabIndex = 3;
+            this.give_sample_Button.Text = "OK";
+            this.give_sample_Button.UseVisualStyleBackColor = true;
+            this.give_sample_Button.Click += new System.EventHandler(this.give_sample_Button_Click);
+            // 
+            // label108
+            // 
+            this.label108.AutoSize = true;
+            this.label108.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label108.Location = new System.Drawing.Point(547, 173);
+            this.label108.Name = "label108";
+            this.label108.Size = new System.Drawing.Size(78, 16);
+            this.label108.TabIndex = 4;
+            this.label108.Text = "Podaj ilość:";
+            // 
+            // qty_giveSampleBox
+            // 
+            this.qty_giveSampleBox.Location = new System.Drawing.Point(632, 173);
+            this.qty_giveSampleBox.Name = "qty_giveSampleBox";
+            this.qty_giveSampleBox.Size = new System.Drawing.Size(120, 20);
+            this.qty_giveSampleBox.TabIndex = 5;
+            this.qty_giveSampleBox.ValueChanged += new System.EventHandler(this.qty_giveSampleBox_ValueChanged);
+            this.qty_giveSampleBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.qty_giveSampleBox_KeyUp);
+            // 
+            // label110
+            // 
+            this.label110.AutoSize = true;
+            this.label110.Location = new System.Drawing.Point(547, 214);
+            this.label110.Name = "label110";
+            this.label110.Size = new System.Drawing.Size(103, 13);
+            this.label110.TabIndex = 13;
+            this.label110.Text = "RAZEM WARTOŚĆ";
+            // 
+            // value_giveSampleBox
+            // 
+            this.value_giveSampleBox.Enabled = false;
+            this.value_giveSampleBox.Location = new System.Drawing.Point(656, 211);
+            this.value_giveSampleBox.Name = "value_giveSampleBox";
+            this.value_giveSampleBox.Size = new System.Drawing.Size(100, 20);
+            this.value_giveSampleBox.TabIndex = 14;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(967, 515);
-            this.Controls.Add(this.addressDedicatedBookToolStrip1);
-            this.Controls.Add(this.addressDedicatedBookToolStrip);
+            this.Controls.Add(this.filterUsersbyTerritoryToolStrip);
             this.Controls.Add(this.showDedicatedHCPToolStrip);
+            this.Controls.Add(this.addressDedicatedBookToolStrip);
+            this.Controls.Add(this.addressDedicatedBookToolStrip1);
             this.Controls.Add(this.mainController);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
@@ -4458,6 +4754,24 @@
             this.mainController.ResumeLayout(false);
             this.homePage.ResumeLayout(false);
             this.homePage.PerformLayout();
+            this.products_Mgmt_Page.ResumeLayout(false);
+            this.products_Mgmt_Page.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DisbursedSamplesGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.samplelistGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myRep_ODSDataSet)).EndInit();
+            this.give_sample_page.ResumeLayout(false);
+            this.give_sample_page.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.selectUser_giveSampleGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userSetBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myRep_ODSDataSet_UserSet)).EndInit();
+            this.new_product_page.ResumeLayout(false);
+            this.new_product_page.PerformLayout();
+            this.new_Sample_Page.ResumeLayout(false);
+            this.new_Sample_Page.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Value_neweditdampleBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Qty_neweditdampleBox)).EndInit();
             this.myAccountsPage.ResumeLayout(false);
             this.myAccounts_Controller.ResumeLayout(false);
             this.hcpPage.ResumeLayout(false);
@@ -4468,10 +4782,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.myRep_ODS_HCP_DataSet)).EndInit();
             this.hcoPage.ResumeLayout(false);
             this.hcoPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.HCPinHCOGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hcoDataGridView)).EndInit();
             this.addressPage.ResumeLayout(false);
             this.addressPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.HCOunderAddressGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HCPunderAddressGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addressSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myRep_ODS_Address_DataSet)).EndInit();
             this.userMgmtPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userSetBindingSource)).EndInit();
@@ -4482,10 +4801,27 @@
             this.panel1.PerformLayout();
             this.newHCOPage.ResumeLayout(false);
             this.newHCOPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EmployeesHCOBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BedsHCOBox)).EndInit();
+            this.newAddressPage.ResumeLayout(false);
+            this.newAddressPage.PerformLayout();
             this.newUserPage.ResumeLayout(false);
             this.newUserPage.PerformLayout();
             this.setPasswordPage.ResumeLayout(false);
             this.setPasswordPage.PerformLayout();
+            this.select_address_Page.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.setAddressGridView)).EndInit();
+            this.new_HCPHCO_Assossiation_Page.ResumeLayout(false);
+            this.new_HCPHCO_Assossiation_Page.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Assossiation_AddManualView)).EndInit();
+            this.editHCP_Page.ResumeLayout(false);
+            this.editHCP_Page.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.edit_HCO_Page.ResumeLayout(false);
+            this.edit_HCO_Page.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.employees_editHCOBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.beds_editHCOBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hCOSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myRep_ODS_HCO_DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myRep_ODS_HCOHCPDataSet)).EndInit();
@@ -4496,43 +4832,11 @@
             this.showDedicatedHCPToolStrip.PerformLayout();
             this.addressDedicatedBookToolStrip.ResumeLayout(false);
             this.addressDedicatedBookToolStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.HCPunderAddressGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.HCOunderAddressGridView)).EndInit();
-            this.select_address_Page.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.setAddressGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addressSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.myRep_ODS_Address_DataSet)).EndInit();
             this.addressDedicatedBookToolStrip1.ResumeLayout(false);
             this.addressDedicatedBookToolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BedsHCOBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EmployeesHCOBox)).EndInit();
-            this.newAddressPage.ResumeLayout(false);
-            this.newAddressPage.PerformLayout();
-            this.new_HCPHCO_Assossiation_Page.ResumeLayout(false);
-            this.new_HCPHCO_Assossiation_Page.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Assossiation_AddManualView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.HCPinHCOGridView)).EndInit();
-            this.editHCP_Page.ResumeLayout(false);
-            this.editHCP_Page.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.edit_HCO_Page.ResumeLayout(false);
-            this.edit_HCO_Page.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employees_editHCOBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.beds_editHCOBox)).EndInit();
-            this.products_Mgmt_Page.ResumeLayout(false);
-            this.products_Mgmt_Page.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.myRep_ODSDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.samplelistGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DisbursedSamplesGridView)).EndInit();
-            this.new_product_page.ResumeLayout(false);
-            this.new_product_page.PerformLayout();
-            this.new_Sample_Page.ResumeLayout(false);
-            this.new_Sample_Page.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Qty_neweditdampleBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Value_neweditdampleBox)).EndInit();
+            this.filterUsersbyTerritoryToolStrip.ResumeLayout(false);
+            this.filterUsersbyTerritoryToolStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.qty_giveSampleBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4919,6 +5223,33 @@
         private System.Windows.Forms.Label label104;
         private System.Windows.Forms.Label label103;
         private System.Windows.Forms.Label label102;
+        private System.Windows.Forms.TabPage give_sample_page;
+        private System.Windows.Forms.DataGridView selectUser_giveSampleGridView;
+        private System.Windows.Forms.Label label109;
+        private System.Windows.Forms.Label samplelabel_toGive_label;
+        private myRep_ODSDataSet_UserSet myRep_ODSDataSet_UserSet;
+        private System.Windows.Forms.BindingSource userSetBindingSource1;
+        private myRep_ODSDataSet_UserSetTableAdapters.UserSetTableAdapter userSetTableAdapter1;
+        private System.Windows.Forms.ToolStrip filterUsersbyTerritoryToolStrip;
+        private System.Windows.Forms.ToolStripLabel terriToolStripLabel;
+        private System.Windows.Forms.ToolStripTextBox terriToolStripTextBox;
+        private System.Windows.Forms.ToolStripButton filterUsersbyTerritoryToolStripButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hireDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn managerIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn territoryDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.NumericUpDown qty_giveSampleBox;
+        private System.Windows.Forms.Label label108;
+        private System.Windows.Forms.Button give_sample_Button;
+        private System.Windows.Forms.TextBox value_giveSampleBox;
+        private System.Windows.Forms.Label label110;
     }
 }
 
