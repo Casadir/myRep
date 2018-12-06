@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainController = new System.Windows.Forms.TabControl();
             this.homePage = new System.Windows.Forms.TabPage();
             this.productsMgmtButton = new System.Windows.Forms.Button();
@@ -100,7 +100,7 @@
             this.myAccounts_Controller = new System.Windows.Forms.TabControl();
             this.hcpPage = new System.Windows.Forms.TabPage();
             this.AffiliationErrorLabel = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.meetingButton = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.RemoveAssossiationButton = new System.Windows.Forms.Button();
             this.edithcpbutton = new System.Windows.Forms.Button();
@@ -430,6 +430,28 @@
             this.qty_giveSampleBox = new System.Windows.Forms.NumericUpDown();
             this.label110 = new System.Windows.Forms.Label();
             this.value_giveSampleBox = new System.Windows.Forms.TextBox();
+            this.mySamplesPage = new System.Windows.Forms.TabPage();
+            this.mySamplesDataGridView = new System.Windows.Forms.DataGridView();
+            this.label111 = new System.Windows.Forms.Label();
+            this.mySamplesButton = new System.Windows.Forms.Button();
+            this.goHomeButton = new System.Windows.Forms.Button();
+            this.hcpMeetings_Page = new System.Windows.Forms.TabPage();
+            this.myMeetingsGridView = new System.Windows.Forms.DataGridView();
+            this.label112 = new System.Windows.Forms.Label();
+            this.label113 = new System.Windows.Forms.Label();
+            this.label114 = new System.Windows.Forms.Label();
+            this.label115 = new System.Windows.Forms.Label();
+            this.label116 = new System.Windows.Forms.Label();
+            this.label117 = new System.Windows.Forms.Label();
+            this.label118 = new System.Windows.Forms.Label();
+            this.label119 = new System.Windows.Forms.Label();
+            this.nxtMtgNoteBox = new System.Windows.Forms.TextBox();
+            this.label120 = new System.Windows.Forms.Label();
+            this.label121 = new System.Windows.Forms.Label();
+            this.label122 = new System.Windows.Forms.Label();
+            this.newMeetingButton = new System.Windows.Forms.Button();
+            this.EditMeetingButton = new System.Windows.Forms.Button();
+            this.SubmitMeetingButton = new System.Windows.Forms.Button();
             this.mainController.SuspendLayout();
             this.homePage.SuspendLayout();
             this.products_Mgmt_Page.SuspendLayout();
@@ -494,16 +516,22 @@
             this.addressDedicatedBookToolStrip1.SuspendLayout();
             this.filterUsersbyTerritoryToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qty_giveSampleBox)).BeginInit();
+            this.mySamplesPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mySamplesDataGridView)).BeginInit();
+            this.hcpMeetings_Page.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.myMeetingsGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // mainController
             // 
             this.mainController.Controls.Add(this.homePage);
             this.mainController.Controls.Add(this.products_Mgmt_Page);
+            this.mainController.Controls.Add(this.mySamplesPage);
             this.mainController.Controls.Add(this.give_sample_page);
             this.mainController.Controls.Add(this.new_product_page);
             this.mainController.Controls.Add(this.new_Sample_Page);
             this.mainController.Controls.Add(this.myAccountsPage);
+            this.mainController.Controls.Add(this.hcpMeetings_Page);
             this.mainController.Controls.Add(this.userMgmtPage);
             this.mainController.Controls.Add(this.newHCPPage);
             this.mainController.Controls.Add(this.newHCOPage);
@@ -522,6 +550,7 @@
             // 
             // homePage
             // 
+            this.homePage.Controls.Add(this.mySamplesButton);
             this.homePage.Controls.Add(this.productsMgmtButton);
             this.homePage.Controls.Add(this.userMgmtButton);
             this.homePage.Controls.Add(this.LogoutButton);
@@ -627,7 +656,7 @@
             this.UsernameBox.Name = "UsernameBox";
             this.UsernameBox.Size = new System.Drawing.Size(100, 20);
             this.UsernameBox.TabIndex = 7;
-            this.UsernameBox.Text = "tomek.sample";
+            this.UsernameBox.Text = "a.x.c";
             // 
             // products_Mgmt_Page
             // 
@@ -1236,7 +1265,7 @@
             // 
             this.hcpPage.AutoScroll = true;
             this.hcpPage.Controls.Add(this.AffiliationErrorLabel);
-            this.hcpPage.Controls.Add(this.button5);
+            this.hcpPage.Controls.Add(this.meetingButton);
             this.hcpPage.Controls.Add(this.button4);
             this.hcpPage.Controls.Add(this.RemoveAssossiationButton);
             this.hcpPage.Controls.Add(this.edithcpbutton);
@@ -1290,18 +1319,19 @@
             this.AffiliationErrorLabel.Text = "Nie można usunąć powiązania. \r\nWybrany HCO jest podstawowym adresem zatrudnienia " +
     "HCP. \r\nW celu zmiany podstawowego miejsca pracy edytuj HCP.";
             // 
-            // button5
+            // meetingButton
             // 
-            this.button5.Location = new System.Drawing.Point(281, 187);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 58);
-            this.button5.TabIndex = 36;
-            this.button5.Text = "[TODO] CALL MGMT";
-            this.button5.UseVisualStyleBackColor = true;
+            this.meetingButton.Location = new System.Drawing.Point(262, 176);
+            this.meetingButton.Name = "meetingButton";
+            this.meetingButton.Size = new System.Drawing.Size(125, 58);
+            this.meetingButton.TabIndex = 36;
+            this.meetingButton.Text = "SPOTKANIA\r\n ";
+            this.meetingButton.UseVisualStyleBackColor = true;
+            this.meetingButton.Click += new System.EventHandler(this.meetingButton_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(281, 112);
+            this.button4.Location = new System.Drawing.Point(281, 79);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 62);
             this.button4.TabIndex = 35;
@@ -1321,6 +1351,7 @@
             // 
             // edithcpbutton
             // 
+            this.edithcpbutton.Enabled = false;
             this.edithcpbutton.Location = new System.Drawing.Point(281, 48);
             this.edithcpbutton.Name = "edithcpbutton";
             this.edithcpbutton.Size = new System.Drawing.Size(75, 23);
@@ -1607,39 +1638,39 @@
             this.hcpDataGridView.AllowUserToDeleteRows = false;
             this.hcpDataGridView.AutoGenerateColumns = false;
             this.hcpDataGridView.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.hcpDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.hcpDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.hcpDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.hcpDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.hcpIDDataGridViewTextBoxColumn,
             this.firstNameDataGridViewTextBoxColumn,
             this.lastNameDataGridViewTextBoxColumn});
             this.hcpDataGridView.DataSource = this.hCPSetBindingSource;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.hcpDataGridView.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.hcpDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.hcpDataGridView.Location = new System.Drawing.Point(3, 3);
             this.hcpDataGridView.Name = "hcpDataGridView";
             this.hcpDataGridView.ReadOnly = true;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.hcpDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.hcpDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.hcpDataGridView.RowHeadersVisible = false;
             this.hcpDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.hcpDataGridView.Size = new System.Drawing.Size(253, 378);
@@ -2125,14 +2156,14 @@
             this.addressDataGridView.AllowUserToResizeRows = false;
             this.addressDataGridView.AutoGenerateColumns = false;
             this.addressDataGridView.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.addressDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.addressDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.addressDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.addressDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.addressIDDataGridViewTextBoxColumn1,
@@ -2142,25 +2173,25 @@
             this.countryDataGridViewTextBoxColumn,
             this.zipCodeDataGridViewTextBoxColumn});
             this.addressDataGridView.DataSource = this.addressSetBindingSource;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.addressDataGridView.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.addressDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
             this.addressDataGridView.Location = new System.Drawing.Point(3, 3);
             this.addressDataGridView.Name = "addressDataGridView";
             this.addressDataGridView.ReadOnly = true;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.addressDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.addressDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.addressDataGridView.RowHeadersVisible = false;
             this.addressDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.addressDataGridView.Size = new System.Drawing.Size(406, 315);
@@ -2349,9 +2380,8 @@
             this.selectedAddressFullLabel.AutoSize = true;
             this.selectedAddressFullLabel.Location = new System.Drawing.Point(174, 392);
             this.selectedAddressFullLabel.Name = "selectedAddressFullLabel";
-            this.selectedAddressFullLabel.Size = new System.Drawing.Size(10, 13);
+            this.selectedAddressFullLabel.Size = new System.Drawing.Size(0, 13);
             this.selectedAddressFullLabel.TabIndex = 38;
-            this.selectedAddressFullLabel.Text = "-";
             // 
             // otherLangTextBox
             // 
@@ -2500,9 +2530,8 @@
             this.selectedAddressLabel.AutoSize = true;
             this.selectedAddressLabel.Location = new System.Drawing.Point(118, 413);
             this.selectedAddressLabel.Name = "selectedAddressLabel";
-            this.selectedAddressLabel.Size = new System.Drawing.Size(10, 13);
+            this.selectedAddressLabel.Size = new System.Drawing.Size(0, 13);
             this.selectedAddressLabel.TabIndex = 28;
-            this.selectedAddressLabel.Text = "-";
             this.selectedAddressLabel.TextChanged += new System.EventHandler(this.selectedAddressLabel_TextChanged);
             // 
             // selectAddressButton
@@ -2828,9 +2857,8 @@
             this.SelectedHCO_AddressLabel.AutoSize = true;
             this.SelectedHCO_AddressLabel.Location = new System.Drawing.Point(514, 202);
             this.SelectedHCO_AddressLabel.Name = "SelectedHCO_AddressLabel";
-            this.SelectedHCO_AddressLabel.Size = new System.Drawing.Size(10, 13);
+            this.SelectedHCO_AddressLabel.Size = new System.Drawing.Size(0, 13);
             this.SelectedHCO_AddressLabel.TabIndex = 34;
-            this.SelectedHCO_AddressLabel.Text = "-";
             // 
             // EmployeesHCOBox
             // 
@@ -2871,9 +2899,8 @@
             this.SelectedHCO_AddressIDLabel.AutoSize = true;
             this.SelectedHCO_AddressIDLabel.Location = new System.Drawing.Point(463, 223);
             this.SelectedHCO_AddressIDLabel.Name = "SelectedHCO_AddressIDLabel";
-            this.SelectedHCO_AddressIDLabel.Size = new System.Drawing.Size(13, 13);
+            this.SelectedHCO_AddressIDLabel.Size = new System.Drawing.Size(0, 13);
             this.SelectedHCO_AddressIDLabel.TabIndex = 21;
-            this.SelectedHCO_AddressIDLabel.Text = "0";
             this.SelectedHCO_AddressIDLabel.TextChanged += new System.EventHandler(this.SelectedHCO_AddressIDLabel_TextChanged);
             // 
             // CreateHCOButton
@@ -3730,9 +3757,8 @@
             this.selected_addressLabel_editHCP.AutoSize = true;
             this.selected_addressLabel_editHCP.Location = new System.Drawing.Point(176, 406);
             this.selected_addressLabel_editHCP.Name = "selected_addressLabel_editHCP";
-            this.selected_addressLabel_editHCP.Size = new System.Drawing.Size(10, 13);
+            this.selected_addressLabel_editHCP.Size = new System.Drawing.Size(0, 13);
             this.selected_addressLabel_editHCP.TabIndex = 77;
-            this.selected_addressLabel_editHCP.Text = "-";
             // 
             // label63
             // 
@@ -3758,9 +3784,8 @@
             this.selectedaddressID_editHCP.AutoSize = true;
             this.selectedaddressID_editHCP.Location = new System.Drawing.Point(120, 427);
             this.selectedaddressID_editHCP.Name = "selectedaddressID_editHCP";
-            this.selectedaddressID_editHCP.Size = new System.Drawing.Size(13, 13);
+            this.selectedaddressID_editHCP.Size = new System.Drawing.Size(0, 13);
             this.selectedaddressID_editHCP.TabIndex = 75;
-            this.selectedaddressID_editHCP.Text = "1";
             // 
             // button3
             // 
@@ -4172,9 +4197,8 @@
             this.AddressLabel_editHCOBox.AutoSize = true;
             this.AddressLabel_editHCOBox.Location = new System.Drawing.Point(504, 202);
             this.AddressLabel_editHCOBox.Name = "AddressLabel_editHCOBox";
-            this.AddressLabel_editHCOBox.Size = new System.Drawing.Size(10, 13);
+            this.AddressLabel_editHCOBox.Size = new System.Drawing.Size(0, 13);
             this.AddressLabel_editHCOBox.TabIndex = 59;
-            this.AddressLabel_editHCOBox.Text = "-";
             // 
             // employees_editHCOBox
             // 
@@ -4225,9 +4249,8 @@
             this.AddressID_editHCOBox.AutoSize = true;
             this.AddressID_editHCOBox.Location = new System.Drawing.Point(453, 223);
             this.AddressID_editHCOBox.Name = "AddressID_editHCOBox";
-            this.AddressID_editHCOBox.Size = new System.Drawing.Size(13, 13);
+            this.AddressID_editHCOBox.Size = new System.Drawing.Size(0, 13);
             this.AddressID_editHCOBox.TabIndex = 54;
-            this.AddressID_editHCOBox.Text = "0";
             // 
             // edit_OK_HCOButton
             // 
@@ -4737,6 +4760,272 @@
             this.value_giveSampleBox.Size = new System.Drawing.Size(100, 20);
             this.value_giveSampleBox.TabIndex = 14;
             // 
+            // mySamplesPage
+            // 
+            this.mySamplesPage.Controls.Add(this.goHomeButton);
+            this.mySamplesPage.Controls.Add(this.label111);
+            this.mySamplesPage.Controls.Add(this.mySamplesDataGridView);
+            this.mySamplesPage.Location = new System.Drawing.Point(4, 22);
+            this.mySamplesPage.Name = "mySamplesPage";
+            this.mySamplesPage.Padding = new System.Windows.Forms.Padding(3);
+            this.mySamplesPage.Size = new System.Drawing.Size(812, 465);
+            this.mySamplesPage.TabIndex = 16;
+            this.mySamplesPage.Text = "mySamples";
+            this.mySamplesPage.UseVisualStyleBackColor = true;
+            // 
+            // mySamplesDataGridView
+            // 
+            this.mySamplesDataGridView.AllowUserToAddRows = false;
+            this.mySamplesDataGridView.AllowUserToDeleteRows = false;
+            this.mySamplesDataGridView.AllowUserToOrderColumns = true;
+            this.mySamplesDataGridView.AllowUserToResizeColumns = false;
+            this.mySamplesDataGridView.AllowUserToResizeRows = false;
+            this.mySamplesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.mySamplesDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.mySamplesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.mySamplesDataGridView.Location = new System.Drawing.Point(29, 55);
+            this.mySamplesDataGridView.Name = "mySamplesDataGridView";
+            this.mySamplesDataGridView.ReadOnly = true;
+            this.mySamplesDataGridView.RowHeadersVisible = false;
+            this.mySamplesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.mySamplesDataGridView.Size = new System.Drawing.Size(565, 225);
+            this.mySamplesDataGridView.TabIndex = 0;
+            // 
+            // label111
+            // 
+            this.label111.AutoSize = true;
+            this.label111.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label111.Location = new System.Drawing.Point(242, 24);
+            this.label111.Name = "label111";
+            this.label111.Size = new System.Drawing.Size(108, 16);
+            this.label111.TabIndex = 1;
+            this.label111.Text = "MOJE PRÓBKI";
+            // 
+            // mySamplesButton
+            // 
+            this.mySamplesButton.Enabled = false;
+            this.mySamplesButton.Location = new System.Drawing.Point(137, 197);
+            this.mySamplesButton.Name = "mySamplesButton";
+            this.mySamplesButton.Size = new System.Drawing.Size(98, 52);
+            this.mySamplesButton.TabIndex = 16;
+            this.mySamplesButton.Text = "Moje Próbki";
+            this.mySamplesButton.UseVisualStyleBackColor = true;
+            this.mySamplesButton.Visible = false;
+            this.mySamplesButton.Click += new System.EventHandler(this.mySamplesButton_Click);
+            // 
+            // goHomeButton
+            // 
+            this.goHomeButton.Location = new System.Drawing.Point(275, 296);
+            this.goHomeButton.Name = "goHomeButton";
+            this.goHomeButton.Size = new System.Drawing.Size(75, 23);
+            this.goHomeButton.TabIndex = 2;
+            this.goHomeButton.Text = "POWRÓT";
+            this.goHomeButton.UseVisualStyleBackColor = true;
+            this.goHomeButton.Click += new System.EventHandler(this.goHomeButton_Click);
+            // 
+            // hcpMeetings_Page
+            // 
+            this.hcpMeetings_Page.Controls.Add(this.SubmitMeetingButton);
+            this.hcpMeetings_Page.Controls.Add(this.EditMeetingButton);
+            this.hcpMeetings_Page.Controls.Add(this.newMeetingButton);
+            this.hcpMeetings_Page.Controls.Add(this.label122);
+            this.hcpMeetings_Page.Controls.Add(this.label121);
+            this.hcpMeetings_Page.Controls.Add(this.label120);
+            this.hcpMeetings_Page.Controls.Add(this.nxtMtgNoteBox);
+            this.hcpMeetings_Page.Controls.Add(this.label119);
+            this.hcpMeetings_Page.Controls.Add(this.label118);
+            this.hcpMeetings_Page.Controls.Add(this.label116);
+            this.hcpMeetings_Page.Controls.Add(this.label117);
+            this.hcpMeetings_Page.Controls.Add(this.label115);
+            this.hcpMeetings_Page.Controls.Add(this.label114);
+            this.hcpMeetings_Page.Controls.Add(this.label113);
+            this.hcpMeetings_Page.Controls.Add(this.label112);
+            this.hcpMeetings_Page.Controls.Add(this.myMeetingsGridView);
+            this.hcpMeetings_Page.Location = new System.Drawing.Point(4, 22);
+            this.hcpMeetings_Page.Name = "hcpMeetings_Page";
+            this.hcpMeetings_Page.Padding = new System.Windows.Forms.Padding(3);
+            this.hcpMeetings_Page.Size = new System.Drawing.Size(812, 465);
+            this.hcpMeetings_Page.TabIndex = 17;
+            this.hcpMeetings_Page.Text = "hcpMeetings";
+            this.hcpMeetings_Page.UseVisualStyleBackColor = true;
+            // 
+            // myMeetingsGridView
+            // 
+            this.myMeetingsGridView.AllowUserToAddRows = false;
+            this.myMeetingsGridView.AllowUserToDeleteRows = false;
+            this.myMeetingsGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.myMeetingsGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.myMeetingsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.myMeetingsGridView.Location = new System.Drawing.Point(20, 28);
+            this.myMeetingsGridView.Name = "myMeetingsGridView";
+            this.myMeetingsGridView.ReadOnly = true;
+            this.myMeetingsGridView.RowHeadersVisible = false;
+            this.myMeetingsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.myMeetingsGridView.Size = new System.Drawing.Size(519, 156);
+            this.myMeetingsGridView.TabIndex = 0;
+            this.myMeetingsGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.myMeetingsGridView_CellClick);
+            // 
+            // label112
+            // 
+            this.label112.AutoSize = true;
+            this.label112.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label112.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label112.Location = new System.Drawing.Point(17, 197);
+            this.label112.Name = "label112";
+            this.label112.Size = new System.Drawing.Size(312, 20);
+            this.label112.TabIndex = 1;
+            this.label112.Text = "NOTATKA - NASTĘPNE SPOTKANIE: ";
+            // 
+            // label113
+            // 
+            this.label113.AutoSize = true;
+            this.label113.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label113.Location = new System.Drawing.Point(20, 280);
+            this.label113.Name = "label113";
+            this.label113.Size = new System.Drawing.Size(192, 20);
+            this.label113.TabIndex = 3;
+            this.label113.Text = "PYTANIE MEDYCZNE:";
+            // 
+            // label114
+            // 
+            this.label114.AutoSize = true;
+            this.label114.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label114.Location = new System.Drawing.Point(20, 341);
+            this.label114.Name = "label114";
+            this.label114.Size = new System.Drawing.Size(48, 17);
+            this.label114.TabIndex = 4;
+            this.label114.Text = "[ P ]: ";
+            this.label114.Visible = false;
+            // 
+            // label115
+            // 
+            this.label115.AutoSize = true;
+            this.label115.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label115.Location = new System.Drawing.Point(66, 341);
+            this.label115.Name = "label115";
+            this.label115.Size = new System.Drawing.Size(62, 17);
+            this.label115.TabIndex = 5;
+            this.label115.Text = "label115";
+            this.label115.Visible = false;
+            // 
+            // label116
+            // 
+            this.label116.AutoSize = true;
+            this.label116.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label116.Location = new System.Drawing.Point(66, 374);
+            this.label116.Name = "label116";
+            this.label116.Size = new System.Drawing.Size(62, 17);
+            this.label116.TabIndex = 7;
+            this.label116.Text = "label116";
+            this.label116.Visible = false;
+            // 
+            // label117
+            // 
+            this.label117.AutoSize = true;
+            this.label117.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label117.Location = new System.Drawing.Point(20, 374);
+            this.label117.Name = "label117";
+            this.label117.Size = new System.Drawing.Size(50, 17);
+            this.label117.TabIndex = 6;
+            this.label117.Text = "[ O ]: ";
+            this.label117.Visible = false;
+            // 
+            // label118
+            // 
+            this.label118.AutoSize = true;
+            this.label118.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label118.Location = new System.Drawing.Point(20, 309);
+            this.label118.Name = "label118";
+            this.label118.Size = new System.Drawing.Size(74, 17);
+            this.label118.TabIndex = 8;
+            this.label118.Text = "STATUS:";
+            this.label118.Visible = false;
+            // 
+            // label119
+            // 
+            this.label119.AutoSize = true;
+            this.label119.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label119.Location = new System.Drawing.Point(91, 309);
+            this.label119.Name = "label119";
+            this.label119.Size = new System.Drawing.Size(62, 17);
+            this.label119.TabIndex = 9;
+            this.label119.Text = "label119";
+            this.label119.Visible = false;
+            // 
+            // nxtMtgNoteBox
+            // 
+            this.nxtMtgNoteBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nxtMtgNoteBox.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.nxtMtgNoteBox.Location = new System.Drawing.Point(22, 218);
+            this.nxtMtgNoteBox.Multiline = true;
+            this.nxtMtgNoteBox.Name = "nxtMtgNoteBox";
+            this.nxtMtgNoteBox.ReadOnly = true;
+            this.nxtMtgNoteBox.Size = new System.Drawing.Size(516, 48);
+            this.nxtMtgNoteBox.TabIndex = 10;
+            // 
+            // label120
+            // 
+            this.label120.AutoSize = true;
+            this.label120.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label120.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label120.Location = new System.Drawing.Point(218, 284);
+            this.label120.Name = "label120";
+            this.label120.Size = new System.Drawing.Size(293, 13);
+            this.label120.TabIndex = 11;
+            this.label120.Text = "Brak przypisanego zapytania medycznego do tego spotkania";
+            this.label120.Visible = false;
+            // 
+            // label121
+            // 
+            this.label121.AutoSize = true;
+            this.label121.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label121.Location = new System.Drawing.Point(218, 309);
+            this.label121.Name = "label121";
+            this.label121.Size = new System.Drawing.Size(287, 17);
+            this.label121.TabIndex = 12;
+            this.label121.Text = "PRZEWIDYWANA DATA ODPOWIEDZI:";
+            this.label121.Visible = false;
+            // 
+            // label122
+            // 
+            this.label122.AutoSize = true;
+            this.label122.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label122.Location = new System.Drawing.Point(324, 331);
+            this.label122.Name = "label122";
+            this.label122.Size = new System.Drawing.Size(62, 17);
+            this.label122.TabIndex = 13;
+            this.label122.Text = "label122";
+            this.label122.Visible = false;
+            // 
+            // newMeetingButton
+            // 
+            this.newMeetingButton.Location = new System.Drawing.Point(559, 28);
+            this.newMeetingButton.Name = "newMeetingButton";
+            this.newMeetingButton.Size = new System.Drawing.Size(104, 47);
+            this.newMeetingButton.TabIndex = 14;
+            this.newMeetingButton.Text = "NOWE SPOTKANIE";
+            this.newMeetingButton.UseVisualStyleBackColor = true;
+            // 
+            // EditMeetingButton
+            // 
+            this.EditMeetingButton.Location = new System.Drawing.Point(560, 89);
+            this.EditMeetingButton.Name = "EditMeetingButton";
+            this.EditMeetingButton.Size = new System.Drawing.Size(102, 42);
+            this.EditMeetingButton.TabIndex = 15;
+            this.EditMeetingButton.Text = "EDYTUJ SPOTKANIE";
+            this.EditMeetingButton.UseVisualStyleBackColor = true;
+            this.EditMeetingButton.Visible = false;
+            // 
+            // SubmitMeetingButton
+            // 
+            this.SubmitMeetingButton.Location = new System.Drawing.Point(563, 144);
+            this.SubmitMeetingButton.Name = "SubmitMeetingButton";
+            this.SubmitMeetingButton.Size = new System.Drawing.Size(98, 39);
+            this.SubmitMeetingButton.TabIndex = 16;
+            this.SubmitMeetingButton.Text = "ZATWIERDŹ !";
+            this.SubmitMeetingButton.UseVisualStyleBackColor = true;
+            this.SubmitMeetingButton.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4837,6 +5126,12 @@
             this.filterUsersbyTerritoryToolStrip.ResumeLayout(false);
             this.filterUsersbyTerritoryToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qty_giveSampleBox)).EndInit();
+            this.mySamplesPage.ResumeLayout(false);
+            this.mySamplesPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mySamplesDataGridView)).EndInit();
+            this.hcpMeetings_Page.ResumeLayout(false);
+            this.hcpMeetings_Page.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.myMeetingsGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -5147,7 +5442,7 @@
         private System.Windows.Forms.Label selectedaddressID_editHCP;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button RemoveAssossiationButton;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button meetingButton;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button editHCObutton;
         private System.Windows.Forms.TabPage edit_HCO_Page;
@@ -5250,6 +5545,28 @@
         private System.Windows.Forms.Button give_sample_Button;
         private System.Windows.Forms.TextBox value_giveSampleBox;
         private System.Windows.Forms.Label label110;
+        private System.Windows.Forms.Button mySamplesButton;
+        private System.Windows.Forms.TabPage mySamplesPage;
+        private System.Windows.Forms.Label label111;
+        private System.Windows.Forms.DataGridView mySamplesDataGridView;
+        private System.Windows.Forms.Button goHomeButton;
+        private System.Windows.Forms.TabPage hcpMeetings_Page;
+        private System.Windows.Forms.DataGridView myMeetingsGridView;
+        private System.Windows.Forms.Label label112;
+        private System.Windows.Forms.TextBox nxtMtgNoteBox;
+        private System.Windows.Forms.Label label119;
+        private System.Windows.Forms.Label label118;
+        private System.Windows.Forms.Label label116;
+        private System.Windows.Forms.Label label117;
+        private System.Windows.Forms.Label label115;
+        private System.Windows.Forms.Label label114;
+        private System.Windows.Forms.Label label113;
+        private System.Windows.Forms.Label label122;
+        private System.Windows.Forms.Label label121;
+        private System.Windows.Forms.Label label120;
+        private System.Windows.Forms.Button SubmitMeetingButton;
+        private System.Windows.Forms.Button EditMeetingButton;
+        private System.Windows.Forms.Button newMeetingButton;
     }
 }
 

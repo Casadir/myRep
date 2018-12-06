@@ -120,6 +120,7 @@ namespace myRep_app
                                 productsMgmtButton.Visible = true; productsMgmtButton.Enabled = true;
                                 //Sterowanie kontrolkami na ProductsMgmt page tak aby nie zostały aktywowane
                                 label94.Visible = false; DisbursedSamplesGridView.Visible = false; SampleRightsErrorLabel.Visible = true; newProductButton.Enabled = false; editProductButton.Enabled = false; NewSampleButton.Enabled = false; EditSampleButton.Enabled = false; GiveSampleButton.Enabled = false;
+                                mySamplesButton.Enabled = false; mySamplesButton.Visible = false;
                                 break;
                             }
                         case "SnPA":
@@ -129,6 +130,8 @@ namespace myRep_app
                                 productsMgmtButton.Visible = true; productsMgmtButton.Enabled = true;
                                 //Sterowanie kontrolkami na ProductsMgmt page tak aby zostały aktywowane tylko dla Sample&Product Admina
                                 label94.Visible = true; DisbursedSamplesGridView.Visible = true; newProductButton.Enabled = true; editProductButton.Enabled = false; NewSampleButton.Enabled = false; EditSampleButton.Enabled = false; GiveSampleButton.Enabled = false;
+                                mySamplesButton.Enabled = false; mySamplesButton.Visible = false;
+
                                 break;
                             }
                         case "REP":
@@ -138,6 +141,7 @@ namespace myRep_app
                                 productsMgmtButton.Visible = true; productsMgmtButton.Enabled = true;
                                 //Sterowanie kontrolkami na ProductsMgmt page tak aby nie zostały aktywowane
                                 label94.Visible = false; DisbursedSamplesGridView.Visible = false; SampleRightsErrorLabel.Visible = true; newProductButton.Enabled = false; editProductButton.Enabled = false; NewSampleButton.Enabled = false; EditSampleButton.Enabled = false; GiveSampleButton.Enabled = false;
+                                mySamplesButton.Enabled = true; mySamplesButton.Visible = true;
                                 break;
                             }
 
@@ -517,6 +521,7 @@ namespace myRep_app
 
         private void hcpDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            edithcpbutton.Enabled = true;
             string sConnection = Properties.Settings.Default.myRep_ODSConnectionString;
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = sConnection;
@@ -589,6 +594,15 @@ namespace myRep_app
                     kolHCP.Checked = false;
 
                 dataGridViewHCPWorkPlace.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
+                SqlCommand command3 = new SqlCommand("SELECT count(*) FROM MeetingSet WHERE HCPID = @hcpID and UserID = @uID ", conn);
+                command3.Parameters.AddWithValue("@hcpID", hcpDataGridView.CurrentRow.Cells[0].Value);
+                command3.Parameters.AddWithValue("uID", loggedUserID);
+                if (Convert.ToInt32(command3.ExecuteScalar()) > 0 || command3.ExecuteScalar() != DBNull.Value)
+                    meetingButton.Text = "SPOTKANIA\n" + "( " + Convert.ToString(command3.ExecuteScalar()) + " )";
+                else
+                    meetingButton.Text = meetingButton.Text + "( 0 )";
+
             }
             catch (SqlException er)
             {
@@ -1680,6 +1694,103 @@ namespace myRep_app
             {
                 String text = "There was an error reported by SQL Server, " + er.Message;
                 MessageBox.Show(text, "ERROR");
+            }
+        }
+
+        private void mySamplesButton_Click(object sender, EventArgs e)
+        {
+            mainController.SelectedTab = mySamplesPage;
+            string sConnection = Properties.Settings.Default.myRep_ODSConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                SqlCommand command = new SqlCommand("dbo.mySamples", conn);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@uID", loggedUserID);
+                //WYPEŁNIANIE GRIDA Z SAMPLAMI
+                DataTable dt = new DataTable();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                dataAdapter.Fill(dt);
+                mySamplesDataGridView.DataSource = dt;
+                mySamplesDataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                conn.Close();
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
+        }
+
+        private void goHomeButton_Click(object sender, EventArgs e)
+        {
+            mainController.SelectedTab = homePage;
+        }
+
+        private void meetingButton_Click(object sender, EventArgs e)
+        {
+            mainController.SelectedTab = hcpMeetings_Page;
+            action_backTo = "MYACCOUNTS_PAGE";
+            string sConnection = Properties.Settings.Default.myRep_ODSConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                SqlCommand command = new SqlCommand("dbo.myMeetings", conn);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@uID", loggedUserID);
+                //WYPEŁNIANIE GRIDA Z MEETINGAMI
+                DataTable dt = new DataTable();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                dataAdapter.Fill(dt);
+                myMeetingsGridView.DataSource = dt;
+                myMeetingsGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                myMeetingsGridView.Columns[0].Visible = false; //MEETING ID
+                myMeetingsGridView.Columns[1].Visible = false; // NEXT MEETING NOTE
+                myMeetingsGridView.Columns[2].Visible = false; // MEDICAL ENQUIRY ID
+                myMeetingsGridView.Columns[3].Visible = false; // SUBMITTED/SAVED
+                myMeetingsGridView.ClearSelection();
+
+                foreach (DataGridViewRow row in myMeetingsGridView.Rows)
+                {
+                    if (row.Cells[3].Value.ToString() == "Submitted") row.DefaultCellStyle.BackColor = Color.CadetBlue;
+                    else if (row.Cells[3].Value.ToString() == "Saved") row.DefaultCellStyle.BackColor = Color.Orange;
+                }
+                conn.Close();
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
+        }
+
+        private void myMeetingsGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (myMeetingsGridView.CurrentRow.Cells[3].Value.ToString() == "Saved")
+            {
+                SubmitMeetingButton.Visible = true;
+                EditMeetingButton.Visible = true;
+            }
+                
+            else
+            {
+                SubmitMeetingButton.Visible = false;
+                EditMeetingButton.Visible = false;
+            }
+                
+            if (String.IsNullOrEmpty(myMeetingsGridView.CurrentRow.Cells[1].Value.ToString()))
+            {
+                nxtMtgNoteBox.Text = "Brak notatki z tego spotkania";
+                nxtMtgNoteBox.ForeColor = Color.Orange;
+            }
+            else
+            {
+                nxtMtgNoteBox.Text = myMeetingsGridView.CurrentRow.Cells[1].Value.ToString();
+                nxtMtgNoteBox.ForeColor = Color.CadetBlue;
             }
         }
     }
