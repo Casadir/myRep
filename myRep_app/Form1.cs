@@ -149,6 +149,10 @@ namespace myRep_app
                     }
                     UsernameBox.Text = "";
                     PasswordBox.Text = "";
+                    hcpDataGridView.ClearSelection();
+                    hcpDataGridView.Columns[0].Visible = false;
+                    hcoDataGridView.ClearSelection();
+                    addressDataGridView.ClearSelection();
                 }
             }
             catch (SqlException er)
@@ -178,6 +182,10 @@ namespace myRep_app
 
         private void myAccountsButton_Click(object sender, EventArgs e)
         {
+            hcpDataGridView.ClearSelection();
+            hcpDataGridView.Columns[0].Visible = false;
+            hcoDataGridView.ClearSelection();
+            addressDataGridView.ClearSelection();
             mainController.SelectedTab = myAccountsPage;
         }
         #endregion HomePage
@@ -1742,6 +1750,7 @@ namespace myRep_app
                 SqlCommand command = new SqlCommand("dbo.myMeetings", conn);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@uID", loggedUserID);
+                command.Parameters.AddWithValue("@hcpID", Convert.ToInt32(hcpDataGridView.CurrentRow.Cells[0].Value));
                 //WYPEŁNIANIE GRIDA Z MEETINGAMI
                 DataTable dt = new DataTable();
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
@@ -1754,6 +1763,7 @@ namespace myRep_app
                 myMeetingsGridView.Columns[3].Visible = false; // SUBMITTED/SAVED
                 myMeetingsGridView.ClearSelection();
 
+                //KOLOROWANIE WIERSZY - ROZPOZNAWANIE SUBMITTED/SAVED
                 foreach (DataGridViewRow row in myMeetingsGridView.Rows)
                 {
                     if (row.Cells[3].Value.ToString() == "Submitted") row.DefaultCellStyle.BackColor = Color.CadetBlue;
@@ -1770,18 +1780,18 @@ namespace myRep_app
 
         private void myMeetingsGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            //WYŚWIETLENIE PRZYCISKÓW EDYCJI I SUBMITTOWANIA JEŚLI STATUS = SAVED
             if (myMeetingsGridView.CurrentRow.Cells[3].Value.ToString() == "Saved")
             {
                 SubmitMeetingButton.Visible = true;
                 EditMeetingButton.Visible = true;
-            }
-                
+            }   
             else
             {
                 SubmitMeetingButton.Visible = false;
                 EditMeetingButton.Visible = false;
             }
-                
+            //WYŚWIETLENIE NOTATKI JEŚLI DODANA DO SPOTKANIA    
             if (String.IsNullOrEmpty(myMeetingsGridView.CurrentRow.Cells[1].Value.ToString()))
             {
                 nxtMtgNoteBox.Text = "Brak notatki z tego spotkania";
@@ -1792,6 +1802,297 @@ namespace myRep_app
                 nxtMtgNoteBox.Text = myMeetingsGridView.CurrentRow.Cells[1].Value.ToString();
                 nxtMtgNoteBox.ForeColor = Color.CadetBlue;
             }
+            //WYŚWIETLANIE INFORMACJI DOT. ZAPYTANIA MEDYCZNEGO - jeśli jest widoczny ID w polu Enquiry ID to wyświetl, inaczej schowaj
+            if (!String.IsNullOrEmpty(myMeetingsGridView.CurrentRow.Cells[2].Value.ToString()))
+            {
+                string sConnection = Properties.Settings.Default.ConnectionString;
+                SqlConnection conn = new SqlConnection();
+                conn.ConnectionString = sConnection;
+                conn.Open();
+                try
+                {
+                    SqlCommand command3 = new SqlCommand("SELECT Question FROM MedicalEnquirySet WHERE meID = @mid", conn);
+                    command3.Parameters.AddWithValue("@mid", Convert.ToInt32(myMeetingsGridView.CurrentRow.Cells[2].Value.ToString()));
+                    question_hcpMeetings.Visible = true;
+                    question_hcpMeetings.Text = Convert.ToString(command3.ExecuteScalar());
+
+                    command3.CommandText = "SELECT Status FROM MedicalEnquirySet WHERE meID = @mid";
+                    statusQ_hcpMeetings.Visible = true;
+                    statusQ_hcpMeetings.Text = Convert.ToString(command3.ExecuteScalar());
+
+                }
+                catch (SqlException er)
+                {
+                    String text = "There was an error reported by SQL Server, " + er.Message;
+                    MessageBox.Show(text, "ERROR");
+                }
+
+                label114.Visible = true;
+                label116.Visible = true;
+                label117.Visible = true;
+                label118.Visible = true;
+                label120.Visible = false;
+                label121.Visible = true;
+                label122.Visible = true;
+
+            }
+            else
+            {
+                label114.Visible = false;
+                question_hcpMeetings.Visible = false;
+                label116.Visible = false;
+                label117.Visible = false;
+                label118.Visible = false;
+                statusQ_hcpMeetings.Visible = false;
+                label120.Visible = true;
+                label121.Visible = false;
+                label122.Visible = false;
+            }
+        }
+
+        private void datePicker_newMeetingBox_ValueChanged(object sender, EventArgs e)
+        {
+            bool gooddate;
+            if ((datePicker_newMeetingBox.Value.Date - DateTime.Now.Date).Days < -30)
+            {
+                warning2_newMeetingBox.Visible = true;
+                warning_newMeetingBox.Visible = true;
+                gooddate = false;
+            }
+            else
+            {
+                warning2_newMeetingBox.Visible = false;
+                warning_newMeetingBox.Visible = false;
+                gooddate = true;
+            }
+            Create_Meeting_Button.Enabled = gooddate && (topic_newMeetingBox.Text.ToString() != "") && (productName_newMeetingLabel.Text.ToString() != "-") && (Save_newMeetingBox.Checked == true || Submit_newMeetingBox.Checked == true);
+        }
+
+        private void selectProduct_newMeetingBox_Click(object sender, EventArgs e)
+        {
+            action_backTo = "NEWMTG_PAGE";
+            mainController.SelectedTab = select_product_Page;
+        }
+
+        private void selectProductButton_Click(object sender, EventArgs e)
+        {
+            if (action_backTo == "NEWMTG_PAGE")
+            {
+                productID_newMeetingLabel.Text = Convert.ToString(SelectProductDataGridView.CurrentRow.Cells[0].Value);
+                productName_newMeetingLabel.Text = Convert.ToString(SelectProductDataGridView.CurrentRow.Cells[1].Value);
+                action_backTo = "";
+                SelectProductDataGridView.ClearSelection();
+                mainController.SelectedTab = new_Meeting_Page;
+            }
+        }
+
+        private void newMeetingButton_Click(object sender, EventArgs e)
+        {
+            mainController.SelectedTab = new_Meeting_Page;
+            hcpName_newMeetingBox.Text = hcpDataGridView.CurrentRow.Cells[1].Value.ToString() + " " + hcpDataGridView.CurrentRow.Cells[2].Value.ToString();
+        }
+
+        private void topic_newMeetingBox_TextChanged(object sender, EventArgs e)
+        {
+            bool gooddate;
+            if ((datePicker_newMeetingBox.Value.Date - DateTime.Now.Date).Days < -30)
+            {
+                warning2_newMeetingBox.Visible = true;
+                warning_newMeetingBox.Visible = true;
+                gooddate = false;
+            }
+            else
+            {
+                warning2_newMeetingBox.Visible = false;
+                warning_newMeetingBox.Visible = false;
+                gooddate = true;
+            }
+            Create_Meeting_Button.Enabled = gooddate && (topic_newMeetingBox.Text.ToString() != "") && (productName_newMeetingLabel.Text.ToString() != "-") && (Save_newMeetingBox.Checked == true || Submit_newMeetingBox.Checked == true);
+
+        }
+
+        private void productName_newMeetingLabel_TextChanged(object sender, EventArgs e)
+        {
+            bool gooddate;
+            if ((datePicker_newMeetingBox.Value.Date - DateTime.Now.Date).Days < -30)
+            {
+                warning2_newMeetingBox.Visible = true;
+                warning_newMeetingBox.Visible = true;
+                gooddate = false;
+            }
+            else
+            {
+                warning2_newMeetingBox.Visible = false;
+                warning_newMeetingBox.Visible = false;
+                gooddate = true;
+            }
+            Create_Meeting_Button.Enabled = gooddate && (topic_newMeetingBox.Text.ToString() != "") && (productName_newMeetingLabel.Text.ToString() != "-") && (Save_newMeetingBox.Checked == true || Submit_newMeetingBox.Checked == true);
+        }
+
+        private void Save_newMeetingBox_CheckedChanged(object sender, EventArgs e)
+        {
+            bool gooddate;
+            if ((datePicker_newMeetingBox.Value.Date - DateTime.Now.Date).Days < -30)
+            {
+                warning2_newMeetingBox.Visible = true;
+                warning_newMeetingBox.Visible = true;
+                gooddate = false;
+            }
+            else
+            {
+                warning2_newMeetingBox.Visible = false;
+                warning_newMeetingBox.Visible = false;
+                gooddate = true;
+            }
+            Create_Meeting_Button.Enabled = gooddate && (topic_newMeetingBox.Text.ToString() != "") && (productName_newMeetingLabel.Text.ToString() != "-") && (Save_newMeetingBox.Checked == true || Submit_newMeetingBox.Checked == true);
+        }
+
+        private void Submit_newMeetingBox_CheckedChanged(object sender, EventArgs e)
+        {
+            bool gooddate;
+            if ((datePicker_newMeetingBox.Value.Date - DateTime.Now.Date).Days < -30)
+            {
+                warning2_newMeetingBox.Visible = true;
+                warning_newMeetingBox.Visible = true;
+                gooddate = false;
+            }
+            else
+            {
+                warning2_newMeetingBox.Visible = false;
+                warning_newMeetingBox.Visible = false;
+                gooddate = true;
+            }
+            Create_Meeting_Button.Enabled = gooddate && (topic_newMeetingBox.Text.ToString() != "") && (productName_newMeetingLabel.Text.ToString() != "-") && (Save_newMeetingBox.Checked == true || Submit_newMeetingBox.Checked == true);
+        }
+
+        private void Create_Meeting_Button_Click(object sender, EventArgs e)
+        {
+            string sConnection = Properties.Settings.Default.ConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                
+                String commandText = "INSERT INTO MeetingSet output INSERTED.meetingID VALUES(@HCPID, @Date, @Type, @Topic, @ProductID, @NextMtgNote, @MEID, @SampleID, @SampleDQ, @UserID)";
+                SqlCommand command = new SqlCommand(commandText, conn);
+                command.Parameters.AddWithValue("@HCPID", Convert.ToInt32(hcpDataGridView.CurrentRow.Cells[0].Value.ToString()));
+                command.Parameters.Add("@Date", SqlDbType.Date).Value = datePicker_newMeetingBox.Value.Date;
+                if (Save_newMeetingBox.Checked == true) command.Parameters.AddWithValue("@Type", "Saved");
+                else command.Parameters.AddWithValue("@Type", "Submitted");
+                command.Parameters.AddWithValue("@Topic", topic_newMeetingBox.Text.ToString());
+                command.Parameters.AddWithValue("@ProductID", Convert.ToInt32(productID_newMeetingLabel.Text.ToString()));
+                if (!String.IsNullOrEmpty(nextmtgnote_newMeetingBox.Text)) command.Parameters.AddWithValue("@NextMtgNote", nextmtgnote_newMeetingBox.Text.ToString());
+                else command.Parameters.AddWithValue("@NextMtgNote", DBNull.Value);
+                //domyslnie Medical Enquiry się nie tworzy, potem ID zostaje tylko zaktualizowany w momencie utworzenia ME jeżeli trzeba (commandtext3)
+                command.Parameters.AddWithValue("@MEID", DBNull.Value);
+                command.Parameters.AddWithValue("@SampleID", DBNull.Value);
+                command.Parameters.AddWithValue("@SampleDQ", DBNull.Value);
+      
+                command.Parameters.AddWithValue("@UserID", loggedUserID);
+                int MeetingID_NEW = Convert.ToInt32(command.ExecuteScalar());
+
+                //TWORZENIE MEDICAL ENQUIRY I WSTAWIANIE ODPOWIEDNIEGO ID DO MEETINGU
+                if (createEnquiryCheck_newMeeting.Checked == true)
+                { 
+                    SqlCommand command3 = new SqlCommand("INSERT INTO MedicalEnquirySet output INSERTED.meID VALUES(@Q, NULL, @ExpectedDate, @MID, @Status)", conn);
+                    command3.Parameters.AddWithValue("@Q", question_newEnquiry.Text.ToString());
+                    command3.Parameters.Add("@ExpectedDate", SqlDbType.Date).Value = datePicker_newEnquiry.Value.Date;
+                    command3.Parameters.AddWithValue("@MID", MeetingID_NEW);
+
+                    if (Save_newMeetingBox.Checked == true) command3.Parameters.AddWithValue("@Status", "Draft");
+                    else command3.Parameters.AddWithValue("@Status", "Submitted");
+                    
+                    //POBRANIE ID WSTAWIONEGO REKORDU I WSTAWIENIE GO W MEETING
+                    int MEID_NEW = Convert.ToInt32(command3.ExecuteScalar());
+
+                    SqlCommand command4 = new SqlCommand("UPDATE MeetingSet SET MedicalEnquiryID = @meid WHERE meetingID = @mID ", conn);
+                    command4.Parameters.AddWithValue("@meid", MEID_NEW);
+                    command4.Parameters.AddWithValue("@mID", MeetingID_NEW);
+                    command4.ExecuteNonQuery();
+                }
+
+                //TWORZENIE SAMPLE DROPA
+                if (createSampleDropCheck_newMeeting.Checked == true)
+                {
+
+                }
+
+                conn.Close();
+                mainController.SelectedTab = hcpMeetings_Page;
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
+        }
+
+        private void createEnquiryCheck_newMeeting_CheckedChanged(object sender, EventArgs e)
+        {
+            if (createEnquiryCheck_newMeeting.Checked == true)
+            {
+                    label124.Visible = true;
+                    label129.Visible = true;
+                    question_newEnquiry.Visible = true;
+                    datePicker_newEnquiry.Visible = true;
+            }
+            else
+            {
+                label124.Visible = false;
+                label129.Visible = false;
+                question_newEnquiry.Visible = false;
+                datePicker_newEnquiry.Visible = false;
+            }
+        }
+
+        private void productID_newMeetingLabel_TextChanged(object sender, EventArgs e)
+        {
+            if (productID_newMeetingLabel.Text != "") createSampleDropCheck_newMeeting.Enabled = true;
+            else createSampleDropCheck_newMeeting.Enabled = false;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = meeting_newmtgPage;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = meeting_newmtgPage;
+        }
+
+        private void SelectProductDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string sConnection = Properties.Settings.Default.myRep_ODSConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                SqlCommand command = new SqlCommand("dbo.SamplesPerProduct", conn);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@pID", SelectProductDataGridView.CurrentRow.Cells[0].Value);
+                //WYPEŁNIANIE GRIDA Z SAMPLAMI
+                DataTable dt = new DataTable();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                dataAdapter.Fill(dt);
+                sampleGridView_newMTG.DataSource = dt;
+                sampleGridView_newMTG.Columns[0].Visible = false;
+                sampleGridView_newMTG.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                conn.Close();
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
+        }
+
+        private void label131_TextChanged(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(label131.Text) == 0) SamplesQty_newMTG.Enabled = false;
+            else SamplesQty_newMTG.Enabled = true;
         }
     }
 }
