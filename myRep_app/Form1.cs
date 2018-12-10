@@ -1931,7 +1931,19 @@ namespace myRep_app
 
         private void Save_newMeetingBox_CheckedChanged(object sender, EventArgs e)
         {
+            if (Save_newMeetingBox.Checked == true)
+            {
+                warning3_newMeetingBox.Visible = true;
+                warning4_newMeetingBox.Visible = true;
+            }
+            else
+            {
+                warning3_newMeetingBox.Visible = false;
+                warning4_newMeetingBox.Visible = false;
+            }
+
             bool gooddate;
+
             if ((datePicker_newMeetingBox.Value.Date - DateTime.Now.Date).Days < -30)
             {
                 warning2_newMeetingBox.Visible = true;
@@ -2013,11 +2025,20 @@ namespace myRep_app
                 }
 
                 //TWORZENIE SAMPLE DROPA
-                if (createSampleDropCheck_newMeeting.Checked == true)
+                if ((createSampleDropCheck_newMeeting.Checked == true) && (Submit_newMeetingBox.Checked == true))
                 {
+                    SqlCommand command5 = new SqlCommand("UPDATE MeetingSet SET SampleDrop = @sampleid, SampleDropQty = @sampleqty WHERE meetingID = @mID ", conn);
+                    command5.Parameters.AddWithValue("@mID", MeetingID_NEW);
+                    command5.Parameters.AddWithValue("@sampleid", Convert.ToInt32(sampleGridView_newMTG.CurrentRow.Cells[0].Value));
+                    command5.Parameters.AddWithValue("@sampleqty", SamplesQty_newMTG.Value);
+                    command5.ExecuteNonQuery();
 
+                    SqlCommand command6 = new SqlCommand("UPDATE SampleWarehouseSet SET Qty = Qty - @q WHERE UserID = @uID AND SampleID = @sID ", conn);
+                    command6.Parameters.AddWithValue("@q", SamplesQty_newMTG.Value);
+                    command6.Parameters.AddWithValue("@uID", loggedUserID);
+                    command6.Parameters.AddWithValue("@sID", Convert.ToInt32(sampleGridView_newMTG.CurrentRow.Cells[0].Value));
+                    command6.ExecuteNonQuery();
                 }
-
                 conn.Close();
                 mainController.SelectedTab = hcpMeetings_Page;
             }
@@ -2091,8 +2112,66 @@ namespace myRep_app
 
         private void label131_TextChanged(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(label131.Text) == 0) SamplesQty_newMTG.Enabled = false;
-            else SamplesQty_newMTG.Enabled = true;
+            if (Convert.ToInt32(label131.Text) == 0)
+            {
+                SamplesQty_newMTG.Enabled = false;
+                SamplesQty_newMTG.Value = 0;
+            }
+            else
+            {
+                SamplesQty_newMTG.Enabled = true;
+                SamplesQty_newMTG.Maximum = Convert.ToInt32(label131.Text);
+            }
+        }
+
+        private void createSampleDropCheck_newMeeting_CheckedChanged(object sender, EventArgs e)
+        {
+            if (createSampleDropCheck_newMeeting.Checked == true)
+            {
+                label119.Visible = true;
+                sampleGridView_newMTG.Visible = true;
+                label130.Visible = true;
+                label131.Visible = true;
+                label132.Visible = true;
+                SamplesQty_newMTG.Visible = true;
+            }
+            else
+            {
+                label119.Visible = false;
+                sampleGridView_newMTG.Visible = false;
+                label130.Visible = false;
+                label131.Visible = false;
+                label132.Visible = false;
+                SamplesQty_newMTG.Visible = false;
+                SamplesQty_newMTG.Value = 0;
+            }
+        }
+
+        private void sampleGridView_newMTG_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            sampleGridView_newMTG.ClearSelection();
+        }
+
+        private void sampleGridView_newMTG_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string sConnection = Properties.Settings.Default.myRep_ODSConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT Qty FROM SampleWarehouseSet WHERE SampleID = @sID AND UserID = @uID ", conn);
+                command.Parameters.AddWithValue("@sID", sampleGridView_newMTG.CurrentRow.Cells[0].Value);
+                command.Parameters.AddWithValue("@uID", loggedUserID);
+                if (!String.IsNullOrEmpty(Convert.ToString(command.ExecuteScalar()))) label131.Text = Convert.ToString(command.ExecuteScalar());
+                else label131.Text = "0";
+                conn.Close();
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
         }
     }
 }
