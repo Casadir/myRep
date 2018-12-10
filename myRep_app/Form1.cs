@@ -1820,6 +1820,15 @@ namespace myRep_app
                     statusQ_hcpMeetings.Visible = true;
                     statusQ_hcpMeetings.Text = Convert.ToString(command3.ExecuteScalar());
 
+                    command3.CommandText = "SELECT Answer FROM MedicalEnquirySet WHERE meID = @mid";
+                    statusQ_hcpMeetings.Visible = true;
+                    if (!String.IsNullOrEmpty(Convert.ToString(command3.ExecuteScalar()))) label116.Text = Convert.ToString(command3.ExecuteScalar());
+                    else label116.Text = "CZEKAJ NA ODPOWIEDŹ OD KONSULTANTA";
+
+                    command3.CommandText = "SELECT ExpectedAnswerDate FROM MedicalEnquirySet WHERE meID = @mid";
+                    label122.Visible = true;
+                    label122.Text = Convert.ToString(Convert.ToDateTime(command3.ExecuteScalar()).ToShortDateString());
+
                 }
                 catch (SqlException er)
                 {
@@ -1870,26 +1879,33 @@ namespace myRep_app
 
         private void selectProduct_newMeetingBox_Click(object sender, EventArgs e)
         {
-            action_backTo = "NEWMTG_PAGE";
             mainController.SelectedTab = select_product_Page;
         }
 
         private void selectProductButton_Click(object sender, EventArgs e)
         {
-            if (action_backTo == "NEWMTG_PAGE")
-            {
+
                 productID_newMeetingLabel.Text = Convert.ToString(SelectProductDataGridView.CurrentRow.Cells[0].Value);
                 productName_newMeetingLabel.Text = Convert.ToString(SelectProductDataGridView.CurrentRow.Cells[1].Value);
-                action_backTo = "";
                 SelectProductDataGridView.ClearSelection();
                 mainController.SelectedTab = new_Meeting_Page;
-            }
+
         }
 
         private void newMeetingButton_Click(object sender, EventArgs e)
         {
+            action_backTo = "NEWMTG_PAGE";
             mainController.SelectedTab = new_Meeting_Page;
             hcpName_newMeetingBox.Text = hcpDataGridView.CurrentRow.Cells[1].Value.ToString() + " " + hcpDataGridView.CurrentRow.Cells[2].Value.ToString();
+            topic_newMeetingBox.Text = "";
+            productName_newMeetingLabel.Text = "-";
+            nextmtgnote_newMeetingBox.Text = "";
+            question_newEnquiry.Text = "";
+            createEnquiryCheck_newMeeting.Checked = false;
+            createSampleDropCheck_newMeeting.Checked = false;
+            SamplesQty_newMTG.Value = 0;
+            Save_newMeetingBox.Checked = false;
+            Submit_newMeetingBox.Checked = false;
         }
 
         private void topic_newMeetingBox_TextChanged(object sender, EventArgs e)
@@ -1979,73 +1995,154 @@ namespace myRep_app
 
         private void Create_Meeting_Button_Click(object sender, EventArgs e)
         {
-            string sConnection = Properties.Settings.Default.ConnectionString;
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = sConnection;
-            conn.Open();
-            try
+            if (action_backTo == "NEWMTG_PAGE")
             {
-                
-                String commandText = "INSERT INTO MeetingSet output INSERTED.meetingID VALUES(@HCPID, @Date, @Type, @Topic, @ProductID, @NextMtgNote, @MEID, @SampleID, @SampleDQ, @UserID)";
-                SqlCommand command = new SqlCommand(commandText, conn);
-                command.Parameters.AddWithValue("@HCPID", Convert.ToInt32(hcpDataGridView.CurrentRow.Cells[0].Value.ToString()));
-                command.Parameters.Add("@Date", SqlDbType.Date).Value = datePicker_newMeetingBox.Value.Date;
-                if (Save_newMeetingBox.Checked == true) command.Parameters.AddWithValue("@Type", "Saved");
-                else command.Parameters.AddWithValue("@Type", "Submitted");
-                command.Parameters.AddWithValue("@Topic", topic_newMeetingBox.Text.ToString());
-                command.Parameters.AddWithValue("@ProductID", Convert.ToInt32(productID_newMeetingLabel.Text.ToString()));
-                if (!String.IsNullOrEmpty(nextmtgnote_newMeetingBox.Text)) command.Parameters.AddWithValue("@NextMtgNote", nextmtgnote_newMeetingBox.Text.ToString());
-                else command.Parameters.AddWithValue("@NextMtgNote", DBNull.Value);
-                //domyslnie Medical Enquiry się nie tworzy, potem ID zostaje tylko zaktualizowany w momencie utworzenia ME jeżeli trzeba (commandtext3)
-                command.Parameters.AddWithValue("@MEID", DBNull.Value);
-                command.Parameters.AddWithValue("@SampleID", DBNull.Value);
-                command.Parameters.AddWithValue("@SampleDQ", DBNull.Value);
-      
-                command.Parameters.AddWithValue("@UserID", loggedUserID);
-                int MeetingID_NEW = Convert.ToInt32(command.ExecuteScalar());
-
-                //TWORZENIE MEDICAL ENQUIRY I WSTAWIANIE ODPOWIEDNIEGO ID DO MEETINGU
-                if (createEnquiryCheck_newMeeting.Checked == true)
-                { 
-                    SqlCommand command3 = new SqlCommand("INSERT INTO MedicalEnquirySet output INSERTED.meID VALUES(@Q, NULL, @ExpectedDate, @MID, @Status)", conn);
-                    command3.Parameters.AddWithValue("@Q", question_newEnquiry.Text.ToString());
-                    command3.Parameters.Add("@ExpectedDate", SqlDbType.Date).Value = datePicker_newEnquiry.Value.Date;
-                    command3.Parameters.AddWithValue("@MID", MeetingID_NEW);
-
-                    if (Save_newMeetingBox.Checked == true) command3.Parameters.AddWithValue("@Status", "Draft");
-                    else command3.Parameters.AddWithValue("@Status", "Submitted");
-                    
-                    //POBRANIE ID WSTAWIONEGO REKORDU I WSTAWIENIE GO W MEETING
-                    int MEID_NEW = Convert.ToInt32(command3.ExecuteScalar());
-
-                    SqlCommand command4 = new SqlCommand("UPDATE MeetingSet SET MedicalEnquiryID = @meid WHERE meetingID = @mID ", conn);
-                    command4.Parameters.AddWithValue("@meid", MEID_NEW);
-                    command4.Parameters.AddWithValue("@mID", MeetingID_NEW);
-                    command4.ExecuteNonQuery();
-                }
-
-                //TWORZENIE SAMPLE DROPA
-                if ((createSampleDropCheck_newMeeting.Checked == true) && (Submit_newMeetingBox.Checked == true))
+                string sConnection = Properties.Settings.Default.ConnectionString;
+                SqlConnection conn = new SqlConnection();
+                conn.ConnectionString = sConnection;
+                conn.Open();
+                try
                 {
-                    SqlCommand command5 = new SqlCommand("UPDATE MeetingSet SET SampleDrop = @sampleid, SampleDropQty = @sampleqty WHERE meetingID = @mID ", conn);
-                    command5.Parameters.AddWithValue("@mID", MeetingID_NEW);
-                    command5.Parameters.AddWithValue("@sampleid", Convert.ToInt32(sampleGridView_newMTG.CurrentRow.Cells[0].Value));
-                    command5.Parameters.AddWithValue("@sampleqty", SamplesQty_newMTG.Value);
-                    command5.ExecuteNonQuery();
+                
+                    String commandText = "INSERT INTO MeetingSet output INSERTED.meetingID VALUES(@HCPID, @Date, @Type, @Topic, @ProductID, @NextMtgNote, @MEID, @SampleID, @SampleDQ, @UserID)";
+                    SqlCommand command = new SqlCommand(commandText, conn);
+                    command.Parameters.AddWithValue("@HCPID", Convert.ToInt32(hcpDataGridView.CurrentRow.Cells[0].Value.ToString()));
+                    command.Parameters.Add("@Date", SqlDbType.Date).Value = datePicker_newMeetingBox.Value.Date;
+                    if (Save_newMeetingBox.Checked == true) command.Parameters.AddWithValue("@Type", "Saved");
+                    else command.Parameters.AddWithValue("@Type", "Submitted");
+                    command.Parameters.AddWithValue("@Topic", topic_newMeetingBox.Text.ToString());
+                    command.Parameters.AddWithValue("@ProductID", Convert.ToInt32(productID_newMeetingLabel.Text.ToString()));
+                    if (!String.IsNullOrEmpty(nextmtgnote_newMeetingBox.Text)) command.Parameters.AddWithValue("@NextMtgNote", nextmtgnote_newMeetingBox.Text.ToString());
+                    else command.Parameters.AddWithValue("@NextMtgNote", DBNull.Value);
+                    //domyslnie Medical Enquiry się nie tworzy, potem ID zostaje tylko zaktualizowany w momencie utworzenia ME jeżeli trzeba (commandtext3)
+                    command.Parameters.AddWithValue("@MEID", DBNull.Value);
+                    command.Parameters.AddWithValue("@SampleID", DBNull.Value);
+                    command.Parameters.AddWithValue("@SampleDQ", DBNull.Value);
+      
+                    command.Parameters.AddWithValue("@UserID", loggedUserID);
+                    int MeetingID_NEW = Convert.ToInt32(command.ExecuteScalar());
 
-                    SqlCommand command6 = new SqlCommand("UPDATE SampleWarehouseSet SET Qty = Qty - @q WHERE UserID = @uID AND SampleID = @sID ", conn);
-                    command6.Parameters.AddWithValue("@q", SamplesQty_newMTG.Value);
-                    command6.Parameters.AddWithValue("@uID", loggedUserID);
-                    command6.Parameters.AddWithValue("@sID", Convert.ToInt32(sampleGridView_newMTG.CurrentRow.Cells[0].Value));
-                    command6.ExecuteNonQuery();
+                    //TWORZENIE MEDICAL ENQUIRY I WSTAWIANIE ODPOWIEDNIEGO ID DO MEETINGU
+                    if (createEnquiryCheck_newMeeting.Checked == true)
+                    { 
+                        SqlCommand command3 = new SqlCommand("INSERT INTO MedicalEnquirySet output INSERTED.meID VALUES(@Q, NULL, @ExpectedDate, @MID, @Status)", conn);
+                        command3.Parameters.AddWithValue("@Q", question_newEnquiry.Text.ToString());
+                        command3.Parameters.Add("@ExpectedDate", SqlDbType.Date).Value = datePicker_newEnquiry.Value.Date;
+                        command3.Parameters.AddWithValue("@MID", MeetingID_NEW);
+
+                        if (Save_newMeetingBox.Checked == true) command3.Parameters.AddWithValue("@Status", "Draft");
+                        else command3.Parameters.AddWithValue("@Status", "Submitted");
+                    
+                        //POBRANIE ID WSTAWIONEGO REKORDU I WSTAWIENIE GO W MEETING
+                        int MEID_NEW = Convert.ToInt32(command3.ExecuteScalar());
+
+                        SqlCommand command4 = new SqlCommand("UPDATE MeetingSet SET MedicalEnquiryID = @meid WHERE meetingID = @mID ", conn);
+                        command4.Parameters.AddWithValue("@meid", MEID_NEW);
+                        command4.Parameters.AddWithValue("@mID", MeetingID_NEW);
+                        command4.ExecuteNonQuery();
+                    }
+
+                    //TWORZENIE SAMPLE DROPA
+                    if ((createSampleDropCheck_newMeeting.Checked == true) && (Submit_newMeetingBox.Checked == true))
+                    {
+                        SqlCommand command5 = new SqlCommand("UPDATE MeetingSet SET SampleDrop = @sampleid, SampleDropQty = @sampleqty WHERE meetingID = @mID ", conn);
+                        command5.Parameters.AddWithValue("@mID", MeetingID_NEW);
+                        command5.Parameters.AddWithValue("@sampleid", Convert.ToInt32(sampleGridView_newMTG.CurrentRow.Cells[0].Value));
+                        command5.Parameters.AddWithValue("@sampleqty", SamplesQty_newMTG.Value);
+                        command5.ExecuteNonQuery();
+
+                        SqlCommand command6 = new SqlCommand("UPDATE SampleWarehouseSet SET Qty = Qty - @q WHERE UserID = @uID AND SampleID = @sID ", conn);
+                        command6.Parameters.AddWithValue("@q", SamplesQty_newMTG.Value);
+                        command6.Parameters.AddWithValue("@uID", loggedUserID);
+                        command6.Parameters.AddWithValue("@sID", Convert.ToInt32(sampleGridView_newMTG.CurrentRow.Cells[0].Value));
+                        command6.ExecuteNonQuery();
+                    }
+                    conn.Close();
+                    mainController.SelectedTab = hcpMeetings_Page;
                 }
-                conn.Close();
-                mainController.SelectedTab = hcpMeetings_Page;
+                catch (SqlException er)
+                {
+                    String text = "There was an error reported by SQL Server, " + er.Message;
+                    MessageBox.Show(text, "ERROR");
+                }
+
             }
-            catch (SqlException er)
+            if (action_backTo == "EDITMTG_PAGE")
             {
-                String text = "There was an error reported by SQL Server, " + er.Message;
-                MessageBox.Show(text, "ERROR");
+                string sConnection = Properties.Settings.Default.ConnectionString;
+                SqlConnection conn = new SqlConnection();
+                conn.ConnectionString = sConnection;
+                conn.Open();
+                try
+                {
+                    String commandText = "UPDATE MeetingSet SET Date = @Date, Type = @Type, Topic = @Topic, ProductID = @ProductID, NextMtgNote = @NextMtgNote WHERE meetingID = @mID";
+                    SqlCommand command = new SqlCommand(commandText, conn);
+                    command.Parameters.Add("@Date", SqlDbType.Date).Value = datePicker_newMeetingBox.Value.Date;
+                    if (Save_newMeetingBox.Checked == true) command.Parameters.AddWithValue("@Type", "Saved");
+                    else command.Parameters.AddWithValue("@Type", "Submitted");
+                    command.Parameters.AddWithValue("@Topic", topic_newMeetingBox.Text.ToString());
+                    command.Parameters.AddWithValue("@ProductID", Convert.ToInt32(productID_newMeetingLabel.Text.ToString()));
+                    if (!String.IsNullOrEmpty(nextmtgnote_newMeetingBox.Text)) command.Parameters.AddWithValue("@NextMtgNote", nextmtgnote_newMeetingBox.Text.ToString());
+                    else command.Parameters.AddWithValue("@NextMtgNote", DBNull.Value);
+                    command.Parameters.AddWithValue("@mID", Convert.ToInt32(myMeetingsGridView.CurrentRow.Cells[0].Value));
+                    command.ExecuteNonQuery();
+
+                    //TWORZENIE MEDICAL ENQUIRY I WSTAWIANIE ODPOWIEDNIEGO ID DO MEETINGU JEŚLI BRAK MEETINGU
+                    if (createEnquiryCheck_newMeeting.Checked == true && String.IsNullOrEmpty(myMeetingsGridView.CurrentRow.Cells[2].Value.ToString()) )
+                    {
+                        SqlCommand command3 = new SqlCommand("INSERT INTO MedicalEnquirySet output INSERTED.meID VALUES(@Q, NULL, @ExpectedDate, @MID, @Status)", conn);
+                        command3.Parameters.AddWithValue("@Q", question_newEnquiry.Text.ToString());
+                        command3.Parameters.Add("@ExpectedDate", SqlDbType.Date).Value = datePicker_newEnquiry.Value.Date;
+                        command3.Parameters.AddWithValue("@MID", Convert.ToInt32(myMeetingsGridView.CurrentRow.Cells[0].Value));
+
+                        if (Save_newMeetingBox.Checked == true) command3.Parameters.AddWithValue("@Status", "Draft");
+                        else command3.Parameters.AddWithValue("@Status", "Submitted");
+
+                        //POBRANIE ID WSTAWIONEGO REKORDU I WSTAWIENIE GO W MEETING
+                        int MEID_NEW = Convert.ToInt32(command3.ExecuteScalar());
+
+                        SqlCommand command4 = new SqlCommand("UPDATE MeetingSet SET MedicalEnquiryID = @meid WHERE meetingID = @mID ", conn);
+                        command4.Parameters.AddWithValue("@meid", MEID_NEW);
+                        command4.Parameters.AddWithValue("@mID", Convert.ToInt32(myMeetingsGridView.CurrentRow.Cells[0].Value));
+                        command4.ExecuteNonQuery();
+                    }
+
+                    // UPDATE MEETINGU JEŻELI JUŻ JAKIŚ ISTNIEJE
+                    if (createEnquiryCheck_newMeeting.Checked == true && !String.IsNullOrEmpty(myMeetingsGridView.CurrentRow.Cells[2].Value.ToString()))
+                    {
+                        SqlCommand command3 = new SqlCommand("UPDATE MedicalEnquirySet SET Question = @Q, ExpectedAnswerDate = @ExpectedDate, Status = @Status WHERE meID = @mID2", conn);
+                        command3.Parameters.AddWithValue("@Q", question_newEnquiry.Text.ToString());
+                        command3.Parameters.Add("@ExpectedDate", SqlDbType.Date).Value = datePicker_newEnquiry.Value.Date;
+                        command3.Parameters.AddWithValue("@mID2", Convert.ToInt32(myMeetingsGridView.CurrentRow.Cells[2].Value));
+
+                        if (Save_newMeetingBox.Checked == true) command3.Parameters.AddWithValue("@Status", "Draft");
+                        else command3.Parameters.AddWithValue("@Status", "Submitted");
+                        command3.ExecuteNonQuery();
+                    }
+
+                    //TWORZENIE SAMPLE DROPA
+                    if ((createSampleDropCheck_newMeeting.Checked == true) && (Submit_newMeetingBox.Checked == true))
+                    {
+                        SqlCommand command5 = new SqlCommand("UPDATE MeetingSet SET SampleDrop = @sampleid, SampleDropQty = @sampleqty WHERE meetingID = @mID ", conn);
+                        command5.Parameters.AddWithValue("@mID", Convert.ToInt32(myMeetingsGridView.CurrentRow.Cells[0].Value));
+                        command5.Parameters.AddWithValue("@sampleid", Convert.ToInt32(sampleGridView_newMTG.CurrentRow.Cells[0].Value));
+                        command5.Parameters.AddWithValue("@sampleqty", SamplesQty_newMTG.Value);
+                        command5.ExecuteNonQuery();
+
+                        SqlCommand command6 = new SqlCommand("UPDATE SampleWarehouseSet SET Qty = Qty - @q WHERE UserID = @uID AND SampleID = @sID ", conn);
+                        command6.Parameters.AddWithValue("@q", SamplesQty_newMTG.Value);
+                        command6.Parameters.AddWithValue("@uID", loggedUserID);
+                        command6.Parameters.AddWithValue("@sID", Convert.ToInt32(sampleGridView_newMTG.CurrentRow.Cells[0].Value));
+                        command6.ExecuteNonQuery();
+                    }
+                    conn.Close();
+                    mainController.SelectedTab = hcpMeetings_Page;
+                }
+                catch (SqlException er)
+                {
+                    String text = "There was an error reported by SQL Server, " + er.Message;
+                    MessageBox.Show(text, "ERROR");
+                }
             }
         }
 
@@ -2172,6 +2269,57 @@ namespace myRep_app
                 String text = "There was an error reported by SQL Server, " + er.Message;
                 MessageBox.Show(text, "ERROR");
             }
+        }
+
+        private void EditMeetingButton_Click(object sender, EventArgs e)
+        {
+            action_backTo = "EDITMTG_PAGE";
+            mainController.SelectedTab = new_Meeting_Page;
+            hcpName_newMeetingBox.Text = hcpDataGridView.CurrentRow.Cells[1].Value.ToString() + " " + hcpDataGridView.CurrentRow.Cells[2].Value.ToString();
+            datePicker_newMeetingBox.Value = Convert.ToDateTime(myMeetingsGridView.CurrentRow.Cells[4].Value);
+            topic_newMeetingBox.Text = myMeetingsGridView.CurrentRow.Cells[5].Value.ToString();
+            productName_newMeetingLabel.Text = myMeetingsGridView.CurrentRow.Cells[6].Value.ToString();
+
+            //POBRANIE PRODUCT ID
+            string sConnection = Properties.Settings.Default.myRep_ODSConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT ProductID FROM MeetingSet WHERE meetingID = @mID", conn);
+                command.Parameters.AddWithValue("@mID", myMeetingsGridView.CurrentRow.Cells[0].Value);
+                productID_newMeetingLabel.Text = Convert.ToString(command.ExecuteScalar());
+
+                //WYPEŁNIENIE SAMPLE GRIDA
+                SqlCommand command2 = new SqlCommand("dbo.SamplesPerProduct", conn);
+                command2.CommandType = CommandType.StoredProcedure;
+                command2.Parameters.AddWithValue("@pID", Convert.ToInt32(command.ExecuteScalar()));
+                //WYPEŁNIANIE GRIDA Z SAMPLAMI
+                DataTable dt = new DataTable();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command2);
+                dataAdapter.Fill(dt);
+                sampleGridView_newMTG.DataSource = dt;
+                sampleGridView_newMTG.Columns[0].Visible = false;
+                sampleGridView_newMTG.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
+                conn.Close();
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
+            
+            nextmtgnote_newMeetingBox.Text = myMeetingsGridView.CurrentRow.Cells[1].Value.ToString();
+            if (question_hcpMeetings.Text != "-") question_newEnquiry.Text = question_hcpMeetings.Text; else question_newEnquiry.Text = "";
+            if (label122.Text != "-") datePicker_newEnquiry.Value = Convert.ToDateTime(label122.Text);
+            if (label120.Visible == false) createEnquiryCheck_newMeeting.Checked = true;
+            createSampleDropCheck_newMeeting.Checked = false;
+            SamplesQty_newMTG.Value = 0;
+            Save_newMeetingBox.Checked = false;
+            Submit_newMeetingBox.Checked = false;
+
         }
     }
 }
