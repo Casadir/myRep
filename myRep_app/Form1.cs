@@ -1783,12 +1783,10 @@ namespace myRep_app
             //WYŚWIETLENIE PRZYCISKÓW EDYCJI I SUBMITTOWANIA JEŚLI STATUS = SAVED
             if (myMeetingsGridView.CurrentRow.Cells[3].Value.ToString() == "Saved")
             {
-                SubmitMeetingButton.Visible = true;
                 EditMeetingButton.Visible = true;
             }   
             else
             {
-                SubmitMeetingButton.Visible = false;
                 EditMeetingButton.Visible = false;
             }
             //WYŚWIETLENIE NOTATKI JEŚLI DODANA DO SPOTKANIA    
@@ -2144,6 +2142,43 @@ namespace myRep_app
                     MessageBox.Show(text, "ERROR");
                 }
             }
+
+            //ODŚWIEŻENIE GRIDA
+            string sConnection2 = Properties.Settings.Default.myRep_ODSConnectionString;
+            SqlConnection conn2 = new SqlConnection();
+            conn2.ConnectionString = sConnection2;
+            conn2.Open();
+            try
+            {
+                SqlCommand command = new SqlCommand("dbo.myMeetings", conn2);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@uID", loggedUserID);
+                command.Parameters.AddWithValue("@hcpID", Convert.ToInt32(hcpDataGridView.CurrentRow.Cells[0].Value));
+                //WYPEŁNIANIE GRIDA Z MEETINGAMI
+                DataTable dt = new DataTable();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                dataAdapter.Fill(dt);
+                myMeetingsGridView.DataSource = dt;
+                myMeetingsGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                myMeetingsGridView.Columns[0].Visible = false; //MEETING ID
+                myMeetingsGridView.Columns[1].Visible = false; // NEXT MEETING NOTE
+                myMeetingsGridView.Columns[2].Visible = false; // MEDICAL ENQUIRY ID
+                myMeetingsGridView.Columns[3].Visible = false; // SUBMITTED/SAVED
+                myMeetingsGridView.ClearSelection();
+
+                //KOLOROWANIE WIERSZY - ROZPOZNAWANIE SUBMITTED/SAVED
+                foreach (DataGridViewRow row in myMeetingsGridView.Rows)
+                {
+                    if (row.Cells[3].Value.ToString() == "Submitted") row.DefaultCellStyle.BackColor = Color.CadetBlue;
+                    else if (row.Cells[3].Value.ToString() == "Saved") row.DefaultCellStyle.BackColor = Color.Orange;
+                }
+                conn2.Close();
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
         }
 
         private void createEnquiryCheck_newMeeting_CheckedChanged(object sender, EventArgs e)
@@ -2320,6 +2355,91 @@ namespace myRep_app
             Save_newMeetingBox.Checked = false;
             Submit_newMeetingBox.Checked = false;
 
+        }
+
+        private void productsDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            productsDataGridView.ClearSelection();
+        }
+
+        private void samplelistGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            samplelistGridView.ClearSelection();
+        }
+
+        private void DisbursedSamplesGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            DisbursedSamplesGridView.ClearSelection();
+        }
+
+        private void mySamplesDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            mySamplesDataGridView.ClearSelection();
+        }
+
+        private void selectUser_giveSampleGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            selectUser_giveSampleGridView.ClearSelection();
+        }
+
+        private void hcpDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            hcpDataGridView.ClearSelection();
+        }
+
+        private void hcoDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            hcoDataGridView.ClearSelection();
+        }
+
+        private void HCPinHCOGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            HCPinHCOGridView.ClearSelection();
+        }
+
+        private void addressDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            addressDataGridView.ClearSelection();
+        }
+
+        private void HCPunderAddressGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            HCPunderAddressGridView.ClearSelection();
+        }
+
+        private void HCOunderAddressGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            HCOunderAddressGridView.ClearSelection();
+        }
+
+        private void myMeetingsGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            myMeetingsGridView.ClearSelection();
+        }
+
+        private void SelectProductDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            SelectProductDataGridView.ClearSelection();
+        }
+
+        private void usersDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            usersDataGridView.ClearSelection();
+        }
+
+        private void setAddressGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            setAddressGridView.ClearSelection();
+        }
+
+        private void Assossiation_AddManualView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            Assossiation_AddManualView.ClearSelection();
+        }
+
+        private void dataGridViewHCPWorkPlace_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dataGridViewHCPWorkPlace.ClearSelection();
         }
     }
 }
