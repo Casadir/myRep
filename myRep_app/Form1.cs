@@ -2441,5 +2441,58 @@ namespace myRep_app
         {
             dataGridViewHCPWorkPlace.ClearSelection();
         }
+
+        private void myEnqDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            myEnqDataGridView.ClearSelection();
+            //KOLOROWANIE
+            foreach (DataGridViewRow row in myEnqDataGridView.Rows)
+            {
+                if (row.Cells[2].Value.ToString() == "Draft") row.DefaultCellStyle.BackColor = Color.SlateGray;
+                else if (row.Cells[2].Value.ToString() == "Submitted") row.Cells[2].Style.BackColor = Color.LightSkyBlue;
+                else if (row.Cells[2].Value.ToString() == "Pending") row.Cells[2].Style.BackColor = Color.NavajoWhite;
+                else if (row.Cells[2].Value.ToString() == "Done") row.Cells[2].Style.BackColor = Color.GreenYellow;
+
+                //int DaysDiff = 
+
+                if (row.Cells[2].Value.ToString() == "Draft") row.DefaultCellStyle.BackColor = Color.SlateGray;
+                else if (row.Cells[2].Value.ToString() == "Submitted") row.Cells[2].Style.BackColor = Color.LightSkyBlue;
+                else if (row.Cells[2].Value.ToString() == "Pending") row.Cells[2].Style.BackColor = Color.NavajoWhite;
+                else if (row.Cells[2].Value.ToString() == "Done") row.Cells[2].Style.BackColor = Color.GreenYellow;
+
+            }
+        }
+
+        private void myEnquiriesButton_Click(object sender, EventArgs e)
+        {
+            string sConnection = Properties.Settings.Default.myRep_ODSConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                SqlCommand command = new SqlCommand("dbo.myMedicalEnquiries", conn);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@uID", loggedUserID);
+                //WYPEŁNIANIE GRIDA Z Medical Enquiry dla obecnie zalogowanego usera
+                DataTable dt = new DataTable();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                dataAdapter.Fill(dt);
+                myEnqDataGridView.DataSource = dt;
+                myEnqDataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                conn.Close();
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
+           
+            mainController.SelectedTab = myEnq_Page;
+
+
+        }
+
+
     }
 }
