@@ -121,6 +121,7 @@ namespace myRep_app
                                 //Sterowanie kontrolkami na ProductsMgmt page tak aby nie zostały aktywowane
                                 label94.Visible = false; DisbursedSamplesGridView.Visible = false; SampleRightsErrorLabel.Visible = true; newProductButton.Enabled = false; editProductButton.Enabled = false; NewSampleButton.Enabled = false; EditSampleButton.Enabled = false; GiveSampleButton.Enabled = false;
                                 mySamplesButton.Enabled = false; mySamplesButton.Visible = false;
+                                EnquiriesCenter.Enabled = false; EnquiriesCenter.Visible = false;
                                 break;
                             }
                         case "SnPA":
@@ -131,7 +132,7 @@ namespace myRep_app
                                 //Sterowanie kontrolkami na ProductsMgmt page tak aby zostały aktywowane tylko dla Sample&Product Admina
                                 label94.Visible = true; DisbursedSamplesGridView.Visible = true; newProductButton.Enabled = true; editProductButton.Enabled = false; NewSampleButton.Enabled = false; EditSampleButton.Enabled = false; GiveSampleButton.Enabled = false;
                                 mySamplesButton.Enabled = false; mySamplesButton.Visible = false;
-
+                                EnquiriesCenter.Enabled = false; EnquiriesCenter.Visible = false;
                                 break;
                             }
                         case "REP":
@@ -142,17 +143,28 @@ namespace myRep_app
                                 //Sterowanie kontrolkami na ProductsMgmt page tak aby nie zostały aktywowane
                                 label94.Visible = false; DisbursedSamplesGridView.Visible = false; SampleRightsErrorLabel.Visible = true; newProductButton.Enabled = false; editProductButton.Enabled = false; NewSampleButton.Enabled = false; EditSampleButton.Enabled = false; GiveSampleButton.Enabled = false;
                                 mySamplesButton.Enabled = true; mySamplesButton.Visible = true;
+                                myEnquiriesButton.Enabled = true; myEnquiriesButton.Visible = true;
+                                EnquiriesCenter.Enabled = false; EnquiriesCenter.Visible = false;
                                 break;
                             }
-
+                        case "MIE":
+                            {
+                                myAccountsButton.Visible = false; myAccountsButton.Enabled = false;
+                                userMgmtButton.Visible = false; userMgmtButton.Enabled = false;
+                                productsMgmtButton.Visible = false; productsMgmtButton.Enabled = false;
+                                //Sterowanie kontrolkami na ProductsMgmt page tak aby nie zostały aktywowane
+                                label94.Visible = false; DisbursedSamplesGridView.Visible = false; SampleRightsErrorLabel.Visible = false; newProductButton.Enabled = false; editProductButton.Enabled = false; NewSampleButton.Enabled = false; EditSampleButton.Enabled = false; GiveSampleButton.Enabled = false;
+                                mySamplesButton.Enabled = false; mySamplesButton.Visible = false;
+                                myEnquiriesButton.Enabled = false; myEnquiriesButton.Visible = false;
+                                EnquiriesCenter.Enabled = true; EnquiriesCenter.Visible = true;
+                                break;
+                            }
                         default: { myAccountsButton.Visible = false; myAccountsButton.Enabled = false; break; }
                     }
+                    
                     UsernameBox.Text = "";
                     PasswordBox.Text = "";
-                    hcpDataGridView.ClearSelection();
                     hcpDataGridView.Columns[0].Visible = false;
-                    hcoDataGridView.ClearSelection();
-                    addressDataGridView.ClearSelection();
                 }
             }
             catch (SqlException er)
@@ -177,6 +189,8 @@ namespace myRep_app
             userMgmtButton.Visible = false;
             userMgmtButton.Enabled = false;
             productsMgmtButton.Enabled = false; productsMgmtButton.Visible = false;
+            mySamplesButton.Enabled = false; mySamplesButton.Visible = false;
+            myEnquiriesButton.Enabled = false; myEnquiriesButton.Visible = false;
             MessageBox.Show("DO ZOBACZENIA!");
         }
 
@@ -2445,21 +2459,22 @@ namespace myRep_app
         private void myEnqDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             myEnqDataGridView.ClearSelection();
+            myEnqDataGridView.Columns[5].Visible = false;
             //KOLOROWANIE
             foreach (DataGridViewRow row in myEnqDataGridView.Rows)
             {
                 if (row.Cells[2].Value.ToString() == "Draft") row.DefaultCellStyle.BackColor = Color.SlateGray;
+                else if (row.Cells[2].Value.ToString() == "Done") { row.Cells[0].Style.BackColor = Color.GreenYellow; row.Cells[2].Style.BackColor = Color.GreenYellow; row.Cells[1].Style.BackColor = Color.GreenYellow; }
                 else if (row.Cells[2].Value.ToString() == "Submitted") row.Cells[2].Style.BackColor = Color.LightSkyBlue;
                 else if (row.Cells[2].Value.ToString() == "Pending") row.Cells[2].Style.BackColor = Color.NavajoWhite;
-                else if (row.Cells[2].Value.ToString() == "Done") row.Cells[2].Style.BackColor = Color.GreenYellow;
+                
 
-                //int DaysDiff = 
-
-                if (row.Cells[2].Value.ToString() == "Draft") row.DefaultCellStyle.BackColor = Color.SlateGray;
-                else if (row.Cells[2].Value.ToString() == "Submitted") row.Cells[2].Style.BackColor = Color.LightSkyBlue;
-                else if (row.Cells[2].Value.ToString() == "Pending") row.Cells[2].Style.BackColor = Color.NavajoWhite;
-                else if (row.Cells[2].Value.ToString() == "Done") row.Cells[2].Style.BackColor = Color.GreenYellow;
-
+                int DaysDiff = (Convert.ToDateTime(row.Cells[1].Value) - DateTime.Now.Date).Days;
+                if (DaysDiff < 0 && (row.Cells[2].Value.ToString() != "Done" && row.Cells[2].Value.ToString() != "Draft")) row.Cells[1].Style.BackColor = Color.Red;
+                else if (DaysDiff <= 3 && (row.Cells[2].Value.ToString() != "Done" && row.Cells[2].Value.ToString() != "Draft")) row.Cells[1].Style.BackColor = Color.SandyBrown;
+                else if (DaysDiff <= 5 && (row.Cells[2].Value.ToString() != "Done" && row.Cells[2].Value.ToString() != "Draft")) row.Cells[1].Style.BackColor = Color.Khaki;
+                else if (DaysDiff > 5 && (row.Cells[2].Value.ToString() != "Done" && row.Cells[2].Value.ToString() != "Draft")) row.Cells[1].Style.BackColor = Color.GreenYellow;
+                
             }
         }
 
@@ -2493,6 +2508,129 @@ namespace myRep_app
 
         }
 
+        private void myEnqDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            label134.Visible = true;
+            label135.Visible = true;
+            q_myEnqBox.Visible = true;
+            a_myEnqBox.Visible = true;
+            q_myEnqBox.Text = myEnqDataGridView.CurrentRow.Cells[4].Value.ToString();
+            a_myEnqBox.Text = myEnqDataGridView.CurrentRow.Cells[5].Value.ToString();
+        }
 
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            mainController.SelectedTab = homePage;
+        }
+
+        private void EnquiriesCenter_Click(object sender, EventArgs e)
+        {
+            string sConnection = Properties.Settings.Default.myRep_ODSConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                SqlCommand command = new SqlCommand("dbo.allEnquiries", conn);
+                command.CommandType = CommandType.StoredProcedure;
+                //WYPEŁNIANIE GRIDA ZE WSZYSTKIMI MEDICAL ENQUIRIES które nie są Draftami
+                DataTable dt = new DataTable();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                dataAdapter.Fill(dt);
+                allEnquiriesGridView.DataSource = dt;
+                allEnquiriesGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                conn.Close();
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
+            mainController.SelectedTab = enqCenter_Page;
+        }
+
+        private void allEnquiriesGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            allEnquiriesGridView.ClearSelection();
+            allEnquiriesGridView.Columns[9].Visible = false;
+            allEnquiriesGridView.Columns[10].Visible = false;
+            //KOLOROWANIE
+            foreach (DataGridViewRow row in allEnquiriesGridView.Rows)
+            {
+                if (row.Cells[2].Value.ToString() == "Done") { row.DefaultCellStyle.BackColor = Color.GreenYellow; }
+                else if (row.Cells[2].Value.ToString() == "Submitted") row.Cells[2].Style.BackColor = Color.LightSkyBlue;
+                else if (row.Cells[2].Value.ToString() == "Pending") row.Cells[2].Style.BackColor = Color.NavajoWhite;
+
+
+                int DaysDiff = (Convert.ToDateTime(row.Cells[1].Value) - DateTime.Now.Date).Days;
+                if (DaysDiff < 0 && (row.Cells[2].Value.ToString() != "Done" && row.Cells[2].Value.ToString() != "Draft")) row.Cells[1].Style.BackColor = Color.Red;
+                else if (DaysDiff <= 3 && (row.Cells[2].Value.ToString() != "Done" && row.Cells[2].Value.ToString() != "Draft")) row.Cells[1].Style.BackColor = Color.SandyBrown;
+                else if (DaysDiff <= 5 && (row.Cells[2].Value.ToString() != "Done" && row.Cells[2].Value.ToString() != "Draft")) row.Cells[1].Style.BackColor = Color.Khaki;
+                else if (DaysDiff > 5 && (row.Cells[2].Value.ToString() != "Done" && row.Cells[2].Value.ToString() != "Draft")) row.Cells[1].Style.BackColor = Color.GreenYellow;
+
+            }
+
+        }
+
+        private void allEnquiriesGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            q_allEnqBox.Text = allEnquiriesGridView.CurrentRow.Cells[9].Value.ToString();
+            a_allEnqBox.Text = allEnquiriesGridView.CurrentRow.Cells[10].Value.ToString();
+            if (allEnquiriesGridView.CurrentRow.Cells[2].Value.ToString() == "Submitted" || allEnquiriesGridView.CurrentRow.Cells[2].Value.ToString() == "Pending")
+            {
+                a_allEnqBox.Enabled = true;
+                save_EnqCenter.Enabled = true; save_EnqCenter.Checked = false;
+                submit_EnqCenter.Enabled = true; submit_EnqCenter.Checked = false;
+            }
+            else
+            {
+                a_allEnqBox.Enabled = false;
+                saveEnq_enqCenterButton.Enabled = false;
+                save_EnqCenter.Enabled = false; save_EnqCenter.Checked = false;
+                submit_EnqCenter.Enabled = false; submit_EnqCenter.Checked = false;
+            }
+        }
+
+        private void saveEnq_enqCenterButton_Click(object sender, EventArgs e)
+        {
+            string sConnection = Properties.Settings.Default.myRep_ODSConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                SqlCommand command = new SqlCommand("UPDATE MedicalEnquirySet SET Answer = @ans, Status = @stat WHERE meID = @mID", conn);
+                command.Parameters.AddWithValue("@ans", a_allEnqBox.Text.ToString());
+                if (save_EnqCenter.Checked == true) command.Parameters.AddWithValue("@stat", "Pending");
+                if (submit_EnqCenter.Checked == true) command.Parameters.AddWithValue("@stat", "Done");
+                command.Parameters.AddWithValue("@mID", Convert.ToInt32(allEnquiriesGridView.CurrentRow.Cells[0].Value));
+                command.ExecuteNonQuery();
+
+                SqlCommand command2 = new SqlCommand("dbo.allEnquiries", conn);
+                command2.CommandType = CommandType.StoredProcedure;
+                //WYPEŁNIANIE GRIDA ZE WSZYSTKIMI MEDICAL ENQUIRIES które nie są Draftami
+                DataTable dt = new DataTable();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command2);
+                dataAdapter.Fill(dt);
+                allEnquiriesGridView.DataSource = dt;
+                allEnquiriesGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                conn.Close();
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
+        }
+
+        private void save_EnqCenter_CheckedChanged(object sender, EventArgs e)
+        {
+            saveEnq_enqCenterButton.Enabled = (save_EnqCenter.Checked == true || submit_EnqCenter.Checked == true);
+        }
+
+        private void exit_enqCenterButton_Click(object sender, EventArgs e)
+        {
+            mainController.SelectedTab = homePage;
+        }
     }
 }

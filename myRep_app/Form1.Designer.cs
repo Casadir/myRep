@@ -504,6 +504,24 @@
             this.myEnq_Page = new System.Windows.Forms.TabPage();
             this.myEnqDataGridView = new System.Windows.Forms.DataGridView();
             this.label133 = new System.Windows.Forms.Label();
+            this.label134 = new System.Windows.Forms.Label();
+            this.label135 = new System.Windows.Forms.Label();
+            this.q_myEnqBox = new System.Windows.Forms.TextBox();
+            this.a_myEnqBox = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.EnquiriesCenter = new System.Windows.Forms.Button();
+            this.enqCenter_Page = new System.Windows.Forms.TabPage();
+            this.label136 = new System.Windows.Forms.Label();
+            this.allEnquiriesGridView = new System.Windows.Forms.DataGridView();
+            this.label137 = new System.Windows.Forms.Label();
+            this.label138 = new System.Windows.Forms.Label();
+            this.q_allEnqBox = new System.Windows.Forms.TextBox();
+            this.a_allEnqBox = new System.Windows.Forms.TextBox();
+            this.saveEnq_enqCenterButton = new System.Windows.Forms.Button();
+            this.exit_enqCenterButton = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.save_EnqCenter = new System.Windows.Forms.RadioButton();
+            this.submit_EnqCenter = new System.Windows.Forms.RadioButton();
             this.mainController.SuspendLayout();
             this.homePage.SuspendLayout();
             this.products_Mgmt_Page.SuspendLayout();
@@ -586,11 +604,15 @@
             this.filterUsersbyTerritoryToolStrip.SuspendLayout();
             this.myEnq_Page.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.myEnqDataGridView)).BeginInit();
+            this.enqCenter_Page.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.allEnquiriesGridView)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainController
             // 
             this.mainController.Controls.Add(this.homePage);
+            this.mainController.Controls.Add(this.enqCenter_Page);
             this.mainController.Controls.Add(this.myEnq_Page);
             this.mainController.Controls.Add(this.products_Mgmt_Page);
             this.mainController.Controls.Add(this.mySamplesPage);
@@ -619,6 +641,7 @@
             // 
             // homePage
             // 
+            this.homePage.Controls.Add(this.EnquiriesCenter);
             this.homePage.Controls.Add(this.myEnquiriesButton);
             this.homePage.Controls.Add(this.mySamplesButton);
             this.homePage.Controls.Add(this.productsMgmtButton);
@@ -5643,16 +5666,23 @@
             // 
             // myEnquiriesButton
             // 
+            this.myEnquiriesButton.Enabled = false;
             this.myEnquiriesButton.Location = new System.Drawing.Point(265, 137);
             this.myEnquiriesButton.Name = "myEnquiriesButton";
             this.myEnquiriesButton.Size = new System.Drawing.Size(98, 53);
             this.myEnquiriesButton.TabIndex = 17;
             this.myEnquiriesButton.Text = "Panel Moich Zapytań";
             this.myEnquiriesButton.UseVisualStyleBackColor = true;
+            this.myEnquiriesButton.Visible = false;
             this.myEnquiriesButton.Click += new System.EventHandler(this.myEnquiriesButton_Click);
             // 
             // myEnq_Page
             // 
+            this.myEnq_Page.Controls.Add(this.button5);
+            this.myEnq_Page.Controls.Add(this.a_myEnqBox);
+            this.myEnq_Page.Controls.Add(this.q_myEnqBox);
+            this.myEnq_Page.Controls.Add(this.label135);
+            this.myEnq_Page.Controls.Add(this.label134);
             this.myEnq_Page.Controls.Add(this.label133);
             this.myEnq_Page.Controls.Add(this.myEnqDataGridView);
             this.myEnq_Page.Location = new System.Drawing.Point(4, 22);
@@ -5672,24 +5702,230 @@
             this.myEnqDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.myEnqDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.myEnqDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.myEnqDataGridView.Location = new System.Drawing.Point(6, 46);
+            this.myEnqDataGridView.Location = new System.Drawing.Point(150, 46);
             this.myEnqDataGridView.Name = "myEnqDataGridView";
             this.myEnqDataGridView.ReadOnly = true;
             this.myEnqDataGridView.RowHeadersVisible = false;
             this.myEnqDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.myEnqDataGridView.Size = new System.Drawing.Size(542, 150);
+            this.myEnqDataGridView.Size = new System.Drawing.Size(542, 178);
             this.myEnqDataGridView.TabIndex = 0;
+            this.myEnqDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.myEnqDataGridView_CellClick);
             this.myEnqDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.myEnqDataGridView_DataBindingComplete);
             // 
             // label133
             // 
             this.label133.AutoSize = true;
             this.label133.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label133.Location = new System.Drawing.Point(6, 20);
+            this.label133.Location = new System.Drawing.Point(307, 23);
             this.label133.Name = "label133";
             this.label133.Size = new System.Drawing.Size(241, 20);
             this.label133.TabIndex = 1;
             this.label133.Text = "MOJE ZAPYNIA MEDYCZNE";
+            // 
+            // label134
+            // 
+            this.label134.AutoSize = true;
+            this.label134.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label134.Location = new System.Drawing.Point(9, 227);
+            this.label134.Name = "label134";
+            this.label134.Size = new System.Drawing.Size(77, 20);
+            this.label134.TabIndex = 2;
+            this.label134.Text = "PYTANIE";
+            this.label134.Visible = false;
+            // 
+            // label135
+            // 
+            this.label135.AutoSize = true;
+            this.label135.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label135.Location = new System.Drawing.Point(10, 343);
+            this.label135.Name = "label135";
+            this.label135.Size = new System.Drawing.Size(108, 20);
+            this.label135.TabIndex = 3;
+            this.label135.Text = "ODPOWIEDŹ";
+            this.label135.Visible = false;
+            // 
+            // q_myEnqBox
+            // 
+            this.q_myEnqBox.Location = new System.Drawing.Point(13, 250);
+            this.q_myEnqBox.Multiline = true;
+            this.q_myEnqBox.Name = "q_myEnqBox";
+            this.q_myEnqBox.ReadOnly = true;
+            this.q_myEnqBox.Size = new System.Drawing.Size(679, 75);
+            this.q_myEnqBox.TabIndex = 4;
+            this.q_myEnqBox.Visible = false;
+            // 
+            // a_myEnqBox
+            // 
+            this.a_myEnqBox.Location = new System.Drawing.Point(13, 373);
+            this.a_myEnqBox.Multiline = true;
+            this.a_myEnqBox.Name = "a_myEnqBox";
+            this.a_myEnqBox.ReadOnly = true;
+            this.a_myEnqBox.Size = new System.Drawing.Size(679, 75);
+            this.a_myEnqBox.TabIndex = 5;
+            this.a_myEnqBox.Visible = false;
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button5.Location = new System.Drawing.Point(14, 46);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(104, 178);
+            this.button5.TabIndex = 6;
+            this.button5.Text = "Powrót";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click_1);
+            // 
+            // EnquiriesCenter
+            // 
+            this.EnquiriesCenter.Enabled = false;
+            this.EnquiriesCenter.Location = new System.Drawing.Point(265, 197);
+            this.EnquiriesCenter.Name = "EnquiriesCenter";
+            this.EnquiriesCenter.Size = new System.Drawing.Size(98, 52);
+            this.EnquiriesCenter.TabIndex = 18;
+            this.EnquiriesCenter.Text = "Centrum Zapytań";
+            this.EnquiriesCenter.UseVisualStyleBackColor = true;
+            this.EnquiriesCenter.Visible = false;
+            this.EnquiriesCenter.Click += new System.EventHandler(this.EnquiriesCenter_Click);
+            // 
+            // enqCenter_Page
+            // 
+            this.enqCenter_Page.Controls.Add(this.panel4);
+            this.enqCenter_Page.Controls.Add(this.exit_enqCenterButton);
+            this.enqCenter_Page.Controls.Add(this.saveEnq_enqCenterButton);
+            this.enqCenter_Page.Controls.Add(this.a_allEnqBox);
+            this.enqCenter_Page.Controls.Add(this.q_allEnqBox);
+            this.enqCenter_Page.Controls.Add(this.label138);
+            this.enqCenter_Page.Controls.Add(this.label137);
+            this.enqCenter_Page.Controls.Add(this.allEnquiriesGridView);
+            this.enqCenter_Page.Controls.Add(this.label136);
+            this.enqCenter_Page.Location = new System.Drawing.Point(4, 22);
+            this.enqCenter_Page.Name = "enqCenter_Page";
+            this.enqCenter_Page.Padding = new System.Windows.Forms.Padding(3);
+            this.enqCenter_Page.Size = new System.Drawing.Size(812, 465);
+            this.enqCenter_Page.TabIndex = 21;
+            this.enqCenter_Page.Text = "enqCenter";
+            this.enqCenter_Page.UseVisualStyleBackColor = true;
+            // 
+            // label136
+            // 
+            this.label136.AutoSize = true;
+            this.label136.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label136.Location = new System.Drawing.Point(302, 14);
+            this.label136.Name = "label136";
+            this.label136.Size = new System.Drawing.Size(180, 20);
+            this.label136.TabIndex = 0;
+            this.label136.Text = "CENTRUM ZAPYTAŃ";
+            // 
+            // allEnquiriesGridView
+            // 
+            this.allEnquiriesGridView.AllowUserToAddRows = false;
+            this.allEnquiriesGridView.AllowUserToDeleteRows = false;
+            this.allEnquiriesGridView.AllowUserToResizeRows = false;
+            this.allEnquiriesGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.allEnquiriesGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.allEnquiriesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.allEnquiriesGridView.Location = new System.Drawing.Point(6, 49);
+            this.allEnquiriesGridView.Name = "allEnquiriesGridView";
+            this.allEnquiriesGridView.ReadOnly = true;
+            this.allEnquiriesGridView.RowHeadersVisible = false;
+            this.allEnquiriesGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.allEnquiriesGridView.Size = new System.Drawing.Size(800, 212);
+            this.allEnquiriesGridView.TabIndex = 1;
+            this.allEnquiriesGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.allEnquiriesGridView_CellClick);
+            this.allEnquiriesGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.allEnquiriesGridView_DataBindingComplete);
+            // 
+            // label137
+            // 
+            this.label137.AutoSize = true;
+            this.label137.Location = new System.Drawing.Point(7, 268);
+            this.label137.Name = "label137";
+            this.label137.Size = new System.Drawing.Size(53, 13);
+            this.label137.TabIndex = 2;
+            this.label137.Text = "PYTANIE";
+            // 
+            // label138
+            // 
+            this.label138.AutoSize = true;
+            this.label138.Location = new System.Drawing.Point(7, 358);
+            this.label138.Name = "label138";
+            this.label138.Size = new System.Drawing.Size(74, 13);
+            this.label138.TabIndex = 3;
+            this.label138.Text = "ODPOWIEDŹ";
+            // 
+            // q_allEnqBox
+            // 
+            this.q_allEnqBox.Enabled = false;
+            this.q_allEnqBox.Location = new System.Drawing.Point(10, 285);
+            this.q_allEnqBox.Multiline = true;
+            this.q_allEnqBox.Name = "q_allEnqBox";
+            this.q_allEnqBox.Size = new System.Drawing.Size(688, 54);
+            this.q_allEnqBox.TabIndex = 4;
+            // 
+            // a_allEnqBox
+            // 
+            this.a_allEnqBox.Enabled = false;
+            this.a_allEnqBox.Location = new System.Drawing.Point(10, 374);
+            this.a_allEnqBox.Multiline = true;
+            this.a_allEnqBox.Name = "a_allEnqBox";
+            this.a_allEnqBox.Size = new System.Drawing.Size(688, 85);
+            this.a_allEnqBox.TabIndex = 5;
+            // 
+            // saveEnq_enqCenterButton
+            // 
+            this.saveEnq_enqCenterButton.Enabled = false;
+            this.saveEnq_enqCenterButton.Location = new System.Drawing.Point(705, 356);
+            this.saveEnq_enqCenterButton.Name = "saveEnq_enqCenterButton";
+            this.saveEnq_enqCenterButton.Size = new System.Drawing.Size(88, 54);
+            this.saveEnq_enqCenterButton.TabIndex = 6;
+            this.saveEnq_enqCenterButton.Text = "WYKONAJ";
+            this.saveEnq_enqCenterButton.UseVisualStyleBackColor = true;
+            this.saveEnq_enqCenterButton.Click += new System.EventHandler(this.saveEnq_enqCenterButton_Click);
+            // 
+            // exit_enqCenterButton
+            // 
+            this.exit_enqCenterButton.Location = new System.Drawing.Point(705, 429);
+            this.exit_enqCenterButton.Name = "exit_enqCenterButton";
+            this.exit_enqCenterButton.Size = new System.Drawing.Size(88, 30);
+            this.exit_enqCenterButton.TabIndex = 7;
+            this.exit_enqCenterButton.Text = "POWRÓT";
+            this.exit_enqCenterButton.UseVisualStyleBackColor = true;
+            this.exit_enqCenterButton.Click += new System.EventHandler(this.exit_enqCenterButton_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.save_EnqCenter);
+            this.panel4.Controls.Add(this.submit_EnqCenter);
+            this.panel4.Location = new System.Drawing.Point(702, 268);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(104, 75);
+            this.panel4.TabIndex = 21;
+            // 
+            // save_EnqCenter
+            // 
+            this.save_EnqCenter.AutoSize = true;
+            this.save_EnqCenter.Enabled = false;
+            this.save_EnqCenter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.save_EnqCenter.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.save_EnqCenter.Location = new System.Drawing.Point(3, 6);
+            this.save_EnqCenter.Name = "save_EnqCenter";
+            this.save_EnqCenter.Size = new System.Drawing.Size(69, 17);
+            this.save_EnqCenter.TabIndex = 21;
+            this.save_EnqCenter.Text = "ZAPISZ";
+            this.save_EnqCenter.UseVisualStyleBackColor = true;
+            this.save_EnqCenter.CheckedChanged += new System.EventHandler(this.save_EnqCenter_CheckedChanged);
+            // 
+            // submit_EnqCenter
+            // 
+            this.submit_EnqCenter.AutoSize = true;
+            this.submit_EnqCenter.Enabled = false;
+            this.submit_EnqCenter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.submit_EnqCenter.ForeColor = System.Drawing.Color.Green;
+            this.submit_EnqCenter.Location = new System.Drawing.Point(3, 42);
+            this.submit_EnqCenter.Name = "submit_EnqCenter";
+            this.submit_EnqCenter.Size = new System.Drawing.Size(99, 17);
+            this.submit_EnqCenter.TabIndex = 20;
+            this.submit_EnqCenter.Text = "ZATWIERDŹ";
+            this.submit_EnqCenter.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -5816,6 +6052,11 @@
             this.myEnq_Page.ResumeLayout(false);
             this.myEnq_Page.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.myEnqDataGridView)).EndInit();
+            this.enqCenter_Page.ResumeLayout(false);
+            this.enqCenter_Page.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.allEnquiriesGridView)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -6302,6 +6543,24 @@
         private System.Windows.Forms.TabPage myEnq_Page;
         private System.Windows.Forms.Label label133;
         private System.Windows.Forms.DataGridView myEnqDataGridView;
+        private System.Windows.Forms.TextBox a_myEnqBox;
+        private System.Windows.Forms.TextBox q_myEnqBox;
+        private System.Windows.Forms.Label label135;
+        private System.Windows.Forms.Label label134;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button EnquiriesCenter;
+        private System.Windows.Forms.TabPage enqCenter_Page;
+        private System.Windows.Forms.TextBox a_allEnqBox;
+        private System.Windows.Forms.TextBox q_allEnqBox;
+        private System.Windows.Forms.Label label138;
+        private System.Windows.Forms.Label label137;
+        private System.Windows.Forms.DataGridView allEnquiriesGridView;
+        private System.Windows.Forms.Label label136;
+        private System.Windows.Forms.Button exit_enqCenterButton;
+        private System.Windows.Forms.Button saveEnq_enqCenterButton;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.RadioButton save_EnqCenter;
+        private System.Windows.Forms.RadioButton submit_EnqCenter;
     }
 }
 
