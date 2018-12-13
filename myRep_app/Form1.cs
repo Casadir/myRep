@@ -122,6 +122,7 @@ namespace myRep_app
                                 label94.Visible = false; DisbursedSamplesGridView.Visible = false; SampleRightsErrorLabel.Visible = true; newProductButton.Enabled = false; editProductButton.Enabled = false; NewSampleButton.Enabled = false; EditSampleButton.Enabled = false; GiveSampleButton.Enabled = false;
                                 mySamplesButton.Enabled = false; mySamplesButton.Visible = false;
                                 EnquiriesCenter.Enabled = false; EnquiriesCenter.Visible = false;
+                                SampleOrdersHomeButton.Enabled = false; SampleOrdersHomeButton.Visible = false;
                                 break;
                             }
                         case "SnPA":
@@ -133,6 +134,11 @@ namespace myRep_app
                                 label94.Visible = true; DisbursedSamplesGridView.Visible = true; newProductButton.Enabled = true; editProductButton.Enabled = false; NewSampleButton.Enabled = false; EditSampleButton.Enabled = false; GiveSampleButton.Enabled = false;
                                 mySamplesButton.Enabled = false; mySamplesButton.Visible = false;
                                 EnquiriesCenter.Enabled = false; EnquiriesCenter.Visible = false;
+                                SampleOrdersHomeButton.Enabled = true; SampleOrdersHomeButton.Visible = true;
+
+                                SqlCommand command2 = new SqlCommand("SELECT count(soID) FROM SampleOrderSet WHERE Status = 'New'", conn);
+                                SampleOrdersHomeButton.Text = "Zamówienia\n" + Convert.ToString(command2.ExecuteScalar());
+
                                 break;
                             }
                         case "REP":
@@ -145,6 +151,7 @@ namespace myRep_app
                                 mySamplesButton.Enabled = true; mySamplesButton.Visible = true;
                                 myEnquiriesButton.Enabled = true; myEnquiriesButton.Visible = true;
                                 EnquiriesCenter.Enabled = false; EnquiriesCenter.Visible = false;
+                                SampleOrdersHomeButton.Enabled = false; SampleOrdersHomeButton.Visible = false;
                                 break;
                             }
                         case "MIE":
@@ -157,6 +164,7 @@ namespace myRep_app
                                 mySamplesButton.Enabled = false; mySamplesButton.Visible = false;
                                 myEnquiriesButton.Enabled = false; myEnquiriesButton.Visible = false;
                                 EnquiriesCenter.Enabled = true; EnquiriesCenter.Visible = true;
+                                SampleOrdersHomeButton.Enabled = false; SampleOrdersHomeButton.Visible = false;
                                 break;
                             }
                         default: { myAccountsButton.Visible = false; myAccountsButton.Enabled = false; break; }
@@ -191,6 +199,7 @@ namespace myRep_app
             productsMgmtButton.Enabled = false; productsMgmtButton.Visible = false;
             mySamplesButton.Enabled = false; mySamplesButton.Visible = false;
             myEnquiriesButton.Enabled = false; myEnquiriesButton.Visible = false;
+            SampleOrdersHomeButton.Enabled = false; SampleOrdersHomeButton.Visible = false;
             MessageBox.Show("DO ZOBACZENIA!");
         }
 
@@ -832,7 +841,7 @@ namespace myRep_app
 
         private void HCPunderAddressGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            new_meeting.Enabled = true;
+            //new_meeting.Enabled = true;
         }
 
         private void selectAddressButton_Click(object sender, EventArgs e)
@@ -1737,6 +1746,16 @@ namespace myRep_app
                 dataAdapter.Fill(dt);
                 mySamplesDataGridView.DataSource = dt;
                 mySamplesDataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
+                //WYPEŁNIANIE GRIDA Z REQUESTAMI
+
+                SqlCommand command2 = new SqlCommand("SELECT ProductSet.ProductName Produkt, SampleSet.SampleName Próbka, SampleOrderSet.Qty Ilość, SampleOrderSet.Status FROM SampleOrderSet join SampleSet on SampleSet.sampleID = SampleOrderSet.SampleID join ProductSet on ProductSet.productID = SampleSet.ProductID WHERE SampleOrderSet.UserID = @uID ORDER BY SampleOrderSet.Status desc", conn);
+                command2.Parameters.AddWithValue("@uID", loggedUserID);
+                DataTable dt2 = new DataTable();
+                SqlDataAdapter dataAdapter2 = new SqlDataAdapter(command2);
+                dataAdapter2.Fill(dt2);
+                mySampleOrdersGridView.DataSource = dt2;
+                mySampleOrdersGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                 conn.Close();
             }
             catch (SqlException er)
@@ -2068,6 +2087,18 @@ namespace myRep_app
                         command6.Parameters.AddWithValue("@uID", loggedUserID);
                         command6.Parameters.AddWithValue("@sID", Convert.ToInt32(sampleGridView_newMTG.CurrentRow.Cells[0].Value));
                         command6.ExecuteNonQuery();
+
+                        SqlCommand command7 = new SqlCommand("SELECT Qty FROM SampleWarehouseSet WHERE UserID = @uID AND SampleID = @sID ", conn);
+                        command7.Parameters.AddWithValue("@uID", loggedUserID);
+                        command7.Parameters.AddWithValue("@sID", Convert.ToInt32(sampleGridView_newMTG.CurrentRow.Cells[0].Value));
+                        MessageBox.Show(Convert.ToString(command7.ExecuteScalar()));
+                        if (Convert.ToInt32(command7.ExecuteScalar()) == 0)
+                        {
+                            SqlCommand command8 = new SqlCommand("DELETE FROM SampleWarehouseSet WHERE UserID = @uID AND SampleID = @sID ", conn);
+                            command8.Parameters.AddWithValue("@uID", loggedUserID);
+                            command8.Parameters.AddWithValue("@sID", Convert.ToInt32(sampleGridView_newMTG.CurrentRow.Cells[0].Value));
+                            command8.ExecuteNonQuery();
+                        }
                     }
                     conn.Close();
                     mainController.SelectedTab = hcpMeetings_Page;
@@ -2631,6 +2662,234 @@ namespace myRep_app
         private void exit_enqCenterButton_Click(object sender, EventArgs e)
         {
             mainController.SelectedTab = homePage;
+        }
+
+        private void createSampleOrder_mySamplesButton_Click(object sender, EventArgs e)
+        {
+            mainController.SelectedTab = orderSample_Page;
+        }
+
+        private void samplesOrderSampleGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void productsOrderSampleGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string sConnection = Properties.Settings.Default.myRep_ODSConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                SqlCommand command = new SqlCommand("dbo.SamplesPerProduct", conn);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@pID", productsOrderSampleGridView.CurrentRow.Cells[0].Value);
+                //WYPEŁNIANIE GRIDA Z SAMPLAMI
+                DataTable dt = new DataTable();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                dataAdapter.Fill(dt);
+                samplesOrderSampleGridView.DataSource = dt;
+                samplesOrderSampleGridView.Columns[0].Visible = false;
+                samplesOrderSampleGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                conn.Close();
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
+        }
+
+        private void productsOrderSampleGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            productsOrderSampleGridView.ClearSelection();
+        }
+
+        private void samplesOrderSampleGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            samplesOrderSampleGridView.ClearSelection();
+            samplesqtyOrderSample.Value = 1;
+            samplesqtyOrderSample.Enabled = false;
+            sendSampleOrderButton.Enabled = false;
+        }
+
+        private void samplesOrderSampleGridView_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            samplesqtyOrderSample.Enabled = true;
+            sendSampleOrderButton.Enabled = true;
+        }
+
+        private void backSampleOrderButton_Click(object sender, EventArgs e)
+        {
+            mainController.SelectedTab = mySamplesPage;
+        }
+
+        private void sendSampleOrderButton_Click(object sender, EventArgs e)
+        {
+            string sConnection = Properties.Settings.Default.myRep_ODSConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                SqlCommand command = new SqlCommand("INSERT INTO SampleOrderSet VALUES (@userID, @sampleID, @Qty, @Status)", conn);
+                command.Parameters.AddWithValue("@userID", loggedUserID);
+                command.Parameters.AddWithValue("@sampleID", Convert.ToInt32(samplesOrderSampleGridView.CurrentRow.Cells[0].Value));
+                command.Parameters.AddWithValue("@Qty", samplesqtyOrderSample.Value);
+                command.Parameters.AddWithValue("@Status", "New");
+                command.ExecuteNonQuery();
+                //WYPEŁNIANIE GRIDA Z REQUESTAMI
+
+                SqlCommand command2 = new SqlCommand("SELECT ProductSet.ProductName Produkt, SampleSet.SampleName Próbka, SampleOrderSet.Qty Ilość, SampleOrderSet.Status FROM SampleOrderSet join SampleSet on SampleSet.sampleID = SampleOrderSet.SampleID join ProductSet on ProductSet.productID = SampleSet.ProductID WHERE SampleOrderSet.UserID = @uID ORDER BY SampleOrderSet.Status desc",conn);
+                command2.Parameters.AddWithValue("@uID", loggedUserID);
+                DataTable dt = new DataTable();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command2);
+                dataAdapter.Fill(dt);
+                mySampleOrdersGridView.DataSource = dt;
+                mySampleOrdersGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
+                //UPDATE PRZYCISKU NA HOME PAGE
+                SqlCommand command3 = new SqlCommand("SELECT count(soID) FROM SampleOrderSet WHERE Status = 'New'", conn);
+                SampleOrdersHomeButton.Text = "Zamówienia\n" + Convert.ToString(command3.ExecuteScalar());
+
+                conn.Close();
+
+                mainController.SelectedTab = mySamplesPage;
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
+        }
+
+        private void mySampleOrdersGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            mySampleOrdersGridView.ClearSelection();
+            foreach (DataGridViewRow row in mySampleOrdersGridView.Rows)
+            {
+                if (row.Cells[3].Value.ToString() == "Done") { row.DefaultCellStyle.BackColor = Color.GreenYellow; }
+                else if (row.Cells[3].Value.ToString() == "New") { row.DefaultCellStyle.BackColor = Color.SkyBlue; }
+            }
+
+        }
+
+        private void SampleOrdersHomeButton_Click(object sender, EventArgs e)
+        {
+            string sConnection = Properties.Settings.Default.myRep_ODSConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                SqlCommand command2 = new SqlCommand("dbo.allSampleOrders", conn);
+                command2.CommandType = CommandType.StoredProcedure;
+                DataTable dt = new DataTable();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command2);
+                dataAdapter.Fill(dt);
+                AllSampleOrdersGridView.DataSource = dt;
+                AllSampleOrdersGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                conn.Close();
+                mainController.SelectedTab = SampleOrders_Page;
+
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
+        }
+
+        private void AllSampleOrdersGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            AllSampleOrdersGridView.Columns[6].Visible = false;
+            AllSampleOrdersGridView.Columns[7].Visible = false;
+            AllSampleOrdersGridView.Columns[8].Visible = false;
+            AllSampleOrdersGridView.ClearSelection();
+            foreach (DataGridViewRow row in AllSampleOrdersGridView.Rows)
+            {
+                if (Convert.ToString(row.Cells[5].Value) == "Done") { row.DefaultCellStyle.BackColor = Color.GreenYellow; }
+                else if (Convert.ToString(row.Cells[5].Value) == "New") { row.DefaultCellStyle.BackColor = Color.SkyBlue; }
+            }
+        }
+
+        private void homepage_SampleOrdersButton_Click(object sender, EventArgs e)
+        {
+            mainController.SelectedTab = homePage;
+        }
+
+        private void giveSample_SampleOrdersButton_Click(object sender, EventArgs e)
+        {
+            string sConnection = Properties.Settings.Default.ConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                //SPRAWDZENIE CZY OBY USER JUŻ NIE MA WYDANEJ PRÓBKI - JEŚLI TAK TO DODAJ ILOŚĆ DO OBECNIE POSIADANEJ, JEŚLI NIE TO UTWÓRZ NOWY REKORD
+                String commandText2 = "SELECT SampleWarehouseSet.Id FROM dbo.SampleWarehouseSet WHERE UserID = @usID AND SampleID = @saID";
+                SqlCommand command2 = new SqlCommand(commandText2, conn);
+                command2.Parameters.AddWithValue("@usID", Convert.ToInt32(AllSampleOrdersGridView.CurrentRow.Cells[6].Value.ToString()));
+                command2.Parameters.AddWithValue("@saID", Convert.ToInt32(AllSampleOrdersGridView.CurrentRow.Cells[7].Value.ToString()));
+                if (String.IsNullOrEmpty(Convert.ToString(command2.ExecuteScalar())))
+                {
+                    String commandText = "INSERT INTO SampleWarehouseSet VALUES(@uID, @sID, @Qty)";
+                    SqlCommand command = new SqlCommand(commandText, conn);
+                    command.Parameters.AddWithValue("@uID", Convert.ToInt32(AllSampleOrdersGridView.CurrentRow.Cells[6].Value));
+                    command.Parameters.AddWithValue("@sID", Convert.ToInt32(AllSampleOrdersGridView.CurrentRow.Cells[7].Value));
+                    command.Parameters.AddWithValue("@Qty", Convert.ToInt32(AllSampleOrdersGridView.CurrentRow.Cells[4].Value));
+                    command.ExecuteNonQuery();
+
+                    SqlCommand command8 = new SqlCommand("UPDATE SampleOrderSet SET Status = 'Done' WHERE soID = @soid", conn);
+                    command8.Parameters.AddWithValue("@soid", Convert.ToInt32(AllSampleOrdersGridView.CurrentRow.Cells[8].Value));
+                    command8.ExecuteNonQuery();
+
+
+                    SqlCommand command9 = new SqlCommand("dbo.allSampleOrders", conn);
+                    command9.CommandType = CommandType.StoredProcedure;
+                    DataTable dt9 = new DataTable();
+                    SqlDataAdapter dataAdapter9 = new SqlDataAdapter(command9);
+                    dataAdapter9.Fill(dt9);
+                    AllSampleOrdersGridView.DataSource = dt9;
+                    AllSampleOrdersGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                }
+                else
+                {
+                    String commandText = "UPDATE SampleWarehouseSet SET SampleWarehouseSet.Qty = SampleWarehouseSet.Qty + @Qty WHERE SampleWarehouseSet.Id = @idToUpdate";
+                    SqlCommand command = new SqlCommand(commandText, conn);
+                    command.Parameters.AddWithValue("@Qty", Convert.ToInt32(AllSampleOrdersGridView.CurrentRow.Cells[4].Value));
+                    command.Parameters.AddWithValue("@idToUpdate", Convert.ToInt32(command2.ExecuteScalar()));
+                    command.ExecuteNonQuery();
+
+                    SqlCommand command8 = new SqlCommand("UPDATE SampleOrderSet SET Status = 'Done' WHERE soID = @soid", conn);
+                    command8.Parameters.AddWithValue("@soid", Convert.ToInt32(AllSampleOrdersGridView.CurrentRow.Cells[8].Value));
+                    command8.ExecuteNonQuery();
+
+                    SqlCommand command9 = new SqlCommand("dbo.allSampleOrders", conn);
+                    command9.CommandType = CommandType.StoredProcedure;
+                    DataTable dt9 = new DataTable();
+                    SqlDataAdapter dataAdapter9 = new SqlDataAdapter(command9);
+                    dataAdapter9.Fill(dt9);
+                    AllSampleOrdersGridView.DataSource = dt9;
+                    AllSampleOrdersGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                }
+                conn.Close();
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
+        }
+
+        private void AllSampleOrdersGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Convert.ToString(AllSampleOrdersGridView.CurrentRow.Cells[5].Value) == "New")
+             giveSample_SampleOrdersButton.Enabled = true;
+            else
+                giveSample_SampleOrdersButton.Enabled = false;
+
         }
     }
 }
