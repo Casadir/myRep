@@ -25,6 +25,8 @@ namespace myRep_app
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'myRep_AllUsersODSDataSet.UserSet' table. You can move, or remove it, as needed.
+            this.userSetTableAdapter2.Fill(this.myRep_AllUsersODSDataSet.UserSet);
             // TODO: This line of code loads data into the 'myRep_ODSDataSet_UserSet.UserSet' table. You can move, or remove it, as needed.
             this.userSetTableAdapter1.Fill(this.myRep_ODSDataSet_UserSet.UserSet);
             // TODO: This line of code loads data into the 'myRep_ODSDataSet.ProductSet' table. You can move, or remove it, as needed.
@@ -115,11 +117,11 @@ namespace myRep_app
                     {
                         case "SYSADMIN":
                             {
-                                myAccountsButton.Visible = true; myAccountsButton.Enabled = true;
+                                myAccountsButton.Visible = false; myAccountsButton.Enabled = false;
                                 userMgmtButton.Visible = true; userMgmtButton.Enabled = true;
-                                productsMgmtButton.Visible = true; productsMgmtButton.Enabled = true;
+                                productsMgmtButton.Visible = false; productsMgmtButton.Enabled = false;
                                 //Sterowanie kontrolkami na ProductsMgmt page tak aby nie zostały aktywowane
-                                label94.Visible = false; DisbursedSamplesGridView.Visible = false; SampleRightsErrorLabel.Visible = true; newProductButton.Enabled = false; editProductButton.Enabled = false; NewSampleButton.Enabled = false; EditSampleButton.Enabled = false; GiveSampleButton.Enabled = false;
+                                label94.Visible = false; DisbursedSamplesGridView.Visible = false; SampleRightsErrorLabel.Visible = false; newProductButton.Enabled = false; editProductButton.Enabled = false; NewSampleButton.Enabled = false; EditSampleButton.Enabled = false; GiveSampleButton.Enabled = false;
                                 mySamplesButton.Enabled = false; mySamplesButton.Visible = false;
                                 EnquiriesCenter.Enabled = false; EnquiriesCenter.Visible = false;
                                 SampleOrdersHomeButton.Enabled = false; SampleOrdersHomeButton.Visible = false;
@@ -417,7 +419,31 @@ namespace myRep_app
 
         private void userMgmtButton_Click(object sender, EventArgs e)
         {
-            mainController.SelectedTab = userMgmtPage;
+
+            string sConnection = Properties.Settings.Default.ConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+
+                //WYŚWIETLANIE WSZYSTKICH USERÓW
+                SqlCommand command = new SqlCommand("showAllUsers", conn);
+                command.CommandType = CommandType.StoredProcedure;
+                DataTable dt = new DataTable();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                dataAdapter.Fill(dt);
+                usersDataGridView.DataSource = dt;
+                usersDataGridView.Columns[0].Visible = false; //userID
+                usersDataGridView.Columns[1].Visible = false; //ManagerID
+                mainController.SelectedTab = userMgmtPage;
+                conn.Close();
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -2076,22 +2102,24 @@ namespace myRep_app
                     //TWORZENIE SAMPLE DROPA
                     if ((createSampleDropCheck_newMeeting.Checked == true) && (Submit_newMeetingBox.Checked == true))
                     {
+                        //UPDATE MEETINGU, SAMPLE ID I QTY
                         SqlCommand command5 = new SqlCommand("UPDATE MeetingSet SET SampleDrop = @sampleid, SampleDropQty = @sampleqty WHERE meetingID = @mID ", conn);
                         command5.Parameters.AddWithValue("@mID", MeetingID_NEW);
                         command5.Parameters.AddWithValue("@sampleid", Convert.ToInt32(sampleGridView_newMTG.CurrentRow.Cells[0].Value));
                         command5.Parameters.AddWithValue("@sampleqty", SamplesQty_newMTG.Value);
                         command5.ExecuteNonQuery();
 
+                        //POMNIEJSZENIE SAMPLE WAREHOUSE'U
                         SqlCommand command6 = new SqlCommand("UPDATE SampleWarehouseSet SET Qty = Qty - @q WHERE UserID = @uID AND SampleID = @sID ", conn);
                         command6.Parameters.AddWithValue("@q", SamplesQty_newMTG.Value);
                         command6.Parameters.AddWithValue("@uID", loggedUserID);
                         command6.Parameters.AddWithValue("@sID", Convert.ToInt32(sampleGridView_newMTG.CurrentRow.Cells[0].Value));
                         command6.ExecuteNonQuery();
 
+                        //JEŻELI STAN MAGAZYNOWY DANEJ PRÓBKI WYNOSI 0 --> USUŃ WPIS O POSIADANIU PRÓBKI
                         SqlCommand command7 = new SqlCommand("SELECT Qty FROM SampleWarehouseSet WHERE UserID = @uID AND SampleID = @sID ", conn);
                         command7.Parameters.AddWithValue("@uID", loggedUserID);
                         command7.Parameters.AddWithValue("@sID", Convert.ToInt32(sampleGridView_newMTG.CurrentRow.Cells[0].Value));
-                        MessageBox.Show(Convert.ToString(command7.ExecuteScalar()));
                         if (Convert.ToInt32(command7.ExecuteScalar()) == 0)
                         {
                             SqlCommand command8 = new SqlCommand("DELETE FROM SampleWarehouseSet WHERE UserID = @uID AND SampleID = @sID ", conn);
@@ -2470,6 +2498,13 @@ namespace myRep_app
         private void usersDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             usersDataGridView.ClearSelection();
+            //KOLOROWANIE
+            foreach (DataGridViewRow row in usersDataGridView.Rows)
+            {
+                if (Convert.ToInt32(row.Cells[2].Value) == 1 ) row.DefaultCellStyle.BackColor = Color.YellowGreen;
+                else if (Convert.ToInt32(row.Cells[2].Value) == 1) row.DefaultCellStyle.BackColor = Color.Red;
+
+            }
         }
 
         private void setAddressGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
