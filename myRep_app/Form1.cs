@@ -9,10 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
+
 namespace myRep_app
 {
     public partial class Form1 : Form
     {
+        //USTAWIENIE ABY OKIENKO SIĘ RUSZAŁO
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+        [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+
         public static int loggedUserID;
         public static string loggedUserTerritory;
         public static string loggedUserJobTitle;
@@ -22,6 +31,7 @@ namespace myRep_app
         public Form1()
         {
             InitializeComponent();
+            calendarCheckup.Value = DateTime.Today;
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -912,6 +922,7 @@ namespace myRep_app
             addressDataGridView.Columns[0].Visible = false;
             mainController.SelectedTab = select_address_Page;
             action_backTo = "NEWHCP_PAGE";
+            HOMEButton.Visible = false;
         }
 
         private void addressDedicatedBookToolStripButton1_Click(object sender, EventArgs e)
@@ -950,6 +961,7 @@ namespace myRep_app
                 mainController.SelectedTab = edit_HCO_Page;
                 action_backTo = "";
             }
+            HOMEButton.Visible = true;
 
         }
 
@@ -958,6 +970,7 @@ namespace myRep_app
             mainController.SelectedTab = newAddressPage;
             TerritoryNEWaddressBox.Text = loggedUserTerritory;
             action_backTo = "NEWHCO_PAGE";
+            HOMEButton.Visible = false;
 
         }
 
@@ -1028,6 +1041,7 @@ namespace myRep_app
                 String text = "There was an error reported by SQL Server, " + er.Message;
                 MessageBox.Show(text, "ERROR");
             }
+            HOMEButton.Visible = true;
         }
 
         private void StreetNEWaddressBox_TextChanged(object sender, EventArgs e)
@@ -1248,6 +1262,7 @@ namespace myRep_app
         {
             mainController.SelectedTab = select_address_Page;
             action_backTo = "EDITHCP_PAGE";
+            HOMEButton.Visible = false;
 
         }
 
@@ -1375,6 +1390,7 @@ namespace myRep_app
             CountryNEWaddressBOX.Text = hcoCountryLabel.Text;
             ZipNEWaddressBox.Text = hcoZipLabel.Text;
             mainController.SelectedTab = newAddressPage;
+            HOMEButton.Visible = false;
         }
 
         private void edit_OK_HCOButton_Click(object sender, EventArgs e)
@@ -2996,6 +3012,7 @@ namespace myRep_app
                 String text = "There was an error reported by SQL Server, " + er.Message;
                 MessageBox.Show(text, "ERROR");
             }
+            HOMEButton.Visible = false;
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -3003,6 +3020,7 @@ namespace myRep_app
             managerID_newUser.Text = Convert.ToString(selectUserDataGridView.CurrentRow.Cells[0].Value);
             selectedManagerUserLabel.Text = Convert.ToString(selectUserDataGridView.CurrentRow.Cells[1].Value);
             mainController.SelectedTab = newUserPage;
+            HOMEButton.Visible = true;
         }
 
         private void fnameUserBox_TextChanged(object sender, EventArgs e)
@@ -3110,6 +3128,69 @@ namespace myRep_app
                 String text = "There was an error reported by SQL Server, " + er.Message;
                 MessageBox.Show(text, "ERROR");
             }
+        }
+
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.ActiveControl = mainController;
+
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void HOMEButton_Click(object sender, EventArgs e)
+        {
+            //PRZEJŚCIE DO HOME SCREENU
+            mainController.SelectedTab = homePage;
+            this.ActiveControl = mainController;
+        }
+
+        private void CLOSEbutton_Click(object sender, EventArgs e)
+        {
+            //ZAMYKANIE APLIKACJI
+            if (System.Windows.Forms.Application.MessageLoop)
+            {
+                System.Windows.Forms.Application.Exit();
+            }
+        }
+
+        private void UsernameBox_TextChanged(object sender, EventArgs e)
+        {
+            LoginButton.Enabled = (!String.IsNullOrEmpty(UsernameBox.Text)) && (!String.IsNullOrEmpty(PasswordBox.Text));
+        }
+
+        private void PasswordBox_TextChanged(object sender, EventArgs e)
+        {
+            LoginButton.Enabled = (!String.IsNullOrEmpty(UsernameBox.Text)) && (!String.IsNullOrEmpty(PasswordBox.Text));
+        }
+
+        private void HOMEButton_MouseHover(object sender, EventArgs e)
+        {
+                HOMEButton.Image = myRep_app.Properties.Resources.homebuttonblack;
+                HOMEButton.Refresh();   
+        }
+
+        private void HOMEButton_MouseLeave(object sender, EventArgs e)
+        {
+            
+                HOMEButton.Image = myRep_app.Properties.Resources.homebutton1;
+                HOMEButton.Refresh();
+            
+        }
+
+        private void CLOSEbutton_MouseHover(object sender, EventArgs e)
+        {
+            CLOSEbutton.Image = myRep_app.Properties.Resources.closeblack;
+            HOMEButton.Refresh();
+        }
+
+        private void CLOSEbutton_MouseLeave(object sender, EventArgs e)
+        {
+            CLOSEbutton.Image = myRep_app.Properties.Resources.close;
+            HOMEButton.Refresh();
         }
     }
 }

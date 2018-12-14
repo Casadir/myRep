@@ -282,7 +282,6 @@
             this.new_Meeting_Page = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.meeting_newmtgPage = new System.Windows.Forms.TabPage();
-            this.warning3_newMeetingBox = new System.Windows.Forms.PictureBox();
             this.warning4_newMeetingBox = new System.Windows.Forms.Label();
             this.productID_newMeetingLabel = new System.Windows.Forms.Label();
             this.productName_newMeetingLabel = new System.Windows.Forms.Label();
@@ -297,7 +296,6 @@
             this.Save_newMeetingBox = new System.Windows.Forms.RadioButton();
             this.Submit_newMeetingBox = new System.Windows.Forms.RadioButton();
             this.warning2_newMeetingBox = new System.Windows.Forms.Label();
-            this.warning_newMeetingBox = new System.Windows.Forms.PictureBox();
             this.label125 = new System.Windows.Forms.Label();
             this.datePicker_newMeetingBox = new System.Windows.Forms.DateTimePicker();
             this.hcpName_newMeetingBox = new System.Windows.Forms.Label();
@@ -561,6 +559,13 @@
             this.button7 = new System.Windows.Forms.Button();
             this.editUserButton = new System.Windows.Forms.Button();
             this.deactivateUserButton = new System.Windows.Forms.Button();
+            this.calendarCheckup = new System.Windows.Forms.DateTimePicker();
+            this.label153 = new System.Windows.Forms.Label();
+            this.CLOSEbutton = new System.Windows.Forms.PictureBox();
+            this.HOMEButton = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.warning3_newMeetingBox = new System.Windows.Forms.PictureBox();
+            this.warning_newMeetingBox = new System.Windows.Forms.PictureBox();
             this.mainController.SuspendLayout();
             this.homePage.SuspendLayout();
             this.enqCenter_Page.SuspendLayout();
@@ -615,9 +620,7 @@
             this.new_Meeting_Page.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.meeting_newmtgPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.warning3_newMeetingBox)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.warning_newMeetingBox)).BeginInit();
             this.enquiry_newmtgPage.SuspendLayout();
             this.sampledrop_newmtgPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SamplesQty_newMTG)).BeginInit();
@@ -659,6 +662,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.selectUserDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myRep_allUsers_ODSDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userSetBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CLOSEbutton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HOMEButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.warning3_newMeetingBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.warning_newMeetingBox)).BeginInit();
             this.SuspendLayout();
             // 
             // mainController
@@ -688,10 +696,10 @@
             this.mainController.Controls.Add(this.newUserPage);
             this.mainController.Controls.Add(this.selectUser_Page);
             this.mainController.Controls.Add(this.setPasswordPage);
-            this.mainController.Location = new System.Drawing.Point(12, 12);
+            this.mainController.Location = new System.Drawing.Point(0, -21);
             this.mainController.Name = "mainController";
             this.mainController.SelectedIndex = 0;
-            this.mainController.Size = new System.Drawing.Size(820, 491);
+            this.mainController.Size = new System.Drawing.Size(826, 491);
             this.mainController.TabIndex = 7;
             // 
             // homePage
@@ -712,7 +720,7 @@
             this.homePage.Location = new System.Drawing.Point(4, 22);
             this.homePage.Name = "homePage";
             this.homePage.Padding = new System.Windows.Forms.Padding(20);
-            this.homePage.Size = new System.Drawing.Size(812, 465);
+            this.homePage.Size = new System.Drawing.Size(818, 465);
             this.homePage.TabIndex = 0;
             this.homePage.Text = "home";
             this.homePage.UseVisualStyleBackColor = true;
@@ -791,9 +799,10 @@
             // LogoutButton
             // 
             this.LogoutButton.Enabled = false;
-            this.LogoutButton.Location = new System.Drawing.Point(297, 31);
+            this.LogoutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LogoutButton.Location = new System.Drawing.Point(495, 23);
             this.LogoutButton.Name = "LogoutButton";
-            this.LogoutButton.Size = new System.Drawing.Size(75, 23);
+            this.LogoutButton.Size = new System.Drawing.Size(103, 65);
             this.LogoutButton.TabIndex = 13;
             this.LogoutButton.Text = "WYLOGUJ";
             this.LogoutButton.UseVisualStyleBackColor = true;
@@ -812,9 +821,11 @@
             // 
             // LoginButton
             // 
-            this.LoginButton.Location = new System.Drawing.Point(216, 31);
+            this.LoginButton.Enabled = false;
+            this.LoginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LoginButton.Location = new System.Drawing.Point(338, 23);
             this.LoginButton.Name = "LoginButton";
-            this.LoginButton.Size = new System.Drawing.Size(75, 23);
+            this.LoginButton.Size = new System.Drawing.Size(103, 65);
             this.LoginButton.TabIndex = 11;
             this.LoginButton.Text = "ZALOGUJ";
             this.LoginButton.UseVisualStyleBackColor = true;
@@ -823,37 +834,41 @@
             // PasswordLabel
             // 
             this.PasswordLabel.AutoSize = true;
+            this.PasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.PasswordLabel.Location = new System.Drawing.Point(23, 68);
             this.PasswordLabel.Name = "PasswordLabel";
-            this.PasswordLabel.Size = new System.Drawing.Size(36, 13);
+            this.PasswordLabel.Size = new System.Drawing.Size(64, 20);
             this.PasswordLabel.TabIndex = 10;
-            this.PasswordLabel.Text = "Hasło";
+            this.PasswordLabel.Text = "HASŁO";
             // 
             // UsernameLabel
             // 
             this.UsernameLabel.AutoSize = true;
-            this.UsernameLabel.Location = new System.Drawing.Point(23, 36);
+            this.UsernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.UsernameLabel.Location = new System.Drawing.Point(8, 30);
             this.UsernameLabel.Name = "UsernameLabel";
-            this.UsernameLabel.Size = new System.Drawing.Size(33, 13);
+            this.UsernameLabel.Size = new System.Drawing.Size(114, 20);
             this.UsernameLabel.TabIndex = 9;
-            this.UsernameLabel.Text = "Login";
+            this.UsernameLabel.Text = "UŻYTKOWNIK";
             // 
             // PasswordBox
             // 
-            this.PasswordBox.Location = new System.Drawing.Point(78, 51);
+            this.PasswordBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.PasswordBox.Location = new System.Drawing.Point(135, 65);
             this.PasswordBox.Name = "PasswordBox";
-            this.PasswordBox.PasswordChar = 'X';
-            this.PasswordBox.Size = new System.Drawing.Size(100, 20);
+            this.PasswordBox.PasswordChar = '•';
+            this.PasswordBox.Size = new System.Drawing.Size(147, 26);
             this.PasswordBox.TabIndex = 8;
-            this.PasswordBox.Text = "admin";
+            this.PasswordBox.TextChanged += new System.EventHandler(this.PasswordBox_TextChanged);
             // 
             // UsernameBox
             // 
-            this.UsernameBox.Location = new System.Drawing.Point(78, 19);
+            this.UsernameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.UsernameBox.Location = new System.Drawing.Point(135, 23);
             this.UsernameBox.Name = "UsernameBox";
-            this.UsernameBox.Size = new System.Drawing.Size(100, 20);
+            this.UsernameBox.Size = new System.Drawing.Size(147, 26);
             this.UsernameBox.TabIndex = 7;
-            this.UsernameBox.Text = "admin";
+            this.UsernameBox.TextChanged += new System.EventHandler(this.UsernameBox_TextChanged);
             // 
             // enqCenter_Page
             // 
@@ -869,7 +884,7 @@
             this.enqCenter_Page.Location = new System.Drawing.Point(4, 22);
             this.enqCenter_Page.Name = "enqCenter_Page";
             this.enqCenter_Page.Padding = new System.Windows.Forms.Padding(3);
-            this.enqCenter_Page.Size = new System.Drawing.Size(812, 465);
+            this.enqCenter_Page.Size = new System.Drawing.Size(818, 465);
             this.enqCenter_Page.TabIndex = 21;
             this.enqCenter_Page.Text = "enqCenter";
             this.enqCenter_Page.UseVisualStyleBackColor = true;
@@ -1007,7 +1022,7 @@
             this.myEnq_Page.Location = new System.Drawing.Point(4, 22);
             this.myEnq_Page.Name = "myEnq_Page";
             this.myEnq_Page.Padding = new System.Windows.Forms.Padding(3);
-            this.myEnq_Page.Size = new System.Drawing.Size(812, 465);
+            this.myEnq_Page.Size = new System.Drawing.Size(818, 465);
             this.myEnq_Page.TabIndex = 20;
             this.myEnq_Page.Text = "myEnq";
             this.myEnq_Page.UseVisualStyleBackColor = true;
@@ -1105,7 +1120,7 @@
             this.mySamplesPage.Location = new System.Drawing.Point(4, 22);
             this.mySamplesPage.Name = "mySamplesPage";
             this.mySamplesPage.Padding = new System.Windows.Forms.Padding(3);
-            this.mySamplesPage.Size = new System.Drawing.Size(812, 465);
+            this.mySamplesPage.Size = new System.Drawing.Size(818, 465);
             this.mySamplesPage.TabIndex = 16;
             this.mySamplesPage.Text = "mySamples";
             this.mySamplesPage.UseVisualStyleBackColor = true;
@@ -1196,7 +1211,7 @@
             this.SampleOrders_Page.Location = new System.Drawing.Point(4, 22);
             this.SampleOrders_Page.Name = "SampleOrders_Page";
             this.SampleOrders_Page.Padding = new System.Windows.Forms.Padding(3);
-            this.SampleOrders_Page.Size = new System.Drawing.Size(812, 465);
+            this.SampleOrders_Page.Size = new System.Drawing.Size(818, 465);
             this.SampleOrders_Page.TabIndex = 23;
             this.SampleOrders_Page.Text = "SampleOrders";
             this.SampleOrders_Page.UseVisualStyleBackColor = true;
@@ -1264,7 +1279,7 @@
             this.orderSample_Page.Location = new System.Drawing.Point(4, 22);
             this.orderSample_Page.Name = "orderSample_Page";
             this.orderSample_Page.Padding = new System.Windows.Forms.Padding(3);
-            this.orderSample_Page.Size = new System.Drawing.Size(812, 465);
+            this.orderSample_Page.Size = new System.Drawing.Size(818, 465);
             this.orderSample_Page.TabIndex = 22;
             this.orderSample_Page.Text = "orderSample";
             this.orderSample_Page.UseVisualStyleBackColor = true;
@@ -1441,7 +1456,7 @@
             this.give_sample_page.Location = new System.Drawing.Point(4, 22);
             this.give_sample_page.Name = "give_sample_page";
             this.give_sample_page.Padding = new System.Windows.Forms.Padding(3);
-            this.give_sample_page.Size = new System.Drawing.Size(812, 465);
+            this.give_sample_page.Size = new System.Drawing.Size(818, 465);
             this.give_sample_page.TabIndex = 15;
             this.give_sample_page.Text = "give_sample";
             this.give_sample_page.UseVisualStyleBackColor = true;
@@ -1666,7 +1681,7 @@
             this.products_Mgmt_Page.Location = new System.Drawing.Point(4, 22);
             this.products_Mgmt_Page.Name = "products_Mgmt_Page";
             this.products_Mgmt_Page.Padding = new System.Windows.Forms.Padding(3);
-            this.products_Mgmt_Page.Size = new System.Drawing.Size(812, 465);
+            this.products_Mgmt_Page.Size = new System.Drawing.Size(818, 465);
             this.products_Mgmt_Page.TabIndex = 12;
             this.products_Mgmt_Page.Text = "ProductsMgmt";
             this.products_Mgmt_Page.UseVisualStyleBackColor = true;
@@ -1876,7 +1891,7 @@
             this.new_product_page.Location = new System.Drawing.Point(4, 22);
             this.new_product_page.Name = "new_product_page";
             this.new_product_page.Padding = new System.Windows.Forms.Padding(3);
-            this.new_product_page.Size = new System.Drawing.Size(812, 465);
+            this.new_product_page.Size = new System.Drawing.Size(818, 465);
             this.new_product_page.TabIndex = 13;
             this.new_product_page.Text = "new_product";
             this.new_product_page.UseVisualStyleBackColor = true;
@@ -2014,7 +2029,7 @@
             this.select_product_Page.Location = new System.Drawing.Point(4, 22);
             this.select_product_Page.Name = "select_product_Page";
             this.select_product_Page.Padding = new System.Windows.Forms.Padding(3);
-            this.select_product_Page.Size = new System.Drawing.Size(812, 465);
+            this.select_product_Page.Size = new System.Drawing.Size(818, 465);
             this.select_product_Page.TabIndex = 19;
             this.select_product_Page.Text = "select_Product";
             this.select_product_Page.UseVisualStyleBackColor = true;
@@ -2105,7 +2120,7 @@
             this.new_Sample_Page.Location = new System.Drawing.Point(4, 22);
             this.new_Sample_Page.Name = "new_Sample_Page";
             this.new_Sample_Page.Padding = new System.Windows.Forms.Padding(3);
-            this.new_Sample_Page.Size = new System.Drawing.Size(812, 465);
+            this.new_Sample_Page.Size = new System.Drawing.Size(818, 465);
             this.new_Sample_Page.TabIndex = 14;
             this.new_Sample_Page.Text = "new_Sample";
             this.new_Sample_Page.UseVisualStyleBackColor = true;
@@ -2231,7 +2246,7 @@
             this.myAccountsPage.Location = new System.Drawing.Point(4, 22);
             this.myAccountsPage.Name = "myAccountsPage";
             this.myAccountsPage.Padding = new System.Windows.Forms.Padding(3);
-            this.myAccountsPage.Size = new System.Drawing.Size(812, 465);
+            this.myAccountsPage.Size = new System.Drawing.Size(818, 465);
             this.myAccountsPage.TabIndex = 1;
             this.myAccountsPage.Text = "myAccounts";
             this.myAccountsPage.UseVisualStyleBackColor = true;
@@ -3254,7 +3269,7 @@
             this.hcpMeetings_Page.Location = new System.Drawing.Point(4, 22);
             this.hcpMeetings_Page.Name = "hcpMeetings_Page";
             this.hcpMeetings_Page.Padding = new System.Windows.Forms.Padding(3);
-            this.hcpMeetings_Page.Size = new System.Drawing.Size(812, 465);
+            this.hcpMeetings_Page.Size = new System.Drawing.Size(818, 465);
             this.hcpMeetings_Page.TabIndex = 17;
             this.hcpMeetings_Page.Text = "hcpMeetings";
             this.hcpMeetings_Page.UseVisualStyleBackColor = true;
@@ -3435,7 +3450,7 @@
             this.new_Meeting_Page.Location = new System.Drawing.Point(4, 22);
             this.new_Meeting_Page.Name = "new_Meeting_Page";
             this.new_Meeting_Page.Padding = new System.Windows.Forms.Padding(3);
-            this.new_Meeting_Page.Size = new System.Drawing.Size(812, 465);
+            this.new_Meeting_Page.Size = new System.Drawing.Size(818, 465);
             this.new_Meeting_Page.TabIndex = 18;
             this.new_Meeting_Page.Text = "newMetting";
             this.new_Meeting_Page.UseVisualStyleBackColor = true;
@@ -3478,17 +3493,6 @@
             this.meeting_newmtgPage.TabIndex = 0;
             this.meeting_newmtgPage.Text = "SPOTKANIE";
             this.meeting_newmtgPage.UseVisualStyleBackColor = true;
-            // 
-            // warning3_newMeetingBox
-            // 
-            this.warning3_newMeetingBox.Image = ((System.Drawing.Image)(resources.GetObject("warning3_newMeetingBox.Image")));
-            this.warning3_newMeetingBox.Location = new System.Drawing.Point(350, 147);
-            this.warning3_newMeetingBox.Name = "warning3_newMeetingBox";
-            this.warning3_newMeetingBox.Size = new System.Drawing.Size(49, 50);
-            this.warning3_newMeetingBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.warning3_newMeetingBox.TabIndex = 31;
-            this.warning3_newMeetingBox.TabStop = false;
-            this.warning3_newMeetingBox.Visible = false;
             // 
             // warning4_newMeetingBox
             // 
@@ -3636,17 +3640,6 @@
             this.warning2_newMeetingBox.TabIndex = 5;
             this.warning2_newMeetingBox.Text = "Nie można utworzyć spotkania\r\nz datą wcześniejszą niż 30 dni wstecz";
             this.warning2_newMeetingBox.Visible = false;
-            // 
-            // warning_newMeetingBox
-            // 
-            this.warning_newMeetingBox.Image = ((System.Drawing.Image)(resources.GetObject("warning_newMeetingBox.Image")));
-            this.warning_newMeetingBox.Location = new System.Drawing.Point(277, 46);
-            this.warning_newMeetingBox.Name = "warning_newMeetingBox";
-            this.warning_newMeetingBox.Size = new System.Drawing.Size(49, 50);
-            this.warning_newMeetingBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.warning_newMeetingBox.TabIndex = 4;
-            this.warning_newMeetingBox.TabStop = false;
-            this.warning_newMeetingBox.Visible = false;
             // 
             // label125
             // 
@@ -3923,7 +3916,7 @@
             this.newHCPPage.Controls.Add(this.MiddleNameLabel);
             this.newHCPPage.Location = new System.Drawing.Point(4, 22);
             this.newHCPPage.Name = "newHCPPage";
-            this.newHCPPage.Size = new System.Drawing.Size(812, 465);
+            this.newHCPPage.Size = new System.Drawing.Size(818, 465);
             this.newHCPPage.TabIndex = 2;
             this.newHCPPage.Text = "new_HCP";
             this.newHCPPage.UseVisualStyleBackColor = true;
@@ -4393,7 +4386,7 @@
             this.newHCOPage.Controls.Add(this.newHCO_NameLabel);
             this.newHCOPage.Location = new System.Drawing.Point(4, 22);
             this.newHCOPage.Name = "newHCOPage";
-            this.newHCOPage.Size = new System.Drawing.Size(812, 465);
+            this.newHCOPage.Size = new System.Drawing.Size(818, 465);
             this.newHCOPage.TabIndex = 3;
             this.newHCOPage.Text = "new_HCO";
             this.newHCOPage.UseVisualStyleBackColor = true;
@@ -4656,7 +4649,7 @@
             this.newAddressPage.Location = new System.Drawing.Point(4, 22);
             this.newAddressPage.Name = "newAddressPage";
             this.newAddressPage.Padding = new System.Windows.Forms.Padding(3);
-            this.newAddressPage.Size = new System.Drawing.Size(812, 465);
+            this.newAddressPage.Size = new System.Drawing.Size(818, 465);
             this.newAddressPage.TabIndex = 8;
             this.newAddressPage.Text = "new_address";
             this.newAddressPage.UseVisualStyleBackColor = true;
@@ -4836,7 +4829,7 @@
             this.select_address_Page.Location = new System.Drawing.Point(4, 22);
             this.select_address_Page.Name = "select_address_Page";
             this.select_address_Page.Padding = new System.Windows.Forms.Padding(3);
-            this.select_address_Page.Size = new System.Drawing.Size(812, 465);
+            this.select_address_Page.Size = new System.Drawing.Size(818, 465);
             this.select_address_Page.TabIndex = 7;
             this.select_address_Page.Text = "select_address";
             this.select_address_Page.UseVisualStyleBackColor = true;
@@ -4926,7 +4919,7 @@
             this.new_HCPHCO_Assossiation_Page.Location = new System.Drawing.Point(4, 22);
             this.new_HCPHCO_Assossiation_Page.Name = "new_HCPHCO_Assossiation_Page";
             this.new_HCPHCO_Assossiation_Page.Padding = new System.Windows.Forms.Padding(3);
-            this.new_HCPHCO_Assossiation_Page.Size = new System.Drawing.Size(812, 465);
+            this.new_HCPHCO_Assossiation_Page.Size = new System.Drawing.Size(818, 465);
             this.new_HCPHCO_Assossiation_Page.TabIndex = 9;
             this.new_HCPHCO_Assossiation_Page.Text = "new_Assossiation";
             this.new_HCPHCO_Assossiation_Page.UseVisualStyleBackColor = true;
@@ -5012,7 +5005,7 @@
             this.editHCP_Page.Location = new System.Drawing.Point(4, 22);
             this.editHCP_Page.Name = "editHCP_Page";
             this.editHCP_Page.Padding = new System.Windows.Forms.Padding(3);
-            this.editHCP_Page.Size = new System.Drawing.Size(812, 465);
+            this.editHCP_Page.Size = new System.Drawing.Size(818, 465);
             this.editHCP_Page.TabIndex = 10;
             this.editHCP_Page.Text = "edit_HCP";
             this.editHCP_Page.UseVisualStyleBackColor = true;
@@ -5444,7 +5437,7 @@
             this.edit_HCO_Page.Location = new System.Drawing.Point(4, 22);
             this.edit_HCO_Page.Name = "edit_HCO_Page";
             this.edit_HCO_Page.Padding = new System.Windows.Forms.Padding(3);
-            this.edit_HCO_Page.Size = new System.Drawing.Size(812, 465);
+            this.edit_HCO_Page.Size = new System.Drawing.Size(818, 465);
             this.edit_HCO_Page.TabIndex = 11;
             this.edit_HCO_Page.Text = "edit_HCO";
             this.edit_HCO_Page.UseVisualStyleBackColor = true;
@@ -5702,7 +5695,7 @@
             this.userMgmtPage.Controls.Add(this.usersDataGridView);
             this.userMgmtPage.Location = new System.Drawing.Point(4, 22);
             this.userMgmtPage.Name = "userMgmtPage";
-            this.userMgmtPage.Size = new System.Drawing.Size(812, 465);
+            this.userMgmtPage.Size = new System.Drawing.Size(818, 465);
             this.userMgmtPage.TabIndex = 4;
             this.userMgmtPage.Text = "UserMgmt";
             this.userMgmtPage.UseVisualStyleBackColor = true;
@@ -5770,7 +5763,7 @@
             this.newUserPage.Location = new System.Drawing.Point(4, 22);
             this.newUserPage.Name = "newUserPage";
             this.newUserPage.Padding = new System.Windows.Forms.Padding(3);
-            this.newUserPage.Size = new System.Drawing.Size(812, 465);
+            this.newUserPage.Size = new System.Drawing.Size(818, 465);
             this.newUserPage.TabIndex = 5;
             this.newUserPage.Text = "new_User";
             this.newUserPage.UseVisualStyleBackColor = true;
@@ -6067,7 +6060,7 @@
             this.setPasswordPage.Controls.Add(this.newpwdLabel);
             this.setPasswordPage.Location = new System.Drawing.Point(4, 22);
             this.setPasswordPage.Name = "setPasswordPage";
-            this.setPasswordPage.Size = new System.Drawing.Size(812, 465);
+            this.setPasswordPage.Size = new System.Drawing.Size(818, 465);
             this.setPasswordPage.TabIndex = 6;
             this.setPasswordPage.Text = "set_Password";
             this.setPasswordPage.UseVisualStyleBackColor = true;
@@ -6371,7 +6364,7 @@
             this.selectUser_Page.Location = new System.Drawing.Point(4, 22);
             this.selectUser_Page.Name = "selectUser_Page";
             this.selectUser_Page.Padding = new System.Windows.Forms.Padding(3);
-            this.selectUser_Page.Size = new System.Drawing.Size(812, 465);
+            this.selectUser_Page.Size = new System.Drawing.Size(818, 465);
             this.selectUser_Page.TabIndex = 24;
             this.selectUser_Page.Text = "selectUser";
             this.selectUser_Page.UseVisualStyleBackColor = true;
@@ -6449,20 +6442,110 @@
             this.deactivateUserButton.UseVisualStyleBackColor = true;
             this.deactivateUserButton.Click += new System.EventHandler(this.deactivateUserButton_Click);
             // 
+            // calendarCheckup
+            // 
+            this.calendarCheckup.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.calendarCheckup.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.calendarCheckup.Location = new System.Drawing.Point(824, 449);
+            this.calendarCheckup.Name = "calendarCheckup";
+            this.calendarCheckup.Size = new System.Drawing.Size(122, 21);
+            this.calendarCheckup.TabIndex = 15;
+            this.calendarCheckup.Value = new System.DateTime(2018, 12, 14, 17, 24, 41, 0);
+            // 
+            // label153
+            // 
+            this.label153.AutoSize = true;
+            this.label153.Font = new System.Drawing.Font("Forte", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label153.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.label153.Location = new System.Drawing.Point(850, 140);
+            this.label153.Name = "label153";
+            this.label153.Size = new System.Drawing.Size(71, 44);
+            this.label153.TabIndex = 16;
+            this.label153.Text = "myRep\r\nCRM";
+            this.label153.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // CLOSEbutton
+            // 
+            this.CLOSEbutton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CLOSEbutton.Image = global::myRep_app.Properties.Resources.close;
+            this.CLOSEbutton.Location = new System.Drawing.Point(913, 1);
+            this.CLOSEbutton.Name = "CLOSEbutton";
+            this.CLOSEbutton.Size = new System.Drawing.Size(30, 30);
+            this.CLOSEbutton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.CLOSEbutton.TabIndex = 14;
+            this.CLOSEbutton.TabStop = false;
+            this.CLOSEbutton.Click += new System.EventHandler(this.CLOSEbutton_Click);
+            this.CLOSEbutton.MouseLeave += new System.EventHandler(this.CLOSEbutton_MouseLeave);
+            this.CLOSEbutton.MouseHover += new System.EventHandler(this.CLOSEbutton_MouseHover);
+            // 
+            // HOMEButton
+            // 
+            this.HOMEButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.HOMEButton.Image = global::myRep_app.Properties.Resources.homebutton1;
+            this.HOMEButton.Location = new System.Drawing.Point(868, 369);
+            this.HOMEButton.Name = "HOMEButton";
+            this.HOMEButton.Size = new System.Drawing.Size(75, 75);
+            this.HOMEButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.HOMEButton.TabIndex = 13;
+            this.HOMEButton.TabStop = false;
+            this.HOMEButton.Click += new System.EventHandler(this.HOMEButton_Click);
+            this.HOMEButton.MouseLeave += new System.EventHandler(this.HOMEButton_MouseLeave);
+            this.HOMEButton.MouseHover += new System.EventHandler(this.HOMEButton_MouseHover);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::myRep_app.Properties.Resources.sercelogo;
+            this.pictureBox1.Location = new System.Drawing.Point(834, 37);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            // 
+            // warning3_newMeetingBox
+            // 
+            this.warning3_newMeetingBox.Image = ((System.Drawing.Image)(resources.GetObject("warning3_newMeetingBox.Image")));
+            this.warning3_newMeetingBox.Location = new System.Drawing.Point(350, 147);
+            this.warning3_newMeetingBox.Name = "warning3_newMeetingBox";
+            this.warning3_newMeetingBox.Size = new System.Drawing.Size(49, 50);
+            this.warning3_newMeetingBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.warning3_newMeetingBox.TabIndex = 31;
+            this.warning3_newMeetingBox.TabStop = false;
+            this.warning3_newMeetingBox.Visible = false;
+            // 
+            // warning_newMeetingBox
+            // 
+            this.warning_newMeetingBox.Image = ((System.Drawing.Image)(resources.GetObject("warning_newMeetingBox.Image")));
+            this.warning_newMeetingBox.Location = new System.Drawing.Point(277, 46);
+            this.warning_newMeetingBox.Name = "warning_newMeetingBox";
+            this.warning_newMeetingBox.Size = new System.Drawing.Size(49, 50);
+            this.warning_newMeetingBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.warning_newMeetingBox.TabIndex = 4;
+            this.warning_newMeetingBox.TabStop = false;
+            this.warning_newMeetingBox.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(853, 515);
+            this.BackColor = System.Drawing.Color.Aquamarine;
+            this.ClientSize = new System.Drawing.Size(946, 470);
+            this.Controls.Add(this.label153);
+            this.Controls.Add(this.calendarCheckup);
+            this.Controls.Add(this.CLOSEbutton);
+            this.Controls.Add(this.HOMEButton);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.showDedicatedHCPToolStrip);
             this.Controls.Add(this.addressDedicatedBookToolStrip);
             this.Controls.Add(this.addressDedicatedBookToolStrip1);
             this.Controls.Add(this.filterUsersbyTerritoryToolStrip);
             this.Controls.Add(this.mainController);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.mainController.ResumeLayout(false);
             this.homePage.ResumeLayout(false);
             this.homePage.PerformLayout();
@@ -6533,10 +6616,8 @@
             this.tabControl1.ResumeLayout(false);
             this.meeting_newmtgPage.ResumeLayout(false);
             this.meeting_newmtgPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.warning3_newMeetingBox)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.warning_newMeetingBox)).EndInit();
             this.enquiry_newmtgPage.ResumeLayout(false);
             this.enquiry_newmtgPage.PerformLayout();
             this.sampledrop_newmtgPage.ResumeLayout(false);
@@ -6595,6 +6676,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.selectUserDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myRep_allUsers_ODSDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userSetBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CLOSEbutton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HOMEButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.warning3_newMeetingBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.warning_newMeetingBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -7138,6 +7224,11 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button editUserButton;
         private System.Windows.Forms.Button deactivateUserButton;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox HOMEButton;
+        private System.Windows.Forms.PictureBox CLOSEbutton;
+        private System.Windows.Forms.DateTimePicker calendarCheckup;
+        private System.Windows.Forms.Label label153;
     }
 }
 

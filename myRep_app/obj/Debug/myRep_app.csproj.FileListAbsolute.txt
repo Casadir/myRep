@@ -5,10 +5,10 @@ E:\Praca_Inzynierska\myRep\myRep_app\bin\Debug\EntityFramework.dll
 E:\Praca_Inzynierska\myRep\myRep_app\bin\Debug\EntityFramework.SqlServer.dll
 E:\Praca_Inzynierska\myRep\myRep_app\bin\Debug\EntityFramework.xml
 E:\Praca_Inzynierska\myRep\myRep_app\bin\Debug\EntityFramework.SqlServer.xml
-E:\Praca_Inzynierska\myRep\myRep_app\obj\Debug\myRep_app.Form1.resources
 E:\Praca_Inzynierska\myRep\myRep_app\obj\Debug\myRep_app.Properties.Resources.resources
 E:\Praca_Inzynierska\myRep\myRep_app\obj\Debug\myRep_app.csproj.GenerateResource.Cache
 E:\Praca_Inzynierska\myRep\myRep_app\obj\Debug\myRep_app.csproj.CoreCompileInputs.cache
 E:\Praca_Inzynierska\myRep\myRep_app\obj\Debug\myRep_app.exe
 E:\Praca_Inzynierska\myRep\myRep_app\obj\Debug\myRep_app.pdb
 E:\Praca_Inzynierska\myRep\myRep_app\obj\Debug\myRep_app.csprojResolveAssemblyReference.cache
+E:\Praca_Inzynierska\myRep\myRep_app\obj\Debug\myRep_app.Form1.resources
