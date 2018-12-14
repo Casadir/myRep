@@ -25,6 +25,8 @@ namespace myRep_app
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'myRep_allUsers_ODSDataSet.UserSet' table. You can move, or remove it, as needed.
+            this.userSetTableAdapter3.Fill(this.myRep_allUsers_ODSDataSet.UserSet);
             // TODO: This line of code loads data into the 'myRep_AllUsersODSDataSet.UserSet' table. You can move, or remove it, as needed.
             this.userSetTableAdapter2.Fill(this.myRep_AllUsersODSDataSet.UserSet);
             // TODO: This line of code loads data into the 'myRep_ODSDataSet_UserSet.UserSet' table. You can move, or remove it, as needed.
@@ -446,103 +448,155 @@ namespace myRep_app
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            mainController.SelectedTab = newUserPage;
-        }
-
         private void createUserButton_Click(object sender, EventArgs e)
         {
-            String commandText = "INSERT INTO UserSet VALUES(@firstname,@middlename, @lastname,@email, @jobtitle, @phonenumber,  @hiredate, @managerid, @territory, @username)";
-            String commandText2 = "select count(*) from UserSet where Username = @param2";
-
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = Properties.Settings.Default.ConnectionString; 
-            conn.Open();
-            try
+            if (action_backTo == "NEWUSER")
             {
-                SqlCommand command2 = new SqlCommand(commandText2, conn);
-                command2.Parameters.AddWithValue("@param2", usernameUserBox.Text.ToString());
-                if (Convert.ToInt32(command2.ExecuteScalar()) > 0)
+                SqlConnection conn = new SqlConnection();
+                conn.ConnectionString = Properties.Settings.Default.ConnectionString;
+                conn.Open();
+                try
                 {
+                    //tworzenie unikatowego username
+                    SqlCommand commandx = new SqlCommand("SELECT count(userID) FROM UserSet WHERE Username = @u", conn);
+                    String newUsername;
+                    do
+                    {
+                        String newUsernameFname = Convert.ToString(fnameUserBox.Text).ToLower();
+                        char Fn = newUsernameFname[0];
+                        String newUsernameLname = Convert.ToString(lnameUserBox.Text).ToLower();
+                        char Ln = newUsernameLname[0];
+                        Random rnd = new Random();
+                        int number = rnd.Next(1000, 9999);
+
+                        newUsername = Convert.ToString(Fn) + Convert.ToString(Ln) + Convert.ToString(number);
+
+                        commandx.Parameters.AddWithValue("@u", newUsername);
+                    } while (Convert.ToInt32(commandx.ExecuteScalar()) != 0);
+
+                    String commandText = "INSERT INTO UserSet VALUES(@firstname,@middlename, @lastname,@email, @jobtitle, @phonenumber,  @hiredate, @managerid, @territory, 1 , @username)";
                     SqlCommand command = new SqlCommand(commandText, conn);
                     command.CommandText = commandText;
                     command.Parameters.AddWithValue("@firstname", fnameUserBox.Text.ToString());
-                    command.Parameters.AddWithValue("@middlename", mnameUserBox.Text.ToString());
+
+                    if (String.IsNullOrEmpty(mnameUserBox.Text.ToString())) command.Parameters.AddWithValue("@middlename", DBNull.Value);
+                    else command.Parameters.AddWithValue("@middlename", mnameUserBox.Text.ToString());
+
                     command.Parameters.AddWithValue("@lastname", lnameUserBox.Text.ToString());
                     command.Parameters.AddWithValue("jobtitle", jobtitleUserBox.Text.ToString());
                     command.Parameters.AddWithValue("@email", emailUserBox.Text.ToString());
+
                     phnumberUserBox.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-                    command.Parameters.AddWithValue("@phonenumber", Convert.ToInt32(phnumberUserBox.Text.ToString()));
+                    if (String.IsNullOrEmpty(phnumberUserBox.Text.ToString())) command.Parameters.AddWithValue("@phonenumber", DBNull.Value);
+                    else command.Parameters.AddWithValue("@phonenumber", Convert.ToInt32(phnumberUserBox.Text.ToString()));
+
                     command.Parameters.Add("@hiredate", SqlDbType.Date).Value = hireDateUserPicker.Value.Date;
 
+                    if (managerID_newUser.Text == "" || managerID_newUser.Text == "-")
                     command.Parameters.AddWithValue("@managerid", DBNull.Value);
-                    //command.Parameters.AddWithValue("@managerid", selectedManagerUserLabel.Text.ToString());
+                    else
+                    command.Parameters.AddWithValue("@managerid", managerID_newUser.Text.ToString());
 
                     command.Parameters.AddWithValue("@territory", territoryUserBox.Text.ToString());
-                    String pomoc = fnameUserBox.Text.ToString().ToLower() + "." + Convert.ToString((Convert.ToInt32(command2.ExecuteScalar()) + 1)) + "." + lnameUserBox.Text.ToString().ToLower();
-                    command.Parameters.AddWithValue("@username", pomoc);
-                    username = pomoc;
+                    command.Parameters.AddWithValue("@username", newUsername);
+                    MessageBox.Show("WYGENEROWANO NAZWĘ UŻYTKOWNIKA: " + newUsername);
+                    usernameNewUser.Text = newUsername;
                     command.ExecuteNonQuery();
                     mainController.SelectedTab = setPasswordPage;
                     conn.Close();
-                    this.myRep_ODS_User_DataSet.Reset();
-                    this.userSetTableAdapter.Fill(this.myRep_ODS_User_DataSet.UserSet);
                 }
-                else
+                catch (SqlException er)
                 {
+                    String text = "There was an error reported by SQL Server, " + er.Message;
+                    MessageBox.Show(text, "ERROR");
+                }
+            }
+            if (action_backTo == "EDITUSER")
+            {
+                SqlConnection conn = new SqlConnection();
+                conn.ConnectionString = Properties.Settings.Default.ConnectionString;
+                conn.Open();
+                try
+                {
+                    String commandText = "UPDATE UserSet SET FirstName = @firstname, MiddleName = @middlename, LastName = @lastname, Email = @email, JobTitle = @jobtitle, PhoneNumber = @phonenumber, HireDate = @hiredate, ManagerID = @managerid, Territory = @territory WHERE userID = @uID ";
                     SqlCommand command = new SqlCommand(commandText, conn);
+                    command.CommandText = commandText;
+                    command.Parameters.AddWithValue("@uID", Convert.ToInt32(usersDataGridView.CurrentRow.Cells[0].Value));
                     command.Parameters.AddWithValue("@firstname", fnameUserBox.Text.ToString());
-                    command.Parameters.AddWithValue("@middlename", mnameUserBox.Text.ToString());
+
+                    if (String.IsNullOrEmpty(mnameUserBox.Text.ToString())) command.Parameters.AddWithValue("@middlename", DBNull.Value);
+                    else command.Parameters.AddWithValue("@middlename", mnameUserBox.Text.ToString());
+
                     command.Parameters.AddWithValue("@lastname", lnameUserBox.Text.ToString());
                     command.Parameters.AddWithValue("jobtitle", jobtitleUserBox.Text.ToString());
                     command.Parameters.AddWithValue("@email", emailUserBox.Text.ToString());
+
                     phnumberUserBox.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-                    command.Parameters.AddWithValue("@phonenumber", Convert.ToInt32(phnumberUserBox.Text.ToString()));
+                    if (String.IsNullOrEmpty(phnumberUserBox.Text.ToString())) command.Parameters.AddWithValue("@phonenumber", DBNull.Value);
+                    else command.Parameters.AddWithValue("@phonenumber", Convert.ToInt32(phnumberUserBox.Text.ToString()));
+
                     command.Parameters.Add("@hiredate", SqlDbType.Date).Value = hireDateUserPicker.Value.Date;
 
-                    command.Parameters.AddWithValue("@managerid", DBNull.Value);
-                    //command.Parameters.AddWithValue("@managerid", selectedManagerUserLabel.Text.ToString());
+                    if (managerID_newUser.Text == "" || managerID_newUser.Text == "-")
+                        command.Parameters.AddWithValue("@managerid", DBNull.Value);
+                    else
+                        command.Parameters.AddWithValue("@managerid", managerID_newUser.Text.ToString());
 
                     command.Parameters.AddWithValue("@territory", territoryUserBox.Text.ToString());
-                    command.Parameters.AddWithValue("@username", fnameUserBox.Text.ToString().ToLower() + ".x." + lnameUserBox.Text.ToString().ToLower());
-                    username = fnameUserBox.Text.ToString().ToLower() + ".x." + lnameUserBox.Text.ToString().ToLower();
                     command.ExecuteNonQuery();
-                    mainController.SelectedTab = setPasswordPage;
-                    conn.Close();
-                    this.myRep_ODS_User_DataSet.Reset();
-                    this.userSetTableAdapter.Fill(this.myRep_ODS_User_DataSet.UserSet);
-                }
 
-            }
-            catch (SqlException er)
-            {
-                String text = "There was an error reported by SQL Server, " + er.Message;
-                MessageBox.Show(text, "ERROR");
+                    //ODŚWIEŻENIE GRIDA
+                    SqlCommand command2 = new SqlCommand("showAllUsers", conn);
+                    command2.CommandType = CommandType.StoredProcedure;
+                    DataTable dt2 = new DataTable();
+                    SqlDataAdapter dataAdapter2 = new SqlDataAdapter(command2);
+                    dataAdapter2.Fill(dt2);
+                    usersDataGridView.DataSource = dt2;
+                    usersDataGridView.Columns[0].Visible = false; //userID
+                    usersDataGridView.Columns[1].Visible = false; //ManagerID
+                    mainController.SelectedTab = userMgmtPage;
+                    conn.Close();
+                }
+                catch (SqlException er)
+                {
+                    String text = "There was an error reported by SQL Server, " + er.Message;
+                    MessageBox.Show(text, "ERROR");
+                }
             }
         }
 
         private void SetPasswordButton_Click(object sender, EventArgs e)
         {
-            String commandText = "INSERT INTO UserCredentialsSet VALUES(@uid,@pw)";
-            String commandText2 = "SELECT UserID FROM UserSet WHERE Username = @param";
-
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = Properties.Settings.Default.ConnectionString;
             conn.Open();
             try
             {
+                //Pobranie UserID nowo utworzonego użytkownika
+                String commandText2 = "SELECT UserID FROM UserSet WHERE Username = @param";
                 SqlCommand command2 = new SqlCommand(commandText2, conn);
-                command2.Parameters.AddWithValue("@param", username);
+                command2.Parameters.AddWithValue("@param", usernameNewUser.Text);
 
+                //Utworzenie hasła
+                String commandText = "INSERT INTO UserCredentialsSet VALUES(@uid,@pw)";
                 SqlCommand command = new SqlCommand(commandText, conn);
                 command.Parameters.AddWithValue("@uid", Convert.ToInt32(command2.ExecuteScalar()));
                 command.Parameters.AddWithValue("@pw", newpwdBox.Text.ToString());
 
                 command.ExecuteNonQuery();
 
-                MessageBox.Show("all done!");
+                MessageBox.Show("Gotowe! Utworzono użytkownika i hasło!");
+                //WYŚWIETLANIE i POWRÓR DO WSZYSTKICH USERÓW
+                SqlCommand command5 = new SqlCommand("showAllUsers", conn);
+                command5.CommandType = CommandType.StoredProcedure;
+                DataTable dt1 = new DataTable();
+                SqlDataAdapter dataAdapter1 = new SqlDataAdapter(command5);
+                dataAdapter1.Fill(dt1);
+                usersDataGridView.DataSource = dt1;
+                usersDataGridView.Columns[0].Visible = false; //userID
+                usersDataGridView.Columns[1].Visible = false; //ManagerID
                 mainController.SelectedTab = userMgmtPage;
+
             }
             catch (SqlException er)
             {
@@ -550,24 +604,6 @@ namespace myRep_app
                 MessageBox.Show(text, "ERROR");
             }
             conn.Close();
-
-        }
-
-        private void lnameUserBox_TextChanged(object sender, EventArgs e)
-        {
-            usernameUserBox.Text = fnameBox.Text.ToString() + ".x." + lnameUserBox.Text.ToString();
-
-        }
-
-        private void lnameUserBox_KeyUp(object sender, KeyEventArgs e)
-        {
-            usernameUserBox.Text = fnameUserBox.Text.ToString() + ".x." + lnameUserBox.Text.ToString();
-
-        }
-
-        private void fnameUserBox_KeyUp(object sender, KeyEventArgs e)
-        {
-            usernameUserBox.Text = fnameUserBox.Text.ToString() + ".x." + lnameUserBox.Text.ToString();
 
         }
 
@@ -652,7 +688,7 @@ namespace myRep_app
 
                 dataGridViewHCPWorkPlace.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
-                SqlCommand command3 = new SqlCommand("SELECT count(*) FROM MeetingSet WHERE HCPID = @hcpID and UserID = @uID ", conn);
+                SqlCommand command3 = new SqlCommand("SELECT count(*) FROM MeetingSet WHERE (HCPID = @hcpID AND Type = 'Submitted') OR (HCPID = @hcpID AND Type = 'Saved' AND UserID = @uID)", conn);
                 command3.Parameters.AddWithValue("@hcpID", hcpDataGridView.CurrentRow.Cells[0].Value);
                 command3.Parameters.AddWithValue("uID", loggedUserID);
                 if (Convert.ToInt32(command3.ExecuteScalar()) > 0 || command3.ExecuteScalar() != DBNull.Value)
@@ -2502,7 +2538,7 @@ namespace myRep_app
             foreach (DataGridViewRow row in usersDataGridView.Rows)
             {
                 if (Convert.ToInt32(row.Cells[2].Value) == 1 ) row.DefaultCellStyle.BackColor = Color.YellowGreen;
-                else if (Convert.ToInt32(row.Cells[2].Value) == 1) row.DefaultCellStyle.BackColor = Color.Red;
+                else if (Convert.ToInt32(row.Cells[2].Value) == 0) row.DefaultCellStyle.BackColor = Color.Red;
 
             }
         }
@@ -2925,6 +2961,155 @@ namespace myRep_app
             else
                 giveSample_SampleOrdersButton.Enabled = false;
 
+        }
+
+        private void newpwdBox_TextChanged(object sender, EventArgs e)
+        {
+            SetPasswordButton.Enabled = !(String.IsNullOrEmpty(newpwdBox.Text)) && !(String.IsNullOrEmpty(newpwdBox_confirm.Text)) && (Convert.ToString(newpwdBox.Text).Length > 5) && (Convert.ToString(newpwdBox_confirm).Length > 5) && (newpwdBox.Text == newpwdBox_confirm.Text);
+        }
+
+        private void newpwdBox_confirm_TextChanged(object sender, EventArgs e)
+        {
+            SetPasswordButton.Enabled = !(String.IsNullOrEmpty(newpwdBox.Text)) && !(String.IsNullOrEmpty(newpwdBox_confirm.Text)) && (Convert.ToString(newpwdBox.Text).Length > 5) && (Convert.ToString(newpwdBox_confirm).Length > 5) && (newpwdBox.Text == newpwdBox_confirm.Text);
+        }
+
+        private void setManagerUserButton_Click(object sender, EventArgs e)
+        {
+            mainController.SelectedTab = selectUser_Page;
+            string sConnection = Properties.Settings.Default.myRep_ODSConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                SqlCommand command2 = new SqlCommand("dbo.showPossibleManagers", conn);
+                command2.CommandType = CommandType.StoredProcedure;
+                DataTable dt = new DataTable();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command2);
+                dataAdapter.Fill(dt);
+                selectUserDataGridView.DataSource = dt;
+                selectUserDataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                conn.Close();
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            managerID_newUser.Text = Convert.ToString(selectUserDataGridView.CurrentRow.Cells[0].Value);
+            selectedManagerUserLabel.Text = Convert.ToString(selectUserDataGridView.CurrentRow.Cells[1].Value);
+            mainController.SelectedTab = newUserPage;
+        }
+
+        private void fnameUserBox_TextChanged(object sender, EventArgs e)
+        {
+            createUserButton.Enabled = !(String.IsNullOrEmpty(fnameUserBox.Text)) && !(String.IsNullOrEmpty(lnameUserBox.Text)) && !(String.IsNullOrEmpty(jobtitleUserBox.Text)) && !(String.IsNullOrEmpty(emailUserBox.Text)) && !(String.IsNullOrEmpty(territoryUserBox.Text));
+        }
+
+        private void lnameUserBox_TextChanged(object sender, EventArgs e)
+        {
+            createUserButton.Enabled = !(String.IsNullOrEmpty(fnameUserBox.Text)) && !(String.IsNullOrEmpty(lnameUserBox.Text)) && !(String.IsNullOrEmpty(jobtitleUserBox.Text)) && !(String.IsNullOrEmpty(emailUserBox.Text)) && !(String.IsNullOrEmpty(territoryUserBox.Text));
+        }
+
+        private void jobtitleUserBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            createUserButton.Enabled = !(String.IsNullOrEmpty(fnameUserBox.Text)) && !(String.IsNullOrEmpty(lnameUserBox.Text)) && !(String.IsNullOrEmpty(jobtitleUserBox.Text)) && !(String.IsNullOrEmpty(emailUserBox.Text)) && !(String.IsNullOrEmpty(territoryUserBox.Text));
+        }
+
+        private void emailUserBox_TextChanged(object sender, EventArgs e)
+        {
+            createUserButton.Enabled = !(String.IsNullOrEmpty(fnameUserBox.Text)) && !(String.IsNullOrEmpty(lnameUserBox.Text)) && !(String.IsNullOrEmpty(jobtitleUserBox.Text)) && !(String.IsNullOrEmpty(emailUserBox.Text)) && !(String.IsNullOrEmpty(territoryUserBox.Text));
+        }
+
+        private void territoryUserBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            createUserButton.Enabled = !(String.IsNullOrEmpty(fnameUserBox.Text)) && !(String.IsNullOrEmpty(lnameUserBox.Text)) && !(String.IsNullOrEmpty(jobtitleUserBox.Text)) && !(String.IsNullOrEmpty(emailUserBox.Text)) && !(String.IsNullOrEmpty(territoryUserBox.Text));
+        }
+
+        private void newUserButton_Click(object sender, EventArgs e)
+        {
+                mainController.SelectedTab = newUserPage;
+                action_backTo = "NEWUSER";
+                fnameUserBox.Text = "";
+                mnameUserBox.Text = "";
+                lnameUserBox.Text = "";
+                jobtitleUserBox.SelectedIndex = -1;
+                emailUserBox.Text = "";
+                phnumberUserBox.Text = "";
+                selectedManagerUserLabel.Text = "";
+                managerID_newUser.Text = "";
+                territoryUserBox.SelectedIndex = -1;
+            
+        }
+
+        private void usersDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Convert.ToInt32(usersDataGridView.CurrentRow.Cells[2].Value) == 1)
+            {
+                editUserButton.Enabled = true;
+                deactivateUserButton.Enabled = true;
+
+            }
+        }
+
+        private void selectUserDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            selectUserDataGridView.ClearSelection();
+        }
+
+        private void editUserButton_Click(object sender, EventArgs e)
+        {
+            mainController.SelectedTab = newUserPage;
+            action_backTo = "EDITUSER";
+            fnameUserBox.Text = usersDataGridView.CurrentRow.Cells[3].Value.ToString();
+            if (!String.IsNullOrEmpty(usersDataGridView.CurrentRow.Cells[4].Value.ToString())) mnameUserBox.Text = usersDataGridView.CurrentRow.Cells[4].Value.ToString();
+            lnameUserBox.Text = usersDataGridView.CurrentRow.Cells[5].Value.ToString();
+            jobtitleUserBox.Text = usersDataGridView.CurrentRow.Cells[8].Value.ToString();
+            emailUserBox.Text = usersDataGridView.CurrentRow.Cells[7].Value.ToString();
+            phnumberUserBox.Text = usersDataGridView.CurrentRow.Cells[9].Value.ToString();
+            selectedManagerUserLabel.Text = usersDataGridView.CurrentRow.Cells[11].Value.ToString();
+            managerID_newUser.Text = usersDataGridView.CurrentRow.Cells[1].Value.ToString();
+            territoryUserBox.Text = usersDataGridView.CurrentRow.Cells[6].Value.ToString();
+            hireDateUserPicker.Value = Convert.ToDateTime(usersDataGridView.CurrentRow.Cells[10].Value.ToString()); 
+        }
+
+        private void deactivateUserButton_Click(object sender, EventArgs e)
+        {
+            string sConnection = Properties.Settings.Default.myRep_ODSConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                SqlCommand command = new SqlCommand("UPDATE UserSet SET IsActive = 0 WHERE userID = @uID", conn);
+                command.Parameters.AddWithValue("@uID", Convert.ToInt32(usersDataGridView.CurrentRow.Cells[0].Value));
+                command.ExecuteNonQuery();
+
+                SqlCommand command2 = new SqlCommand("DELETE FROM UserCredentialsSet WHERE userID = @uID", conn);
+                command2.Parameters.AddWithValue("@uID", Convert.ToInt32(usersDataGridView.CurrentRow.Cells[0].Value));
+                command2.ExecuteNonQuery();
+
+                //REFRESH WSZYSTKICH USERÓW
+                SqlCommand command3 = new SqlCommand("showAllUsers", conn);
+                command3.CommandType = CommandType.StoredProcedure;
+                DataTable dt = new DataTable();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command3);
+                dataAdapter.Fill(dt);
+                usersDataGridView.DataSource = dt;
+                usersDataGridView.Columns[0].Visible = false; //userID
+                usersDataGridView.Columns[1].Visible = false; //ManagerID
+
+                conn.Close();
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
         }
     }
 }

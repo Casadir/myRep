@@ -81,6 +81,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>myRep_AllUsersODSDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="myRep_allUsers_ODSDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>myRep_allUsers_ODSDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="myRep_Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -181,6 +186,17 @@
     </None>
     <None Include="myRep_AllUsersODSDataSet.xss">
       <DependentUpon>myRep_AllUsersODSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="myRep_allUsers_ODSDataSet.xsc">
+      <DependentUpon>myRep_allUsers_ODSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="myRep_allUsers_ODSDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>myRep_allUsers_ODSDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="myRep_allUsers_ODSDataSet.xss">
+      <DependentUpon>myRep_allUsers_ODSDataSet.xsd</DependentUpon>
     </None>
     <None Include="myRep_Model.edmx.diagram">
       <DependentUpon>myRep_Model.edmx</DependentUpon>

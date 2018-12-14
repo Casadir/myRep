@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.mainController = new System.Windows.Forms.TabControl();
             this.homePage = new System.Windows.Forms.TabPage();
+            this.SampleOrdersHomeButton = new System.Windows.Forms.Button();
             this.EnquiriesCenter = new System.Windows.Forms.Button();
             this.myEnquiriesButton = new System.Windows.Forms.Button();
             this.mySamplesButton = new System.Windows.Forms.Button();
@@ -70,30 +71,34 @@
             this.label134 = new System.Windows.Forms.Label();
             this.label133 = new System.Windows.Forms.Label();
             this.myEnqDataGridView = new System.Windows.Forms.DataGridView();
-            this.products_Mgmt_Page = new System.Windows.Forms.TabPage();
-            this.SampleRightsErrorLabel = new System.Windows.Forms.Label();
-            this.GiveSampleButton = new System.Windows.Forms.Button();
-            this.EditSampleButton = new System.Windows.Forms.Button();
-            this.NewSampleButton = new System.Windows.Forms.Button();
-            this.editProductButton = new System.Windows.Forms.Button();
-            this.newProductButton = new System.Windows.Forms.Button();
-            this.label94 = new System.Windows.Forms.Label();
-            this.DisbursedSamplesGridView = new System.Windows.Forms.DataGridView();
-            this.label83 = new System.Windows.Forms.Label();
-            this.samplelistGridView = new System.Windows.Forms.DataGridView();
-            this.label62 = new System.Windows.Forms.Label();
-            this.productsDataGridView = new System.Windows.Forms.DataGridView();
-            this.productIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.antiDiseaseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.manufacturerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mainIngredientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.myRep_ODSDataSet = new myRep_app.myRep_ODSDataSet();
             this.mySamplesPage = new System.Windows.Forms.TabPage();
+            this.mySampleOrdersGridView = new System.Windows.Forms.DataGridView();
+            this.label142 = new System.Windows.Forms.Label();
+            this.createSampleOrder_mySamplesButton = new System.Windows.Forms.Button();
             this.goHomeButton = new System.Windows.Forms.Button();
             this.label111 = new System.Windows.Forms.Label();
             this.mySamplesDataGridView = new System.Windows.Forms.DataGridView();
+            this.SampleOrders_Page = new System.Windows.Forms.TabPage();
+            this.homepage_SampleOrdersButton = new System.Windows.Forms.Button();
+            this.giveSample_SampleOrdersButton = new System.Windows.Forms.Button();
+            this.label143 = new System.Windows.Forms.Label();
+            this.AllSampleOrdersGridView = new System.Windows.Forms.DataGridView();
+            this.orderSample_Page = new System.Windows.Forms.TabPage();
+            this.backSampleOrderButton = new System.Windows.Forms.Button();
+            this.sendSampleOrderButton = new System.Windows.Forms.Button();
+            this.samplesqtyOrderSample = new System.Windows.Forms.NumericUpDown();
+            this.label141 = new System.Windows.Forms.Label();
+            this.label140 = new System.Windows.Forms.Label();
+            this.label139 = new System.Windows.Forms.Label();
+            this.samplesOrderSampleGridView = new System.Windows.Forms.DataGridView();
+            this.productsOrderSampleGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.myRep_ODSDataSet = new myRep_app.myRep_ODSDataSet();
             this.give_sample_page = new System.Windows.Forms.TabPage();
             this.value_giveSampleBox = new System.Windows.Forms.TextBox();
             this.label110 = new System.Windows.Forms.Label();
@@ -116,6 +121,24 @@
             this.myRep_ODSDataSet_UserSet = new myRep_app.myRep_ODSDataSet_UserSet();
             this.label109 = new System.Windows.Forms.Label();
             this.samplelabel_toGive_label = new System.Windows.Forms.Label();
+            this.products_Mgmt_Page = new System.Windows.Forms.TabPage();
+            this.SampleRightsErrorLabel = new System.Windows.Forms.Label();
+            this.GiveSampleButton = new System.Windows.Forms.Button();
+            this.EditSampleButton = new System.Windows.Forms.Button();
+            this.NewSampleButton = new System.Windows.Forms.Button();
+            this.editProductButton = new System.Windows.Forms.Button();
+            this.newProductButton = new System.Windows.Forms.Button();
+            this.label94 = new System.Windows.Forms.Label();
+            this.DisbursedSamplesGridView = new System.Windows.Forms.DataGridView();
+            this.label83 = new System.Windows.Forms.Label();
+            this.samplelistGridView = new System.Windows.Forms.DataGridView();
+            this.label62 = new System.Windows.Forms.Label();
+            this.productsDataGridView = new System.Windows.Forms.DataGridView();
+            this.productIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.antiDiseaseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.manufacturerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mainIngredientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.new_product_page = new System.Windows.Forms.TabPage();
             this.label100 = new System.Windows.Forms.Label();
             this.addNewProductButton = new System.Windows.Forms.Button();
@@ -128,6 +151,14 @@
             this.label97 = new System.Windows.Forms.Label();
             this.label96 = new System.Windows.Forms.Label();
             this.label95 = new System.Windows.Forms.Label();
+            this.select_product_Page = new System.Windows.Forms.TabPage();
+            this.selectProductButton = new System.Windows.Forms.Button();
+            this.SelectProductDataGridView = new System.Windows.Forms.DataGridView();
+            this.productIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.antiDiseaseDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.manufacturerDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mainIngredientDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.new_Sample_Page = new System.Windows.Forms.TabPage();
             this.label107 = new System.Windows.Forms.Label();
             this.label106 = new System.Windows.Forms.Label();
@@ -288,19 +319,6 @@
             this.sampleGridView_newMTG = new System.Windows.Forms.DataGridView();
             this.label115 = new System.Windows.Forms.Label();
             this.createSampleDropCheck_newMeeting = new System.Windows.Forms.CheckBox();
-            this.select_product_Page = new System.Windows.Forms.TabPage();
-            this.selectProductButton = new System.Windows.Forms.Button();
-            this.SelectProductDataGridView = new System.Windows.Forms.DataGridView();
-            this.productIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.antiDiseaseDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.manufacturerDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mainIngredientDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.userMgmtPage = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.usersDataGridView = new System.Windows.Forms.DataGridView();
-            this.userSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.myRep_ODS_User_DataSet = new myRep_app.myRep_ODS_User_DataSet();
             this.newHCPPage = new System.Windows.Forms.TabPage();
             this.selectedAddressFullLabel = new System.Windows.Forms.Label();
             this.otherLangTextBox = new System.Windows.Forms.TextBox();
@@ -382,33 +400,6 @@
             this.label53 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
-            this.newUserPage = new System.Windows.Forms.TabPage();
-            this.emailUserBox = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.hireDateUserPicker = new System.Windows.Forms.DateTimePicker();
-            this.createUserButton = new System.Windows.Forms.Button();
-            this.selectedManagerUserLabel = new System.Windows.Forms.Label();
-            this.territoryUserBox = new System.Windows.Forms.ComboBox();
-            this.setManagerUserButton = new System.Windows.Forms.Button();
-            this.usernameUserBox = new System.Windows.Forms.TextBox();
-            this.lnameUserBox = new System.Windows.Forms.TextBox();
-            this.mnameUserBox = new System.Windows.Forms.TextBox();
-            this.fnameUserBox = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.setPasswordPage = new System.Windows.Forms.TabPage();
-            this.SetPasswordButton = new System.Windows.Forms.Button();
-            this.newpwdBox_confirm = new System.Windows.Forms.TextBox();
-            this.newpwdBox = new System.Windows.Forms.TextBox();
-            this.newpwd_confirm_label = new System.Windows.Forms.Label();
-            this.newpwdLabel = new System.Windows.Forms.Label();
             this.select_address_Page = new System.Windows.Forms.TabPage();
             this.button2 = new System.Windows.Forms.Button();
             this.setAddressGridView = new System.Windows.Forms.DataGridView();
@@ -485,6 +476,46 @@
             this.label91 = new System.Windows.Forms.Label();
             this.label92 = new System.Windows.Forms.Label();
             this.label93 = new System.Windows.Forms.Label();
+            this.userMgmtPage = new System.Windows.Forms.TabPage();
+            this.newUserButton = new System.Windows.Forms.Button();
+            this.usersDataGridView = new System.Windows.Forms.DataGridView();
+            this.newUserPage = new System.Windows.Forms.TabPage();
+            this.managerID_newUser = new System.Windows.Forms.Label();
+            this.label149 = new System.Windows.Forms.Label();
+            this.label148 = new System.Windows.Forms.Label();
+            this.label147 = new System.Windows.Forms.Label();
+            this.label146 = new System.Windows.Forms.Label();
+            this.label145 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.phnumberUserBox = new System.Windows.Forms.MaskedTextBox();
+            this.jobtitleUserBox = new System.Windows.Forms.ComboBox();
+            this.label144 = new System.Windows.Forms.Label();
+            this.emailUserBox = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.hireDateUserPicker = new System.Windows.Forms.DateTimePicker();
+            this.createUserButton = new System.Windows.Forms.Button();
+            this.selectedManagerUserLabel = new System.Windows.Forms.Label();
+            this.territoryUserBox = new System.Windows.Forms.ComboBox();
+            this.setManagerUserButton = new System.Windows.Forms.Button();
+            this.lnameUserBox = new System.Windows.Forms.TextBox();
+            this.mnameUserBox = new System.Windows.Forms.TextBox();
+            this.fnameUserBox = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.setPasswordPage = new System.Windows.Forms.TabPage();
+            this.SetPasswordButton = new System.Windows.Forms.Button();
+            this.newpwdBox_confirm = new System.Windows.Forms.TextBox();
+            this.newpwdBox = new System.Windows.Forms.TextBox();
+            this.newpwd_confirm_label = new System.Windows.Forms.Label();
+            this.newpwdLabel = new System.Windows.Forms.Label();
+            this.userSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.myRep_ODS_User_DataSet = new myRep_app.myRep_ODS_User_DataSet();
             this.hCOSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.myRep_ODS_HCO_DataSet = new myRep_app.myRep_ODS_HCO_DataSet();
             this.hCOSetTableAdapter = new myRep_app.myRep_ODS_HCO_DataSetTableAdapters.HCOSetTableAdapter();
@@ -515,35 +546,21 @@
             this.terriToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.terriToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.filterUsersbyTerritoryToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.createSampleOrder_mySamplesButton = new System.Windows.Forms.Button();
-            this.orderSample_Page = new System.Windows.Forms.TabPage();
-            this.productsOrderSampleGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.samplesOrderSampleGridView = new System.Windows.Forms.DataGridView();
-            this.label139 = new System.Windows.Forms.Label();
-            this.label140 = new System.Windows.Forms.Label();
-            this.label141 = new System.Windows.Forms.Label();
-            this.samplesqtyOrderSample = new System.Windows.Forms.NumericUpDown();
-            this.sendSampleOrderButton = new System.Windows.Forms.Button();
-            this.backSampleOrderButton = new System.Windows.Forms.Button();
-            this.label142 = new System.Windows.Forms.Label();
-            this.mySampleOrdersGridView = new System.Windows.Forms.DataGridView();
-            this.SampleOrders_Page = new System.Windows.Forms.TabPage();
-            this.SampleOrdersHomeButton = new System.Windows.Forms.Button();
-            this.AllSampleOrdersGridView = new System.Windows.Forms.DataGridView();
-            this.label143 = new System.Windows.Forms.Label();
-            this.giveSample_SampleOrdersButton = new System.Windows.Forms.Button();
-            this.homepage_SampleOrdersButton = new System.Windows.Forms.Button();
             this.myRep_AllUsersODSDataSet = new myRep_app.myRep_AllUsersODSDataSet();
             this.userSetBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.userSetTableAdapter2 = new myRep_app.myRep_AllUsersODSDataSetTableAdapters.UserSetTableAdapter();
-            this.label144 = new System.Windows.Forms.Label();
-            this.jobtitleUserBox = new System.Windows.Forms.ComboBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.label150 = new System.Windows.Forms.Label();
+            this.label151 = new System.Windows.Forms.Label();
+            this.usernameNewUser = new System.Windows.Forms.Label();
+            this.selectUser_Page = new System.Windows.Forms.TabPage();
+            this.selectUserDataGridView = new System.Windows.Forms.DataGridView();
+            this.myRep_allUsers_ODSDataSet = new myRep_app.myRep_allUsers_ODSDataSet();
+            this.userSetBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.userSetTableAdapter3 = new myRep_app.myRep_allUsers_ODSDataSetTableAdapters.UserSetTableAdapter();
+            this.label152 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
+            this.editUserButton = new System.Windows.Forms.Button();
+            this.deactivateUserButton = new System.Windows.Forms.Button();
             this.mainController.SuspendLayout();
             this.homePage.SuspendLayout();
             this.enqCenter_Page.SuspendLayout();
@@ -551,20 +568,29 @@
             ((System.ComponentModel.ISupportInitialize)(this.allEnquiriesGridView)).BeginInit();
             this.myEnq_Page.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.myEnqDataGridView)).BeginInit();
-            this.products_Mgmt_Page.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DisbursedSamplesGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.samplelistGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).BeginInit();
+            this.mySamplesPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mySampleOrdersGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mySamplesDataGridView)).BeginInit();
+            this.SampleOrders_Page.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AllSampleOrdersGridView)).BeginInit();
+            this.orderSample_Page.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.samplesqtyOrderSample)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.samplesOrderSampleGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsOrderSampleGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myRep_ODSDataSet)).BeginInit();
-            this.mySamplesPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mySamplesDataGridView)).BeginInit();
             this.give_sample_page.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qty_giveSampleBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectUser_giveSampleGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userSetBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myRep_ODSDataSet_UserSet)).BeginInit();
+            this.products_Mgmt_Page.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DisbursedSamplesGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.samplelistGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).BeginInit();
             this.new_product_page.SuspendLayout();
+            this.select_product_Page.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SelectProductDataGridView)).BeginInit();
             this.new_Sample_Page.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Value_neweditdampleBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Qty_neweditdampleBox)).BeginInit();
@@ -596,20 +622,12 @@
             this.sampledrop_newmtgPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SamplesQty_newMTG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sampleGridView_newMTG)).BeginInit();
-            this.select_product_Page.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SelectProductDataGridView)).BeginInit();
-            this.userMgmtPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.myRep_ODS_User_DataSet)).BeginInit();
             this.newHCPPage.SuspendLayout();
             this.panel1.SuspendLayout();
             this.newHCOPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeesHCOBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BedsHCOBox)).BeginInit();
             this.newAddressPage.SuspendLayout();
-            this.newUserPage.SuspendLayout();
-            this.setPasswordPage.SuspendLayout();
             this.select_address_Page.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.setAddressGridView)).BeginInit();
             this.new_HCPHCO_Assossiation_Page.SuspendLayout();
@@ -619,6 +637,12 @@
             this.edit_HCO_Page.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employees_editHCOBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.beds_editHCOBox)).BeginInit();
+            this.userMgmtPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).BeginInit();
+            this.newUserPage.SuspendLayout();
+            this.setPasswordPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myRep_ODS_User_DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hCOSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myRep_ODS_HCO_DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myRep_ODS_HCOHCPDataSet)).BeginInit();
@@ -629,15 +653,12 @@
             this.addressDedicatedBookToolStrip.SuspendLayout();
             this.addressDedicatedBookToolStrip1.SuspendLayout();
             this.filterUsersbyTerritoryToolStrip.SuspendLayout();
-            this.orderSample_Page.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productsOrderSampleGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.samplesOrderSampleGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.samplesqtyOrderSample)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mySampleOrdersGridView)).BeginInit();
-            this.SampleOrders_Page.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.AllSampleOrdersGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myRep_AllUsersODSDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userSetBindingSource2)).BeginInit();
+            this.selectUser_Page.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.selectUserDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myRep_allUsers_ODSDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userSetBindingSource3)).BeginInit();
             this.SuspendLayout();
             // 
             // mainController
@@ -665,6 +686,7 @@
             this.mainController.Controls.Add(this.edit_HCO_Page);
             this.mainController.Controls.Add(this.userMgmtPage);
             this.mainController.Controls.Add(this.newUserPage);
+            this.mainController.Controls.Add(this.selectUser_Page);
             this.mainController.Controls.Add(this.setPasswordPage);
             this.mainController.Location = new System.Drawing.Point(12, 12);
             this.mainController.Name = "mainController";
@@ -694,6 +716,18 @@
             this.homePage.TabIndex = 0;
             this.homePage.Text = "home";
             this.homePage.UseVisualStyleBackColor = true;
+            // 
+            // SampleOrdersHomeButton
+            // 
+            this.SampleOrdersHomeButton.Enabled = false;
+            this.SampleOrdersHomeButton.Location = new System.Drawing.Point(9, 257);
+            this.SampleOrdersHomeButton.Name = "SampleOrdersHomeButton";
+            this.SampleOrdersHomeButton.Size = new System.Drawing.Size(98, 52);
+            this.SampleOrdersHomeButton.TabIndex = 19;
+            this.SampleOrdersHomeButton.Text = "Zamówienia";
+            this.SampleOrdersHomeButton.UseVisualStyleBackColor = true;
+            this.SampleOrdersHomeButton.Visible = false;
+            this.SampleOrdersHomeButton.Click += new System.EventHandler(this.SampleOrdersHomeButton_Click);
             // 
             // EnquiriesCenter
             // 
@@ -1060,227 +1094,6 @@
             this.myEnqDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.myEnqDataGridView_CellClick);
             this.myEnqDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.myEnqDataGridView_DataBindingComplete);
             // 
-            // products_Mgmt_Page
-            // 
-            this.products_Mgmt_Page.Controls.Add(this.SampleRightsErrorLabel);
-            this.products_Mgmt_Page.Controls.Add(this.GiveSampleButton);
-            this.products_Mgmt_Page.Controls.Add(this.EditSampleButton);
-            this.products_Mgmt_Page.Controls.Add(this.NewSampleButton);
-            this.products_Mgmt_Page.Controls.Add(this.editProductButton);
-            this.products_Mgmt_Page.Controls.Add(this.newProductButton);
-            this.products_Mgmt_Page.Controls.Add(this.label94);
-            this.products_Mgmt_Page.Controls.Add(this.DisbursedSamplesGridView);
-            this.products_Mgmt_Page.Controls.Add(this.label83);
-            this.products_Mgmt_Page.Controls.Add(this.samplelistGridView);
-            this.products_Mgmt_Page.Controls.Add(this.label62);
-            this.products_Mgmt_Page.Controls.Add(this.productsDataGridView);
-            this.products_Mgmt_Page.Location = new System.Drawing.Point(4, 22);
-            this.products_Mgmt_Page.Name = "products_Mgmt_Page";
-            this.products_Mgmt_Page.Padding = new System.Windows.Forms.Padding(3);
-            this.products_Mgmt_Page.Size = new System.Drawing.Size(812, 465);
-            this.products_Mgmt_Page.TabIndex = 12;
-            this.products_Mgmt_Page.Text = "ProductsMgmt";
-            this.products_Mgmt_Page.UseVisualStyleBackColor = true;
-            // 
-            // SampleRightsErrorLabel
-            // 
-            this.SampleRightsErrorLabel.AutoSize = true;
-            this.SampleRightsErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.SampleRightsErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.SampleRightsErrorLabel.Location = new System.Drawing.Point(427, 445);
-            this.SampleRightsErrorLabel.Name = "SampleRightsErrorLabel";
-            this.SampleRightsErrorLabel.Size = new System.Drawing.Size(356, 12);
-            this.SampleRightsErrorLabel.TabIndex = 11;
-            this.SampleRightsErrorLabel.Text = "Część funkcji zarezerwowana jest tylko dla administratora produktów i próbek (SnP" +
-    "A)";
-            this.SampleRightsErrorLabel.Visible = false;
-            // 
-            // GiveSampleButton
-            // 
-            this.GiveSampleButton.Enabled = false;
-            this.GiveSampleButton.Location = new System.Drawing.Point(672, 383);
-            this.GiveSampleButton.Name = "GiveSampleButton";
-            this.GiveSampleButton.Size = new System.Drawing.Size(90, 49);
-            this.GiveSampleButton.TabIndex = 10;
-            this.GiveSampleButton.Text = "Wydaj ręcznie próbkę";
-            this.GiveSampleButton.UseVisualStyleBackColor = true;
-            this.GiveSampleButton.Click += new System.EventHandler(this.GiveSampleButton_Click);
-            // 
-            // EditSampleButton
-            // 
-            this.EditSampleButton.Enabled = false;
-            this.EditSampleButton.Location = new System.Drawing.Point(539, 414);
-            this.EditSampleButton.Name = "EditSampleButton";
-            this.EditSampleButton.Size = new System.Drawing.Size(87, 30);
-            this.EditSampleButton.TabIndex = 9;
-            this.EditSampleButton.Text = "Edytuj próbki";
-            this.EditSampleButton.UseVisualStyleBackColor = true;
-            this.EditSampleButton.Click += new System.EventHandler(this.EditSampleButton_Click);
-            // 
-            // NewSampleButton
-            // 
-            this.NewSampleButton.Enabled = false;
-            this.NewSampleButton.Location = new System.Drawing.Point(541, 370);
-            this.NewSampleButton.Name = "NewSampleButton";
-            this.NewSampleButton.Size = new System.Drawing.Size(86, 29);
-            this.NewSampleButton.TabIndex = 8;
-            this.NewSampleButton.Text = "Nowa próbka";
-            this.NewSampleButton.UseVisualStyleBackColor = true;
-            this.NewSampleButton.Click += new System.EventHandler(this.NewSampleButton_Click);
-            // 
-            // editProductButton
-            // 
-            this.editProductButton.Enabled = false;
-            this.editProductButton.Location = new System.Drawing.Point(423, 412);
-            this.editProductButton.Name = "editProductButton";
-            this.editProductButton.Size = new System.Drawing.Size(84, 33);
-            this.editProductButton.TabIndex = 7;
-            this.editProductButton.Text = "Edytuj produkt";
-            this.editProductButton.UseVisualStyleBackColor = true;
-            this.editProductButton.Click += new System.EventHandler(this.editProductButton_Click);
-            // 
-            // newProductButton
-            // 
-            this.newProductButton.Enabled = false;
-            this.newProductButton.Location = new System.Drawing.Point(422, 370);
-            this.newProductButton.Name = "newProductButton";
-            this.newProductButton.Size = new System.Drawing.Size(85, 29);
-            this.newProductButton.TabIndex = 6;
-            this.newProductButton.Text = "Nowy produkt";
-            this.newProductButton.UseVisualStyleBackColor = true;
-            this.newProductButton.Click += new System.EventHandler(this.newProductButton_Click);
-            // 
-            // label94
-            // 
-            this.label94.AutoSize = true;
-            this.label94.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label94.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label94.Location = new System.Drawing.Point(538, 203);
-            this.label94.Name = "label94";
-            this.label94.Size = new System.Drawing.Size(133, 16);
-            this.label94.TabIndex = 5;
-            this.label94.Text = "WYDANE PRÓBKI";
-            // 
-            // DisbursedSamplesGridView
-            // 
-            this.DisbursedSamplesGridView.AllowUserToAddRows = false;
-            this.DisbursedSamplesGridView.AllowUserToDeleteRows = false;
-            this.DisbursedSamplesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DisbursedSamplesGridView.Location = new System.Drawing.Point(418, 222);
-            this.DisbursedSamplesGridView.Name = "DisbursedSamplesGridView";
-            this.DisbursedSamplesGridView.ReadOnly = true;
-            this.DisbursedSamplesGridView.RowHeadersVisible = false;
-            this.DisbursedSamplesGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DisbursedSamplesGridView.Size = new System.Drawing.Size(376, 125);
-            this.DisbursedSamplesGridView.TabIndex = 4;
-            this.DisbursedSamplesGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DisbursedSamplesGridView_DataBindingComplete);
-            // 
-            // label83
-            // 
-            this.label83.AutoSize = true;
-            this.label83.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label83.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label83.Location = new System.Drawing.Point(554, 26);
-            this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(115, 16);
-            this.label83.TabIndex = 3;
-            this.label83.Text = "LISTA PRÓBEK";
-            // 
-            // samplelistGridView
-            // 
-            this.samplelistGridView.AllowUserToAddRows = false;
-            this.samplelistGridView.AllowUserToDeleteRows = false;
-            this.samplelistGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.samplelistGridView.Location = new System.Drawing.Point(418, 45);
-            this.samplelistGridView.Name = "samplelistGridView";
-            this.samplelistGridView.ReadOnly = true;
-            this.samplelistGridView.RowHeadersVisible = false;
-            this.samplelistGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.samplelistGridView.Size = new System.Drawing.Size(376, 150);
-            this.samplelistGridView.TabIndex = 2;
-            this.samplelistGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.samplelistGridView_CellClick);
-            this.samplelistGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.samplelistGridView_DataBindingComplete);
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label62.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label62.Location = new System.Drawing.Point(71, 26);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(260, 16);
-            this.label62.TabIndex = 1;
-            this.label62.Text = "LISTA DOSTĘPNYCH PRODUKTÓW";
-            // 
-            // productsDataGridView
-            // 
-            this.productsDataGridView.AllowUserToAddRows = false;
-            this.productsDataGridView.AllowUserToDeleteRows = false;
-            this.productsDataGridView.AutoGenerateColumns = false;
-            this.productsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.productsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.productIDDataGridViewTextBoxColumn,
-            this.productNameDataGridViewTextBoxColumn,
-            this.antiDiseaseDataGridViewTextBoxColumn,
-            this.manufacturerDataGridViewTextBoxColumn,
-            this.mainIngredientDataGridViewTextBoxColumn});
-            this.productsDataGridView.DataSource = this.productSetBindingSource;
-            this.productsDataGridView.Location = new System.Drawing.Point(6, 45);
-            this.productsDataGridView.Name = "productsDataGridView";
-            this.productsDataGridView.ReadOnly = true;
-            this.productsDataGridView.RowHeadersVisible = false;
-            this.productsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.productsDataGridView.Size = new System.Drawing.Size(406, 414);
-            this.productsDataGridView.TabIndex = 0;
-            this.productsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsDataGridView_CellClick);
-            this.productsDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.productsDataGridView_DataBindingComplete);
-            // 
-            // productIDDataGridViewTextBoxColumn
-            // 
-            this.productIDDataGridViewTextBoxColumn.DataPropertyName = "productID";
-            this.productIDDataGridViewTextBoxColumn.HeaderText = "productID";
-            this.productIDDataGridViewTextBoxColumn.Name = "productIDDataGridViewTextBoxColumn";
-            this.productIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.productIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // productNameDataGridViewTextBoxColumn
-            // 
-            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
-            this.productNameDataGridViewTextBoxColumn.HeaderText = "Nazwa";
-            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
-            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // antiDiseaseDataGridViewTextBoxColumn
-            // 
-            this.antiDiseaseDataGridViewTextBoxColumn.DataPropertyName = "AntiDisease";
-            this.antiDiseaseDataGridViewTextBoxColumn.HeaderText = "Kategoria choroby";
-            this.antiDiseaseDataGridViewTextBoxColumn.Name = "antiDiseaseDataGridViewTextBoxColumn";
-            this.antiDiseaseDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // manufacturerDataGridViewTextBoxColumn
-            // 
-            this.manufacturerDataGridViewTextBoxColumn.DataPropertyName = "Manufacturer";
-            this.manufacturerDataGridViewTextBoxColumn.HeaderText = "Producent";
-            this.manufacturerDataGridViewTextBoxColumn.Name = "manufacturerDataGridViewTextBoxColumn";
-            this.manufacturerDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // mainIngredientDataGridViewTextBoxColumn
-            // 
-            this.mainIngredientDataGridViewTextBoxColumn.DataPropertyName = "MainIngredient";
-            this.mainIngredientDataGridViewTextBoxColumn.HeaderText = "Główny składnik";
-            this.mainIngredientDataGridViewTextBoxColumn.Name = "mainIngredientDataGridViewTextBoxColumn";
-            this.mainIngredientDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // productSetBindingSource
-            // 
-            this.productSetBindingSource.DataMember = "ProductSet";
-            this.productSetBindingSource.DataSource = this.myRep_ODSDataSet;
-            // 
-            // myRep_ODSDataSet
-            // 
-            this.myRep_ODSDataSet.DataSetName = "myRep_ODSDataSet";
-            this.myRep_ODSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // mySamplesPage
             // 
             this.mySamplesPage.Controls.Add(this.mySampleOrdersGridView);
@@ -1296,6 +1109,44 @@
             this.mySamplesPage.TabIndex = 16;
             this.mySamplesPage.Text = "mySamples";
             this.mySamplesPage.UseVisualStyleBackColor = true;
+            // 
+            // mySampleOrdersGridView
+            // 
+            this.mySampleOrdersGridView.AllowUserToAddRows = false;
+            this.mySampleOrdersGridView.AllowUserToDeleteRows = false;
+            this.mySampleOrdersGridView.AllowUserToOrderColumns = true;
+            this.mySampleOrdersGridView.AllowUserToResizeColumns = false;
+            this.mySampleOrdersGridView.AllowUserToResizeRows = false;
+            this.mySampleOrdersGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.mySampleOrdersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.mySampleOrdersGridView.Location = new System.Drawing.Point(136, 286);
+            this.mySampleOrdersGridView.Name = "mySampleOrdersGridView";
+            this.mySampleOrdersGridView.ReadOnly = true;
+            this.mySampleOrdersGridView.RowHeadersVisible = false;
+            this.mySampleOrdersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.mySampleOrdersGridView.Size = new System.Drawing.Size(272, 150);
+            this.mySampleOrdersGridView.TabIndex = 5;
+            this.mySampleOrdersGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.mySampleOrdersGridView_DataBindingComplete);
+            // 
+            // label142
+            // 
+            this.label142.AutoSize = true;
+            this.label142.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label142.Location = new System.Drawing.Point(194, 253);
+            this.label142.Name = "label142";
+            this.label142.Size = new System.Drawing.Size(148, 16);
+            this.label142.TabIndex = 4;
+            this.label142.Text = "MOJE ZAMÓWIENIA";
+            // 
+            // createSampleOrder_mySamplesButton
+            // 
+            this.createSampleOrder_mySamplesButton.Location = new System.Drawing.Point(628, 322);
+            this.createSampleOrder_mySamplesButton.Name = "createSampleOrder_mySamplesButton";
+            this.createSampleOrder_mySamplesButton.Size = new System.Drawing.Size(108, 71);
+            this.createSampleOrder_mySamplesButton.TabIndex = 3;
+            this.createSampleOrder_mySamplesButton.Text = "Złóż zamówienie";
+            this.createSampleOrder_mySamplesButton.UseVisualStyleBackColor = true;
+            this.createSampleOrder_mySamplesButton.Click += new System.EventHandler(this.createSampleOrder_mySamplesButton_Click);
             // 
             // goHomeButton
             // 
@@ -1335,6 +1186,246 @@
             this.mySamplesDataGridView.Size = new System.Drawing.Size(565, 177);
             this.mySamplesDataGridView.TabIndex = 0;
             this.mySamplesDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.mySamplesDataGridView_DataBindingComplete);
+            // 
+            // SampleOrders_Page
+            // 
+            this.SampleOrders_Page.Controls.Add(this.homepage_SampleOrdersButton);
+            this.SampleOrders_Page.Controls.Add(this.giveSample_SampleOrdersButton);
+            this.SampleOrders_Page.Controls.Add(this.label143);
+            this.SampleOrders_Page.Controls.Add(this.AllSampleOrdersGridView);
+            this.SampleOrders_Page.Location = new System.Drawing.Point(4, 22);
+            this.SampleOrders_Page.Name = "SampleOrders_Page";
+            this.SampleOrders_Page.Padding = new System.Windows.Forms.Padding(3);
+            this.SampleOrders_Page.Size = new System.Drawing.Size(812, 465);
+            this.SampleOrders_Page.TabIndex = 23;
+            this.SampleOrders_Page.Text = "SampleOrders";
+            this.SampleOrders_Page.UseVisualStyleBackColor = true;
+            // 
+            // homepage_SampleOrdersButton
+            // 
+            this.homepage_SampleOrdersButton.Location = new System.Drawing.Point(660, 366);
+            this.homepage_SampleOrdersButton.Name = "homepage_SampleOrdersButton";
+            this.homepage_SampleOrdersButton.Size = new System.Drawing.Size(70, 70);
+            this.homepage_SampleOrdersButton.TabIndex = 3;
+            this.homepage_SampleOrdersButton.Text = "POWRÓT";
+            this.homepage_SampleOrdersButton.UseVisualStyleBackColor = true;
+            this.homepage_SampleOrdersButton.Click += new System.EventHandler(this.homepage_SampleOrdersButton_Click);
+            // 
+            // giveSample_SampleOrdersButton
+            // 
+            this.giveSample_SampleOrdersButton.Enabled = false;
+            this.giveSample_SampleOrdersButton.Location = new System.Drawing.Point(54, 366);
+            this.giveSample_SampleOrdersButton.Name = "giveSample_SampleOrdersButton";
+            this.giveSample_SampleOrdersButton.Size = new System.Drawing.Size(70, 70);
+            this.giveSample_SampleOrdersButton.TabIndex = 2;
+            this.giveSample_SampleOrdersButton.Text = "WYDAJ";
+            this.giveSample_SampleOrdersButton.UseVisualStyleBackColor = true;
+            this.giveSample_SampleOrdersButton.Click += new System.EventHandler(this.giveSample_SampleOrdersButton_Click);
+            // 
+            // label143
+            // 
+            this.label143.AutoSize = true;
+            this.label143.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label143.Location = new System.Drawing.Point(292, 41);
+            this.label143.Name = "label143";
+            this.label143.Size = new System.Drawing.Size(173, 17);
+            this.label143.TabIndex = 1;
+            this.label143.Text = "ZAMÓWIENIA PRÓBEK";
+            // 
+            // AllSampleOrdersGridView
+            // 
+            this.AllSampleOrdersGridView.AllowUserToAddRows = false;
+            this.AllSampleOrdersGridView.AllowUserToDeleteRows = false;
+            this.AllSampleOrdersGridView.AllowUserToResizeColumns = false;
+            this.AllSampleOrdersGridView.AllowUserToResizeRows = false;
+            this.AllSampleOrdersGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.AllSampleOrdersGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.AllSampleOrdersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AllSampleOrdersGridView.Location = new System.Drawing.Point(54, 84);
+            this.AllSampleOrdersGridView.Name = "AllSampleOrdersGridView";
+            this.AllSampleOrdersGridView.ReadOnly = true;
+            this.AllSampleOrdersGridView.RowHeadersVisible = false;
+            this.AllSampleOrdersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.AllSampleOrdersGridView.Size = new System.Drawing.Size(676, 265);
+            this.AllSampleOrdersGridView.TabIndex = 0;
+            this.AllSampleOrdersGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AllSampleOrdersGridView_CellClick);
+            this.AllSampleOrdersGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.AllSampleOrdersGridView_DataBindingComplete);
+            // 
+            // orderSample_Page
+            // 
+            this.orderSample_Page.Controls.Add(this.backSampleOrderButton);
+            this.orderSample_Page.Controls.Add(this.sendSampleOrderButton);
+            this.orderSample_Page.Controls.Add(this.samplesqtyOrderSample);
+            this.orderSample_Page.Controls.Add(this.label141);
+            this.orderSample_Page.Controls.Add(this.label140);
+            this.orderSample_Page.Controls.Add(this.label139);
+            this.orderSample_Page.Controls.Add(this.samplesOrderSampleGridView);
+            this.orderSample_Page.Controls.Add(this.productsOrderSampleGridView);
+            this.orderSample_Page.Location = new System.Drawing.Point(4, 22);
+            this.orderSample_Page.Name = "orderSample_Page";
+            this.orderSample_Page.Padding = new System.Windows.Forms.Padding(3);
+            this.orderSample_Page.Size = new System.Drawing.Size(812, 465);
+            this.orderSample_Page.TabIndex = 22;
+            this.orderSample_Page.Text = "orderSample";
+            this.orderSample_Page.UseVisualStyleBackColor = true;
+            // 
+            // backSampleOrderButton
+            // 
+            this.backSampleOrderButton.Location = new System.Drawing.Point(424, 406);
+            this.backSampleOrderButton.Name = "backSampleOrderButton";
+            this.backSampleOrderButton.Size = new System.Drawing.Size(376, 36);
+            this.backSampleOrderButton.TabIndex = 9;
+            this.backSampleOrderButton.Text = "COFNIJ";
+            this.backSampleOrderButton.UseVisualStyleBackColor = true;
+            this.backSampleOrderButton.Click += new System.EventHandler(this.backSampleOrderButton_Click);
+            // 
+            // sendSampleOrderButton
+            // 
+            this.sendSampleOrderButton.Enabled = false;
+            this.sendSampleOrderButton.Location = new System.Drawing.Point(556, 303);
+            this.sendSampleOrderButton.Name = "sendSampleOrderButton";
+            this.sendSampleOrderButton.Size = new System.Drawing.Size(95, 43);
+            this.sendSampleOrderButton.TabIndex = 8;
+            this.sendSampleOrderButton.Text = "WYŚLIJ";
+            this.sendSampleOrderButton.UseVisualStyleBackColor = true;
+            this.sendSampleOrderButton.Click += new System.EventHandler(this.sendSampleOrderButton_Click);
+            // 
+            // samplesqtyOrderSample
+            // 
+            this.samplesqtyOrderSample.Enabled = false;
+            this.samplesqtyOrderSample.Location = new System.Drawing.Point(598, 247);
+            this.samplesqtyOrderSample.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.samplesqtyOrderSample.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.samplesqtyOrderSample.Name = "samplesqtyOrderSample";
+            this.samplesqtyOrderSample.Size = new System.Drawing.Size(65, 20);
+            this.samplesqtyOrderSample.TabIndex = 7;
+            this.samplesqtyOrderSample.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label141
+            // 
+            this.label141.AutoSize = true;
+            this.label141.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label141.Location = new System.Drawing.Point(489, 247);
+            this.label141.Name = "label141";
+            this.label141.Size = new System.Drawing.Size(103, 17);
+            this.label141.TabIndex = 6;
+            this.label141.Text = "Ilość (MAX 50):";
+            // 
+            // label140
+            // 
+            this.label140.AutoSize = true;
+            this.label140.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label140.Location = new System.Drawing.Point(547, 17);
+            this.label140.Name = "label140";
+            this.label140.Size = new System.Drawing.Size(131, 17);
+            this.label140.TabIndex = 5;
+            this.label140.Text = "WYBIERZ PRÓBKĘ";
+            // 
+            // label139
+            // 
+            this.label139.AutoSize = true;
+            this.label139.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label139.Location = new System.Drawing.Point(140, 17);
+            this.label139.Name = "label139";
+            this.label139.Size = new System.Drawing.Size(142, 17);
+            this.label139.TabIndex = 4;
+            this.label139.Text = "WYBIERZ PRODUKT";
+            // 
+            // samplesOrderSampleGridView
+            // 
+            this.samplesOrderSampleGridView.AllowUserToAddRows = false;
+            this.samplesOrderSampleGridView.AllowUserToDeleteRows = false;
+            this.samplesOrderSampleGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.samplesOrderSampleGridView.Location = new System.Drawing.Point(424, 45);
+            this.samplesOrderSampleGridView.Name = "samplesOrderSampleGridView";
+            this.samplesOrderSampleGridView.ReadOnly = true;
+            this.samplesOrderSampleGridView.RowHeadersVisible = false;
+            this.samplesOrderSampleGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.samplesOrderSampleGridView.Size = new System.Drawing.Size(376, 150);
+            this.samplesOrderSampleGridView.TabIndex = 3;
+            this.samplesOrderSampleGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.samplesOrderSampleGridView_CellClick_1);
+            this.samplesOrderSampleGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.samplesOrderSampleGridView_DataBindingComplete);
+            // 
+            // productsOrderSampleGridView
+            // 
+            this.productsOrderSampleGridView.AllowUserToAddRows = false;
+            this.productsOrderSampleGridView.AllowUserToDeleteRows = false;
+            this.productsOrderSampleGridView.AutoGenerateColumns = false;
+            this.productsOrderSampleGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.productsOrderSampleGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10});
+            this.productsOrderSampleGridView.DataSource = this.productSetBindingSource;
+            this.productsOrderSampleGridView.Location = new System.Drawing.Point(6, 45);
+            this.productsOrderSampleGridView.Name = "productsOrderSampleGridView";
+            this.productsOrderSampleGridView.ReadOnly = true;
+            this.productsOrderSampleGridView.RowHeadersVisible = false;
+            this.productsOrderSampleGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.productsOrderSampleGridView.Size = new System.Drawing.Size(406, 397);
+            this.productsOrderSampleGridView.TabIndex = 1;
+            this.productsOrderSampleGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsOrderSampleGridView_CellClick);
+            this.productsOrderSampleGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.productsOrderSampleGridView_DataBindingComplete);
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "productID";
+            this.dataGridViewTextBoxColumn6.HeaderText = "productID";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "ProductName";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Nazwa";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "AntiDisease";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Kategoria choroby";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Manufacturer";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Producent";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "MainIngredient";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Główny składnik";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // productSetBindingSource
+            // 
+            this.productSetBindingSource.DataMember = "ProductSet";
+            this.productSetBindingSource.DataSource = this.myRep_ODSDataSet;
+            // 
+            // myRep_ODSDataSet
+            // 
+            this.myRep_ODSDataSet.DataSetName = "myRep_ODSDataSet";
+            this.myRep_ODSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // give_sample_page
             // 
@@ -1558,6 +1649,217 @@
             this.samplelabel_toGive_label.TabIndex = 0;
             this.samplelabel_toGive_label.Text = "WYDANIE PRÓBKI:";
             // 
+            // products_Mgmt_Page
+            // 
+            this.products_Mgmt_Page.Controls.Add(this.SampleRightsErrorLabel);
+            this.products_Mgmt_Page.Controls.Add(this.GiveSampleButton);
+            this.products_Mgmt_Page.Controls.Add(this.EditSampleButton);
+            this.products_Mgmt_Page.Controls.Add(this.NewSampleButton);
+            this.products_Mgmt_Page.Controls.Add(this.editProductButton);
+            this.products_Mgmt_Page.Controls.Add(this.newProductButton);
+            this.products_Mgmt_Page.Controls.Add(this.label94);
+            this.products_Mgmt_Page.Controls.Add(this.DisbursedSamplesGridView);
+            this.products_Mgmt_Page.Controls.Add(this.label83);
+            this.products_Mgmt_Page.Controls.Add(this.samplelistGridView);
+            this.products_Mgmt_Page.Controls.Add(this.label62);
+            this.products_Mgmt_Page.Controls.Add(this.productsDataGridView);
+            this.products_Mgmt_Page.Location = new System.Drawing.Point(4, 22);
+            this.products_Mgmt_Page.Name = "products_Mgmt_Page";
+            this.products_Mgmt_Page.Padding = new System.Windows.Forms.Padding(3);
+            this.products_Mgmt_Page.Size = new System.Drawing.Size(812, 465);
+            this.products_Mgmt_Page.TabIndex = 12;
+            this.products_Mgmt_Page.Text = "ProductsMgmt";
+            this.products_Mgmt_Page.UseVisualStyleBackColor = true;
+            // 
+            // SampleRightsErrorLabel
+            // 
+            this.SampleRightsErrorLabel.AutoSize = true;
+            this.SampleRightsErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.SampleRightsErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.SampleRightsErrorLabel.Location = new System.Drawing.Point(427, 445);
+            this.SampleRightsErrorLabel.Name = "SampleRightsErrorLabel";
+            this.SampleRightsErrorLabel.Size = new System.Drawing.Size(356, 12);
+            this.SampleRightsErrorLabel.TabIndex = 11;
+            this.SampleRightsErrorLabel.Text = "Część funkcji zarezerwowana jest tylko dla administratora produktów i próbek (SnP" +
+    "A)";
+            this.SampleRightsErrorLabel.Visible = false;
+            // 
+            // GiveSampleButton
+            // 
+            this.GiveSampleButton.Enabled = false;
+            this.GiveSampleButton.Location = new System.Drawing.Point(672, 383);
+            this.GiveSampleButton.Name = "GiveSampleButton";
+            this.GiveSampleButton.Size = new System.Drawing.Size(90, 49);
+            this.GiveSampleButton.TabIndex = 10;
+            this.GiveSampleButton.Text = "Wydaj ręcznie próbkę";
+            this.GiveSampleButton.UseVisualStyleBackColor = true;
+            this.GiveSampleButton.Click += new System.EventHandler(this.GiveSampleButton_Click);
+            // 
+            // EditSampleButton
+            // 
+            this.EditSampleButton.Enabled = false;
+            this.EditSampleButton.Location = new System.Drawing.Point(539, 414);
+            this.EditSampleButton.Name = "EditSampleButton";
+            this.EditSampleButton.Size = new System.Drawing.Size(87, 30);
+            this.EditSampleButton.TabIndex = 9;
+            this.EditSampleButton.Text = "Edytuj próbki";
+            this.EditSampleButton.UseVisualStyleBackColor = true;
+            this.EditSampleButton.Click += new System.EventHandler(this.EditSampleButton_Click);
+            // 
+            // NewSampleButton
+            // 
+            this.NewSampleButton.Enabled = false;
+            this.NewSampleButton.Location = new System.Drawing.Point(541, 370);
+            this.NewSampleButton.Name = "NewSampleButton";
+            this.NewSampleButton.Size = new System.Drawing.Size(86, 29);
+            this.NewSampleButton.TabIndex = 8;
+            this.NewSampleButton.Text = "Nowa próbka";
+            this.NewSampleButton.UseVisualStyleBackColor = true;
+            this.NewSampleButton.Click += new System.EventHandler(this.NewSampleButton_Click);
+            // 
+            // editProductButton
+            // 
+            this.editProductButton.Enabled = false;
+            this.editProductButton.Location = new System.Drawing.Point(423, 412);
+            this.editProductButton.Name = "editProductButton";
+            this.editProductButton.Size = new System.Drawing.Size(84, 33);
+            this.editProductButton.TabIndex = 7;
+            this.editProductButton.Text = "Edytuj produkt";
+            this.editProductButton.UseVisualStyleBackColor = true;
+            this.editProductButton.Click += new System.EventHandler(this.editProductButton_Click);
+            // 
+            // newProductButton
+            // 
+            this.newProductButton.Enabled = false;
+            this.newProductButton.Location = new System.Drawing.Point(422, 370);
+            this.newProductButton.Name = "newProductButton";
+            this.newProductButton.Size = new System.Drawing.Size(85, 29);
+            this.newProductButton.TabIndex = 6;
+            this.newProductButton.Text = "Nowy produkt";
+            this.newProductButton.UseVisualStyleBackColor = true;
+            this.newProductButton.Click += new System.EventHandler(this.newProductButton_Click);
+            // 
+            // label94
+            // 
+            this.label94.AutoSize = true;
+            this.label94.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label94.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label94.Location = new System.Drawing.Point(538, 203);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(133, 16);
+            this.label94.TabIndex = 5;
+            this.label94.Text = "WYDANE PRÓBKI";
+            // 
+            // DisbursedSamplesGridView
+            // 
+            this.DisbursedSamplesGridView.AllowUserToAddRows = false;
+            this.DisbursedSamplesGridView.AllowUserToDeleteRows = false;
+            this.DisbursedSamplesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DisbursedSamplesGridView.Location = new System.Drawing.Point(418, 222);
+            this.DisbursedSamplesGridView.Name = "DisbursedSamplesGridView";
+            this.DisbursedSamplesGridView.ReadOnly = true;
+            this.DisbursedSamplesGridView.RowHeadersVisible = false;
+            this.DisbursedSamplesGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DisbursedSamplesGridView.Size = new System.Drawing.Size(376, 125);
+            this.DisbursedSamplesGridView.TabIndex = 4;
+            this.DisbursedSamplesGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DisbursedSamplesGridView_DataBindingComplete);
+            // 
+            // label83
+            // 
+            this.label83.AutoSize = true;
+            this.label83.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label83.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label83.Location = new System.Drawing.Point(554, 26);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(115, 16);
+            this.label83.TabIndex = 3;
+            this.label83.Text = "LISTA PRÓBEK";
+            // 
+            // samplelistGridView
+            // 
+            this.samplelistGridView.AllowUserToAddRows = false;
+            this.samplelistGridView.AllowUserToDeleteRows = false;
+            this.samplelistGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.samplelistGridView.Location = new System.Drawing.Point(418, 45);
+            this.samplelistGridView.Name = "samplelistGridView";
+            this.samplelistGridView.ReadOnly = true;
+            this.samplelistGridView.RowHeadersVisible = false;
+            this.samplelistGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.samplelistGridView.Size = new System.Drawing.Size(376, 150);
+            this.samplelistGridView.TabIndex = 2;
+            this.samplelistGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.samplelistGridView_CellClick);
+            this.samplelistGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.samplelistGridView_DataBindingComplete);
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label62.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label62.Location = new System.Drawing.Point(71, 26);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(260, 16);
+            this.label62.TabIndex = 1;
+            this.label62.Text = "LISTA DOSTĘPNYCH PRODUKTÓW";
+            // 
+            // productsDataGridView
+            // 
+            this.productsDataGridView.AllowUserToAddRows = false;
+            this.productsDataGridView.AllowUserToDeleteRows = false;
+            this.productsDataGridView.AutoGenerateColumns = false;
+            this.productsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.productsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.productIDDataGridViewTextBoxColumn,
+            this.productNameDataGridViewTextBoxColumn,
+            this.antiDiseaseDataGridViewTextBoxColumn,
+            this.manufacturerDataGridViewTextBoxColumn,
+            this.mainIngredientDataGridViewTextBoxColumn});
+            this.productsDataGridView.DataSource = this.productSetBindingSource;
+            this.productsDataGridView.Location = new System.Drawing.Point(6, 45);
+            this.productsDataGridView.Name = "productsDataGridView";
+            this.productsDataGridView.ReadOnly = true;
+            this.productsDataGridView.RowHeadersVisible = false;
+            this.productsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.productsDataGridView.Size = new System.Drawing.Size(406, 414);
+            this.productsDataGridView.TabIndex = 0;
+            this.productsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsDataGridView_CellClick);
+            this.productsDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.productsDataGridView_DataBindingComplete);
+            // 
+            // productIDDataGridViewTextBoxColumn
+            // 
+            this.productIDDataGridViewTextBoxColumn.DataPropertyName = "productID";
+            this.productIDDataGridViewTextBoxColumn.HeaderText = "productID";
+            this.productIDDataGridViewTextBoxColumn.Name = "productIDDataGridViewTextBoxColumn";
+            this.productIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // productNameDataGridViewTextBoxColumn
+            // 
+            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
+            this.productNameDataGridViewTextBoxColumn.HeaderText = "Nazwa";
+            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // antiDiseaseDataGridViewTextBoxColumn
+            // 
+            this.antiDiseaseDataGridViewTextBoxColumn.DataPropertyName = "AntiDisease";
+            this.antiDiseaseDataGridViewTextBoxColumn.HeaderText = "Kategoria choroby";
+            this.antiDiseaseDataGridViewTextBoxColumn.Name = "antiDiseaseDataGridViewTextBoxColumn";
+            this.antiDiseaseDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // manufacturerDataGridViewTextBoxColumn
+            // 
+            this.manufacturerDataGridViewTextBoxColumn.DataPropertyName = "Manufacturer";
+            this.manufacturerDataGridViewTextBoxColumn.HeaderText = "Producent";
+            this.manufacturerDataGridViewTextBoxColumn.Name = "manufacturerDataGridViewTextBoxColumn";
+            this.manufacturerDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // mainIngredientDataGridViewTextBoxColumn
+            // 
+            this.mainIngredientDataGridViewTextBoxColumn.DataPropertyName = "MainIngredient";
+            this.mainIngredientDataGridViewTextBoxColumn.HeaderText = "Główny składnik";
+            this.mainIngredientDataGridViewTextBoxColumn.Name = "mainIngredientDataGridViewTextBoxColumn";
+            this.mainIngredientDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // new_product_page
             // 
             this.new_product_page.Controls.Add(this.label100);
@@ -1704,6 +2006,88 @@
             this.label95.Size = new System.Drawing.Size(40, 13);
             this.label95.TabIndex = 0;
             this.label95.Text = "Nazwa";
+            // 
+            // select_product_Page
+            // 
+            this.select_product_Page.Controls.Add(this.selectProductButton);
+            this.select_product_Page.Controls.Add(this.SelectProductDataGridView);
+            this.select_product_Page.Location = new System.Drawing.Point(4, 22);
+            this.select_product_Page.Name = "select_product_Page";
+            this.select_product_Page.Padding = new System.Windows.Forms.Padding(3);
+            this.select_product_Page.Size = new System.Drawing.Size(812, 465);
+            this.select_product_Page.TabIndex = 19;
+            this.select_product_Page.Text = "select_Product";
+            this.select_product_Page.UseVisualStyleBackColor = true;
+            // 
+            // selectProductButton
+            // 
+            this.selectProductButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.selectProductButton.Location = new System.Drawing.Point(571, 188);
+            this.selectProductButton.Name = "selectProductButton";
+            this.selectProductButton.Size = new System.Drawing.Size(115, 70);
+            this.selectProductButton.TabIndex = 1;
+            this.selectProductButton.Text = "OK!";
+            this.selectProductButton.UseVisualStyleBackColor = true;
+            this.selectProductButton.Click += new System.EventHandler(this.selectProductButton_Click);
+            // 
+            // SelectProductDataGridView
+            // 
+            this.SelectProductDataGridView.AllowUserToAddRows = false;
+            this.SelectProductDataGridView.AllowUserToDeleteRows = false;
+            this.SelectProductDataGridView.AutoGenerateColumns = false;
+            this.SelectProductDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SelectProductDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.productIDDataGridViewTextBoxColumn1,
+            this.productNameDataGridViewTextBoxColumn1,
+            this.antiDiseaseDataGridViewTextBoxColumn1,
+            this.manufacturerDataGridViewTextBoxColumn1,
+            this.mainIngredientDataGridViewTextBoxColumn1});
+            this.SelectProductDataGridView.DataSource = this.productSetBindingSource;
+            this.SelectProductDataGridView.Location = new System.Drawing.Point(40, 32);
+            this.SelectProductDataGridView.Name = "SelectProductDataGridView";
+            this.SelectProductDataGridView.ReadOnly = true;
+            this.SelectProductDataGridView.RowHeadersVisible = false;
+            this.SelectProductDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.SelectProductDataGridView.Size = new System.Drawing.Size(405, 383);
+            this.SelectProductDataGridView.TabIndex = 0;
+            this.SelectProductDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectProductDataGridView_CellClick);
+            this.SelectProductDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.SelectProductDataGridView_DataBindingComplete);
+            // 
+            // productIDDataGridViewTextBoxColumn1
+            // 
+            this.productIDDataGridViewTextBoxColumn1.DataPropertyName = "productID";
+            this.productIDDataGridViewTextBoxColumn1.HeaderText = "productID";
+            this.productIDDataGridViewTextBoxColumn1.Name = "productIDDataGridViewTextBoxColumn1";
+            this.productIDDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.productIDDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // productNameDataGridViewTextBoxColumn1
+            // 
+            this.productNameDataGridViewTextBoxColumn1.DataPropertyName = "ProductName";
+            this.productNameDataGridViewTextBoxColumn1.HeaderText = "Nazwa";
+            this.productNameDataGridViewTextBoxColumn1.Name = "productNameDataGridViewTextBoxColumn1";
+            this.productNameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // antiDiseaseDataGridViewTextBoxColumn1
+            // 
+            this.antiDiseaseDataGridViewTextBoxColumn1.DataPropertyName = "AntiDisease";
+            this.antiDiseaseDataGridViewTextBoxColumn1.HeaderText = "Kategoria";
+            this.antiDiseaseDataGridViewTextBoxColumn1.Name = "antiDiseaseDataGridViewTextBoxColumn1";
+            this.antiDiseaseDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // manufacturerDataGridViewTextBoxColumn1
+            // 
+            this.manufacturerDataGridViewTextBoxColumn1.DataPropertyName = "Manufacturer";
+            this.manufacturerDataGridViewTextBoxColumn1.HeaderText = "Producent";
+            this.manufacturerDataGridViewTextBoxColumn1.Name = "manufacturerDataGridViewTextBoxColumn1";
+            this.manufacturerDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // mainIngredientDataGridViewTextBoxColumn1
+            // 
+            this.mainIngredientDataGridViewTextBoxColumn1.DataPropertyName = "MainIngredient";
+            this.mainIngredientDataGridViewTextBoxColumn1.HeaderText = "Główny składnik";
+            this.mainIngredientDataGridViewTextBoxColumn1.Name = "mainIngredientDataGridViewTextBoxColumn1";
+            this.mainIngredientDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // new_Sample_Page
             // 
@@ -2242,39 +2626,39 @@
             this.hcpDataGridView.AllowUserToDeleteRows = false;
             this.hcpDataGridView.AutoGenerateColumns = false;
             this.hcpDataGridView.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.hcpDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.hcpDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.hcpDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.hcpDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.hcpIDDataGridViewTextBoxColumn,
             this.firstNameDataGridViewTextBoxColumn,
             this.lastNameDataGridViewTextBoxColumn});
             this.hcpDataGridView.DataSource = this.hCPSetBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.hcpDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.hcpDataGridView.DefaultCellStyle = dataGridViewCellStyle14;
             this.hcpDataGridView.Location = new System.Drawing.Point(3, 3);
             this.hcpDataGridView.Name = "hcpDataGridView";
             this.hcpDataGridView.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.hcpDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.hcpDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.hcpDataGridView.RowHeadersVisible = false;
             this.hcpDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.hcpDataGridView.Size = new System.Drawing.Size(253, 378);
@@ -2753,14 +3137,14 @@
             this.addressDataGridView.AllowUserToResizeRows = false;
             this.addressDataGridView.AutoGenerateColumns = false;
             this.addressDataGridView.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.addressDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.addressDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.addressDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.addressDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.addressIDDataGridViewTextBoxColumn1,
@@ -2770,25 +3154,25 @@
             this.countryDataGridViewTextBoxColumn,
             this.zipCodeDataGridViewTextBoxColumn});
             this.addressDataGridView.DataSource = this.addressSetBindingSource;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.addressDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.addressDataGridView.DefaultCellStyle = dataGridViewCellStyle17;
             this.addressDataGridView.Location = new System.Drawing.Point(3, 3);
             this.addressDataGridView.Name = "addressDataGridView";
             this.addressDataGridView.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.addressDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.addressDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.addressDataGridView.RowHeadersVisible = false;
             this.addressDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.addressDataGridView.Size = new System.Drawing.Size(406, 372);
@@ -3499,137 +3883,6 @@
             this.createSampleDropCheck_newMeeting.Text = "UTWORZYĆ?";
             this.createSampleDropCheck_newMeeting.UseVisualStyleBackColor = true;
             this.createSampleDropCheck_newMeeting.CheckedChanged += new System.EventHandler(this.createSampleDropCheck_newMeeting_CheckedChanged);
-            // 
-            // select_product_Page
-            // 
-            this.select_product_Page.Controls.Add(this.selectProductButton);
-            this.select_product_Page.Controls.Add(this.SelectProductDataGridView);
-            this.select_product_Page.Location = new System.Drawing.Point(4, 22);
-            this.select_product_Page.Name = "select_product_Page";
-            this.select_product_Page.Padding = new System.Windows.Forms.Padding(3);
-            this.select_product_Page.Size = new System.Drawing.Size(812, 465);
-            this.select_product_Page.TabIndex = 19;
-            this.select_product_Page.Text = "select_Product";
-            this.select_product_Page.UseVisualStyleBackColor = true;
-            // 
-            // selectProductButton
-            // 
-            this.selectProductButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.selectProductButton.Location = new System.Drawing.Point(571, 188);
-            this.selectProductButton.Name = "selectProductButton";
-            this.selectProductButton.Size = new System.Drawing.Size(115, 70);
-            this.selectProductButton.TabIndex = 1;
-            this.selectProductButton.Text = "OK!";
-            this.selectProductButton.UseVisualStyleBackColor = true;
-            this.selectProductButton.Click += new System.EventHandler(this.selectProductButton_Click);
-            // 
-            // SelectProductDataGridView
-            // 
-            this.SelectProductDataGridView.AllowUserToAddRows = false;
-            this.SelectProductDataGridView.AllowUserToDeleteRows = false;
-            this.SelectProductDataGridView.AutoGenerateColumns = false;
-            this.SelectProductDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SelectProductDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.productIDDataGridViewTextBoxColumn1,
-            this.productNameDataGridViewTextBoxColumn1,
-            this.antiDiseaseDataGridViewTextBoxColumn1,
-            this.manufacturerDataGridViewTextBoxColumn1,
-            this.mainIngredientDataGridViewTextBoxColumn1});
-            this.SelectProductDataGridView.DataSource = this.productSetBindingSource;
-            this.SelectProductDataGridView.Location = new System.Drawing.Point(40, 32);
-            this.SelectProductDataGridView.Name = "SelectProductDataGridView";
-            this.SelectProductDataGridView.ReadOnly = true;
-            this.SelectProductDataGridView.RowHeadersVisible = false;
-            this.SelectProductDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.SelectProductDataGridView.Size = new System.Drawing.Size(405, 383);
-            this.SelectProductDataGridView.TabIndex = 0;
-            this.SelectProductDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectProductDataGridView_CellClick);
-            this.SelectProductDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.SelectProductDataGridView_DataBindingComplete);
-            // 
-            // productIDDataGridViewTextBoxColumn1
-            // 
-            this.productIDDataGridViewTextBoxColumn1.DataPropertyName = "productID";
-            this.productIDDataGridViewTextBoxColumn1.HeaderText = "productID";
-            this.productIDDataGridViewTextBoxColumn1.Name = "productIDDataGridViewTextBoxColumn1";
-            this.productIDDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.productIDDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // productNameDataGridViewTextBoxColumn1
-            // 
-            this.productNameDataGridViewTextBoxColumn1.DataPropertyName = "ProductName";
-            this.productNameDataGridViewTextBoxColumn1.HeaderText = "Nazwa";
-            this.productNameDataGridViewTextBoxColumn1.Name = "productNameDataGridViewTextBoxColumn1";
-            this.productNameDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // antiDiseaseDataGridViewTextBoxColumn1
-            // 
-            this.antiDiseaseDataGridViewTextBoxColumn1.DataPropertyName = "AntiDisease";
-            this.antiDiseaseDataGridViewTextBoxColumn1.HeaderText = "Kategoria";
-            this.antiDiseaseDataGridViewTextBoxColumn1.Name = "antiDiseaseDataGridViewTextBoxColumn1";
-            this.antiDiseaseDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // manufacturerDataGridViewTextBoxColumn1
-            // 
-            this.manufacturerDataGridViewTextBoxColumn1.DataPropertyName = "Manufacturer";
-            this.manufacturerDataGridViewTextBoxColumn1.HeaderText = "Producent";
-            this.manufacturerDataGridViewTextBoxColumn1.Name = "manufacturerDataGridViewTextBoxColumn1";
-            this.manufacturerDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // mainIngredientDataGridViewTextBoxColumn1
-            // 
-            this.mainIngredientDataGridViewTextBoxColumn1.DataPropertyName = "MainIngredient";
-            this.mainIngredientDataGridViewTextBoxColumn1.HeaderText = "Główny składnik";
-            this.mainIngredientDataGridViewTextBoxColumn1.Name = "mainIngredientDataGridViewTextBoxColumn1";
-            this.mainIngredientDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // userMgmtPage
-            // 
-            this.userMgmtPage.Controls.Add(this.button1);
-            this.userMgmtPage.Controls.Add(this.usersDataGridView);
-            this.userMgmtPage.Location = new System.Drawing.Point(4, 22);
-            this.userMgmtPage.Name = "userMgmtPage";
-            this.userMgmtPage.Size = new System.Drawing.Size(812, 465);
-            this.userMgmtPage.TabIndex = 4;
-            this.userMgmtPage.Text = "UserMgmt";
-            this.userMgmtPage.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(13, 390);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "NOWY";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // usersDataGridView
-            // 
-            this.usersDataGridView.AllowUserToAddRows = false;
-            this.usersDataGridView.AllowUserToDeleteRows = false;
-            this.usersDataGridView.AllowUserToResizeColumns = false;
-            this.usersDataGridView.AllowUserToResizeRows = false;
-            this.usersDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.usersDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.usersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.usersDataGridView.Location = new System.Drawing.Point(13, 17);
-            this.usersDataGridView.Name = "usersDataGridView";
-            this.usersDataGridView.ReadOnly = true;
-            this.usersDataGridView.RowHeadersVisible = false;
-            this.usersDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.usersDataGridView.Size = new System.Drawing.Size(781, 336);
-            this.usersDataGridView.TabIndex = 0;
-            this.usersDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.usersDataGridView_DataBindingComplete);
-            // 
-            // userSetBindingSource
-            // 
-            this.userSetBindingSource.DataMember = "UserSet";
-            this.userSetBindingSource.DataSource = this.myRep_ODS_User_DataSet;
-            // 
-            // myRep_ODS_User_DataSet
-            // 
-            this.myRep_ODS_User_DataSet.DataSetName = "myRep_ODS_User_DataSet";
-            this.myRep_ODS_User_DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // newHCPPage
             // 
@@ -4576,284 +4829,6 @@
             this.label51.TabIndex = 0;
             this.label51.Text = "Ulica:";
             // 
-            // newUserPage
-            // 
-            this.newUserPage.Controls.Add(this.maskedTextBox1);
-            this.newUserPage.Controls.Add(this.jobtitleUserBox);
-            this.newUserPage.Controls.Add(this.label144);
-            this.newUserPage.Controls.Add(this.emailUserBox);
-            this.newUserPage.Controls.Add(this.label16);
-            this.newUserPage.Controls.Add(this.hireDateUserPicker);
-            this.newUserPage.Controls.Add(this.createUserButton);
-            this.newUserPage.Controls.Add(this.selectedManagerUserLabel);
-            this.newUserPage.Controls.Add(this.territoryUserBox);
-            this.newUserPage.Controls.Add(this.setManagerUserButton);
-            this.newUserPage.Controls.Add(this.usernameUserBox);
-            this.newUserPage.Controls.Add(this.lnameUserBox);
-            this.newUserPage.Controls.Add(this.mnameUserBox);
-            this.newUserPage.Controls.Add(this.fnameUserBox);
-            this.newUserPage.Controls.Add(this.label15);
-            this.newUserPage.Controls.Add(this.label14);
-            this.newUserPage.Controls.Add(this.label13);
-            this.newUserPage.Controls.Add(this.label12);
-            this.newUserPage.Controls.Add(this.label11);
-            this.newUserPage.Controls.Add(this.label10);
-            this.newUserPage.Controls.Add(this.label9);
-            this.newUserPage.Controls.Add(this.label8);
-            this.newUserPage.Controls.Add(this.label7);
-            this.newUserPage.Location = new System.Drawing.Point(4, 22);
-            this.newUserPage.Name = "newUserPage";
-            this.newUserPage.Padding = new System.Windows.Forms.Padding(3);
-            this.newUserPage.Size = new System.Drawing.Size(812, 465);
-            this.newUserPage.TabIndex = 5;
-            this.newUserPage.Text = "new_User";
-            this.newUserPage.UseVisualStyleBackColor = true;
-            // 
-            // emailUserBox
-            // 
-            this.emailUserBox.Location = new System.Drawing.Point(110, 226);
-            this.emailUserBox.Name = "emailUserBox";
-            this.emailUserBox.Size = new System.Drawing.Size(100, 20);
-            this.emailUserBox.TabIndex = 25;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(72, 229);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(32, 13);
-            this.label16.TabIndex = 24;
-            this.label16.Text = "Email";
-            // 
-            // hireDateUserPicker
-            // 
-            this.hireDateUserPicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.hireDateUserPicker.Location = new System.Drawing.Point(110, 303);
-            this.hireDateUserPicker.Name = "hireDateUserPicker";
-            this.hireDateUserPicker.Size = new System.Drawing.Size(75, 20);
-            this.hireDateUserPicker.TabIndex = 23;
-            // 
-            // createUserButton
-            // 
-            this.createUserButton.Location = new System.Drawing.Point(367, 148);
-            this.createUserButton.Name = "createUserButton";
-            this.createUserButton.Size = new System.Drawing.Size(75, 23);
-            this.createUserButton.TabIndex = 22;
-            this.createUserButton.Text = "Create";
-            this.createUserButton.UseVisualStyleBackColor = true;
-            this.createUserButton.Click += new System.EventHandler(this.createUserButton_Click);
-            // 
-            // selectedManagerUserLabel
-            // 
-            this.selectedManagerUserLabel.AutoSize = true;
-            this.selectedManagerUserLabel.Location = new System.Drawing.Point(191, 303);
-            this.selectedManagerUserLabel.Name = "selectedManagerUserLabel";
-            this.selectedManagerUserLabel.Size = new System.Drawing.Size(10, 13);
-            this.selectedManagerUserLabel.TabIndex = 21;
-            this.selectedManagerUserLabel.Text = "-";
-            // 
-            // territoryUserBox
-            // 
-            this.territoryUserBox.FormattingEnabled = true;
-            this.territoryUserBox.Items.AddRange(new object[] {
-            "dolnośląskie",
-            "kujawsko-pomorskie",
-            "lubelskie",
-            "lubuskie",
-            "łódzkie",
-            "małopolskie",
-            "mazowieckie",
-            "opolskie",
-            "podkarpackie",
-            "podlaskie",
-            "pomorskie",
-            "śląskie",
-            "świętokrzyskie",
-            "warmińsko-mazurskie",
-            "wielkopolskie",
-            "zachodniopomorskie"});
-            this.territoryUserBox.Location = new System.Drawing.Point(110, 385);
-            this.territoryUserBox.Name = "territoryUserBox";
-            this.territoryUserBox.Size = new System.Drawing.Size(121, 21);
-            this.territoryUserBox.TabIndex = 20;
-            // 
-            // setManagerUserButton
-            // 
-            this.setManagerUserButton.Location = new System.Drawing.Point(110, 346);
-            this.setManagerUserButton.Name = "setManagerUserButton";
-            this.setManagerUserButton.Size = new System.Drawing.Size(75, 23);
-            this.setManagerUserButton.TabIndex = 19;
-            this.setManagerUserButton.Text = "Wybierz";
-            this.setManagerUserButton.UseVisualStyleBackColor = true;
-            // 
-            // usernameUserBox
-            // 
-            this.usernameUserBox.Enabled = false;
-            this.usernameUserBox.Location = new System.Drawing.Point(367, 98);
-            this.usernameUserBox.Name = "usernameUserBox";
-            this.usernameUserBox.Size = new System.Drawing.Size(100, 20);
-            this.usernameUserBox.TabIndex = 17;
-            // 
-            // lnameUserBox
-            // 
-            this.lnameUserBox.Location = new System.Drawing.Point(110, 149);
-            this.lnameUserBox.Name = "lnameUserBox";
-            this.lnameUserBox.Size = new System.Drawing.Size(100, 20);
-            this.lnameUserBox.TabIndex = 11;
-            this.lnameUserBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.lnameUserBox_KeyUp);
-            // 
-            // mnameUserBox
-            // 
-            this.mnameUserBox.Location = new System.Drawing.Point(110, 114);
-            this.mnameUserBox.Name = "mnameUserBox";
-            this.mnameUserBox.Size = new System.Drawing.Size(100, 20);
-            this.mnameUserBox.TabIndex = 10;
-            // 
-            // fnameUserBox
-            // 
-            this.fnameUserBox.Location = new System.Drawing.Point(110, 75);
-            this.fnameUserBox.Name = "fnameUserBox";
-            this.fnameUserBox.Size = new System.Drawing.Size(100, 20);
-            this.fnameUserBox.TabIndex = 9;
-            this.fnameUserBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.fnameUserBox_KeyUp);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(293, 101);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(55, 13);
-            this.label15.TabIndex = 8;
-            this.label15.Text = "Username";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(48, 388);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(56, 13);
-            this.label14.TabIndex = 7;
-            this.label14.Text = "Terytorium";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(55, 351);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(49, 13);
-            this.label13.TabIndex = 6;
-            this.label13.Text = "Manager";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(14, 309);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(90, 13);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "Data zatrudnienia";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(61, 270);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(43, 13);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "Telefon";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(42, 191);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(62, 13);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "Stanowisko";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(51, 152);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 13);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Nazwisko";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(45, 117);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 13);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Drugie imię";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(78, 78);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(26, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Imię";
-            // 
-            // setPasswordPage
-            // 
-            this.setPasswordPage.Controls.Add(this.SetPasswordButton);
-            this.setPasswordPage.Controls.Add(this.newpwdBox_confirm);
-            this.setPasswordPage.Controls.Add(this.newpwdBox);
-            this.setPasswordPage.Controls.Add(this.newpwd_confirm_label);
-            this.setPasswordPage.Controls.Add(this.newpwdLabel);
-            this.setPasswordPage.Location = new System.Drawing.Point(4, 22);
-            this.setPasswordPage.Name = "setPasswordPage";
-            this.setPasswordPage.Size = new System.Drawing.Size(812, 465);
-            this.setPasswordPage.TabIndex = 6;
-            this.setPasswordPage.Text = "set_Password";
-            this.setPasswordPage.UseVisualStyleBackColor = true;
-            // 
-            // SetPasswordButton
-            // 
-            this.SetPasswordButton.Location = new System.Drawing.Point(154, 198);
-            this.SetPasswordButton.Name = "SetPasswordButton";
-            this.SetPasswordButton.Size = new System.Drawing.Size(75, 23);
-            this.SetPasswordButton.TabIndex = 4;
-            this.SetPasswordButton.Text = "Set Password";
-            this.SetPasswordButton.UseVisualStyleBackColor = true;
-            this.SetPasswordButton.Click += new System.EventHandler(this.SetPasswordButton_Click);
-            // 
-            // newpwdBox_confirm
-            // 
-            this.newpwdBox_confirm.Location = new System.Drawing.Point(201, 145);
-            this.newpwdBox_confirm.Name = "newpwdBox_confirm";
-            this.newpwdBox_confirm.Size = new System.Drawing.Size(100, 20);
-            this.newpwdBox_confirm.TabIndex = 3;
-            // 
-            // newpwdBox
-            // 
-            this.newpwdBox.Location = new System.Drawing.Point(201, 107);
-            this.newpwdBox.Name = "newpwdBox";
-            this.newpwdBox.Size = new System.Drawing.Size(100, 20);
-            this.newpwdBox.TabIndex = 2;
-            // 
-            // newpwd_confirm_label
-            // 
-            this.newpwd_confirm_label.AutoSize = true;
-            this.newpwd_confirm_label.Location = new System.Drawing.Point(104, 148);
-            this.newpwd_confirm_label.Name = "newpwd_confirm_label";
-            this.newpwd_confirm_label.Size = new System.Drawing.Size(91, 13);
-            this.newpwd_confirm_label.TabIndex = 1;
-            this.newpwd_confirm_label.Text = "Confirm Password";
-            // 
-            // newpwdLabel
-            // 
-            this.newpwdLabel.AutoSize = true;
-            this.newpwdLabel.Location = new System.Drawing.Point(105, 115);
-            this.newpwdLabel.Name = "newpwdLabel";
-            this.newpwdLabel.Size = new System.Drawing.Size(53, 13);
-            this.newpwdLabel.TabIndex = 0;
-            this.newpwdLabel.Text = "Password";
-            // 
             // select_address_Page
             // 
             this.select_address_Page.Controls.Add(this.button2);
@@ -5719,6 +5694,441 @@
             this.label93.TabIndex = 36;
             this.label93.Text = "Nazwa";
             // 
+            // userMgmtPage
+            // 
+            this.userMgmtPage.Controls.Add(this.deactivateUserButton);
+            this.userMgmtPage.Controls.Add(this.editUserButton);
+            this.userMgmtPage.Controls.Add(this.newUserButton);
+            this.userMgmtPage.Controls.Add(this.usersDataGridView);
+            this.userMgmtPage.Location = new System.Drawing.Point(4, 22);
+            this.userMgmtPage.Name = "userMgmtPage";
+            this.userMgmtPage.Size = new System.Drawing.Size(812, 465);
+            this.userMgmtPage.TabIndex = 4;
+            this.userMgmtPage.Text = "UserMgmt";
+            this.userMgmtPage.UseVisualStyleBackColor = true;
+            // 
+            // newUserButton
+            // 
+            this.newUserButton.Location = new System.Drawing.Point(76, 379);
+            this.newUserButton.Name = "newUserButton";
+            this.newUserButton.Size = new System.Drawing.Size(92, 53);
+            this.newUserButton.TabIndex = 1;
+            this.newUserButton.Text = "NOWY";
+            this.newUserButton.UseVisualStyleBackColor = true;
+            this.newUserButton.Click += new System.EventHandler(this.newUserButton_Click);
+            // 
+            // usersDataGridView
+            // 
+            this.usersDataGridView.AllowUserToAddRows = false;
+            this.usersDataGridView.AllowUserToDeleteRows = false;
+            this.usersDataGridView.AllowUserToResizeColumns = false;
+            this.usersDataGridView.AllowUserToResizeRows = false;
+            this.usersDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.usersDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.usersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.usersDataGridView.Location = new System.Drawing.Point(13, 17);
+            this.usersDataGridView.Name = "usersDataGridView";
+            this.usersDataGridView.ReadOnly = true;
+            this.usersDataGridView.RowHeadersVisible = false;
+            this.usersDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.usersDataGridView.Size = new System.Drawing.Size(781, 336);
+            this.usersDataGridView.TabIndex = 0;
+            this.usersDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersDataGridView_CellClick);
+            this.usersDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.usersDataGridView_DataBindingComplete);
+            // 
+            // newUserPage
+            // 
+            this.newUserPage.Controls.Add(this.usernameNewUser);
+            this.newUserPage.Controls.Add(this.managerID_newUser);
+            this.newUserPage.Controls.Add(this.label149);
+            this.newUserPage.Controls.Add(this.label148);
+            this.newUserPage.Controls.Add(this.label147);
+            this.newUserPage.Controls.Add(this.label146);
+            this.newUserPage.Controls.Add(this.label145);
+            this.newUserPage.Controls.Add(this.label15);
+            this.newUserPage.Controls.Add(this.phnumberUserBox);
+            this.newUserPage.Controls.Add(this.jobtitleUserBox);
+            this.newUserPage.Controls.Add(this.label144);
+            this.newUserPage.Controls.Add(this.emailUserBox);
+            this.newUserPage.Controls.Add(this.label16);
+            this.newUserPage.Controls.Add(this.hireDateUserPicker);
+            this.newUserPage.Controls.Add(this.createUserButton);
+            this.newUserPage.Controls.Add(this.selectedManagerUserLabel);
+            this.newUserPage.Controls.Add(this.territoryUserBox);
+            this.newUserPage.Controls.Add(this.setManagerUserButton);
+            this.newUserPage.Controls.Add(this.lnameUserBox);
+            this.newUserPage.Controls.Add(this.mnameUserBox);
+            this.newUserPage.Controls.Add(this.fnameUserBox);
+            this.newUserPage.Controls.Add(this.label14);
+            this.newUserPage.Controls.Add(this.label13);
+            this.newUserPage.Controls.Add(this.label12);
+            this.newUserPage.Controls.Add(this.label11);
+            this.newUserPage.Controls.Add(this.label10);
+            this.newUserPage.Controls.Add(this.label9);
+            this.newUserPage.Controls.Add(this.label8);
+            this.newUserPage.Controls.Add(this.label7);
+            this.newUserPage.Location = new System.Drawing.Point(4, 22);
+            this.newUserPage.Name = "newUserPage";
+            this.newUserPage.Padding = new System.Windows.Forms.Padding(3);
+            this.newUserPage.Size = new System.Drawing.Size(812, 465);
+            this.newUserPage.TabIndex = 5;
+            this.newUserPage.Text = "new_User";
+            this.newUserPage.UseVisualStyleBackColor = true;
+            // 
+            // managerID_newUser
+            // 
+            this.managerID_newUser.AutoSize = true;
+            this.managerID_newUser.Location = new System.Drawing.Point(158, 370);
+            this.managerID_newUser.Name = "managerID_newUser";
+            this.managerID_newUser.Size = new System.Drawing.Size(10, 13);
+            this.managerID_newUser.TabIndex = 67;
+            this.managerID_newUser.Text = "-";
+            this.managerID_newUser.Visible = false;
+            // 
+            // label149
+            // 
+            this.label149.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label149.ForeColor = System.Drawing.Color.Red;
+            this.label149.Location = new System.Drawing.Point(54, 384);
+            this.label149.Name = "label149";
+            this.label149.Size = new System.Drawing.Size(16, 15);
+            this.label149.TabIndex = 66;
+            this.label149.Text = "*";
+            // 
+            // label148
+            // 
+            this.label148.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label148.ForeColor = System.Drawing.Color.Red;
+            this.label148.Location = new System.Drawing.Point(18, 305);
+            this.label148.Name = "label148";
+            this.label148.Size = new System.Drawing.Size(16, 15);
+            this.label148.TabIndex = 65;
+            this.label148.Text = "*";
+            // 
+            // label147
+            // 
+            this.label147.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label147.ForeColor = System.Drawing.Color.Red;
+            this.label147.Location = new System.Drawing.Point(72, 225);
+            this.label147.Name = "label147";
+            this.label147.Size = new System.Drawing.Size(16, 15);
+            this.label147.TabIndex = 64;
+            this.label147.Text = "*";
+            // 
+            // label146
+            // 
+            this.label146.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label146.ForeColor = System.Drawing.Color.Red;
+            this.label146.Location = new System.Drawing.Point(46, 184);
+            this.label146.Name = "label146";
+            this.label146.Size = new System.Drawing.Size(16, 15);
+            this.label146.TabIndex = 63;
+            this.label146.Text = "*";
+            // 
+            // label145
+            // 
+            this.label145.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label145.ForeColor = System.Drawing.Color.Red;
+            this.label145.Location = new System.Drawing.Point(54, 148);
+            this.label145.Name = "label145";
+            this.label145.Size = new System.Drawing.Size(16, 15);
+            this.label145.TabIndex = 62;
+            this.label145.Text = "*";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label15.Location = new System.Drawing.Point(124, 23);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(459, 20);
+            this.label15.TabIndex = 61;
+            this.label15.Text = "NOWY UŻYTKOWNIK / EDYCJA OBECNEGO UŻYTKOWNIKA";
+            // 
+            // phnumberUserBox
+            // 
+            this.phnumberUserBox.Location = new System.Drawing.Point(128, 268);
+            this.phnumberUserBox.Mask = "000-000-000";
+            this.phnumberUserBox.Name = "phnumberUserBox";
+            this.phnumberUserBox.Size = new System.Drawing.Size(74, 20);
+            this.phnumberUserBox.TabIndex = 60;
+            // 
+            // jobtitleUserBox
+            // 
+            this.jobtitleUserBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.jobtitleUserBox.FormattingEnabled = true;
+            this.jobtitleUserBox.Items.AddRange(new object[] {
+            "REP",
+            "SnPA",
+            "MIE",
+            "SYSADMIN"});
+            this.jobtitleUserBox.Location = new System.Drawing.Point(128, 184);
+            this.jobtitleUserBox.Name = "jobtitleUserBox";
+            this.jobtitleUserBox.Size = new System.Drawing.Size(121, 21);
+            this.jobtitleUserBox.TabIndex = 57;
+            this.jobtitleUserBox.SelectedIndexChanged += new System.EventHandler(this.jobtitleUserBox_SelectedIndexChanged);
+            // 
+            // label144
+            // 
+            this.label144.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label144.ForeColor = System.Drawing.Color.Red;
+            this.label144.Location = new System.Drawing.Point(78, 76);
+            this.label144.Name = "label144";
+            this.label144.Size = new System.Drawing.Size(16, 15);
+            this.label144.TabIndex = 56;
+            this.label144.Text = "*";
+            // 
+            // emailUserBox
+            // 
+            this.emailUserBox.Location = new System.Drawing.Point(128, 227);
+            this.emailUserBox.Name = "emailUserBox";
+            this.emailUserBox.Size = new System.Drawing.Size(100, 20);
+            this.emailUserBox.TabIndex = 25;
+            this.emailUserBox.TextChanged += new System.EventHandler(this.emailUserBox_TextChanged);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(90, 230);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(32, 13);
+            this.label16.TabIndex = 24;
+            this.label16.Text = "Email";
+            // 
+            // hireDateUserPicker
+            // 
+            this.hireDateUserPicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.hireDateUserPicker.Location = new System.Drawing.Point(128, 304);
+            this.hireDateUserPicker.Name = "hireDateUserPicker";
+            this.hireDateUserPicker.Size = new System.Drawing.Size(75, 20);
+            this.hireDateUserPicker.TabIndex = 23;
+            // 
+            // createUserButton
+            // 
+            this.createUserButton.Enabled = false;
+            this.createUserButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.createUserButton.Location = new System.Drawing.Point(421, 202);
+            this.createUserButton.Name = "createUserButton";
+            this.createUserButton.Size = new System.Drawing.Size(105, 68);
+            this.createUserButton.TabIndex = 22;
+            this.createUserButton.Text = "OK";
+            this.createUserButton.UseVisualStyleBackColor = true;
+            this.createUserButton.Click += new System.EventHandler(this.createUserButton_Click);
+            // 
+            // selectedManagerUserLabel
+            // 
+            this.selectedManagerUserLabel.AutoSize = true;
+            this.selectedManagerUserLabel.Location = new System.Drawing.Point(209, 352);
+            this.selectedManagerUserLabel.Name = "selectedManagerUserLabel";
+            this.selectedManagerUserLabel.Size = new System.Drawing.Size(10, 13);
+            this.selectedManagerUserLabel.TabIndex = 21;
+            this.selectedManagerUserLabel.Text = "-";
+            // 
+            // territoryUserBox
+            // 
+            this.territoryUserBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.territoryUserBox.FormattingEnabled = true;
+            this.territoryUserBox.Items.AddRange(new object[] {
+            "dolnośląskie",
+            "kujawsko-pomorskie",
+            "lubelskie",
+            "lubuskie",
+            "łódzkie",
+            "małopolskie",
+            "mazowieckie",
+            "opolskie",
+            "podkarpackie",
+            "podlaskie",
+            "pomorskie",
+            "śląskie",
+            "świętokrzyskie",
+            "warmińsko-mazurskie",
+            "wielkopolskie",
+            "zachodniopomorskie"});
+            this.territoryUserBox.Location = new System.Drawing.Point(128, 386);
+            this.territoryUserBox.Name = "territoryUserBox";
+            this.territoryUserBox.Size = new System.Drawing.Size(121, 21);
+            this.territoryUserBox.TabIndex = 20;
+            this.territoryUserBox.SelectedIndexChanged += new System.EventHandler(this.territoryUserBox_SelectedIndexChanged);
+            // 
+            // setManagerUserButton
+            // 
+            this.setManagerUserButton.Location = new System.Drawing.Point(128, 347);
+            this.setManagerUserButton.Name = "setManagerUserButton";
+            this.setManagerUserButton.Size = new System.Drawing.Size(75, 23);
+            this.setManagerUserButton.TabIndex = 19;
+            this.setManagerUserButton.Text = "Wybierz";
+            this.setManagerUserButton.UseVisualStyleBackColor = true;
+            this.setManagerUserButton.Click += new System.EventHandler(this.setManagerUserButton_Click);
+            // 
+            // lnameUserBox
+            // 
+            this.lnameUserBox.Location = new System.Drawing.Point(128, 150);
+            this.lnameUserBox.Name = "lnameUserBox";
+            this.lnameUserBox.Size = new System.Drawing.Size(100, 20);
+            this.lnameUserBox.TabIndex = 11;
+            this.lnameUserBox.TextChanged += new System.EventHandler(this.lnameUserBox_TextChanged);
+            // 
+            // mnameUserBox
+            // 
+            this.mnameUserBox.Location = new System.Drawing.Point(128, 115);
+            this.mnameUserBox.Name = "mnameUserBox";
+            this.mnameUserBox.Size = new System.Drawing.Size(100, 20);
+            this.mnameUserBox.TabIndex = 10;
+            // 
+            // fnameUserBox
+            // 
+            this.fnameUserBox.Location = new System.Drawing.Point(128, 76);
+            this.fnameUserBox.Name = "fnameUserBox";
+            this.fnameUserBox.Size = new System.Drawing.Size(100, 20);
+            this.fnameUserBox.TabIndex = 9;
+            this.fnameUserBox.TextChanged += new System.EventHandler(this.fnameUserBox_TextChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(66, 389);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(56, 13);
+            this.label14.TabIndex = 7;
+            this.label14.Text = "Terytorium";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(73, 352);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(49, 13);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "Manager";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(32, 310);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(90, 13);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "Data zatrudnienia";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(79, 271);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(43, 13);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Telefon";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(60, 192);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(62, 13);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Stanowisko";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(69, 153);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(53, 13);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Nazwisko";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(63, 118);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(59, 13);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Drugie imię";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(96, 79);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(26, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Imię";
+            // 
+            // setPasswordPage
+            // 
+            this.setPasswordPage.Controls.Add(this.label151);
+            this.setPasswordPage.Controls.Add(this.label150);
+            this.setPasswordPage.Controls.Add(this.SetPasswordButton);
+            this.setPasswordPage.Controls.Add(this.newpwdBox_confirm);
+            this.setPasswordPage.Controls.Add(this.newpwdBox);
+            this.setPasswordPage.Controls.Add(this.newpwd_confirm_label);
+            this.setPasswordPage.Controls.Add(this.newpwdLabel);
+            this.setPasswordPage.Location = new System.Drawing.Point(4, 22);
+            this.setPasswordPage.Name = "setPasswordPage";
+            this.setPasswordPage.Size = new System.Drawing.Size(812, 465);
+            this.setPasswordPage.TabIndex = 6;
+            this.setPasswordPage.Text = "set_Password";
+            this.setPasswordPage.UseVisualStyleBackColor = true;
+            // 
+            // SetPasswordButton
+            // 
+            this.SetPasswordButton.Enabled = false;
+            this.SetPasswordButton.Location = new System.Drawing.Point(334, 215);
+            this.SetPasswordButton.Name = "SetPasswordButton";
+            this.SetPasswordButton.Size = new System.Drawing.Size(103, 51);
+            this.SetPasswordButton.TabIndex = 4;
+            this.SetPasswordButton.Text = "OK";
+            this.SetPasswordButton.UseVisualStyleBackColor = true;
+            this.SetPasswordButton.Click += new System.EventHandler(this.SetPasswordButton_Click);
+            // 
+            // newpwdBox_confirm
+            // 
+            this.newpwdBox_confirm.Location = new System.Drawing.Point(354, 162);
+            this.newpwdBox_confirm.Name = "newpwdBox_confirm";
+            this.newpwdBox_confirm.PasswordChar = 'X';
+            this.newpwdBox_confirm.Size = new System.Drawing.Size(100, 20);
+            this.newpwdBox_confirm.TabIndex = 3;
+            this.newpwdBox_confirm.TextChanged += new System.EventHandler(this.newpwdBox_confirm_TextChanged);
+            // 
+            // newpwdBox
+            // 
+            this.newpwdBox.Location = new System.Drawing.Point(354, 124);
+            this.newpwdBox.Name = "newpwdBox";
+            this.newpwdBox.PasswordChar = 'X';
+            this.newpwdBox.Size = new System.Drawing.Size(100, 20);
+            this.newpwdBox.TabIndex = 2;
+            this.newpwdBox.TextChanged += new System.EventHandler(this.newpwdBox_TextChanged);
+            // 
+            // newpwd_confirm_label
+            // 
+            this.newpwd_confirm_label.AutoSize = true;
+            this.newpwd_confirm_label.Location = new System.Drawing.Point(265, 165);
+            this.newpwd_confirm_label.Name = "newpwd_confirm_label";
+            this.newpwd_confirm_label.Size = new System.Drawing.Size(83, 13);
+            this.newpwd_confirm_label.TabIndex = 1;
+            this.newpwd_confirm_label.Text = "Potwierdź hasło";
+            // 
+            // newpwdLabel
+            // 
+            this.newpwdLabel.AutoSize = true;
+            this.newpwdLabel.Location = new System.Drawing.Point(310, 127);
+            this.newpwdLabel.Name = "newpwdLabel";
+            this.newpwdLabel.Size = new System.Drawing.Size(36, 13);
+            this.newpwdLabel.TabIndex = 0;
+            this.newpwdLabel.Text = "Hasło";
+            // 
+            // userSetBindingSource
+            // 
+            this.userSetBindingSource.DataMember = "UserSet";
+            this.userSetBindingSource.DataSource = this.myRep_ODS_User_DataSet;
+            // 
+            // myRep_ODS_User_DataSet
+            // 
+            this.myRep_ODS_User_DataSet.DataSetName = "myRep_ODS_User_DataSet";
+            this.myRep_ODS_User_DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // hCOSetBindingSource
             // 
             this.hCOSetBindingSource.DataMember = "HCOSet";
@@ -5909,286 +6319,6 @@
             this.filterUsersbyTerritoryToolStripButton.Text = "filterUsersbyTerritory";
             this.filterUsersbyTerritoryToolStripButton.Click += new System.EventHandler(this.filterUsersbyTerritoryToolStripButton_Click);
             // 
-            // createSampleOrder_mySamplesButton
-            // 
-            this.createSampleOrder_mySamplesButton.Location = new System.Drawing.Point(628, 322);
-            this.createSampleOrder_mySamplesButton.Name = "createSampleOrder_mySamplesButton";
-            this.createSampleOrder_mySamplesButton.Size = new System.Drawing.Size(108, 71);
-            this.createSampleOrder_mySamplesButton.TabIndex = 3;
-            this.createSampleOrder_mySamplesButton.Text = "Złóż zamówienie";
-            this.createSampleOrder_mySamplesButton.UseVisualStyleBackColor = true;
-            this.createSampleOrder_mySamplesButton.Click += new System.EventHandler(this.createSampleOrder_mySamplesButton_Click);
-            // 
-            // orderSample_Page
-            // 
-            this.orderSample_Page.Controls.Add(this.backSampleOrderButton);
-            this.orderSample_Page.Controls.Add(this.sendSampleOrderButton);
-            this.orderSample_Page.Controls.Add(this.samplesqtyOrderSample);
-            this.orderSample_Page.Controls.Add(this.label141);
-            this.orderSample_Page.Controls.Add(this.label140);
-            this.orderSample_Page.Controls.Add(this.label139);
-            this.orderSample_Page.Controls.Add(this.samplesOrderSampleGridView);
-            this.orderSample_Page.Controls.Add(this.productsOrderSampleGridView);
-            this.orderSample_Page.Location = new System.Drawing.Point(4, 22);
-            this.orderSample_Page.Name = "orderSample_Page";
-            this.orderSample_Page.Padding = new System.Windows.Forms.Padding(3);
-            this.orderSample_Page.Size = new System.Drawing.Size(812, 465);
-            this.orderSample_Page.TabIndex = 22;
-            this.orderSample_Page.Text = "orderSample";
-            this.orderSample_Page.UseVisualStyleBackColor = true;
-            // 
-            // productsOrderSampleGridView
-            // 
-            this.productsOrderSampleGridView.AllowUserToAddRows = false;
-            this.productsOrderSampleGridView.AllowUserToDeleteRows = false;
-            this.productsOrderSampleGridView.AutoGenerateColumns = false;
-            this.productsOrderSampleGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.productsOrderSampleGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10});
-            this.productsOrderSampleGridView.DataSource = this.productSetBindingSource;
-            this.productsOrderSampleGridView.Location = new System.Drawing.Point(6, 45);
-            this.productsOrderSampleGridView.Name = "productsOrderSampleGridView";
-            this.productsOrderSampleGridView.ReadOnly = true;
-            this.productsOrderSampleGridView.RowHeadersVisible = false;
-            this.productsOrderSampleGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.productsOrderSampleGridView.Size = new System.Drawing.Size(406, 397);
-            this.productsOrderSampleGridView.TabIndex = 1;
-            this.productsOrderSampleGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsOrderSampleGridView_CellClick);
-            this.productsOrderSampleGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.productsOrderSampleGridView_DataBindingComplete);
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "productID";
-            this.dataGridViewTextBoxColumn6.HeaderText = "productID";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "ProductName";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Nazwa";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "AntiDisease";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Kategoria choroby";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Manufacturer";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Producent";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "MainIngredient";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Główny składnik";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // samplesOrderSampleGridView
-            // 
-            this.samplesOrderSampleGridView.AllowUserToAddRows = false;
-            this.samplesOrderSampleGridView.AllowUserToDeleteRows = false;
-            this.samplesOrderSampleGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.samplesOrderSampleGridView.Location = new System.Drawing.Point(424, 45);
-            this.samplesOrderSampleGridView.Name = "samplesOrderSampleGridView";
-            this.samplesOrderSampleGridView.ReadOnly = true;
-            this.samplesOrderSampleGridView.RowHeadersVisible = false;
-            this.samplesOrderSampleGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.samplesOrderSampleGridView.Size = new System.Drawing.Size(376, 150);
-            this.samplesOrderSampleGridView.TabIndex = 3;
-            this.samplesOrderSampleGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.samplesOrderSampleGridView_CellClick_1);
-            this.samplesOrderSampleGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.samplesOrderSampleGridView_DataBindingComplete);
-            // 
-            // label139
-            // 
-            this.label139.AutoSize = true;
-            this.label139.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label139.Location = new System.Drawing.Point(140, 17);
-            this.label139.Name = "label139";
-            this.label139.Size = new System.Drawing.Size(142, 17);
-            this.label139.TabIndex = 4;
-            this.label139.Text = "WYBIERZ PRODUKT";
-            // 
-            // label140
-            // 
-            this.label140.AutoSize = true;
-            this.label140.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label140.Location = new System.Drawing.Point(547, 17);
-            this.label140.Name = "label140";
-            this.label140.Size = new System.Drawing.Size(131, 17);
-            this.label140.TabIndex = 5;
-            this.label140.Text = "WYBIERZ PRÓBKĘ";
-            // 
-            // label141
-            // 
-            this.label141.AutoSize = true;
-            this.label141.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label141.Location = new System.Drawing.Point(489, 247);
-            this.label141.Name = "label141";
-            this.label141.Size = new System.Drawing.Size(103, 17);
-            this.label141.TabIndex = 6;
-            this.label141.Text = "Ilość (MAX 50):";
-            // 
-            // samplesqtyOrderSample
-            // 
-            this.samplesqtyOrderSample.Enabled = false;
-            this.samplesqtyOrderSample.Location = new System.Drawing.Point(598, 247);
-            this.samplesqtyOrderSample.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this.samplesqtyOrderSample.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.samplesqtyOrderSample.Name = "samplesqtyOrderSample";
-            this.samplesqtyOrderSample.Size = new System.Drawing.Size(65, 20);
-            this.samplesqtyOrderSample.TabIndex = 7;
-            this.samplesqtyOrderSample.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // sendSampleOrderButton
-            // 
-            this.sendSampleOrderButton.Enabled = false;
-            this.sendSampleOrderButton.Location = new System.Drawing.Point(556, 303);
-            this.sendSampleOrderButton.Name = "sendSampleOrderButton";
-            this.sendSampleOrderButton.Size = new System.Drawing.Size(95, 43);
-            this.sendSampleOrderButton.TabIndex = 8;
-            this.sendSampleOrderButton.Text = "WYŚLIJ";
-            this.sendSampleOrderButton.UseVisualStyleBackColor = true;
-            this.sendSampleOrderButton.Click += new System.EventHandler(this.sendSampleOrderButton_Click);
-            // 
-            // backSampleOrderButton
-            // 
-            this.backSampleOrderButton.Location = new System.Drawing.Point(424, 406);
-            this.backSampleOrderButton.Name = "backSampleOrderButton";
-            this.backSampleOrderButton.Size = new System.Drawing.Size(376, 36);
-            this.backSampleOrderButton.TabIndex = 9;
-            this.backSampleOrderButton.Text = "COFNIJ";
-            this.backSampleOrderButton.UseVisualStyleBackColor = true;
-            this.backSampleOrderButton.Click += new System.EventHandler(this.backSampleOrderButton_Click);
-            // 
-            // label142
-            // 
-            this.label142.AutoSize = true;
-            this.label142.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label142.Location = new System.Drawing.Point(194, 253);
-            this.label142.Name = "label142";
-            this.label142.Size = new System.Drawing.Size(148, 16);
-            this.label142.TabIndex = 4;
-            this.label142.Text = "MOJE ZAMÓWIENIA";
-            // 
-            // mySampleOrdersGridView
-            // 
-            this.mySampleOrdersGridView.AllowUserToAddRows = false;
-            this.mySampleOrdersGridView.AllowUserToDeleteRows = false;
-            this.mySampleOrdersGridView.AllowUserToOrderColumns = true;
-            this.mySampleOrdersGridView.AllowUserToResizeColumns = false;
-            this.mySampleOrdersGridView.AllowUserToResizeRows = false;
-            this.mySampleOrdersGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.mySampleOrdersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.mySampleOrdersGridView.Location = new System.Drawing.Point(136, 286);
-            this.mySampleOrdersGridView.Name = "mySampleOrdersGridView";
-            this.mySampleOrdersGridView.ReadOnly = true;
-            this.mySampleOrdersGridView.RowHeadersVisible = false;
-            this.mySampleOrdersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.mySampleOrdersGridView.Size = new System.Drawing.Size(272, 150);
-            this.mySampleOrdersGridView.TabIndex = 5;
-            this.mySampleOrdersGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.mySampleOrdersGridView_DataBindingComplete);
-            // 
-            // SampleOrders_Page
-            // 
-            this.SampleOrders_Page.Controls.Add(this.homepage_SampleOrdersButton);
-            this.SampleOrders_Page.Controls.Add(this.giveSample_SampleOrdersButton);
-            this.SampleOrders_Page.Controls.Add(this.label143);
-            this.SampleOrders_Page.Controls.Add(this.AllSampleOrdersGridView);
-            this.SampleOrders_Page.Location = new System.Drawing.Point(4, 22);
-            this.SampleOrders_Page.Name = "SampleOrders_Page";
-            this.SampleOrders_Page.Padding = new System.Windows.Forms.Padding(3);
-            this.SampleOrders_Page.Size = new System.Drawing.Size(812, 465);
-            this.SampleOrders_Page.TabIndex = 23;
-            this.SampleOrders_Page.Text = "SampleOrders";
-            this.SampleOrders_Page.UseVisualStyleBackColor = true;
-            // 
-            // SampleOrdersHomeButton
-            // 
-            this.SampleOrdersHomeButton.Enabled = false;
-            this.SampleOrdersHomeButton.Location = new System.Drawing.Point(9, 257);
-            this.SampleOrdersHomeButton.Name = "SampleOrdersHomeButton";
-            this.SampleOrdersHomeButton.Size = new System.Drawing.Size(98, 52);
-            this.SampleOrdersHomeButton.TabIndex = 19;
-            this.SampleOrdersHomeButton.Text = "Zamówienia";
-            this.SampleOrdersHomeButton.UseVisualStyleBackColor = true;
-            this.SampleOrdersHomeButton.Visible = false;
-            this.SampleOrdersHomeButton.Click += new System.EventHandler(this.SampleOrdersHomeButton_Click);
-            // 
-            // AllSampleOrdersGridView
-            // 
-            this.AllSampleOrdersGridView.AllowUserToAddRows = false;
-            this.AllSampleOrdersGridView.AllowUserToDeleteRows = false;
-            this.AllSampleOrdersGridView.AllowUserToResizeColumns = false;
-            this.AllSampleOrdersGridView.AllowUserToResizeRows = false;
-            this.AllSampleOrdersGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.AllSampleOrdersGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.AllSampleOrdersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AllSampleOrdersGridView.Location = new System.Drawing.Point(54, 84);
-            this.AllSampleOrdersGridView.Name = "AllSampleOrdersGridView";
-            this.AllSampleOrdersGridView.ReadOnly = true;
-            this.AllSampleOrdersGridView.RowHeadersVisible = false;
-            this.AllSampleOrdersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.AllSampleOrdersGridView.Size = new System.Drawing.Size(676, 265);
-            this.AllSampleOrdersGridView.TabIndex = 0;
-            this.AllSampleOrdersGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AllSampleOrdersGridView_CellClick);
-            this.AllSampleOrdersGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.AllSampleOrdersGridView_DataBindingComplete);
-            // 
-            // label143
-            // 
-            this.label143.AutoSize = true;
-            this.label143.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label143.Location = new System.Drawing.Point(292, 41);
-            this.label143.Name = "label143";
-            this.label143.Size = new System.Drawing.Size(173, 17);
-            this.label143.TabIndex = 1;
-            this.label143.Text = "ZAMÓWIENIA PRÓBEK";
-            // 
-            // giveSample_SampleOrdersButton
-            // 
-            this.giveSample_SampleOrdersButton.Enabled = false;
-            this.giveSample_SampleOrdersButton.Location = new System.Drawing.Point(54, 366);
-            this.giveSample_SampleOrdersButton.Name = "giveSample_SampleOrdersButton";
-            this.giveSample_SampleOrdersButton.Size = new System.Drawing.Size(70, 70);
-            this.giveSample_SampleOrdersButton.TabIndex = 2;
-            this.giveSample_SampleOrdersButton.Text = "WYDAJ";
-            this.giveSample_SampleOrdersButton.UseVisualStyleBackColor = true;
-            this.giveSample_SampleOrdersButton.Click += new System.EventHandler(this.giveSample_SampleOrdersButton_Click);
-            // 
-            // homepage_SampleOrdersButton
-            // 
-            this.homepage_SampleOrdersButton.Location = new System.Drawing.Point(660, 366);
-            this.homepage_SampleOrdersButton.Name = "homepage_SampleOrdersButton";
-            this.homepage_SampleOrdersButton.Size = new System.Drawing.Size(70, 70);
-            this.homepage_SampleOrdersButton.TabIndex = 3;
-            this.homepage_SampleOrdersButton.Text = "POWRÓT";
-            this.homepage_SampleOrdersButton.UseVisualStyleBackColor = true;
-            this.homepage_SampleOrdersButton.Click += new System.EventHandler(this.homepage_SampleOrdersButton_Click);
-            // 
             // myRep_AllUsersODSDataSet
             // 
             this.myRep_AllUsersODSDataSet.DataSetName = "myRep_AllUsersODSDataSet";
@@ -6203,36 +6333,121 @@
             // 
             this.userSetTableAdapter2.ClearBeforeFill = true;
             // 
-            // label144
+            // label150
             // 
-            this.label144.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label144.ForeColor = System.Drawing.Color.Red;
-            this.label144.Location = new System.Drawing.Point(23, 73);
-            this.label144.Name = "label144";
-            this.label144.Size = new System.Drawing.Size(16, 15);
-            this.label144.TabIndex = 56;
-            this.label144.Text = "*";
+            this.label150.AutoSize = true;
+            this.label150.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label150.Location = new System.Drawing.Point(317, 36);
+            this.label150.Name = "label150";
+            this.label150.Size = new System.Drawing.Size(137, 20);
+            this.label150.TabIndex = 37;
+            this.label150.Text = "USTAW HASŁO";
             // 
-            // jobtitleUserBox
+            // label151
             // 
-            this.jobtitleUserBox.FormattingEnabled = true;
-            this.jobtitleUserBox.Items.AddRange(new object[] {
-            "REP",
-            "SnPA",
-            "MIE",
-            "SYSADMIN"});
-            this.jobtitleUserBox.Location = new System.Drawing.Point(110, 183);
-            this.jobtitleUserBox.Name = "jobtitleUserBox";
-            this.jobtitleUserBox.Size = new System.Drawing.Size(121, 21);
-            this.jobtitleUserBox.TabIndex = 57;
+            this.label151.AutoSize = true;
+            this.label151.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label151.Location = new System.Drawing.Point(140, 73);
+            this.label151.Name = "label151";
+            this.label151.Size = new System.Drawing.Size(595, 17);
+            this.label151.TabIndex = 38;
+            this.label151.Text = "Wpisz i potwierdź hasło dla utworzonego użytkownika. Hasło musi mieć co najmniej " +
+    "6 znaków.";
             // 
-            // maskedTextBox1
+            // usernameNewUser
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(110, 267);
-            this.maskedTextBox1.Mask = "000-000-000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(74, 20);
-            this.maskedTextBox1.TabIndex = 60;
+            this.usernameNewUser.AutoSize = true;
+            this.usernameNewUser.Location = new System.Drawing.Point(415, 202);
+            this.usernameNewUser.Name = "usernameNewUser";
+            this.usernameNewUser.Size = new System.Drawing.Size(0, 13);
+            this.usernameNewUser.TabIndex = 68;
+            this.usernameNewUser.Visible = false;
+            // 
+            // selectUser_Page
+            // 
+            this.selectUser_Page.Controls.Add(this.button7);
+            this.selectUser_Page.Controls.Add(this.label152);
+            this.selectUser_Page.Controls.Add(this.selectUserDataGridView);
+            this.selectUser_Page.Location = new System.Drawing.Point(4, 22);
+            this.selectUser_Page.Name = "selectUser_Page";
+            this.selectUser_Page.Padding = new System.Windows.Forms.Padding(3);
+            this.selectUser_Page.Size = new System.Drawing.Size(812, 465);
+            this.selectUser_Page.TabIndex = 24;
+            this.selectUser_Page.Text = "selectUser";
+            this.selectUser_Page.UseVisualStyleBackColor = true;
+            // 
+            // selectUserDataGridView
+            // 
+            this.selectUserDataGridView.AllowUserToAddRows = false;
+            this.selectUserDataGridView.AllowUserToDeleteRows = false;
+            this.selectUserDataGridView.AllowUserToResizeColumns = false;
+            this.selectUserDataGridView.AllowUserToResizeRows = false;
+            this.selectUserDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.selectUserDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.selectUserDataGridView.Location = new System.Drawing.Point(47, 60);
+            this.selectUserDataGridView.Name = "selectUserDataGridView";
+            this.selectUserDataGridView.ReadOnly = true;
+            this.selectUserDataGridView.RowHeadersVisible = false;
+            this.selectUserDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.selectUserDataGridView.Size = new System.Drawing.Size(686, 328);
+            this.selectUserDataGridView.TabIndex = 0;
+            this.selectUserDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.selectUserDataGridView_DataBindingComplete);
+            // 
+            // myRep_allUsers_ODSDataSet
+            // 
+            this.myRep_allUsers_ODSDataSet.DataSetName = "myRep_allUsers_ODSDataSet";
+            this.myRep_allUsers_ODSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // userSetBindingSource3
+            // 
+            this.userSetBindingSource3.DataMember = "UserSet";
+            this.userSetBindingSource3.DataSource = this.myRep_allUsers_ODSDataSet;
+            // 
+            // userSetTableAdapter3
+            // 
+            this.userSetTableAdapter3.ClearBeforeFill = true;
+            // 
+            // label152
+            // 
+            this.label152.AutoSize = true;
+            this.label152.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label152.Location = new System.Drawing.Point(265, 24);
+            this.label152.Name = "label152";
+            this.label152.Size = new System.Drawing.Size(221, 20);
+            this.label152.TabIndex = 1;
+            this.label152.Text = "WYBIERZ PRZEŁOŻONEGO";
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(325, 410);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(112, 39);
+            this.button7.TabIndex = 2;
+            this.button7.Text = "OK";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // editUserButton
+            // 
+            this.editUserButton.Enabled = false;
+            this.editUserButton.Location = new System.Drawing.Point(348, 379);
+            this.editUserButton.Name = "editUserButton";
+            this.editUserButton.Size = new System.Drawing.Size(91, 53);
+            this.editUserButton.TabIndex = 2;
+            this.editUserButton.Text = "EDYCJA";
+            this.editUserButton.UseVisualStyleBackColor = true;
+            this.editUserButton.Click += new System.EventHandler(this.editUserButton_Click);
+            // 
+            // deactivateUserButton
+            // 
+            this.deactivateUserButton.Enabled = false;
+            this.deactivateUserButton.Location = new System.Drawing.Point(595, 379);
+            this.deactivateUserButton.Name = "deactivateUserButton";
+            this.deactivateUserButton.Size = new System.Drawing.Size(92, 53);
+            this.deactivateUserButton.TabIndex = 3;
+            this.deactivateUserButton.Text = "DEAKTYWUJ";
+            this.deactivateUserButton.UseVisualStyleBackColor = true;
+            this.deactivateUserButton.Click += new System.EventHandler(this.deactivateUserButton_Click);
             // 
             // Form1
             // 
@@ -6259,24 +6474,35 @@
             this.myEnq_Page.ResumeLayout(false);
             this.myEnq_Page.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.myEnqDataGridView)).EndInit();
-            this.products_Mgmt_Page.ResumeLayout(false);
-            this.products_Mgmt_Page.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DisbursedSamplesGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.samplelistGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.myRep_ODSDataSet)).EndInit();
             this.mySamplesPage.ResumeLayout(false);
             this.mySamplesPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mySampleOrdersGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mySamplesDataGridView)).EndInit();
+            this.SampleOrders_Page.ResumeLayout(false);
+            this.SampleOrders_Page.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AllSampleOrdersGridView)).EndInit();
+            this.orderSample_Page.ResumeLayout(false);
+            this.orderSample_Page.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.samplesqtyOrderSample)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.samplesOrderSampleGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsOrderSampleGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myRep_ODSDataSet)).EndInit();
             this.give_sample_page.ResumeLayout(false);
             this.give_sample_page.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qty_giveSampleBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectUser_giveSampleGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userSetBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myRep_ODSDataSet_UserSet)).EndInit();
+            this.products_Mgmt_Page.ResumeLayout(false);
+            this.products_Mgmt_Page.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DisbursedSamplesGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.samplelistGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).EndInit();
             this.new_product_page.ResumeLayout(false);
             this.new_product_page.PerformLayout();
+            this.select_product_Page.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SelectProductDataGridView)).EndInit();
             this.new_Sample_Page.ResumeLayout(false);
             this.new_Sample_Page.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Value_neweditdampleBox)).EndInit();
@@ -6317,12 +6543,6 @@
             this.sampledrop_newmtgPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SamplesQty_newMTG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sampleGridView_newMTG)).EndInit();
-            this.select_product_Page.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SelectProductDataGridView)).EndInit();
-            this.userMgmtPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.myRep_ODS_User_DataSet)).EndInit();
             this.newHCPPage.ResumeLayout(false);
             this.newHCPPage.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -6333,10 +6553,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.BedsHCOBox)).EndInit();
             this.newAddressPage.ResumeLayout(false);
             this.newAddressPage.PerformLayout();
-            this.newUserPage.ResumeLayout(false);
-            this.newUserPage.PerformLayout();
-            this.setPasswordPage.ResumeLayout(false);
-            this.setPasswordPage.PerformLayout();
             this.select_address_Page.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.setAddressGridView)).EndInit();
             this.new_HCPHCO_Assossiation_Page.ResumeLayout(false);
@@ -6350,6 +6566,14 @@
             this.edit_HCO_Page.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employees_editHCOBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.beds_editHCOBox)).EndInit();
+            this.userMgmtPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).EndInit();
+            this.newUserPage.ResumeLayout(false);
+            this.newUserPage.PerformLayout();
+            this.setPasswordPage.ResumeLayout(false);
+            this.setPasswordPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myRep_ODS_User_DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hCOSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myRep_ODS_HCO_DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myRep_ODS_HCOHCPDataSet)).EndInit();
@@ -6364,17 +6588,13 @@
             this.addressDedicatedBookToolStrip1.PerformLayout();
             this.filterUsersbyTerritoryToolStrip.ResumeLayout(false);
             this.filterUsersbyTerritoryToolStrip.PerformLayout();
-            this.orderSample_Page.ResumeLayout(false);
-            this.orderSample_Page.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productsOrderSampleGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.samplesOrderSampleGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.samplesqtyOrderSample)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mySampleOrdersGridView)).EndInit();
-            this.SampleOrders_Page.ResumeLayout(false);
-            this.SampleOrders_Page.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.AllSampleOrdersGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myRep_AllUsersODSDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userSetBindingSource2)).EndInit();
+            this.selectUser_Page.ResumeLayout(false);
+            this.selectUser_Page.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.selectUserDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myRep_allUsers_ODSDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userSetBindingSource3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -6478,18 +6698,16 @@
         private myRep_ODS_User_DataSet myRep_ODS_User_DataSet;
         private System.Windows.Forms.BindingSource userSetBindingSource;
         private myRep_ODS_User_DataSetTableAdapters.UserSetTableAdapter userSetTableAdapter;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button newUserButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn jobTitleDataGridViewTextBoxColumn;
         private System.Windows.Forms.TabPage newUserPage;
         private System.Windows.Forms.Button createUserButton;
         private System.Windows.Forms.Label selectedManagerUserLabel;
         private System.Windows.Forms.ComboBox territoryUserBox;
         private System.Windows.Forms.Button setManagerUserButton;
-        private System.Windows.Forms.TextBox usernameUserBox;
         private System.Windows.Forms.TextBox lnameUserBox;
         private System.Windows.Forms.TextBox mnameUserBox;
         private System.Windows.Forms.TextBox fnameUserBox;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
@@ -6898,9 +7116,28 @@
         private myRep_AllUsersODSDataSet myRep_AllUsersODSDataSet;
         private System.Windows.Forms.BindingSource userSetBindingSource2;
         private myRep_AllUsersODSDataSetTableAdapters.UserSetTableAdapter userSetTableAdapter2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox phnumberUserBox;
         private System.Windows.Forms.ComboBox jobtitleUserBox;
         private System.Windows.Forms.Label label144;
+        private System.Windows.Forms.Label managerID_newUser;
+        private System.Windows.Forms.Label label149;
+        private System.Windows.Forms.Label label148;
+        private System.Windows.Forms.Label label147;
+        private System.Windows.Forms.Label label146;
+        private System.Windows.Forms.Label label145;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label151;
+        private System.Windows.Forms.Label label150;
+        private System.Windows.Forms.Label usernameNewUser;
+        private System.Windows.Forms.TabPage selectUser_Page;
+        private System.Windows.Forms.DataGridView selectUserDataGridView;
+        private myRep_allUsers_ODSDataSet myRep_allUsers_ODSDataSet;
+        private System.Windows.Forms.BindingSource userSetBindingSource3;
+        private myRep_allUsers_ODSDataSetTableAdapters.UserSetTableAdapter userSetTableAdapter3;
+        private System.Windows.Forms.Label label152;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button editUserButton;
+        private System.Windows.Forms.Button deactivateUserButton;
     }
 }
 
