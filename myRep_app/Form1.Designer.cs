@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle66 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.mainController = new System.Windows.Forms.TabControl();
             this.homePage = new System.Windows.Forms.TabPage();
@@ -176,7 +176,7 @@
             this.hcpPage = new System.Windows.Forms.TabPage();
             this.AffiliationErrorLabel = new System.Windows.Forms.Label();
             this.meetingButton = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.deleteHCPButton = new System.Windows.Forms.Button();
             this.RemoveAssossiationButton = new System.Windows.Forms.Button();
             this.edithcpbutton = new System.Windows.Forms.Button();
             this.NewAssossiationButton = new System.Windows.Forms.Button();
@@ -924,6 +924,7 @@
             this.submit_EnqCenter.TabIndex = 20;
             this.submit_EnqCenter.Text = "ZATWIERDŹ";
             this.submit_EnqCenter.UseVisualStyleBackColor = true;
+            this.submit_EnqCenter.CheckedChanged += new System.EventHandler(this.submit_EnqCenter_CheckedChanged);
             // 
             // exit_enqCenterButton
             // 
@@ -1717,7 +1718,7 @@
             this.EditSampleButton.Name = "EditSampleButton";
             this.EditSampleButton.Size = new System.Drawing.Size(87, 30);
             this.EditSampleButton.TabIndex = 9;
-            this.EditSampleButton.Text = "Edytuj próbki";
+            this.EditSampleButton.Text = "Edytuj próbkę";
             this.EditSampleButton.UseVisualStyleBackColor = true;
             this.EditSampleButton.Click += new System.EventHandler(this.EditSampleButton_Click);
             // 
@@ -1909,6 +1910,7 @@
             // 
             // addNewProductButton
             // 
+            this.addNewProductButton.Enabled = false;
             this.addNewProductButton.Location = new System.Drawing.Point(93, 187);
             this.addNewProductButton.Name = "addNewProductButton";
             this.addNewProductButton.Size = new System.Drawing.Size(75, 23);
@@ -1975,6 +1977,7 @@
             this.productname_newProductBox.Name = "productname_newProductBox";
             this.productname_newProductBox.Size = new System.Drawing.Size(127, 20);
             this.productname_newProductBox.TabIndex = 31;
+            this.productname_newProductBox.TextChanged += new System.EventHandler(this.productname_newProductBox_TextChanged);
             // 
             // label99
             // 
@@ -2267,7 +2270,7 @@
             this.hcpPage.AutoScroll = true;
             this.hcpPage.Controls.Add(this.AffiliationErrorLabel);
             this.hcpPage.Controls.Add(this.meetingButton);
-            this.hcpPage.Controls.Add(this.button4);
+            this.hcpPage.Controls.Add(this.deleteHCPButton);
             this.hcpPage.Controls.Add(this.RemoveAssossiationButton);
             this.hcpPage.Controls.Add(this.edithcpbutton);
             this.hcpPage.Controls.Add(this.NewAssossiationButton);
@@ -2331,14 +2334,15 @@
             this.meetingButton.UseVisualStyleBackColor = true;
             this.meetingButton.Click += new System.EventHandler(this.meetingButton_Click);
             // 
-            // button4
+            // deleteHCPButton
             // 
-            this.button4.Location = new System.Drawing.Point(281, 79);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 62);
-            this.button4.TabIndex = 35;
-            this.button4.Text = "[TODO] DELETE HCP";
-            this.button4.UseVisualStyleBackColor = true;
+            this.deleteHCPButton.Location = new System.Drawing.Point(281, 79);
+            this.deleteHCPButton.Name = "deleteHCPButton";
+            this.deleteHCPButton.Size = new System.Drawing.Size(75, 62);
+            this.deleteHCPButton.TabIndex = 35;
+            this.deleteHCPButton.Text = "USUŃ HCP";
+            this.deleteHCPButton.UseVisualStyleBackColor = true;
+            this.deleteHCPButton.Click += new System.EventHandler(this.deleteHCPButton_Click);
             // 
             // RemoveAssossiationButton
             // 
@@ -2641,39 +2645,39 @@
             this.hcpDataGridView.AllowUserToDeleteRows = false;
             this.hcpDataGridView.AutoGenerateColumns = false;
             this.hcpDataGridView.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.hcpDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle61.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle61.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle61.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle61.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle61.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle61.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle61.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.hcpDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle61;
             this.hcpDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.hcpDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.hcpIDDataGridViewTextBoxColumn,
             this.firstNameDataGridViewTextBoxColumn,
             this.lastNameDataGridViewTextBoxColumn});
             this.hcpDataGridView.DataSource = this.hCPSetBindingSource;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.hcpDataGridView.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle62.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle62.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle62.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle62.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle62.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle62.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle62.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.hcpDataGridView.DefaultCellStyle = dataGridViewCellStyle62;
             this.hcpDataGridView.Location = new System.Drawing.Point(3, 3);
             this.hcpDataGridView.Name = "hcpDataGridView";
             this.hcpDataGridView.ReadOnly = true;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.hcpDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle63.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle63.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle63.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle63.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle63.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle63.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle63.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.hcpDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle63;
             this.hcpDataGridView.RowHeadersVisible = false;
             this.hcpDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.hcpDataGridView.Size = new System.Drawing.Size(253, 378);
@@ -3060,6 +3064,7 @@
             this.hcoDataGridView.AllowUserToAddRows = false;
             this.hcoDataGridView.AllowUserToDeleteRows = false;
             this.hcoDataGridView.AllowUserToResizeRows = false;
+            this.hcoDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.hcoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.hcoDataGridView.Location = new System.Drawing.Point(6, 6);
             this.hcoDataGridView.Name = "hcoDataGridView";
@@ -3152,14 +3157,14 @@
             this.addressDataGridView.AllowUserToResizeRows = false;
             this.addressDataGridView.AutoGenerateColumns = false;
             this.addressDataGridView.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.addressDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle64.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle64.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle64.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle64.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle64.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle64.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle64.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.addressDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle64;
             this.addressDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.addressDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.addressIDDataGridViewTextBoxColumn1,
@@ -3169,25 +3174,25 @@
             this.countryDataGridViewTextBoxColumn,
             this.zipCodeDataGridViewTextBoxColumn});
             this.addressDataGridView.DataSource = this.addressSetBindingSource;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.addressDataGridView.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle65.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle65.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle65.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle65.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle65.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle65.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle65.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.addressDataGridView.DefaultCellStyle = dataGridViewCellStyle65;
             this.addressDataGridView.Location = new System.Drawing.Point(3, 3);
             this.addressDataGridView.Name = "addressDataGridView";
             this.addressDataGridView.ReadOnly = true;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.addressDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle66.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle66.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle66.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle66.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle66.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle66.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle66.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.addressDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle66;
             this.addressDataGridView.RowHeadersVisible = false;
             this.addressDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.addressDataGridView.Size = new System.Drawing.Size(406, 372);
@@ -3442,7 +3447,7 @@
             this.myMeetingsGridView.Size = new System.Drawing.Size(519, 156);
             this.myMeetingsGridView.TabIndex = 0;
             this.myMeetingsGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.myMeetingsGridView_CellClick);
-            this.myMeetingsGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.myMeetingsGridView_DataBindingComplete);
+            this.myMeetingsGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.usersDataGridView_DataBindingComplete);
             // 
             // new_Meeting_Page
             // 
@@ -4079,6 +4084,7 @@
             this.selectedAddressLabel.Name = "selectedAddressLabel";
             this.selectedAddressLabel.Size = new System.Drawing.Size(0, 13);
             this.selectedAddressLabel.TabIndex = 28;
+            this.selectedAddressLabel.Visible = false;
             this.selectedAddressLabel.TextChanged += new System.EventHandler(this.selectedAddressLabel_TextChanged);
             // 
             // selectAddressButton
@@ -4446,8 +4452,10 @@
             this.SelectedHCO_AddressIDLabel.AutoSize = true;
             this.SelectedHCO_AddressIDLabel.Location = new System.Drawing.Point(463, 223);
             this.SelectedHCO_AddressIDLabel.Name = "SelectedHCO_AddressIDLabel";
-            this.SelectedHCO_AddressIDLabel.Size = new System.Drawing.Size(0, 13);
+            this.SelectedHCO_AddressIDLabel.Size = new System.Drawing.Size(13, 13);
             this.SelectedHCO_AddressIDLabel.TabIndex = 21;
+            this.SelectedHCO_AddressIDLabel.Text = "0";
+            this.SelectedHCO_AddressIDLabel.Visible = false;
             this.SelectedHCO_AddressIDLabel.TextChanged += new System.EventHandler(this.SelectedHCO_AddressIDLabel_TextChanged);
             // 
             // CreateHCOButton
@@ -5507,8 +5515,11 @@
             this.AddressID_editHCOBox.AutoSize = true;
             this.AddressID_editHCOBox.Location = new System.Drawing.Point(453, 223);
             this.AddressID_editHCOBox.Name = "AddressID_editHCOBox";
-            this.AddressID_editHCOBox.Size = new System.Drawing.Size(0, 13);
+            this.AddressID_editHCOBox.Size = new System.Drawing.Size(13, 13);
             this.AddressID_editHCOBox.TabIndex = 54;
+            this.AddressID_editHCOBox.Text = "0";
+            this.AddressID_editHCOBox.Visible = false;
+            this.AddressID_editHCOBox.TextChanged += new System.EventHandler(this.AddressID_editHCOBox_TextChanged);
             // 
             // edit_OK_HCOButton
             // 
@@ -5596,6 +5607,7 @@
             this.hconame_editHCO.Name = "hconame_editHCO";
             this.hconame_editHCO.Size = new System.Drawing.Size(145, 20);
             this.hconame_editHCO.TabIndex = 46;
+            this.hconame_editHCO.TextChanged += new System.EventHandler(this.hconame_editHCO_TextChanged);
             // 
             // label84
             // 
@@ -6983,7 +6995,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button RemoveAssossiationButton;
         private System.Windows.Forms.Button meetingButton;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button deleteHCPButton;
         private System.Windows.Forms.Button editHCObutton;
         private System.Windows.Forms.TabPage edit_HCO_Page;
         private System.Windows.Forms.MaskedTextBox tel_editHCOBox;

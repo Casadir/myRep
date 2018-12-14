@@ -214,6 +214,7 @@ namespace myRep_app
             mySamplesButton.Enabled = false; mySamplesButton.Visible = false;
             myEnquiriesButton.Enabled = false; myEnquiriesButton.Visible = false;
             SampleOrdersHomeButton.Enabled = false; SampleOrdersHomeButton.Visible = false;
+            EnquiriesCenter.Enabled = false; EnquiriesCenter.Visible = false;
             MessageBox.Show("DO ZOBACZENIA!");
         }
 
@@ -341,12 +342,11 @@ namespace myRep_app
                 {
                     //Wybranie HCOID do powiązania
                     int hcoid = Convert.ToInt32(command2.ExecuteScalar());
-                    MessageBox.Show("HCOID " + Convert.ToString(hcoid));
+                    MessageBox.Show("Znaleziono powiązanie z HCO! Powiązano z HCO ID: " + Convert.ToString(hcoid));
                     //Wybranie HCPID do powiązania
                     commandText = "SELECT max(hcpID) from HCPSet";
                     SqlCommand command3 = new SqlCommand(commandText, conn);
                     int latesthcpid = Convert.ToInt32(command3.ExecuteScalar());
-                    MessageBox.Show("HCPID " + Convert.ToString(latesthcpid));
                     commandText = "INSERT INTO HCOHCP VALUES (@hcoID, @hcpID)";
                     SqlCommand command4 = new SqlCommand(commandText, conn);
                     command4.Parameters.AddWithValue("@hcoID", hcoid);
@@ -421,6 +421,7 @@ namespace myRep_app
 
                 mainController.SelectedTab = myAccountsPage;
                 myAccounts_Controller.SelectedTab = hcoPage;
+                HOMEButton.Visible = true;
             }
             catch (SqlException er)
             {
@@ -512,6 +513,8 @@ namespace myRep_app
                     MessageBox.Show("WYGENEROWANO NAZWĘ UŻYTKOWNIKA: " + newUsername);
                     usernameNewUser.Text = newUsername;
                     command.ExecuteNonQuery();
+                    newpwdBox.Text = "";
+                    newpwdBox_confirm.Text = "";
                     mainController.SelectedTab = setPasswordPage;
                     conn.Close();
                 }
@@ -620,6 +623,8 @@ namespace myRep_app
         private void createnewhcoButton_Click(object sender, EventArgs e)
         {
             mainController.SelectedTab = newHCOPage;
+            SelectedHCO_AddressIDLabel.Text = "0";
+            HOMEButton.Visible = false;
         }
 
         private void hcpDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -848,7 +853,6 @@ namespace myRep_app
                 HCPinHCOGridView.DataSource = dt;
                 HCPinHCOGridView.Columns[0].Visible = false;
                 HCPinHCOGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                HCPinHCOGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             }
             catch (SqlException er)
             {
@@ -1542,6 +1546,9 @@ namespace myRep_app
                 samplelistGridView.DataSource = dt;
                 samplelistGridView.Columns[0].Visible = false;
                 samplelistGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
+
+                DisbursedSamplesGridView.Rows.Clear();
                 conn.Close();
             }
             catch (SqlException er)
@@ -1932,7 +1939,7 @@ namespace myRep_app
                     command3.CommandText = "SELECT Answer FROM MedicalEnquirySet WHERE meID = @mid";
                     statusQ_hcpMeetings.Visible = true;
                     if (!String.IsNullOrEmpty(Convert.ToString(command3.ExecuteScalar()))) label116.Text = Convert.ToString(command3.ExecuteScalar());
-                    else label116.Text = "CZEKAJ NA ODPOWIEDŹ OD KONSULTANTA";
+                    else label116.Text = "";
 
                     command3.CommandText = "SELECT ExpectedAnswerDate FROM MedicalEnquirySet WHERE meID = @mid";
                     label122.Visible = true;
@@ -2940,6 +2947,10 @@ namespace myRep_app
                     dataAdapter9.Fill(dt9);
                     AllSampleOrdersGridView.DataSource = dt9;
                     AllSampleOrdersGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
+                    //UPDATE PRZYCISKU NA HOME PAGE
+                    SqlCommand command5 = new SqlCommand("SELECT count(soID) FROM SampleOrderSet WHERE Status = 'New'", conn);
+                    SampleOrdersHomeButton.Text = "Zamówienia\n" + Convert.ToString(command5.ExecuteScalar());
                 }
                 else
                 {
@@ -3070,7 +3081,11 @@ namespace myRep_app
             {
                 editUserButton.Enabled = true;
                 deactivateUserButton.Enabled = true;
-
+            }
+            else
+            {
+                editUserButton.Enabled = false;
+                deactivateUserButton.Enabled = false;
             }
         }
 
@@ -3191,6 +3206,60 @@ namespace myRep_app
         {
             CLOSEbutton.Image = myRep_app.Properties.Resources.close;
             HOMEButton.Refresh();
+        }
+
+        private void submit_EnqCenter_CheckedChanged(object sender, EventArgs e)
+        {
+            saveEnq_enqCenterButton.Enabled = (save_EnqCenter.Checked == true || submit_EnqCenter.Checked == true);
+        }
+
+        private void productname_newProductBox_TextChanged(object sender, EventArgs e)
+        {
+            addNewProductButton.Enabled = productname_newProductBox.Text != "";
+        }
+
+        private void deleteHCPButton_Click(object sender, EventArgs e)
+        {
+            string sConnection = Properties.Settings.Default.myRep_ODSConnectionString;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = sConnection;
+            conn.Open();
+            try
+            {
+                SqlCommand command = new SqlCommand("DELETE FROM MeetingSet WHERE HCPID = @hcpID ", conn);
+                command.Parameters.AddWithValue("@hcpID", Convert.ToInt32(hcpDataGridView.CurrentRow.Cells[0].Value));
+                command.ExecuteNonQuery();
+
+                SqlCommand command2 = new SqlCommand("DELETE FROM HCOHCP WHERE HCP_hcpID = @hcpID ", conn);
+                command2.Parameters.AddWithValue("@hcpID", Convert.ToInt32(hcpDataGridView.CurrentRow.Cells[0].Value));
+                command2.ExecuteNonQuery();
+
+                SqlCommand command3 = new SqlCommand("DELETE FROM HCPSet WHERE hcpID = @hcpID ", conn);
+                command3.Parameters.AddWithValue("@hcpID", Convert.ToInt32(hcpDataGridView.CurrentRow.Cells[0].Value));
+                command3.ExecuteNonQuery();
+
+                this.myRep_ODS_HCP_DataSet.Reset();
+                this.hCPSetTableAdapter.Fill(this.myRep_ODS_HCP_DataSet.HCPSet);
+
+                conn.Close();
+            }
+            catch (SqlException er)
+            {
+                String text = "There was an error reported by SQL Server, " + er.Message;
+                MessageBox.Show(text, "ERROR");
+            }
+        }
+
+        private void hconame_editHCO_TextChanged(object sender, EventArgs e)
+        {
+            CreateHCOButton.Enabled = (hconame_editHCO.Text != "") && (Convert.ToInt32(AddressID_editHCOBox.Text) > 0);
+
+        }
+
+        private void AddressID_editHCOBox_TextChanged(object sender, EventArgs e)
+        {
+            CreateHCOButton.Enabled = (hconame_editHCO.Text != "") && (Convert.ToInt32(AddressID_editHCOBox.Text) > 0);
+
         }
     }
 }
